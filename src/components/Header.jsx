@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import NeiPrimaryLogo from '../assets/images/neia-primary-logo.svg';
+import NeiSecondaryLogo from '../assets/images/neia-secondary-logo.svg';
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Mobile navigation state management
+  const [mobileNavState, setMobileNavState] = useState({
+    about: false,
+    ourWork: false,
+    courses: false,
+    partners: false,
+    donation: false,
+    neiUsa: false,
+    workingModel: false,
+    blendedLearning: false,
+    mediaEvents: false,
+    education: false
+  });
 
   const handleSearchToggle = () => {
     setShowSearch(!showSearch);
@@ -17,93 +34,678 @@ const Header = () => {
     setShowSearch(false);
   };
 
+  // Mobile navigation toggle handler
+  const toggleMobileNav = (section) => {
+    setMobileNavState(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
   return (
     <>
+      <style>
+        {`
+          /* Ensure submenus have the same background as main dropdowns */
+          .dropdown-menu {
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+            padding: 0.5rem 0;
+            min-width: 200px;
+          }
+
+          /* Style for submenu items */
+          .dropdown-submenu .dropdown-menu {
+            background-color: white;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            margin-left: 100%;
+            top: 0;
+            position: absolute;
+            left: 0;
+          }
+
+          /* Hover effect for submenu items */
+          .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+          }
+
+          /* Ensure submenu items are visible on hover */
+          .dropdown-submenu > .dropdown-item {
+            position: relative;
+            padding-right: 2.5rem;
+          }
+
+          /* Arrow indicator for submenu items */
+          .dropdown-submenu > .dropdown-item::after {
+            content: "›";
+            position: absolute;
+            right: 1rem;
+            font-size: 0.8rem;
+          }
+
+          /* Mobile Navigation Styles */
+          .mobile-nav-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+          }
+
+          .mobile-nav-arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            color: #06038F;
+          }
+
+          .mobile-nav-arrow.rotated {
+            transform: rotate(180deg);
+          }
+
+          .mobile-nav-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 1rem;
+          }
+
+          .mobile-nav-submenu.show {
+            max-height: 1000px;
+          }
+
+          .mobile-nav-submenu-level2,
+          .mobile-nav-submenu-level3 {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 1rem;
+          }
+
+          .mobile-nav-submenu-level2.show,
+          .mobile-nav-submenu-level3.show {
+            max-height: 1000px;
+          }
+
+          .mobile-nav-submenu-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+          }
+
+          .mobile-nav-submenu-arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.7rem;
+            color: #06038F;
+          }
+
+          .mobile-nav-submenu-arrow.rotated {
+            transform: rotate(180deg);
+          }
+
+          .mobile-nav-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+          }
+
+          .mobile-nav-link:hover {
+            color: #06038F;
+            background-color: #f8f9fa;
+          }
+        `}
+      </style>
+
       <header className="primary-header">
         <nav className="navbar navbar-expand-lg">
           <div className="container">
             {/* Brand/Logo Section */}
             <div className="navbar-brand-wrapper d-flex align-items-center">
-              <a className="navbar-brand primary-logo" href="#">
-                <img src="/assets/images/primary-logo.svg" alt="Indiaspora Logo" />
-              </a>
-              <a className="navbar-brand" href="#">
-                <img src="/assets/images/secondary-logo.svg" alt="Indiaspora Secondary Logo" />
-              </a>
+              <Link className="navbar-brand primary-logo" to="/">
+                <img src={NeiPrimaryLogo} alt="Indiaspora Logo" height={"60px"} />
+              </Link>
+              <Link className="navbar-brand" to="/">
+                <img src={NeiSecondaryLogo} height={"60px"} alt="Indiaspora Secondary Logo" />
+              </Link>
             </div>
 
             {/* Desktop Navigation Menu */}
             <div className="navbar-collapse d-none d-lg-flex">
               <ul className="navbar-nav me-auto">
+                {/* About Dropdown */}
                 <li className="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#" className="dropdown-item">Mission</a></li>
-                    <li><a href="#" className="dropdown-item">Board of Directors</a></li>
-                    <li><a href="#" className="dropdown-item">Members</a></li>
-                    <li><a href="#" className="dropdown-item">Ambassadors</a></li>
-                    <li><a href="#" className="dropdown-item">Team</a></li>
-                    <li><a href="#" className="dropdown-item">Careers</a></li>
-                    <li><a href="#" className="dropdown-item">Donate</a></li>
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="About"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    About
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li>
+                      <Link to="/about-us/introduction" className="dropdown-item" title="Introduction">
+                        Introduction
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us/leadership" className="dropdown-item" title="Leadership">
+                        Leadership
+                      </Link>
+                    </li>
+                    <li className="dropdown-submenu">
+                      <Link
+                        to="#"
+                        className="dropdown-item dropdown-toggle"
+                        title="Our Working Model"
+                        onMouseOver={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = '';
+                        }}
+                      >
+                        Our Working Model
+                      </Link>
+                      <ul
+                        className="dropdown-menu"
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.display = '';
+                        }}
+                      >
+                        <li className="dropdown-submenu">
+                          <Link
+                            to="#"
+                            className="dropdown-item dropdown-toggle"
+                            title="Blended Learning Model"
+                            onMouseOver={(e) => {
+                              const submenu = e.currentTarget.nextElementSibling;
+                              if (submenu) submenu.style.display = 'block';
+                            }}
+                            onMouseOut={(e) => {
+                              const submenu = e.currentTarget.nextElementSibling;
+                              if (submenu) submenu.style.display = '';
+                            }}
+                          >
+                            Blended Learning Model
+                          </Link>
+                          <ul
+                            className="dropdown-menu"
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.display = 'block';
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.display = '';
+                            }}
+                          >
+                            <li>
+                              <Link
+                                to="/about-us/working-model/blended-learning/discourse-oriented-pedagogy"
+                                className="dropdown-item"
+                                title="Discourse Oriented Pedagogy"
+                              >
+                                Discourse Oriented Pedagogy
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                to="/about-us/working-model/blended-learning/application-of-technology"
+                                className="dropdown-item"
+                                title="Application Of Technology"
+                              >
+                                Application Of Technology
+                              </Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <Link
+                            to="/about-us/working-model/partnering-institutions"
+                            className="dropdown-item"
+                            title="Partnering with Educational Institutions"
+                          >
+                            Partnering with Educational Institutions
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/about-us/working-model/remote-learning"
+                            className="dropdown-item"
+                            title="Remote Individual Learning"
+                          >
+                            Remote Individual Learning
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/about-us/testimonials" className="dropdown-item" title="Testimonials & Featured stories">
+                        Testimonials & Featured stories
+                      </Link>
+                    </li>
+                    <li className="dropdown-submenu">
+                      <Link
+                        to="#"
+                        className="dropdown-item dropdown-toggle"
+                        title="Media and Events"
+                        onMouseOver={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = '';
+                        }}
+                      >
+                        Media and Events
+                      </Link>
+                      <ul
+                        className="dropdown-menu"
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.display = '';
+                        }}
+                      >
+                        <li>
+                          <Link to="/about-us/media-events/gallery" className="dropdown-item" title="Gallery">
+                            Gallery
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/about-us/reports-financials" className="dropdown-item" title="Reports and Financials">
+                        Reports and Financials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us/contact" className="dropdown-item" title="Contact us">
+                        Contact us
+                      </Link>
+                    </li>
                   </ul>
                 </li>
+
+                {/* Our Work Dropdown */}
                 <li className="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Impact</a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#" className="dropdown-item">US Impact Report</a></li>
-                    <li><a href="#" className="dropdown-item">UAE Impact Report</a></li>
-                    <li><a href="#" className="dropdown-item">Civic Engagement & Social Impact</a></li>
-                    <li><a href="#" className="dropdown-item">Entrepreneurship & Innovation</a></li>
-                    <li><a href="#" className="dropdown-item">Global Programs</a></li>
-                    <li><a href="#" className="dropdown-item">Philanthropy</a></li>
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Our Work"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    Our Work
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li className="dropdown-submenu">
+                      <Link
+                        to="#"
+                        className="dropdown-item dropdown-toggle"
+                        title="Education"
+                        onMouseOver={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          const submenu = e.currentTarget.nextElementSibling;
+                          if (submenu) submenu.style.display = '';
+                        }}
+                      >
+                        Education
+                      </Link>
+                      <ul
+                        className="dropdown-menu"
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.display = 'block';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.display = '';
+                        }}
+                      >
+                        <li>
+                          <Link
+                            to="/our-works/education/elementary-middle-school"
+                            className="dropdown-item"
+                            title="Elementary & Middle School"
+                          >
+                            Elementary & Middle School
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/our-works/education/slum-children"
+                            className="dropdown-item"
+                            title="Slum children"
+                          >
+                            Slum children
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/our-works/education/public-government-school"
+                            className="dropdown-item"
+                            title="Public (Government) School"
+                          >
+                            Public (Government) School
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/our-works/education/girls-education"
+                            className="dropdown-item"
+                            title="Girl's Education"
+                          >
+                            Girl's Education
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/our-works/education/out-of-school-dropout"
+                            className="dropdown-item"
+                            title="Out of school / School Dropout"
+                          >
+                            Out of school / School Dropout
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/madrasa" className="dropdown-item" title="Madrasa">
+                            Madrasa
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/our-works/teachers-training" className="dropdown-item" title="Teachers Training">
+                        Teachers Training
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/skills-training" className="dropdown-item" title="Skills Training">
+                        Skills Training
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/adult-education" className="dropdown-item" title="Adult Education">
+                        Adult Education
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/global-education" className="dropdown-item" title="Global Education">
+                        Global Education
+                      </Link>
+                    </li>
                   </ul>
                 </li>
+
+                {/* Courses Dropdown */}
                 <li className="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Icons</a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#" className="dropdown-item">Indiaspora Lists</a></li>
-                    <li><a href="#" className="dropdown-item">Inspiring Icons</a></li>
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Courses"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    Courses
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li>
+                      <Link to="/courses/english" className="dropdown-item" title="English Courses">
+                        English Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/math" className="dropdown-item" title="Math Courses">
+                        Math Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/science" className="dropdown-item" title="Science Courses">
+                        Science Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/social-science" className="dropdown-item" title="Social Science Courses">
+                        Social Science Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/technical" className="dropdown-item" title="Technical Courses">
+                        Technical Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/financial-literacy" className="dropdown-item" title="Financial & Literacy Courses">
+                        Financial & Literacy Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/nios" className="dropdown-item" title="NIOS Courses">
+                        NIOS Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/cbse" className="dropdown-item" title="CBSE Courses">
+                        CBSE Courses
+                      </Link>
+                    </li>
                   </ul>
                 </li>
+
+                {/* Partners Dropdown */}
                 <li className="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Events</a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#" className="dropdown-item">Flagship Events</a></li>
-                    <li><a href="#" className="dropdown-item">More Events</a></li>
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Partners"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    Partners
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li>
+                      <Link to="/partners/join" className="dropdown-item" title="Join NEIEA as a Partner">
+                        Join NEIEA as a Partner
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/partners/institutions" className="dropdown-item" title="Partnering Institutions">
+                        Partnering Institutions
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/partners/global" className="dropdown-item" title="Global Partners">
+                        Global Partners
+                      </Link>
+                    </li>
                   </ul>
                 </li>
+
+                {/* Donation Dropdown */}
                 <li className="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Media</a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#" className="dropdown-item">Blogs</a></li>
-                    <li><a href="#" className="dropdown-item">Feature Stories</a></li>
-                    <li><a href="#" className="dropdown-item">Press Releases</a></li>
-                    <li><a href="#" className="dropdown-item">Thought Leadership</a></li>
-                    <li><a href="#" className="dropdown-item">Newsletters</a></li>
-                    <li><a href="#" className="dropdown-item">YouTube Channel</a></li>
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Donation"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    Donation
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li>
+                      <Link to="/donation/be-partner" className="dropdown-item" title="Be a Partner">
+                        Be a Partner
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/donation/volunteer" className="dropdown-item" title="Volunteer">
+                        Volunteer
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/donate" className="dropdown-item" title="Donate">
+                        Donate
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+
+                {/* NEI USA Dropdown */}
+                <li className="nav-item dropdown">
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="NEI USA"
+                    onMouseOver={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.currentTarget.nextElementSibling;
+                      if (dropdown) dropdown.style.display = '';
+                    }}
+                  >
+                    NEI USA
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.display = 'block';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.display = '';
+                    }}
+                  >
+                    <li>
+                      <Link to="/nei-usa/introduction" className="dropdown-item" title="Introduction">
+                        Introduction
+                      </Link>
+                    </li>
                   </ul>
                 </li>
               </ul>
-              
-              {/* Desktop Search Button */}
-              <div className="d-none d-lg-block">
-                <button title="search" type="button" className="btn header-search-toggle desk-search-btn" onClick={handleSearchToggle}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#54565B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                    <path d="M21.0004 21.0004L16.6504 16.6504" stroke="#54565B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </button>
+
+              {/* Donation Button (Desktop) */}
+              <div className=" d-none d-lg-block">
+                <Link to="/donate" className="btn main-btn btn-yellow donate-button">
+                  DONATE
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+                </Link>
               </div>
             </div>
 
             {/* Mobile Controls */}
             <div className="d-flex align-items-center d-lg-none">
-              <button title="search" type="button" className="btn header-search-toggle mob-search-btn me-2" onClick={handleSearchToggle}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#54565B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                  <path d="M21.0004 21.0004L16.6504 16.6504" stroke="#54565B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+              <Link to="/donate" className="btn main-btn btn-yellow donate-button me-2">
+                DONATE
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                 </svg>
-              </button>
+              </Link>
               <button className="navbar-toggler mob-nav-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -112,60 +714,156 @@ const Header = () => {
         </nav>
 
         {/* Mobile Offcanvas Navigation */}
-        <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <div className="navbar-brand-wrapper d-flex align-items-center">
+              <Link className="navbar-brand primary-logo" to="/">
+                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height={"50px"} />
+              </Link>
+              <Link className="navbar-brand" to="/">
+                <img src={NeiSecondaryLogo} height={"50px"} alt="NEIEA Secondary Logo" />
+              </Link>
+            </div>
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div className="offcanvas-body">
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="dropdown-item">Mission</a></li>
-                  <li><a href="#" className="dropdown-item">Board of Directors</a></li>
-                  <li><a href="#" className="dropdown-item">Members</a></li>
-                  <li><a href="#" className="dropdown-item">Ambassadors</a></li>
-                  <li><a href="#" className="dropdown-item">Team</a></li>
-                  <li><a href="#" className="dropdown-item">Careers</a></li>
-                  <li><a href="#" className="dropdown-item">Donate</a></li>
+            <ul className="navbar-nav mobile-nav-list">
+              {/* About Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('about')}>
+                    <span className="mobile-nav-title">About</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.about ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.about ? 'show' : ''}`}>
+                    <li><Link to="/about-us/introduction" className="mobile-nav-link">Introduction</Link></li>
+                    <li><Link to="/about-us/leadership" className="mobile-nav-link">Leadership</Link></li>
+                    <li className="mobile-nav-submenu-item">
+                      <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('workingModel')}>
+                        <span className="mobile-nav-submenu-title">Our Working Model</span>
+                        <span className={`mobile-nav-submenu-arrow ${mobileNavState.workingModel ? 'rotated' : ''}`}>▼</span>
+                      </div>
+                      <ul className={`mobile-nav-submenu-level2 ${mobileNavState.workingModel ? 'show' : ''}`}>
+                        <li className="mobile-nav-submenu-item">
+                          <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('blendedLearning')}>
+                            <span className="mobile-nav-submenu-title">Blended Learning Model</span>
+                            <span className={`mobile-nav-submenu-arrow ${mobileNavState.blendedLearning ? 'rotated' : ''}`}>▼</span>
+                          </div>
+                          <ul className={`mobile-nav-submenu-level3 ${mobileNavState.blendedLearning ? 'show' : ''}`}>
+                            <li><Link to="/about-us/working-model/blended-learning/discourse-oriented-pedagogy" className="mobile-nav-link">Discourse Oriented Pedagogy</Link></li>
+                            <li><Link to="/about-us/working-model/blended-learning/application-of-technology" className="mobile-nav-link">Application Of Technology</Link></li>
+                        </ul>
+                      </li>
+                        <li><Link to="/about-us/working-model/partnering-institutions" className="mobile-nav-link">Partnering with Educational Institutions</Link></li>
+                        <li><Link to="/about-us/working-model/remote-learning" className="mobile-nav-link">Remote Individual Learning</Link></li>
+                    </ul>
+                  </li>
+                    <li><Link to="/about-us/testimonials" className="mobile-nav-link">Testimonials & Featured stories</Link></li>
+                    <li className="mobile-nav-submenu-item">
+                      <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('mediaEvents')}>
+                        <span className="mobile-nav-submenu-title">Media and Events</span>
+                        <span className={`mobile-nav-submenu-arrow ${mobileNavState.mediaEvents ? 'rotated' : ''}`}>▼</span>
+                      </div>
+                      <ul className={`mobile-nav-submenu-level2 ${mobileNavState.mediaEvents ? 'show' : ''}`}>
+                        <li><Link to="/about-us/media-events/gallery" className="mobile-nav-link">Gallery</Link></li>
+                    </ul>
+                  </li>
+                    <li><Link to="/about-us/reports-financials" className="mobile-nav-link">Reports and Financials</Link></li>
+                    <li><Link to="/about-us/contact" className="mobile-nav-link">Contact us</Link></li>
                 </ul>
+                </div>
               </li>
-              <li className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Impact</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="dropdown-item">US Impact Report</a></li>
-                  <li><a href="#" className="dropdown-item">UAE Impact Report</a></li>
-                  <li><a href="#" className="dropdown-item">Civic Engagement & Social Impact</a></li>
-                  <li><a href="#" className="dropdown-item">Entrepreneurship & Innovation</a></li>
-                  <li><a href="#" className="dropdown-item">Global Programs</a></li>
-                  <li><a href="#" className="dropdown-item">Philanthropy</a></li>
+              {/* Our Work Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('ourWork')}>
+                    <span className="mobile-nav-title">Our Work</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.ourWork ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.ourWork ? 'show' : ''}`}>
+                    <li className="mobile-nav-submenu-item">
+                      <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('education')}>
+                        <span className="mobile-nav-submenu-title">Education</span>
+                        <span className={`mobile-nav-submenu-arrow ${mobileNavState.education ? 'rotated' : ''}`}>▼</span>
+                      </div>
+                      <ul className={`mobile-nav-submenu-level2 ${mobileNavState.education ? 'show' : ''}`}>
+                        <li><Link to="/our-works/education/elementary-middle-school" className="mobile-nav-link">Elementary & Middle School</Link></li>
+                        <li><Link to="/our-works/education/slum-children" className="mobile-nav-link">Slum children</Link></li>
+                        <li><Link to="/our-works/education/public-government-school" className="mobile-nav-link">Public (Government) School</Link></li>
+                        <li><Link to="/our-works/education/girls-education" className="mobile-nav-link">Girl's Education</Link></li>
+                        <li><Link to="/our-works/education/out-of-school-dropout" className="mobile-nav-link">Out of school / School Dropout</Link></li>
+                        <li><Link to="/our-works/education/madrasa" className="mobile-nav-link">Madrasa</Link></li>
+                    </ul>
+                  </li>
+                    <li><Link to="/our-works/teachers-training" className="mobile-nav-link">Teachers Training</Link></li>
+                    <li><Link to="/our-works/skills-training" className="mobile-nav-link">Skills Training</Link></li>
+                    <li><Link to="/our-works/adult-education" className="mobile-nav-link">Adult Education</Link></li>
+                    <li><Link to="/our-works/global-education" className="mobile-nav-link">Global Education</Link></li>
                 </ul>
+                </div>
               </li>
-              <li className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Icons</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="dropdown-item">Indiaspora Lists</a></li>
-                  <li><a href="#" className="dropdown-item">Inspiring Icons</a></li>
+
+              {/* Courses Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('courses')}>
+                    <span className="mobile-nav-title">Courses</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.courses ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.courses ? 'show' : ''}`}>
+                    <li><Link to="/courses/english" className="mobile-nav-link">English Courses</Link></li>
+                    <li><Link to="/courses/math" className="mobile-nav-link">Math Courses</Link></li>
+                    <li><Link to="/courses/science" className="mobile-nav-link">Science Courses</Link></li>
+                    <li><Link to="/courses/social-science" className="mobile-nav-link">Social Science Courses</Link></li>
+                    <li><Link to="/courses/technical" className="mobile-nav-link">Technical Courses</Link></li>
+                    <li><Link to="/courses/financial-literacy" className="mobile-nav-link">Financial & Literacy Courses</Link></li>
+                    <li><Link to="/courses/nios" className="mobile-nav-link">NIOS Courses</Link></li>
+                    <li><Link to="/courses/cbse" className="mobile-nav-link">CBSE Courses</Link></li>
                 </ul>
+                </div>
               </li>
-              <li className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Events</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="dropdown-item">Flagship Events</a></li>
-                  <li><a href="#" className="dropdown-item">More Events</a></li>
+
+              {/* Partners Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('partners')}>
+                    <span className="mobile-nav-title">Partners</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.partners ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.partners ? 'show' : ''}`}>
+                    <li><Link to="/partners/join" className="mobile-nav-link">Join NEIEA as a Partner</Link></li>
+                    <li><Link to="/partners/institutions" className="mobile-nav-link">Partnering Institutions</Link></li>
+                    <li><Link to="/partners/global" className="mobile-nav-link">Global Partners</Link></li>
                 </ul>
+                </div>
               </li>
-              <li className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Media</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="dropdown-item">Blogs</a></li>
-                  <li><a href="#" className="dropdown-item">Feature Stories</a></li>
-                  <li><a href="#" className="dropdown-item">Press Releases</a></li>
-                  <li><a href="#" className="dropdown-item">Thought Leadership</a></li>
-                  <li><a href="#" className="dropdown-item">Newsletters</a></li>
-                  <li><a href="#" className="dropdown-item">YouTube Channel</a></li>
+
+              {/* Donation Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('donation')}>
+                    <span className="mobile-nav-title">Donation</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.donation ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.donation ? 'show' : ''}`}>
+                    <li><Link to="/donation/be-partner" className="mobile-nav-link">Be a Partner</Link></li>
+                    <li><Link to="/donation/volunteer" className="mobile-nav-link">Volunteer</Link></li>
+                    <li><Link to="/donate" className="mobile-nav-link">Donate</Link></li>
                 </ul>
+                </div>
+              </li>
+
+              {/* NEI USA Section */}
+              <li className="nav-item">
+                <div className="mobile-nav-section">
+                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('neiUsa')}>
+                    <span className="mobile-nav-title">NEI USA</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.neiUsa ? 'rotated' : ''}`}>▼</span>
+                  </div>
+                  <ul className={`mobile-nav-submenu ${mobileNavState.neiUsa ? 'show' : ''}`}>
+                    <li><Link to="/nei-usa/introduction" className="mobile-nav-link">Introduction</Link></li>
+                </ul>
+                </div>
               </li>
             </ul>
           </div>
@@ -175,18 +873,18 @@ const Header = () => {
         <div className={`header-search-wrp ${showSearch ? 'show' : ''}`}>
           <form action="#" className="header-search" role="search" onSubmit={handleSearchSubmit}>
             <div className="container">
-              <button type="button" id="close-search" onClick={closeSearch}>Close 
+              <button type="button" id="close-search" onClick={closeSearch}>Close
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.53384 24.4107L7.58984 23.4667L15.0565 16L7.58984 8.53336L8.53384 7.58936L16.0005 15.056L23.4672 7.58936L24.4112 8.53336L16.9445 16L24.4112 23.4667L23.4672 24.4107L16.0005 16.944L8.53384 24.4107Z" fill="#464646"></path>
                 </svg>
               </button>
               <div className="form">
                 <p>Search</p>
-                <input 
-                  className="form-control" 
-                  name="s" 
-                  type="search" 
-                  placeholder="Type a keyword" 
+                <input
+                  className="form-control"
+                  name="s"
+                  type="search"
+                  placeholder="Type a keyword"
                   aria-label="Search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -207,4 +905,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header;  
