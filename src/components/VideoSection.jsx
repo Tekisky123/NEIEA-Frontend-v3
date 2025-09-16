@@ -1,85 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const VideoSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const playerRef = useRef(null);
-  const [player, setPlayer] = useState(null);
-
-  useEffect(() => {
-    // Load YouTube API
-    const loadYouTubeAPI = () => {
-      if (window.YT && window.YT.Player) {
-        initializePlayer();
-      } else {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        
-        window.onYouTubeIframeAPIReady = initializePlayer;
-      }
-    };
-
-    const initializePlayer = () => {
-      if (playerRef.current && window.YT) {
-        const newPlayer = new window.YT.Player(playerRef.current, {
-          height: '315',
-          width: '560',
-          videoId: 'sRWj0hlVd7w',
-          playerVars: {
-            autoplay: 0,
-            controls: 1,
-            modestbranding: 1,
-            rel: 0,
-            showinfo: 0
-          },
-          events: {
-            onReady: (event) => {
-              setPlayer(event.target);
-            },
-            onStateChange: (event) => {
-              setIsPlaying(event.data === window.YT.PlayerState.PLAYING);
-            }
-          }
-        });
-      }
-    };
-
-    loadYouTubeAPI();
-
-    return () => {
-      if (player) {
-        player.destroy();
-      }
-    };
-  }, []);
-
-  const handlePlayPause = () => {
-    if (player) {
-      if (isPlaying) {
-        player.pauseVideo();
-      } else {
-        player.playVideo();
-      }
-    }
-  };
 
   return (
     <section className="home-video">
-      <div className="container">
-        <div className="hv-body">
-          <div className="hv-cont">
-            <div className="youtube-player-wrapper">
-              <img className="thumb-img" src="/assets/images/video-thumbnail.jpg" alt="Video Thumbnail" />
-              <div ref={playerRef} id="youtube-player" video-id="sRWj0hlVd7w"></div>
-              <button id="play-pause" onClick={handlePlayPause}>
-                <img className="play-btn" src="/assets/images/video-icon.png" alt="Play" />
-                <img className="pause-btn" src="/assets/images/video-icon-pause.png" alt="Pause" />
-              </button>
+      <div className="our-mission">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 order-2 order-lg-1">
+              <div className="om-cont">
+                <img src="/assets/images/innovation (1).png" alt="Innovation" />
+              </div>
             </div>
-            <div className="hv-global">
-              <h2>Connecting the Global Diaspora</h2>
-              <p>Our goal is to unite the 32 million diaspora to be a force for good, fostering community and positive impact worldwide.</p>
+            <div className="col-lg-6 order-1 order-lg-2">
+              <div className="om-cont">
+                <span>Innovation</span>
+                <p>NEIEA has developed innovative approaches to advance its Vision and Mission. These include: a Blended Learning Model that integrates online teaching with onsite learning through advanced technology and pedagogy; a Partnering Model that fosters collective growth; a Flexible Learning System offering live sessions 18 hours a day, 7 days a week; and a Low-Cost and Free Education Model that makes quality education accessible and affordable for all.</p>
+                <a className="main-btn" href="#">
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
