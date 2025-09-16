@@ -9,7 +9,7 @@ const VideoSection = () => {
           <div className="row">
             <div className="col-lg-6 order-2 order-lg-1">
               <div className="om-cont">
-                <img src="/assets/images/innovation (1).png" alt="Innovation" />
+                        <img src="/assets/images/video-thumbnail.jpg" alt="Innovation" />
               </div>
             </div>
             <div className="col-lg-6 order-1 order-lg-2">

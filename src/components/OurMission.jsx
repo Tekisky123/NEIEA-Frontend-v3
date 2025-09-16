@@ -10,7 +10,7 @@ const OurMission = () => {
           <div className="row">
             <div className="col-lg-6 order-2 order-lg-1">
               <div className="om-cont">
-                <img src="/assets/images/vision2 (1).jpg" alt="our mission" />
+                        <img src="/src/assets/images/vision2 (1).jpg" alt="our mission" />
               </div>
             </div>
             <div className="col-lg-6 order-1 order-lg-2">
@@ -58,7 +58,7 @@ const OurMission = () => {
             </div>
             <div className="col-lg-6 order-2 order-lg-2">
               <div className="om-cont">
-                <img src="/assets/images/leader4.png" alt="Javeed Mirza - Founder & President" />
+                        <img src="/assets/images/our-mission.png" alt="Javeed Mirza - Founder & President" />
               </div>
             </div>
           </div>

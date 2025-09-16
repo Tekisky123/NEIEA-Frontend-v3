@@ -34,7 +34,7 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
-                  <img src="/assets/images/MdWais.jpeg" alt="Md Wais Raza" />
+                  <img src="/assets/images/testimonial1.jpg" alt="Md Wais Raza" />
                 </div>
               </div>
               <div className="col-lg-7">
@@ -58,7 +58,7 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <img src="/assets/images/ChatGPT Image Sep 16, 2025, 09_58_12 PM.png" alt="Misbah Rehman" />
+                  <img src="/assets/images/testimonial2.jpg" alt="Misbah Rehman" />
                 </div>
               </div>
               <div className="col-lg-7">
