@@ -7,36 +7,21 @@ const GlobalPrograms = () => {
         <div className="row">
           <div className="col-md-6">
             <div className="gp-cont">
-              <h1 className="sec-heading">Global programs</h1>
-              <p>Our unwavering commitment to leadership development shapes the future for a better world.</p>
+              <h1 className="sec-heading">Collective Working Through Partnerships</h1>
+              <p>NEIEA's partnership model is rooted in collective effort. Partner institutions provide infrastructure, student safety, and classroom coordination, while NEIEA delivers high-quality content, innovative pedagogy, and live teaching. Together, they actively involve parents in the learning process, ensuring stronger student outcomes. NEIEA also enhances the capacity of partner institutions by training their teachers in pedagogy, technology, classroom management, and English proficiency.</p>
+              <p><strong>Open-Source Approach:</strong> NEIEA makes its content materials freely available to all institutions that wish to adopt and benefit from its model, reinforcing its commitment to equitable and collaborative education.</p>
               <a className="main-btn" href="#">
-                Explore more
+                Learn more
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                 </svg>
               </a>
-              <div className="gp-indicator-body d-none d-md-flex">
-                <div className="gpib-cont">
-                  <p>Countries with a dedicated team and operation and a strong member base.</p>
-                </div>
-                <div className="gpib-cont gpib-cont1">
-                  <p>Countries where we have held events and where our G20 event participants come from.</p>
-                </div>
-              </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="gp-cont">
               <img src="/assets/images/global-map.png" alt="Global Map" />
-            </div>
-            <div className="gp-indicator-body d-flex d-md-none">
-              <div className="gpib-cont">
-                <p>Countries with a dedicated team and operation and a strong member base.</p>
-              </div>
-              <div className="gpib-cont gpib-cont1">
-                <p>Countries where we have held events and where our G20 event participants come from.</p>
-              </div>
             </div>
           </div>
         </div>

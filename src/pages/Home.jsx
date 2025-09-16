@@ -4,7 +4,6 @@ import OurMission from '../components/OurMission';
 import VideoSection from '../components/VideoSection';
 import GlobalPrograms from '../components/GlobalPrograms';
 import Statistics from '../components/Statistics';
-import UpcomingEvents from '../components/UpcomingEvents';
 import Testimonials from '../components/Testimonials';
 
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
       <VideoSection />
       <GlobalPrograms />
       <Statistics />
-      <UpcomingEvents />
       <Testimonials />
     </div>
   );
