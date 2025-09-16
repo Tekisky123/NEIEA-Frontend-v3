@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NeiSecondaryLogo from '../assets/images/neia-secondary-logo.svg';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -44,9 +45,10 @@ const Footer = () => {
 
               <div className="menu-footer-menu-container">
                 <ul className="footer-menu">
-                  <li><a href="#">Blogs</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><Link to="/about-us/testimonials">Featured Stories</Link></li>
+                  <li><Link to="/about-us/contact">Contact Us</Link></li>
+                  <li><Link to="/careers">Careers</Link></li>
+                  <li><Link to="/login">Login</Link></li>
                 </ul>
               </div>
             </nav>
