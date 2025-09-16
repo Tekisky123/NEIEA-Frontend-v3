@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="col-md-6">
             <nav className="footer-navbar">
               <a title="logo" href="#" className="logo">
-                <img src={NeiSecondaryLogo} height={"60px"} alt="Indiaspora Logo" />
+                <img src={NeiSecondaryLogo} height={"80px"} alt="NEIEA Logo" />
               </a>
               <p className="foot-mob-copy">© 2012-2024 Indiaspora, Inc. All rights reserved.</p>
               
@@ -57,17 +57,17 @@ const Footer = () => {
             <div className="footer-form">
               <h4 className="common-heading-24">Subscribe to our newsletter</h4>
               <form onSubmit={handleNewsletterSubmit}>
-                <div className="form-group">
+                <div className="form-group newsletter-form">
                   <input 
                     type="email" 
                     name="email" 
-                    className="form-control" 
+                    className="form-control newsletter-input" 
                     placeholder="Enter your email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required 
                   />
-                  <button type="submit" className="btn">Sign up</button>
+                  <button type="submit" className="btn newsletter-btn">Sign up</button>
                 </div>
               </form>
             </div>

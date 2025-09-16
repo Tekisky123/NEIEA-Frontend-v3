@@ -169,10 +169,10 @@ const Header = () => {
             {/* Brand/Logo Section */}
             <div className="navbar-brand-wrapper d-flex align-items-center">
               <Link className="navbar-brand primary-logo" to="/">
-                <img src={NeiPrimaryLogo} alt="Indiaspora Logo" height={"60px"} />
+                <img src={NeiPrimaryLogo} alt="Indiaspora Logo" height={"80px"} />
               </Link>
               <Link className="navbar-brand" to="/">
-                <img src={NeiSecondaryLogo} height={"60px"} alt="Indiaspora Secondary Logo" />
+                <img src={NeiSecondaryLogo} height={"80px"} alt="Indiaspora Secondary Logo" />
               </Link>
             </div>
 
@@ -687,24 +687,16 @@ const Header = () => {
 
               {/* Donation Button (Desktop) */}
               <div className=" d-none d-lg-block">
-                <Link to="/donate" className="btn main-btn btn-yellow donate-button">
+                <Link to="/donate" className="btn donate-btn btn-yellow donate-button">
                   DONATE
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
                 </Link>
               </div>
             </div>
 
             {/* Mobile Controls */}
             <div className="d-flex align-items-center d-lg-none">
-              <Link to="/donate" className="btn main-btn btn-yellow donate-button me-2">
+              <Link to="/donate" className="btn donate-btn btn-yellow donate-button me-2">
                 DONATE
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
               </Link>
               <button className="navbar-toggler mob-nav-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon"></span>
@@ -719,9 +711,6 @@ const Header = () => {
             <div className="navbar-brand-wrapper d-flex align-items-center">
               <Link className="navbar-brand primary-logo" to="/">
                 <img src={NeiPrimaryLogo} alt="NEIEA Logo" height={"50px"} />
-              </Link>
-              <Link className="navbar-brand" to="/">
-                <img src={NeiSecondaryLogo} height={"50px"} alt="NEIEA Secondary Logo" />
               </Link>
             </div>
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

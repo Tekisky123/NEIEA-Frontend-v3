@@ -196,6 +196,30 @@ svg{
   padding-right: 28px;
 }
 
+/* Donate Button */
+.donate-btn {
+  border: 1px solid var(--btn-color);
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: left;
+  transition: .5s;
+  background: var(--btn-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.donate-btn:hover {
+  background: var(--Gray_10, #FFFFFF);
+  border: 1px solid var(--btn-color);
+}
+/* Donate Button End */
+
 .main-btn:hover svg path {
   stroke: #fff;
 }
@@ -659,7 +683,7 @@ header{
 
 .navbar .navbar-nav {
   display: flex;
-  column-gap: 34px;
+  column-gap: 14px;
   margin: auto;
 }
 
@@ -1227,6 +1251,55 @@ color: #06038F;
 .footer-form .form-group {
   display: flex;
   max-width: 424px;
+}
+
+/* Newsletter form styling to match the desired appearance */
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 100%;
+}
+
+.newsletter-input {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 8px 0 0 8px;
+  font-size: 16px;
+  height: 48px;
+  border-right: none;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #06038F;
+  box-shadow: none;
+}
+
+.newsletter-input::placeholder {
+  color: #999;
+}
+
+.newsletter-btn {
+  background: #06038F;
+  color: #fff;
+  border: 1px solid #06038F;
+  padding: 12px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  height: 48px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background: #0502a3;
+  border-color: #0502a3;
+  color: #fff;
 }
 
 .footer-form .form-group  > p {
@@ -4193,6 +4266,107 @@ padding: 12px 20px;
 	.footer-form .form-group input{
 	    padding: 14px 16px;
 	}
+}
+
+/* 404 Not Found Page Styles */
+.not-found-page {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-number {
+  margin-bottom: 30px;
+}
+
+.error-number .gradient-text {
+  font-size: 120px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6B46C1 0%, #FF671F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  display: inline-block;
+}
+
+.error-message {
+  margin-bottom: 40px;
+}
+
+.error-message p {
+  font-size: 18px;
+  color: black;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-action {
+  margin-top: 30px;
+}
+
+.homepage-btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #06038F;
+  border: 1px solid #06038F;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.homepage-btn:hover {
+  background-color: #06038F;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .error-number .gradient-text {
+    font-size: 80px;
+  }
+  
+  .error-message p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  
+  .homepage-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-number .gradient-text {
+    font-size: 60px;
+  }
+  
+  .error-message p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .homepage-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
 }
 
 .our-speakers .os-cont img{

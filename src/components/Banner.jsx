@@ -38,7 +38,7 @@ const Banner = () => {
             <img className="main-img home-banner-desk" src={slider1} alt="Philanthropy Summit" />
             <img className="main-img home-banner-mob" src="/assets/images/banner1.jpg" alt="Philanthropy Summit" />
             <div className="container">
-              <div className="ban-cont">
+              {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
                   Explore More
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -46,7 +46,7 @@ const Banner = () => {
                     <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const Banner = () => {
             <img className="main-img home-banner-desk" src={slider2} alt="US Forum" />
             <img className="main-img home-banner-mob" src="/assets/images/banner2.jpg" alt="US Forum" />
             <div className="container">
-              <div className="ban-cont">
+              {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
                   Explore More
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -63,7 +63,7 @@ const Banner = () => {
                     <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -72,9 +72,9 @@ const Banner = () => {
             <img className="main-img home-banner-desk" src={slider3} alt="Impact Report" />
             <img className="main-img home-banner-mob" src="/assets/images/banner3.jpg" alt="Impact Report" />
             <div className="container">
-              <div className="ban-cont">
-                {/* <h2><span></span> BCG-Indiaspora Impact Report</h2> */}
-                {/* <p>First-ever data-driven report showcasing the contributions of the Indian diaspora in the US</p> */}
+              {/* <div className="ban-cont">
+                <h2><span></span> BCG-Indiaspora Impact Report</h2>
+                <p>First-ever data-driven report showcasing the contributions of the Indian diaspora in the US</p>
                 <a className="main-btn" href="#">
                   Explore More
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -82,7 +82,7 @@ const Banner = () => {
                     <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -91,9 +91,9 @@ const Banner = () => {
             <img className="main-img home-banner-desk" src={slider4} alt="New Event" />
             <img className="main-img home-banner-mob" src="/assets/images/banner4.jpg" alt="New Event" />
             <div className="container">
-              <div className="ban-cont">
-                {/* <h2><span>EVENT</span> Special Highlight</h2> */}
-                {/* <p>This slide showcases the latest update or event highlight.</p> */}
+              {/* <div className="ban-cont">
+                <h2><span>EVENT</span> Special Highlight</h2>
+                <p>This slide showcases the latest update or event highlight.</p>
                 <a className="main-btn" href="#">
                   Explore More
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -101,7 +101,7 @@ const Banner = () => {
                     <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
