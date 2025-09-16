@@ -1836,6 +1836,23 @@ ul#tabs-nav li:hover a {
   border: unset;
 }
 
+/* Mobile and tablet - always solid background */
+@media (max-width: 1023px) {
+  .primary-header {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .primary-header .navbar {
+    background-color: white !important;
+  }
+  
+  .primary-header .nav-link {
+    color: #333 !important;
+  }
+}
+
 .primary-header .navbar .nav-link[aria-current="page"] {
   border: unset;
   font-weight: 400;
@@ -3756,20 +3773,18 @@ padding-right: 28px !important
 
 @media (min-width:1024px) {
 
-  /* primary header */
-  .primary-header {
+  /* primary header - only transparent on home page */
+  .home .primary-header {
     position: absolute;
     z-index: 2;
     width: 100%;
-
   }
 
-  .primary-header .nav-link {
+  .home .primary-header .nav-link {
     color: #FFFFFF !important;
   }
 
-
-  .primary-header .header-search-toggle {
+  .home .primary-header .header-search-toggle {
     background-color: #fff;
     border-radius: 10px;
     width: 40px;
@@ -3780,15 +3795,41 @@ padding-right: 28px !important
     padding: 0;
   }
 
-  .primary-header .navbar-nav>.dropdown>.dropdown-toggle.active::after,
-  .primary-header .navbar-nav>.dropdown>.dropdown-toggle::after {
+  .home .primary-header .navbar-nav>.dropdown>.dropdown-toggle.active::after,
+  .home .primary-header .navbar-nav>.dropdown>.dropdown-toggle::after {
     background-image: url('../images/primary-dropdown.svg');
   }
 
-  .primary-header .navbar {
+  .home .primary-header .navbar {
     background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
 
+  /* Non-home pages - solid white background */
+  .App:not(.home) .primary-header {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .App:not(.home) .primary-header .navbar {
+    background-color: white !important;
+  }
+
+  .App:not(.home) .primary-header .nav-link {
+    color: #333 !important;
+  }
+
+  /* Ensure dropdown arrows are visible on non-home pages */
+  .App:not(.home) .primary-header .navbar-nav>.dropdown>.dropdown-toggle.active::after,
+  .App:not(.home) .primary-header .navbar-nav>.dropdown>.dropdown-toggle::after {
+    background-image: url('../images/chevron-down-blue.svg');
+  }
+
+  /* Ensure content starts below header on non-home pages */
+  .App:not(.home) main {
+    margin-top: 0;
+    padding-top: 0;
+  }
 
 }
 
@@ -4373,3 +4414,4 @@ padding: 12px 20px;
     height: 282px;
     object-fit: cover;
 }
+
