@@ -4,16 +4,24 @@ const Statistics = () => {
   const [counters, setCounters] = useState({
     statOne: 0,
     statTwo: 0,
-    statThree: 0
+    statThree: 0,
+    statFour: 0,
+    statFive: 0,
+    statSix: 0,
+    statSeven: 0
   });
 
   const [isVisible, setIsVisible] = useState(false);
   const statsRef = useRef(null);
 
   const targetValues = {
-    statOne: 15000,
-    statTwo: 15,
-    statThree: 50
+    statOne: 16,
+    statTwo: 63,
+    statThree: 94,
+    statFour: 2000,
+    statFive: 6182,
+    statSix: 10612,
+    statSeven: 16801
   };
 
   useEffect(() => {
@@ -66,32 +74,75 @@ const Statistics = () => {
     <section className="home-stats p-fade-anim" ref={statsRef}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 col-md-6">
+          <div className="col-12 text-center mb-5">
+            <h2 className="section-title">Our Impact in Numbers</h2>
+            <p className="section-subtitle">Transforming education through innovative approaches and meaningful partnerships</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-one" style={{display: 'none'}}>15000</span>
+                <span id="home-stat-one" style={{display: 'none'}}>16</span>
                 <span className="home-stat-one">{counters.statOne}</span>+
               </h4>
-              <p>Diaspora leaders actively engaged in communities worldwide.</p>
+              <p>Online Courses</p>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-two" style={{display: 'none'}}>15</span>
-                <span>$</span>
-                <span className="home-stat-two">{counters.statTwo}</span>M+
+                <span id="home-stat-two" style={{display: 'none'}}>63</span>
+                <span className="home-stat-two">{counters.statTwo}</span>+
               </h4>
-              <p>Raised with our partners for Covid-19 relief in India.</p>
+              <p>Live Online Classes</p>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-three" style={{display: 'none'}}>50</span>
+                <span id="home-stat-three" style={{display: 'none'}}>94</span>
                 <span className="home-stat-three">{counters.statThree}</span>+
               </h4>
-              <p>Events hosted annually to inspire and connect the Indian diaspora.</p>
+              <p>Partnerships</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="hs-cont">
+              <h4>
+                <span id="home-stat-four" style={{display: 'none'}}>2000</span>
+                <span className="home-stat-four">{counters.statFour.toLocaleString()}</span>+
+              </h4>
+              <p>Teachers Trained</p>
+            </div>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-lg-3 col-md-4 col-sm-6">
+            <div className="hs-cont">
+              <h4>
+                <span id="home-stat-five" style={{display: 'none'}}>6182</span>
+                <span className="home-stat-five">{counters.statFive.toLocaleString()}</span>+
+              </h4>
+              <p>Institutional Enrollments</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-4 col-sm-6">
+            <div className="hs-cont">
+              <h4>
+                <span id="home-stat-six" style={{display: 'none'}}>10612</span>
+                <span className="home-stat-six">{counters.statSix.toLocaleString()}</span>+
+              </h4>
+              <p>Individual Enrollments</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-4 col-sm-6">
+            <div className="hs-cont">
+              <h4>
+                <span id="home-stat-seven" style={{display: 'none'}}>16801</span>
+                <span className="home-stat-seven">{counters.statSeven.toLocaleString()}</span>+
+              </h4>
+              <p>Total Enrollments</p>
             </div>
           </div>
         </div>

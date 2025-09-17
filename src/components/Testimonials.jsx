@@ -34,20 +34,20 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
-                  <img src="/assets/images/testimonial1.jpg" alt="Priya Natrajan" />
+                  <img src="/assets/images/MdWais.jpeg" alt="Md Wais Raza" />
                 </div>
               </div>
               <div className="col-lg-7">
                 <div className="test-cont">
                   <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Priya Natrajan</h5>
-                    <p>Professor, Yale University<br /><span>Time 100 Most Influential 2024</span></p>
+                    <h5>Md Wais Raza</h5>
+                    <p>Bihar, India</p>
                   </div>
                   <img className="d-none d-md-block" src="/assets/images/Quotes1.png" alt="Quote" />
-                  <p>I love being involved with Indiaspora because it's an eclectic and powerful community of diverse thought leaders from around the world. Nowhere else would you find a venture capitalist, a scientist, a politician, an author, a corporate executive, and an Indian classical musician sharing and exchanging ideas!</p>
+                  <p>I am thrilled to share my experience with the NEIEA English proficiency course that is completely free of cost! Actually, I have completed my matriculation from English medium school but even then I used to hesitate before speaking English with others I wanted to speak fluent and flawless English....</p>
                   <div className="profile-name d-none d-md-block">
-                    <h5>Priya Natrajan</h5>
-                    <p>Professor, Yale University<br /><span>Time 100 Most Influential 2024</span></p>
+                    <h5>Md Wais Raza</h5>
+                    <p>Bihar, India</p>
                   </div>
                 </div>
               </div>
@@ -58,20 +58,18 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <img src="/assets/images/testimonial2.jpg" alt="Kris Gopalakrishnan" />
+                  <img src="/assets/images/ChatGPT Image Sep 16, 2025, 09_58_12 PM.png" alt="Misbah Rehman" />
                 </div>
               </div>
               <div className="col-lg-7">
                 <div className="test-cont">
                   <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Kris Gopalakrishnan</h5>
-                    <p>Co-Founder, Infosys,<br /><span>Chairman, Axilor Ventures</span></p>
+                    <h5>Misbah Rehman</h5>
                   </div>
                   <img className="d-none d-md-block" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <p>Indiaspora has been instrumental in bringing together the Indian diaspora across the world to create positive impact. The platform has enabled meaningful connections and collaborations that have resulted in significant contributions to both India and the countries where diaspora members reside.</p>
+                  <p>Today I am talking about my English class. This class is too good. After taking these classes my confidence to speak english has built up. Now , I speak English properly. Now , when I speak English I do not hesitate. In these classes we are not only studying, we also have fun.</p>
                   <div className="profile-name d-none d-md-block">
-                    <h5>Kris Gopalakrishnan</h5>
-                    <p>Co-Founder, Infosys,<br /><span>Chairman, Axilor Ventures</span></p>
+                    <h5>Misbah Rehman</h5>
                   </div>
                 </div>
               </div>

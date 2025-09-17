@@ -27,6 +27,7 @@ img {
   max-width: 100%;
 }
 
+
 input:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -275,7 +276,7 @@ svg{
 
 /* ========= Our mission css */
 .our-mission {
-  padding: 72px 0;
+  padding: 18px 0;
   background: url(../images/our-mission-bg.png) center no-repeat;
   background-size: cover;
 }
@@ -368,10 +369,10 @@ svg{
   margin-bottom: 0;
 }
 
+
 /* lobal Program css */
 .global-program {
-  padding-top: 150px;
-  padding-bottom: 70px;
+  padding: 18px 0;
 }
 
 .global-program .row {
@@ -396,6 +397,20 @@ svg{
   color: #222222;
   margin-bottom: 24px;
 }
+
+.gp-cont img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Override max-width for global map image */
+.gp-cont img[src="/assets/images/global-map.png"] {
+  max-width: none !important;
+  width: 100% !important;
+  height: 800px !important;
+  object-fit: contain !important;
+}
+
 
 .gp-indicator-body {
   display: flex;
@@ -443,7 +458,7 @@ svg{
 
 /* ========= Home Counter css */
 .home-stats {
-  padding: 60px 0;
+  padding: 18px 0;
   background: url(../images/Stats_Background.jpg) no-repeat center;
   background-size: cover;
 }
@@ -473,8 +488,48 @@ padding: 0 40px;
   color: #fff;
   margin-bottom: 0;
   padding-right: 50px;
-  opacity: 0;
+  opacity: 1 !important;
   transition: 0.5s;
+}
+
+/* Add spacing between rows in statistics section */
+.home-stats .row:nth-child(3) {
+  margin-top: 60px;
+}
+
+/* Statistics Section Title and Subtitle */
+.home-stats .section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.home-stats .section-subtitle {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Reduce gap between header and first row */
+.home-stats .row:nth-child(2) {
+  margin-top: 30px !important;
+}
+
+/* Responsive adjustments for title and subtitle */
+@media (max-width: 768px) {
+  .home-stats .section-title {
+    font-size: 32px;
+  }
+  
+  .home-stats .section-subtitle {
+    font-size: 16px;
+  }
 }
 
 /* ================== Upcoming Events css */
@@ -537,7 +592,7 @@ padding: 0 40px;
 
 /* ============== Testimonial css */
 .testimonials {
-  padding: 80px 0;
+  padding: 18px 0;
 }
 .test-cont{
     margin: 0;
@@ -2890,7 +2945,7 @@ margin-top: -2px;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: bottom;
-    padding: 60px 0
+    padding: 18px 0
   }
 
   .our-mission .row {
@@ -2940,8 +2995,7 @@ margin-top: -2px;
   }
 
   .global-program {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 18px 0;
   }
 
   .sec-heading {
@@ -2962,6 +3016,7 @@ margin-top: -2px;
     font-weight: 400;
     line-height: 28px;
   }
+  
 
   .hs-cont h4 {
     font-size: 44px;
@@ -3005,8 +3060,7 @@ margin-top: -2px;
   }
 
   .testimonials {
-    padding: 60px 0;
-    padding-bottom: 130px;
+    padding: 18px 0;
   }
 
   .testimonial-car .owl-nav {
@@ -4259,10 +4313,19 @@ padding: 12px 20px;
 .youtube-player-wrapper .thumb-img{
 	position: absolute;
 	width: 100%;
-	left: 0;
-	top:0;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
 	transition: 0.3s all;
 }
+
+/* Specific styling for innovation (1).png image */
+.youtube-player-wrapper .thumb-img[src*="innovation (1).png"] {
+	width: 300% !important;
+	height: 800px !important;
+	object-fit: contain !important;
+}
+
 .youtube-player-wrapper .thumb-img,
 .youtube-player-wrapper #youtube-player{
 	border-radius: 32px;
@@ -4413,5 +4476,18 @@ padding: 12px 20px;
 .our-speakers .os-cont img{
     height: 282px;
     object-fit: cover;
+}
+
+/* Testimonial Image Sizing - Set all testimonial images to 272x235px */
+.testimonial-car .row .col-lg-5 .test-cont img {
+  width: 272px !important;
+  height: 235px !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+}
+
+/* Specific positioning for Misbah Rehman's image - crop from bottom, not top */
+.testimonial-car .row .col-lg-5 .test-cont img[src*="ChatGPT Image Sep 16, 2025, 09_58_12 PM.png"] {
+  object-position: top !important;
 }
 
