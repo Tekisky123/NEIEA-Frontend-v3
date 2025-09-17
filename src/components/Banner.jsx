@@ -36,7 +36,7 @@ const Banner = () => {
           {/* Slider 1 */}
           <div className="item">
             <img className="main-img home-banner-desk" src={slider1} alt="Philanthropy Summit" />
-            <img className="main-img home-banner-mob" src="/assets/images/banner1.jpg" alt="Philanthropy Summit" />
+            <img className="main-img home-banner-mob" src={slider1} alt="Philanthropy Summit" />
             <div className="container">
               {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
@@ -53,7 +53,7 @@ const Banner = () => {
           {/* Slider 2 */}
           <div className="item">
             <img className="main-img home-banner-desk" src={slider2} alt="US Forum" />
-            <img className="main-img home-banner-mob" src="/assets/images/banner2.jpg" alt="US Forum" />
+            <img className="main-img home-banner-mob" src={slider2} alt="US Forum" />
             <div className="container">
               {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
@@ -70,7 +70,7 @@ const Banner = () => {
           {/* Slider 3 */}
           <div className="item">
             <img className="main-img home-banner-desk" src={slider3} alt="Impact Report" />
-            <img className="main-img home-banner-mob" src="/assets/images/banner3.jpg" alt="Impact Report" />
+            <img className="main-img home-banner-mob" src={slider3} alt="Impact Report" />
             <div className="container">
               {/* <div className="ban-cont">
                 <h2><span></span> BCG-Indiaspora Impact Report</h2>
@@ -89,7 +89,7 @@ const Banner = () => {
           {/* Slider 4 (New) */}
           <div className="item">
             <img className="main-img home-banner-desk" src={slider4} alt="New Event" />
-            <img className="main-img home-banner-mob" src="/assets/images/banner4.jpg" alt="New Event" />
+            <img className="main-img home-banner-mob" src={slider4} alt="New Event" />
             <div className="container">
               {/* <div className="ban-cont">
                 <h2><span>EVENT</span> Special Highlight</h2>

@@ -15,21 +15,66 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import './ApplyCourse.css';
 
+// Country code mapping
+const countryCodes = {
+  "India": "+91",
+  "USA": "+1",
+  "UK": "+44",
+  "Canada": "+1",
+  "Australia": "+61",
+  "UAE": "+971",
+  "Other": "+"
+};
+
+// Updated form schema with country-based validation
 const formSchema = z.object({
   fullName: z.string().min(1, "Full Name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits").max(10, "Phone number must be at most 10 digits").regex(/^\d+$/, "Phone number must contain only numbers"),
+  country: z.string().min(1, "Country is required"),
+  phone: z.string()
+    .min(10, "Phone number must be at least 10 digits")
+    .regex(/^\d{10,15}$/, "Invalid phone number format"),
   motherTongue: z.string().min(1, "Mother Tongue is required"),
   age: z.string().min(1, "Age is required"),
   gender: z.string().min(1, "Gender is required"),
   isStudent: z.string().min(1, "This field is required"),
   classStudying: z.string().optional(),
-  state: z.string().min(1, "State is required"),
-  city: z.string().min(1, "City is required"),
-  whatsappNumber: z.string().min(10, "WhatsApp number must be at least 10 digits").max(10, "WhatsApp number must be at most 10 digits").regex(/^\d+$/, "WhatsApp number must contain only numbers"),
+  state: z.string().optional(),
+  city: z.string().optional(),
+  address: z.string().optional(),
+  whatsappNumber: z.string()
+    .min(10, "WhatsApp number must be at least 10 digits")
+    .regex(/^\d{10,15}$/, "Invalid WhatsApp number format"),
   referredBy: z.string().min(1, "Referred By is required"),
   convenientTimeSlot: z.string().min(1, "Convenient Time Slot is required"),
   message: z.string().optional(),
+}).superRefine((data, ctx) => {
+  // If country is India, state and city are required
+  if (data.country === "India") {
+    if (!data.state) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "State is required for India",
+        path: ["state"],
+      });
+    }
+    if (!data.city) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "City is required for India",
+        path: ["city"],
+      });
+    }
+  } else {
+    // For non-India countries, address is required
+    if (!data.address) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Address is required for international applicants",
+        path: ["address"],
+      });
+    }
+  }
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -44,11 +89,18 @@ const ApplyCourse = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
-
+  const [phonePrefix, setPhonePrefix] = useState("+91");
+  const [whatsappPrefix, setWhatsappPrefix] = useState("+91");
 
   const { register, handleSubmit, setValue, reset, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      country: "India"
+    }
   });
+
+  const country = watch("country");
+  const isStudent = watch("isStudent");
 
   const fetchCourse = async () => {
     try {
@@ -75,32 +127,45 @@ const ApplyCourse = () => {
     fetchReferredByList();
   }, [id]);
 
+  // Update country code prefixes when country changes
+  useEffect(() => {
+    const code = countryCodes[country] || "+";
+    setPhonePrefix(code);
+    setWhatsappPrefix(code);
+  }, [country]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValue(name, value);
-    if (name === "state") {
+
+    if (name === "country") {
+      const code = countryCodes[value] || "+";
+      setPhonePrefix(code);
+      setWhatsappPrefix(code);
+    }
+
+    if (name === "state" && country === "India") {
       const selectedState = statesAndCities.find((s) => s.state === value);
       setCities(selectedState ? selectedState.cities : []);
     }
   };
 
-  const handlePhoneInput = (e) => {
-    const input = e.target.value;
-    if (input.length > 10) {
-      e.target.value = input.slice(0, 10);
+  const formatPhoneNumber = (phone: string, country: string) => {
+    // For India, return just the 10 digits
+    if (country === "India") {
+      return phone;
     }
+    // For other countries, prepend the country code
+    const code = countryCodes[country] || "+";
+    return `${code}${phone}`;
   };
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       const script = document.createElement('script');
       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
       document.body.appendChild(script);
     });
   };
@@ -112,9 +177,8 @@ const ApplyCourse = () => {
       if (!isLoaded) throw new Error('Razorpay SDK failed to load');
 
       const options = {
-        key: 'rzp_test_HcrOflmaNTnjgB', 
-        // key: 'rzp_live_R7W4B9PPioBX2X', // Replace with your test key
-        amount: orderData.amount * 100, // Razorpay expects amount in paise
+        key: 'rzp_test_HcrOflmaNTnjgB',
+        amount: orderData.amount * 100,
         currency: 'INR',
         name: 'NEIEA Course Buying',
         description: `Course application for ${course.title || 'General'}`,
@@ -127,15 +191,13 @@ const ApplyCourse = () => {
               razorpaySignature: response.razorpay_signature,
               courseData: orderData
             });
-            console.log("verificationResponse", verificationResponse)
+
             if (verificationResponse.data.success) {
-              // Call the apply form API after successful payment verification
-              // await axiosInstance.post(`/course/apply/${id}`, orderData);
               setIsSuccessDialogOpen(true);
               reset();
               toast.success("Payment successful! Thank you for your application.");
             } else {
-              toast.error("Payment verification failed. Please contact support.1");
+              toast.error("Payment verification failed. Please contact support.");
             }
           } catch (error) {
             toast.error("Payment verification failed. Please contact support.");
@@ -144,12 +206,12 @@ const ApplyCourse = () => {
           }
         },
         prefill: {
-          name: `${orderData.fullName}`,
+          name: orderData.fullName,
           email: orderData.email,
-          contact: orderData.phone
+          contact: orderData.country === "India" ? orderData.phone : `+${orderData.phone}`
         },
         theme: {
-          color: '#4f46e5' // Your brand color
+          color: '#4f46e5'
         }
       };
 
@@ -166,26 +228,40 @@ const ApplyCourse = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
+      // Format phone numbers based on country
+      const formattedPhone = formatPhoneNumber(data.phone, data.country);
+      const formattedWhatsapp = formatPhoneNumber(data.whatsappNumber, data.country);
+
+      const payload = {
+        ...data,
+        course: course?._id,
+        phone: formattedPhone,
+        whatsappNumber: formattedWhatsapp,
+        // Only include address if country is not India
+        ...(data.country !== "India" && { address: data.address }),
+        // Only include state/city if country is India
+        ...(data.country === "India" && { state: data.state, city: data.city })
+      };
+
       if (course.fees > 0) {
-        const resp = await axiosInstance.post(`/course/verify-apply-course/${id}`, data);
-        if(resp.data.success == true){
-          const payload = { ...data,course: course?._id };
+        const resp = await axiosInstance.post(`/course/verify-apply-course/${id}`, payload);
+        if (resp.data.success) {
           const orderResponse = await axiosInstance.post('/course/create-order', {
             amount: course.fees,
             currency: 'INR',
             receipt: `course_${Date.now()}`,
           });
-  
+
           if (orderResponse.data.success) {
             await initiateRazorpayPayment({ ...payload, razorpayOrderId: orderResponse.data.orderId });
           } else {
             toast.error("Failed to create payment order. Please try again.");
           }
-        }else{
-          toast.error("Somthing went wrong!. Please try again.");
+        } else {
+          toast.error("Something went wrong. Please try again.");
         }
       } else {
-        await axiosInstance.post(`/course/apply/${id}`, data);
+        await axiosInstance.post(`/course/apply/${id}`, payload);
         setShowDialog(true);
       }
     } catch (error) {
@@ -195,8 +271,6 @@ const ApplyCourse = () => {
       setIsSubmitting(false);
     }
   };
-
-  const isStudent = watch("isStudent");
 
   if (!course) return null;
 
@@ -210,7 +284,7 @@ const ApplyCourse = () => {
               <h1 className="application-title">Apply for {course.title}</h1>
               <p className="application-subtitle">{course.description}</p>
             </div>
-            
+
             {/* Course Details Section */}
             <div className="course-details-section">
               <h2 className="course-details-title">Course Details</h2>
@@ -244,6 +318,7 @@ const ApplyCourse = () => {
                 </p>
               </div>
             </div>
+
             {/* Form Section */}
             <div className="form-section">
               <h2 className="form-title">Application Form</h2>
@@ -254,36 +329,118 @@ const ApplyCourse = () => {
                     <Input id="fullName" {...register("fullName")} placeholder="Your Full Name" className="form-input" />
                     {errors.fullName && <p className="form-error">{errors.fullName.message}</p>}
                   </div>
+
                   <div className="form-group">
                     <label htmlFor="email" className="form-label">Email *</label>
                     <Input id="email" {...register("email")} type="email" placeholder="Your Email" className="form-input" />
                     {errors.email && <p className="form-error">{errors.email.message}</p>}
                   </div>
+
+                  <div className="form-group">
+                    <label htmlFor="country" className="form-label">Country *</label>
+                    <select
+                      id="country"
+                      {...register("country")}
+                      className="form-select"
+                      onChange={handleChange}
+                    >
+                      <option value="India">India</option>
+                      <option value="USA">USA</option>
+                      <option value="UK">UK</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                      <option value="UAE">UAE</option>
+                      <option value="Other">Other Country</option>
+                    </select>
+                    {errors.country && <p className="form-error">{errors.country.message}</p>}
+                  </div>
+
                   <div className="form-group">
                     <label htmlFor="phone" className="form-label">Phone Number *</label>
-                    <Input
-                      id="phone"
-                      {...register("phone")}
-                      placeholder="Phone Number"
-                      className="form-input"
-                      onInput={handlePhoneInput}
-                    />
+                    <div className="phone-input-container">
+                      <span className="country-code">{phonePrefix}</span>
+                      <Input
+                        id="phone"
+                        {...register("phone")}
+                        placeholder={country === "India" ? "10 digit number" : "Local number"}
+                        className="form-input phone-input"
+                      />
+                    </div>
                     {errors.phone && <p className="form-error">{errors.phone.message}</p>}
+                    <p className="form-hint">
+                      {country === "India"
+                        ? "Enter 10 digit mobile number"
+                        : `Enter local number (country code ${phonePrefix} will be added automatically)`}
+                    </p>
                   </div>
+
+                  {country === "India" && (
+                    <>
+                      <div className="form-group">
+                        <label htmlFor="state" className="form-label">State *</label>
+                        <select
+                          id="state"
+                          {...register("state")}
+                          onChange={handleChange}
+                          className="form-select"
+                        >
+                          <option value="">Select State</option>
+                          {statesAndCities.map((stateData) => (
+                            <option key={stateData.state} value={stateData.state}>
+                              {stateData.state}
+                            </option>
+                          ))}
+                        </select>
+                        {errors.state && <p className="form-error">{errors.state.message}</p>}
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="city" className="form-label">City *</label>
+                        <select
+                          id="city"
+                          {...register("city")}
+                          className="form-select"
+                          disabled={!watch("state")}
+                        >
+                          <option value="">Select City</option>
+                          {cities.map((city) => (
+                            <option key={city} value={city}>{city}</option>
+                          ))}
+                        </select>
+                        {errors.city && <p className="form-error">{errors.city.message}</p>}
+                      </div>
+                    </>
+                  )}
+
+                  {country !== "India" && (
+                    <div className="form-group">
+                      <label htmlFor="address" className="form-label">Address *</label>
+                      <Textarea
+                        id="address"
+                        {...register("address")}
+                        placeholder="Full address including city, state, and postal code"
+                        className="form-textarea"
+                      />
+                      {errors.address && <p className="form-error">{errors.address.message}</p>}
+                    </div>
+                  )}
+
                   <div className="form-group">
                     <label htmlFor="motherTongue" className="form-label">Mother Tongue *</label>
                     <Input id="motherTongue" {...register("motherTongue")} placeholder="Mother Tongue" className="form-input" />
                     {errors.motherTongue && <p className="form-error">{errors.motherTongue.message}</p>}
                   </div>
+
                   <div className="form-group">
                     <label htmlFor="age" className="form-label">Age *</label>
-                    <Input id="age" {...register("age")} placeholder="Age" className="form-input" />
+                    <Input id="age" {...register("age")} placeholder="Age" className="form-input" type="number" />
                     {errors.age && <p className="form-error">{errors.age.message}</p>}
                   </div>
+
                   <div className="form-group">
                     <label className="form-label">Gender *</label>
                     <div className="radio-group">
-                      {["Male", "Female", "Others"].map((gender) => (
+                      {["Male", "Female", "Other"].map((gender) => (
                         <div key={gender} className="radio-item">
                           <input
                             type="radio"
@@ -294,14 +451,13 @@ const ApplyCourse = () => {
                             onChange={() => setValue("gender", gender)}
                             className="radio-input"
                           />
-                          <label htmlFor={gender} className="radio-label">
-                            {gender}
-                          </label>
+                          <label htmlFor={gender} className="radio-label">{gender}</label>
                         </div>
                       ))}
                     </div>
                     {errors.gender && <p className="form-error">{errors.gender.message}</p>}
                   </div>
+
                   <div className="form-group">
                     <label className="form-label">Are you a student? *</label>
                     <div className="radio-group">
@@ -316,52 +472,45 @@ const ApplyCourse = () => {
                             onChange={() => setValue("isStudent", option)}
                             className="radio-input"
                           />
-                          <label htmlFor={option} className="radio-label">
-                            {option}
-                          </label>
+                          <label htmlFor={option} className="radio-label">{option}</label>
                         </div>
                       ))}
                     </div>
                     {errors.isStudent && <p className="form-error">{errors.isStudent.message}</p>}
                   </div>
+
                   {isStudent === "Yes" && (
                     <div className="form-group">
                       <label htmlFor="classStudying" className="form-label">Which class are you studying in? *</label>
-                      <Input id="classStudying" {...register("classStudying")} placeholder="Which class are you studying in?" className="form-input" />
+                      <Input
+                        id="classStudying"
+                        {...register("classStudying")}
+                        placeholder="Which class are you studying in?"
+                        className="form-input"
+                      />
                       {errors.classStudying && <p className="form-error">{errors.classStudying.message}</p>}
                     </div>
                   )}
-                  <div className="form-group">
-                    <label htmlFor="state" className="form-label">State *</label>
-                    <select id="state" {...register("state")} onChange={handleChange} className="form-select">
-                      <option value="">Select State</option>
-                      {statesAndCities.map((stateData) => (
-                        <option key={stateData.state} value={stateData.state}>{stateData.state}</option>
-                      ))}
-                    </select>
-                    {errors.state && <p className="form-error">{errors.state.message}</p>}
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="city" className="form-label">City *</label>
-                    <select id="city" {...register("city")} className="form-select">
-                      <option value="">Select City</option>
-                      {cities.map((city) => (
-                        <option key={city} value={city}>{city}</option>
-                      ))}
-                    </select>
-                    {errors.city && <p className="form-error">{errors.city.message}</p>}
-                  </div>
+
                   <div className="form-group">
                     <label htmlFor="whatsappNumber" className="form-label">WhatsApp Contact Number *</label>
-                    <Input
-                      id="whatsappNumber"
-                      {...register("whatsappNumber")}
-                      placeholder="WhatsApp Contact Number"
-                      className="form-input"
-                      onInput={handlePhoneInput}
-                    />
+                    <div className="phone-input-container">
+                      <span className="country-code">{whatsappPrefix}</span>
+                      <Input
+                        id="whatsappNumber"
+                        {...register("whatsappNumber")}
+                        placeholder={country === "India" ? "10 digit number" : "Local number"}
+                        className="form-input phone-input"
+                      />
+                    </div>
                     {errors.whatsappNumber && <p className="form-error">{errors.whatsappNumber.message}</p>}
+                    <p className="form-hint">
+                      {country === "India"
+                        ? "Enter 10 digit mobile number"
+                        : `Enter local number (country code ${whatsappPrefix} will be added automatically)`}
+                    </p>
                   </div>
+
                   <div className="form-group">
                     <label htmlFor="referredBy" className="form-label">Referred By *</label>
                     <select id="referredBy" {...register("referredBy")} className="form-select">
@@ -371,6 +520,7 @@ const ApplyCourse = () => {
                     </select>
                     {errors.referredBy && <p className="form-error">{errors.referredBy.message}</p>}
                   </div>
+
                   <div className="form-group">
                     <label className="form-label">Convenient Time Slot *</label>
                     {course.timeSlots && course.timeSlots.length > 0 ? (
@@ -387,9 +537,7 @@ const ApplyCourse = () => {
                                 onChange={() => setValue("convenientTimeSlot", slot)}
                                 className="time-slot-input"
                               />
-                              <label htmlFor={slot} className="time-slot-label">
-                                {slot}
-                              </label>
+                              <label htmlFor={slot} className="time-slot-label">{slot}</label>
                             </div>
                           ))}
                         </div>
@@ -403,36 +551,52 @@ const ApplyCourse = () => {
                     )}
                     {errors.convenientTimeSlot && <p className="form-error">{errors.convenientTimeSlot.message}</p>}
                   </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message" className="form-label">Why are you applying for this course? (Optional)</label>
-                  <Textarea id="message" {...register("message")} placeholder="Why are you applying for this course?" className="form-textarea" />
-                </div>
-                <div className="form-group">
-                  {course.fees == 0 ? (
-                    <button type="submit" className="submit-button">
-                      Submit Application
-                    </button>
-                  ) : (
-                    <button
-                      type="submit"
-                      className={`payment-button ${isSubmitting || paymentLoading ? 'loading' : ''}`}
-                      disabled={isSubmitting || paymentLoading}
-                    >
-                      {isSubmitting || paymentLoading ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          {paymentLoading ? "Redirecting to Payment..." : "Processing..."}
-                        </>
-                      ) : (
-                        "Proceed to Payment"
-                      )}
-                    </button>
-                  )}
+
+                  <div className="form-group">
+                    <label htmlFor="message" className="form-label">Why are you applying for this course? (Optional)</label>
+                    <Textarea
+                      id="message"
+                      {...register("message")}
+                      placeholder="Why are you applying for this course?"
+                      className="form-textarea"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    {course.fees == 0 ? (
+                      <button type="submit" className="submit-button" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Submitting...
+                          </>
+                        ) : (
+                          "Submit Application"
+                        )}
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        className={`payment-button ${isSubmitting || paymentLoading ? 'loading' : ''}`}
+                        disabled={isSubmitting || paymentLoading}
+                      >
+                        {isSubmitting || paymentLoading ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            {paymentLoading ? "Redirecting to Payment..." : "Processing..."}
+                          </>
+                        ) : (
+                          "Proceed to Payment"
+                        )}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </form>
             </div>
           </div>
+
+          {/* Success Dialogs */}
           <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
             <DialogContent className="success-dialog">
               <div className="success-icon">
@@ -450,7 +614,7 @@ const ApplyCourse = () => {
                 <button
                   onClick={() => {
                     setIsSuccessDialogOpen(false);
-                    setShowDialog(true)
+                    setShowDialog(true);
                   }}
                   className="success-button"
                 >
@@ -459,6 +623,7 @@ const ApplyCourse = () => {
               </div>
             </DialogContent>
           </Dialog>
+
           <Dialog open={showDialog} onOpenChange={setShowDialog}>
             <DialogContent className="application-success-dialog">
               <DialogHeader>

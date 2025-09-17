@@ -728,6 +728,11 @@ header{
   border: none;
 }
 
+.navbar-brand>img {
+  height: 80px;
+  width: auto;
+}
+
 .mob-nav-search {
   display: none;
 }
@@ -1274,6 +1279,11 @@ color: #06038F;
   z-index: 10;
 }
 
+.footer .logo img {
+  height: 80px;
+  width: auto;
+}
+
 .footer-top {
   padding: 44px 0;
 }
@@ -1305,13 +1315,21 @@ color: #06038F;
 
 .footer-form .form-group {
   display: flex;
+  flex-direction: row;
   max-width: 424px;
+}
+
+.footer-form .form-group.newsletter-form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
 }
 
 /* Newsletter form styling to match the desired appearance */
 .newsletter-form {
-  display: flex;
+  display: flex !important;
   align-items: center;
+  flex-direction: row !important;
   gap: 0;
   max-width: 100%;
 }
@@ -2876,6 +2894,10 @@ margin-top: -2px;
   }
   .banner .main-img.home-banner-mob{
     display: block;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
   }
 	      .testimonial-car .row {
   max-width: 100%;
@@ -2900,6 +2922,8 @@ margin-top: -2px;
     /* background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
+    display: flex;
+    align-items: center;
   }
   .mouse-indi-wrap{
     display: none !important;
@@ -3139,7 +3163,8 @@ margin-top: -2px;
   }
 
   .navbar-brand>img {
-    max-width: 88px;
+    height: 80px;
+    width: auto;
   }
 
   .breadcrumb-section {
@@ -3378,7 +3403,7 @@ margin-top: -2px;
 
   .social-links {
     justify-content: start;
-    gap: 20px;
+    gap: 12px;
   }
 
   .footer-btm {
@@ -3412,6 +3437,27 @@ margin-top: -2px;
       font-size: 13px;
       padding: 8px 12px;
       min-width: 70px;
+    }
+
+    .social-links {
+      gap: 6px;
+    }
+
+    .social-links a {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 320px) {
+    .social-links {
+      gap: 4px;
+    }
+
+    .social-links a {
+      width: 28px;
+      height: 28px;
     }
   }
 
@@ -4458,6 +4504,15 @@ padding: 12px 20px;
 }
 
 @media (max-width: 480px) {
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+
   .error-number .gradient-text {
     font-size: 60px;
   }

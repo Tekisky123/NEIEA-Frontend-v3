@@ -21,7 +21,7 @@ import SecuritySection from "./SecuritySection";
 import ManageAdmins from "./ManageAdmins";
 import CourseSectionForInstitution from "./CourseSectionForInstitution";
 import WebsiteNavigationSection from "./WebsiteNavigationSection";
-import logoRemovedBg from "../../../../public/neia-logo.svg";
+import logoRemovedBg from "../../../assets/images/neia-primary-logo.svg";
 import ReferredBy from "./ReferredBy";
 import ManageLandingPages from "./ManageLandingPages";
 
