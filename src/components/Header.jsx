@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NeiPrimaryLogo from '../assets/images/neia-primary-logo.svg';
 import NeiSecondaryLogo from '../assets/images/neia-secondary-logo.svg';
@@ -6,8 +6,6 @@ import NeiSecondaryLogo from '../assets/images/neia-secondary-logo.svg';
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  
-  // Mobile navigation state management
   const [mobileNavState, setMobileNavState] = useState({
     about: false,
     ourWork: false,
@@ -15,10 +13,6 @@ const Header = () => {
     partners: false,
     donation: false,
     neiUsa: false,
-    workingModel: false,
-    blendedLearning: false,
-    mediaEvents: false,
-    education: false
   });
 
   const handleSearchToggle = () => {
@@ -34,56 +28,164 @@ const Header = () => {
     setShowSearch(false);
   };
 
-  // Mobile navigation toggle handler
   const toggleMobileNav = (section) => {
-    setMobileNavState(prev => ({
+    setMobileNavState((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+      openDropdowns.forEach((dropdown) => {
+        dropdown.classList.remove('show');
+      });
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <>
       <style>
         {`
-          /* Ensure submenus have the same background as main dropdowns */
+          .primary-header {
+            position: sticky !important;
+            top: 0;
+            left: 0;
+            background: #fff;
+            z-index: 1000;
+          }
+
+          /* Desktop dropdown styling */
           .dropdown-menu {
             background-color: white;
             border: 1px solid rgba(0, 0, 0, 0.15);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            border-radius: 0.25rem;
+            border-radius: 0.375rem;
             padding: 0.5rem 0;
             min-width: 200px;
+            position: absolute;
+            z-index: 1000;
+            margin-top: 0.125rem;
+            display: none;
           }
 
-          /* Style for submenu items */
+          @media (min-width: 992px) {
+            .nav-item.dropdown:hover > .dropdown-menu {
+              display: block !important;
+            }
+            .dropdown-submenu:hover > .dropdown-menu {
+              display: block !important;
+            }
+          }
+
+          @media (max-width: 991.98px) {
+            .dropdown-menu {
+              position: static;
+              display: none;
+              float: none;
+              width: auto;
+              margin-top: 0;
+              background-color: transparent;
+              border: 0;
+              box-shadow: none;
+            }
+            .dropdown-menu.show {
+              display: block;
+            }
+          }
+
+          .dropdown-submenu {
+            position: relative;
+          }
+
           .dropdown-submenu .dropdown-menu {
             background-color: white;
-            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.15);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.375rem;
             margin-left: 100%;
             top: 0;
             position: absolute;
             left: 0;
+            z-index: 1001;
+            display: none;
           }
 
-          /* Hover effect for submenu items */
-          .dropdown-submenu:hover > .dropdown-menu {
-            display: block;
-          }
-
-          /* Ensure submenu items are visible on hover */
           .dropdown-submenu > .dropdown-item {
             position: relative;
             padding-right: 2.5rem;
           }
 
-          /* Arrow indicator for submenu items */
           .dropdown-submenu > .dropdown-item::after {
             content: "›";
             position: absolute;
             right: 1rem;
             font-size: 0.8rem;
+          }
+
+          .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            text-decoration: none;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+          }
+
+          .dropdown-item:hover,
+          .dropdown-item:focus {
+            color: #06038F;
+            background-color: #f8f9fa;
+          }
+
+          .dropdown-item.active,
+          .dropdown-item:active {
+            color: #fff;
+            background-color: #06038F;
+          }
+
+          .dropdown-item:focus {
+            outline: 2px solid #06038F;
+            outline-offset: -2px;
+          }
+
+          .navbar {
+            transition: box-shadow 0.15s ease-in-out;
+          }
+
+          .nav-link {
+            transition: color 0.15s ease-in-out;
+            font-weight: 500;
+          }
+
+          .nav-link:hover,
+          .nav-link:focus {
+            color: #06038F !important;
+          }
+
+          .dropdown-toggle::after {
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
           }
 
           /* Mobile Navigation Styles */
@@ -166,17 +268,15 @@ const Header = () => {
       <header className="primary-header">
         <nav className="navbar navbar-expand-lg">
           <div className="container">
-            {/* Brand/Logo Section */}
             <div className="navbar-brand-wrapper d-flex align-items-center">
               <Link className="navbar-brand primary-logo" to="/">
-                <img src={NeiPrimaryLogo} alt="Indiaspora Logo" height={"80px"} />
+                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height="80px" />
               </Link>
               <Link className="navbar-brand" to="/">
-                <img src={NeiSecondaryLogo} height={"80px"} alt="Indiaspora Secondary Logo" />
+                <img src={NeiSecondaryLogo} height="80px" alt="NEIEA Secondary Logo" />
               </Link>
             </div>
 
-            {/* Desktop Navigation Menu */}
             <div className="navbar-collapse d-none d-lg-flex">
               <ul className="navbar-nav me-auto">
                 {/* About Dropdown */}
@@ -184,29 +284,14 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
+                    aria-haspopup="true"
                     title="About"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     About
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to="/about-us/introduction" className="dropdown-item" title="Introduction">
                         Introduction
@@ -218,55 +303,15 @@ const Header = () => {
                       </Link>
                     </li>
                     <li className="dropdown-submenu">
-                      <Link
-                        to="#"
-                        className="dropdown-item dropdown-toggle"
-                        title="Our Working Model"
-                        onMouseOver={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = '';
-                        }}
-                      >
+                      <Link to="#" className="dropdown-item dropdown-toggle" title="Our Working Model">
                         Our Working Model
                       </Link>
-                      <ul
-                        className="dropdown-menu"
-                        onMouseOver={(e) => {
-                          e.currentTarget.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          e.currentTarget.style.display = '';
-                        }}
-                      >
+                      <ul className="dropdown-menu">
                         <li className="dropdown-submenu">
-                          <Link
-                            to="#"
-                            className="dropdown-item dropdown-toggle"
-                            title="Blended Learning Model"
-                            onMouseOver={(e) => {
-                              const submenu = e.currentTarget.nextElementSibling;
-                              if (submenu) submenu.style.display = 'block';
-                            }}
-                            onMouseOut={(e) => {
-                              const submenu = e.currentTarget.nextElementSibling;
-                              if (submenu) submenu.style.display = '';
-                            }}
-                          >
+                          <Link to="#" className="dropdown-item dropdown-toggle" title="Blended Learning Model">
                             Blended Learning Model
                           </Link>
-                          <ul
-                            className="dropdown-menu"
-                            onMouseOver={(e) => {
-                              e.currentTarget.style.display = 'block';
-                            }}
-                            onMouseOut={(e) => {
-                              e.currentTarget.style.display = '';
-                            }}
-                          >
+                          <ul className="dropdown-menu">
                             <li>
                               <Link
                                 to="/about-us/working-model/blended-learning/discourse-oriented-pedagogy"
@@ -313,30 +358,10 @@ const Header = () => {
                       </Link>
                     </li>
                     <li className="dropdown-submenu">
-                      <Link
-                        to="#"
-                        className="dropdown-item dropdown-toggle"
-                        title="Media and Events"
-                        onMouseOver={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = '';
-                        }}
-                      >
+                      <Link to="#" className="dropdown-item dropdown-toggle" title="Media and Events">
                         Media and Events
                       </Link>
-                      <ul
-                        className="dropdown-menu"
-                        onMouseOver={(e) => {
-                          e.currentTarget.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          e.currentTarget.style.display = '';
-                        }}
-                      >
+                      <ul className="dropdown-menu">
                         <li>
                           <Link to="/about-us/media-events/gallery" className="dropdown-item" title="Gallery">
                             Gallery
@@ -362,54 +387,18 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
                     title="Our Work"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     Our Work
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li className="dropdown-submenu">
-                      <Link
-                        to="#"
-                        className="dropdown-item dropdown-toggle"
-                        title="Education"
-                        onMouseOver={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          const submenu = e.currentTarget.nextElementSibling;
-                          if (submenu) submenu.style.display = '';
-                        }}
-                      >
+                      <Link to="#" className="dropdown-item dropdown-toggle" title="Education">
                         Education
                       </Link>
-                      <ul
-                        className="dropdown-menu"
-                        onMouseOver={(e) => {
-                          e.currentTarget.style.display = 'block';
-                        }}
-                        onMouseOut={(e) => {
-                          e.currentTarget.style.display = '';
-                        }}
-                      >
+                      <ul className="dropdown-menu">
                         <li>
                           <Link
                             to="/our-works/education/elementary-middle-school"
@@ -420,11 +409,7 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
-                            to="/our-works/education/slum-children"
-                            className="dropdown-item"
-                            title="Slum children"
-                          >
+                          <Link to="/our-works/education/slum-children" className="dropdown-item" title="Slum children">
                             Slum children
                           </Link>
                         </li>
@@ -490,29 +475,13 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
                     title="Courses"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     Courses
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to="/courses/english" className="dropdown-item" title="English Courses">
                         English Courses
@@ -561,29 +530,13 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
                     title="Partners"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     Partners
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to="/partners/join" className="dropdown-item" title="Join NEIEA as a Partner">
                         Join NEIEA as a Partner
@@ -607,29 +560,13 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
                     title="Donation"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     Donation
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to="/donation/be-partner" className="dropdown-item" title="Be a Partner">
                         Be a Partner
@@ -653,29 +590,13 @@ const Header = () => {
                   <a
                     href="#"
                     className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
+                    role="button"
                     aria-expanded="false"
                     title="NEI USA"
-                    onMouseOver={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      const dropdown = e.currentTarget.nextElementSibling;
-                      if (dropdown) dropdown.style.display = '';
-                    }}
                   >
                     NEI USA
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.display = 'block';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.display = '';
-                    }}
-                  >
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to="/nei-usa/introduction" className="dropdown-item" title="Introduction">
                         Introduction
@@ -685,20 +606,24 @@ const Header = () => {
                 </li>
               </ul>
 
-              {/* Donation Button (Desktop) */}
-              <div className=" d-none d-lg-block">
+              <div className="d-none d-lg-block">
                 <Link to="/donate" className="btn donate-btn btn-yellow donate-button">
                   DONATE
                 </Link>
               </div>
             </div>
 
-            {/* Mobile Controls */}
             <div className="d-flex align-items-center d-lg-none">
               <Link to="/donate" className="btn donate-btn btn-yellow donate-button me-2">
                 DONATE
               </Link>
-              <button className="navbar-toggler mob-nav-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <button
+                className="navbar-toggler mob-nav-cta"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
                 <span className="navbar-toggler-icon"></span>
               </button>
             </div>
@@ -710,7 +635,7 @@ const Header = () => {
           <div className="offcanvas-header">
             <div className="navbar-brand-wrapper d-flex align-items-center">
               <Link className="navbar-brand primary-logo" to="/">
-                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height={"50px"} />
+                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height="50px" />
               </Link>
             </div>
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -725,8 +650,16 @@ const Header = () => {
                     <span className={`mobile-nav-arrow ${mobileNavState.about ? 'rotated' : ''}`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.about ? 'show' : ''}`}>
-                    <li><Link to="/about-us/introduction" className="mobile-nav-link">Introduction</Link></li>
-                    <li><Link to="/about-us/leadership" className="mobile-nav-link">Leadership</Link></li>
+                    <li>
+                      <Link to="/about-us/introduction" className="mobile-nav-link">
+                        Introduction
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us/leadership" className="mobile-nav-link">
+                        Leadership
+                      </Link>
+                    </li>
                     <li className="mobile-nav-submenu-item">
                       <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('workingModel')}>
                         <span className="mobile-nav-submenu-title">Our Working Model</span>
@@ -739,29 +672,68 @@ const Header = () => {
                             <span className={`mobile-nav-submenu-arrow ${mobileNavState.blendedLearning ? 'rotated' : ''}`}>▼</span>
                           </div>
                           <ul className={`mobile-nav-submenu-level3 ${mobileNavState.blendedLearning ? 'show' : ''}`}>
-                            <li><Link to="/about-us/working-model/blended-learning/discourse-oriented-pedagogy" className="mobile-nav-link">Discourse Oriented Pedagogy</Link></li>
-                            <li><Link to="/about-us/working-model/blended-learning/application-of-technology" className="mobile-nav-link">Application Of Technology</Link></li>
-                        </ul>
-                      </li>
-                        <li><Link to="/about-us/working-model/partnering-institutions" className="mobile-nav-link">Partnering with Educational Institutions</Link></li>
-                        <li><Link to="/about-us/working-model/remote-learning" className="mobile-nav-link">Remote Individual Learning</Link></li>
-                    </ul>
-                  </li>
-                    <li><Link to="/about-us/testimonials" className="mobile-nav-link">Testimonials & Featured stories</Link></li>
+                            <li>
+                              <Link
+                                to="/about-us/working-model/blended-learning/discourse-oriented-pedagogy"
+                                className="mobile-nav-link"
+                              >
+                                Discourse Oriented Pedagogy
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                to="/about-us/working-model/blended-learning/application-of-technology"
+                                className="mobile-nav-link"
+                              >
+                                Application Of Technology
+                              </Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <Link to="/about-us/working-model/partnering-institutions" className="mobile-nav-link">
+                            Partnering with Educational Institutions
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/about-us/working-model/remote-learning" className="mobile-nav-link">
+                            Remote Individual Learning
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/about-us/testimonials" className="mobile-nav-link">
+                        Testimonials & Featured stories
+                      </Link>
+                    </li>
                     <li className="mobile-nav-submenu-item">
                       <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('mediaEvents')}>
                         <span className="mobile-nav-submenu-title">Media and Events</span>
                         <span className={`mobile-nav-submenu-arrow ${mobileNavState.mediaEvents ? 'rotated' : ''}`}>▼</span>
                       </div>
                       <ul className={`mobile-nav-submenu-level2 ${mobileNavState.mediaEvents ? 'show' : ''}`}>
-                        <li><Link to="/about-us/media-events/gallery" className="mobile-nav-link">Gallery</Link></li>
-                    </ul>
-                  </li>
-                    <li><Link to="/about-us/reports-financials" className="mobile-nav-link">Reports and Financials</Link></li>
-                    <li><Link to="/about-us/contact" className="mobile-nav-link">Contact us</Link></li>
-                </ul>
+                        <li>
+                          <Link to="/about-us/media-events/gallery" className="mobile-nav-link">
+                            Gallery
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/about-us/reports-financials" className="mobile-nav-link">
+                        Reports and Financials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us/contact" className="mobile-nav-link">
+                        Contact us
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
+
               {/* Our Work Section */}
               <li className="nav-item">
                 <div className="mobile-nav-section">
@@ -776,19 +748,59 @@ const Header = () => {
                         <span className={`mobile-nav-submenu-arrow ${mobileNavState.education ? 'rotated' : ''}`}>▼</span>
                       </div>
                       <ul className={`mobile-nav-submenu-level2 ${mobileNavState.education ? 'show' : ''}`}>
-                        <li><Link to="/our-works/education/elementary-middle-school" className="mobile-nav-link">Elementary & Middle School</Link></li>
-                        <li><Link to="/our-works/education/slum-children" className="mobile-nav-link">Slum children</Link></li>
-                        <li><Link to="/our-works/education/public-government-school" className="mobile-nav-link">Public (Government) School</Link></li>
-                        <li><Link to="/our-works/education/girls-education" className="mobile-nav-link">Girl's Education</Link></li>
-                        <li><Link to="/our-works/education/out-of-school-dropout" className="mobile-nav-link">Out of school / School Dropout</Link></li>
-                        <li><Link to="/our-works/education/madrasa" className="mobile-nav-link">Madrasa</Link></li>
-                    </ul>
-                  </li>
-                    <li><Link to="/our-works/teachers-training" className="mobile-nav-link">Teachers Training</Link></li>
-                    <li><Link to="/our-works/skills-training" className="mobile-nav-link">Skills Training</Link></li>
-                    <li><Link to="/our-works/adult-education" className="mobile-nav-link">Adult Education</Link></li>
-                    <li><Link to="/our-works/global-education" className="mobile-nav-link">Global Education</Link></li>
-                </ul>
+                        <li>
+                          <Link to="/our-works/education/elementary-middle-school" className="mobile-nav-link">
+                            Elementary & Middle School
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/slum-children" className="mobile-nav-link">
+                            Slum children
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/public-government-school" className="mobile-nav-link">
+                            Public (Government) School
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/girls-education" className="mobile-nav-link">
+                            Girl's Education
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/out-of-school-dropout" className="mobile-nav-link">
+                            Out of school / School Dropout
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/education/madrasa" className="mobile-nav-link">
+                            Madrasa
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to="/our-works/teachers-training" className="mobile-nav-link">
+                        Teachers Training
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/skills-training" className="mobile-nav-link">
+                        Skills Training
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/adult-education" className="mobile-nav-link">
+                        Adult Education
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/our-works/global-education" className="mobile-nav-link">
+                        Global Education
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
 
@@ -800,15 +812,47 @@ const Header = () => {
                     <span className={`mobile-nav-arrow ${mobileNavState.courses ? 'rotated' : ''}`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.courses ? 'show' : ''}`}>
-                    <li><Link to="/courses/english" className="mobile-nav-link">English Courses</Link></li>
-                    <li><Link to="/courses/math" className="mobile-nav-link">Math Courses</Link></li>
-                    <li><Link to="/courses/science" className="mobile-nav-link">Science Courses</Link></li>
-                    <li><Link to="/courses/social-science" className="mobile-nav-link">Social Science Courses</Link></li>
-                    <li><Link to="/courses/technical" className="mobile-nav-link">Technical Courses</Link></li>
-                    <li><Link to="/courses/financial-literacy" className="mobile-nav-link">Financial & Literacy Courses</Link></li>
-                    <li><Link to="/courses/nios" className="mobile-nav-link">NIOS Courses</Link></li>
-                    <li><Link to="/courses/cbse" className="mobile-nav-link">CBSE Courses</Link></li>
-                </ul>
+                    <li>
+                      <Link to="/courses/english" className="mobile-nav-link">
+                        English Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/math" className="mobile-nav-link">
+                        Math Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/science" className="mobile-nav-link">
+                        Science Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/social-science" className="mobile-nav-link">
+                        Social Science Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/technical" className="mobile-nav-link">
+                        Technical Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/financial-literacy" className="mobile-nav-link">
+                        Financial & Literacy Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/nios" className="mobile-nav-link">
+                        NIOS Courses
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/courses/cbse" className="mobile-nav-link">
+                        CBSE Courses
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
 
@@ -820,10 +864,22 @@ const Header = () => {
                     <span className={`mobile-nav-arrow ${mobileNavState.partners ? 'rotated' : ''}`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.partners ? 'show' : ''}`}>
-                    <li><Link to="/partners/join" className="mobile-nav-link">Join NEIEA as a Partner</Link></li>
-                    <li><Link to="/partners/institutions" className="mobile-nav-link">Partnering Institutions</Link></li>
-                    <li><Link to="/partners/global" className="mobile-nav-link">Global Partners</Link></li>
-                </ul>
+                    <li>
+                      <Link to="/partners/join" className="mobile-nav-link">
+                        Join NEIEA as a Partner
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/partners/institutions" className="mobile-nav-link">
+                        Partnering Institutions
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/partners/global" className="mobile-nav-link">
+                        Global Partners
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
 
@@ -835,10 +891,22 @@ const Header = () => {
                     <span className={`mobile-nav-arrow ${mobileNavState.donation ? 'rotated' : ''}`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.donation ? 'show' : ''}`}>
-                    <li><Link to="/donation/be-partner" className="mobile-nav-link">Be a Partner</Link></li>
-                    <li><Link to="/donation/volunteer" className="mobile-nav-link">Volunteer</Link></li>
-                    <li><Link to="/donate" className="mobile-nav-link">Donate</Link></li>
-                </ul>
+                    <li>
+                      <Link to="/donation/be-partner" className="mobile-nav-link">
+                        Be a Partner
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/donation/volunteer" className="mobile-nav-link">
+                        Volunteer
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/donate" className="mobile-nav-link">
+                        Donate
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
 
@@ -850,8 +918,12 @@ const Header = () => {
                     <span className={`mobile-nav-arrow ${mobileNavState.neiUsa ? 'rotated' : ''}`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.neiUsa ? 'show' : ''}`}>
-                    <li><Link to="/nei-usa/introduction" className="mobile-nav-link">Introduction</Link></li>
-                </ul>
+                    <li>
+                      <Link to="/nei-usa/introduction" className="mobile-nav-link">
+                        Introduction
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </li>
             </ul>
@@ -862,9 +934,10 @@ const Header = () => {
         <div className={`header-search-wrp ${showSearch ? 'show' : ''}`}>
           <form action="#" className="header-search" role="search" onSubmit={handleSearchSubmit}>
             <div className="container">
-              <button type="button" id="close-search" onClick={closeSearch}>Close
+              <button type="button" id="close-search" onClick={closeSearch}>
+                Close
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.53384 24.4107L7.58984 23.4667L15.0565 16L7.58984 8.53336L8.53384 7.58936L16.0005 15.056L23.4672 7.58936L24.4112 8.53336L16.9445 16L24.4112 23.4667L23.4672 24.4107L16.0005 16.944L8.53384 24.4107Z" fill="#464646"></path>
+                  <path d="M8.53384 24.4107L7.58984 23.4667L15.0565 16L7.58984 8.53336L8.53384 7.58936L16.0005 15.056L23.4672 7.58936L24.4112 8.53336L16.9445 16L24.4112 23.4667L23.4672 24.4107L16.0005 16.944L8.53384 24.4107Z" fill="#464646" />
                 </svg>
               </button>
               <div className="form">
@@ -880,9 +953,9 @@ const Header = () => {
                 />
                 <button title="submit" type="submit">
                   <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0.5" y="0.5" width="41" height="41" rx="20.5" stroke="#06038F"></rect>
-                    <path d="M20.9219 28L28.0005 21L20.9219 14" stroke="#06038F" strokeWidth="1.5"></path>
-                    <path d="M13.8438 21H28.0011" stroke="#06038F" strokeWidth="1.5"></path>
+                    <rect x="0.5" y="0.5" width="41" height="41" rx="20.5" stroke="#06038F" />
+                    <path d="M20.9219 28L28.0005 21L20.9219 14" stroke="#06038F" strokeWidth="1.5" />
+                    <path d="M13.8438 21H28.0011" stroke="#06038F" strokeWidth="1.5" />
                   </svg>
                 </button>
               </div>
@@ -894,4 +967,4 @@ const Header = () => {
   );
 };
 
-export default Header;  
+export default Header;
