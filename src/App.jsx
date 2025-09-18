@@ -12,7 +12,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Introduction from "./pages/introduction.jsx";
+import Introduction from "./pages/Introduction.jsx";
 import Leadership from "./pages/Leadership";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
