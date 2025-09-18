@@ -2,40 +2,55 @@ import React from 'react';
 import PageTemplate from '../components/PageTemplate';
 
 const DiscourseOrientedPedagogy = () => {
-  const principles = [
+  const keyFeatures = [
     {
       id: 1,
-      title: "Student-Centered Dialogue",
-      description: "Encouraging students to actively participate in classroom discussions and express their thoughts and ideas freely.",
-      icon: "💬"
+      title: "Real-World Triggers",
+      description: "DOP uses images, videos, texts, situations, or objects related to the real world to spark curiosity and initiate discussion related to the curriculum. These triggers help students connect learning to everyday life, making classroom interaction more meaningful and engaging.",
+      subtitle: "Lessons begin with relatable prompts—images, videos, questions, headlines—that stimulate thinking.",
+      icon: "🌍",
+      image: "/assets/images/DOP_Images/Picture1.png"
     },
     {
       id: 2,
-      title: "Critical Thinking Development",
-      description: "Fostering analytical skills through structured debates, questioning techniques, and problem-solving activities.",
-      icon: "🧠"
+      title: "Critical Thinking",
+      description: "DOP promotes critical thinking by encouraging students to analyse and express their ideas rather than just memorise and regurgitate textbook answers. Students are provided with real-life scenarios and open-ended questions to think critically and express their viewpoints.",
+      subtitle: "Here is an example demonstrating how students engage in debates sparked by the mentor teacher, encouraging critical thinking rather than rote memorisation of answers.",
+      icon: "🧠",
+      image: "/assets/images/DOP_Images/Picture2.png"
     },
     {
       id: 3,
       title: "Collaborative Learning",
-      description: "Promoting group discussions, peer-to-peer learning, and collective knowledge construction.",
-      icon: "🤝"
+      description: "In DOP, students learn by thinking, speaking, and problem-solving together. Through group discussions, pair work, and shared tasks, learners co-construct answers, listen to diverse viewpoints, and strengthen both communication and critical thinking skills.",
+      subtitle: "",
+      icon: "🤝",
+      image: "/assets/images/DOP_Images/Picture3.png"
     },
     {
       id: 4,
-      title: "Reflective Practice",
-      description: "Encouraging students to reflect on their learning process and connect new knowledge with prior experiences.",
-      icon: "🪞"
+      title: "Integrated Skills",
+      description: "DOP promotes the natural integration of listening, speaking, reading, and writing. Rather than teaching these skills in isolation, DOP engages learners in real-life tasks that develop language holistically, supporting deeper understanding and long-term retention.",
+      subtitle: "Listening, speaking, reading, and writing are taught together for deeper learning.",
+      icon: "🔗",
+      image: "/assets/images/DOP_Images/Picture4.png"
+    },
+    {
+      id: 5,
+      title: "Multilingual Scaffolding",
+      description: "DOP recognises learners' home languages as a valuable resource. By allowing strategic use of mother tongues alongside English, teachers create a supportive bridge that helps students grasp complex ideas and gain confidence in expressing themselves in a new language.",
+      subtitle: "",
+      icon: "🌐",
+      image: "/assets/images/DOP_Images/Picture5.png"
+    },
+    {
+      id: 6,
+      title: "Critical Reflection",
+      description: "DOP creates space for learners to reflect on their thought processes, learning choices, and peer interactions through classroom feedback, mentor guidance, and peer suggestions. This encourages them to develop self-awareness, take ownership of their learning, and grow into independent, reflective thinkers.",
+      subtitle: "",
+      icon: "🪞",
+      image: "/assets/images/DOP_Images/Picture6.png"
     }
-  ];
-
-  const strategies = [
-    "Socratic Questioning",
-    "Think-Pair-Share Activities",
-    "Structured Academic Discussions",
-    "Problem-Based Learning",
-    "Peer Review Sessions",
-    "Reflective Journaling"
   ];
 
   return (
@@ -46,337 +61,508 @@ const DiscourseOrientedPedagogy = () => {
         { name: "Blended Learning Model", link: null },
         { name: "Discourse Oriented Pedagogy", link: null }
       ]}
-      title="Introduction To Discourse Oriented Pedagogy (DOP)"
-      subtitle="Facilitating Discourse Construction In Second Language"
-      description="In the ever-evolving landscape of education, NEIEA has taken a progressive step by incorporating discourse-oriented pedagogy into the syllabus of secondary examinations offered by NIOS."
-      heroImage="/assets/images/resized_classroom_image.png"
+      title="Discourse-Oriented Pedagogy (DOP)"
+      subtitle="By Syed Danish Ali"
+      description="A transformative approach to learning developed by Dr. K. N. Anandan - Empowering learners through communication, creativity, and critical thinking."
+      heroImage="/assets/images/DOP_Images/Picture7.png"
     >
-      {/* Introduction */}
-      <div className="row mb-5">
-        <div className="col-lg-10 mx-auto">
-          <p 
+      {/* Introduction Section */}
+      <div className="row mb-4">
+        <div className="col-lg-11 mx-auto">
+          <div 
             style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "30px",
-              textAlign: "justify"
+              backgroundColor: "#ffffff", 
+              padding: "25px", 
+              borderRadius: "12px",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+              border: "1px solid #e9ecef"
             }}
           >
-            Discourse-oriented pedagogy emphasizes interactive and collaborative learning through meaningful discussions, debates, and exchanges of ideas. Across subjects like English, mathematics, social science, and science, NEIEA encourages teachers to design activities that foster critical thinking, problem-solving, and effective communication among students.
-          </p>
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "30px",
-              textAlign: "justify"
-            }}
-          >
-            To achieve this, trigger activities with visuals are used to stimulate learners' thinking process, comprehension is enhanced through pictures and videos, and brainstorming sessions promote collaborative learning. This approach creates an interactive environment where students actively engage with peers, instructors, and participate in discussions.
-          </p>
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0",
-              textAlign: "justify"
-            }}
-          >
-            The integration of discourse-oriented pedagogy has numerous benefits on students' learning outcomes. It enhances their communication skills, enabling them to express ideas coherently and effectively. The collaborative learning environment nurtures teamwork, empathy, and respect for diverse viewpoints. Moreover, students develop critical thinking abilities, analyzing information, questioning assumptions, and forming well-reasoned opinions. Ultimately, this approach empowers students to think independently, make informed decisions, and become active contributors to society.
-          </p>
+            <h2 
+              style={{ 
+                fontSize: "28px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "15px",
+                textAlign: "center",
+                lineHeight: "1.3"
+              }}
+            >
+              Introduction to Discourse-Oriented Pedagogy (DOP)
+            </h2>
+            <div 
+              style={{
+                width: "60px",
+                height: "3px",
+                backgroundColor: "#06038F",
+                margin: "0 auto 20px",
+                borderRadius: "2px"
+              }}
+            ></div>
+            <div className="row align-items-center">
+              <div className="col-lg-8">
+                <p 
+                  style={{ 
+                    fontSize: "18px", 
+                    lineHeight: "1.6", 
+                    color: "#2c3e50",
+                    marginBottom: "15px",
+                    textAlign: "left",
+                    fontWeight: "400"
+                  }}
+                >
+                  <strong style={{ color: "#06038F" }}>DOP is a progressive, learner-centred teaching model</strong> aimed at enhancing the educational experience by emphasising the importance of discourse as a dynamic tool for critical thinking and self-expression across all subjects.
+                </p>
+                <p 
+                  style={{ 
+                    fontSize: "18px", 
+                    lineHeight: "1.6", 
+                    color: "#2c3e50",
+                    marginBottom: "15px",
+                    textAlign: "left",
+                    fontWeight: "400"
+                  }}
+                >
+                  Unlike traditional methods that often prioritise rote memorisation of facts or formulas, DOP encourages students to engage with the subject matter in meaningful ways. This engagement includes expressing their ideas and opinions clearly, engaging in scientific argumentation, participating in mathematical problem-solving discussions, and debating historical themes.
+                </p>
+                <p 
+                  style={{ 
+                    fontSize: "18px", 
+                    lineHeight: "1.6", 
+                    color: "#2c3e50",
+                    marginBottom: "0",
+                    textAlign: "left",
+                    fontWeight: "400"
+                  }}
+                >
+                  Ultimately, DOP equips learners with essential communication skills that are vital for success both in academic settings and in everyday interactions. <strong style={{ color: "#06038F" }}>Developed by Dr. K. N. Anandan</strong>, one of the co-founders of NEIEA, this transformative approach to learning fosters deeper understanding, critical thinking and collaboration among students.
+                </p>
+              </div>
+              <div className="col-lg-4">
+                <div className="text-center">
+                  <img 
+                    src="/assets/images/DOP_Images/Picture8.png" 
+                    alt="DOP Introduction" 
+                    className="img-fluid rounded shadow-sm"
+                    style={{ 
+                      maxHeight: "250px", 
+                      width: "auto",
+                      objectFit: "cover"
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Dr. K.N. Anandan's Quote */}
-      <div className="row mb-5">
+      <div className="row mb-4">
         <div className="col-12">
           <div 
             className="card border-0 shadow-sm"
             style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "40px"
+              backgroundColor: "#06038F", 
+              borderRadius: "12px", 
+              padding: "25px",
+              color: "white"
             }}
           >
             <div className="row align-items-center">
-              <div className="col-lg-3 text-center mb-4 mb-lg-0">
+              <div className="col-lg-3 text-center mb-3 mb-lg-0">
                 <img
-                  src="/assets/images/Leader2.jpeg"
-                  alt="Dr.K.N, Anandan"
+                  src="/assets/images/DOP_Images/Picture2.png"
+                  alt="Dr. K.N. Anandan"
                   className="rounded-circle shadow-lg"
-                  style={{ width: "150px", height: "150px", objectFit: "cover" }}
+                  style={{ 
+                    width: "120px", 
+                    height: "120px", 
+                    objectFit: "cover",
+                    border: "3px solid rgba(255,255,255,0.3)"
+                  }}
                 />
                 <h5 
                   style={{ 
-                    color: "#212529", 
+                    color: "#ffffff", 
                     fontWeight: "600", 
                     marginTop: "15px",
                     marginBottom: "5px"
                   }}
                 >
-                  Dr.K.N, Anandan
+                  Dr. K.N. Anandan
                 </h5>
-                <p style={{ color: "#6c757d", fontSize: "14px", margin: "0" }}>
-                  Co-Founder & Guru
+                <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", margin: "0" }}>
+                  Co-Founder & Educational Visionary
                 </p>
               </div>
               <div className="col-lg-9">
                 <blockquote 
                   style={{ 
                     fontSize: "18px", 
-                    lineHeight: "1.7", 
-                    color: "#495057",
-                    fontStyle: "italic",
-                    marginBottom: "20px",
-                    borderLeft: "4px solid #06038F",
-                    paddingLeft: "20px"
-                  }}
-                >
-                  "I feel sad and even annoyed when I hear teachers and parents complaining about the poor performance standards of students in English. 'This is unfair,' I would say to myself. 'Have we ever asked those kids to communicate their ideas? 'No. All what we have done is teach them bits and fragments of English in terms of discrete sounds, words and sentences"."
-                </blockquote>
-                <p 
-                  style={{ 
-                    color: "#6c757d", 
                     lineHeight: "1.6", 
-                    margin: "0",
-                    fontSize: "16px"
+                    color: "#ffffff",
+                    fontStyle: "italic",
+                    marginBottom: "0",
+                    borderLeft: "4px solid rgba(255,255,255,0.3)",
+                    paddingLeft: "20px",
+                    opacity: "0.95"
                   }}
                 >
-                  Inspired from his approach, we encourage students to use English in real life situations by engaging them in conversations and guiding them express their ideas in writing, our motive being able to move beyond rote memorization.
-                </p>
+                  "I feel sad and even annoyed when I hear teachers and parents complaining about the poor performance standards of students in English. 'This is unfair,' I would say to myself. 'Have we ever asked those kids to communicate their ideas? 'No. All that we have done is teach them bits and fragments of English in terms of discrete sounds, words and sentences"."
+                </blockquote>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Case Studies */}
-      <div className="row mb-5">
+      {/* Key Features Section */}
+      <div className="row mb-4">
         <div className="col-12">
-          <h3 
+          <h2 
             style={{ 
-              fontSize: "32px", 
+              fontSize: "30px", 
               fontWeight: "700", 
               color: "#212529", 
-              marginBottom: "40px",
+              marginBottom: "25px",
               textAlign: "center"
             }}
           >
-            Case Studies
-          </h3>
+            Key Features of DOP
+          </h2>
         </div>
       </div>
 
-      <div className="row g-4 mb-5">
-        {/* TMRIES PROJECT */}
-        <div className="col-lg-6">
-          <div 
-            className="card h-100 border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div className="mb-3">
-              <span 
-                style={{ 
-                  backgroundColor: "#06038F", 
-                  color: "white", 
-                  padding: "4px 12px", 
-                  borderRadius: "15px", 
-                  fontSize: "12px", 
-                  fontWeight: "600" 
-                }}
-              >
-                HYDERABAD PROJECT
-              </span>
-            </div>
-            <h4 
+      {/* Key Features Grid */}
+      <div className="row g-3 mb-4">
+        {keyFeatures.map((feature, index) => (
+          <div key={feature.id} className="col-12">
+            <div 
+              className="card border-0 shadow-sm"
               style={{ 
-                color: "#212529", 
-                fontWeight: "600", 
-                marginBottom: "15px" 
+                borderRadius: "12px", 
+                padding: "20px",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e9ecef",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
               }}
             >
-              TMRIES PROJECT IN HYDERABAD
-            </h4>
-            <p 
-              style={{ 
-                color: "#6c757d", 
-                lineHeight: "1.6", 
-                margin: "0",
-                fontSize: "14px",
-                textAlign: "justify"
-              }}
-            >
-              Operating various residential schools and colleges in Hyderabad, TMRIES offers a conducive environment for students' academic and overall development, especially those from economically disadvantaged backgrounds. TMRIES prepares students for higher education and future careers. Supported and funded by the Telangana state government, TMRIES focuses on catering to students from diverse minority communities and aims to bridge educational disparities while promoting social inclusion.
-            </p>
-          </div>
-        </div>
-
-        {/* PROJECT SHAHEEN */}
-        <div className="col-lg-6">
-          <div 
-            className="card h-100 border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div className="mb-3">
-              <span 
-                style={{ 
-                  backgroundColor: "#28a745", 
-                  color: "white", 
-                  padding: "4px 12px", 
-                  borderRadius: "15px", 
-                  fontSize: "12px", 
-                  fontWeight: "600" 
-                }}
-              >
-                KARNATAKA PROJECT
-              </span>
-            </div>
-            <h4 
-              style={{ 
-                color: "#212529", 
-                fontWeight: "600", 
-                marginBottom: "15px" 
-              }}
-            >
-              PROJECT SHAHEEN
-            </h4>
-            <p 
-              style={{ 
-                color: "#6c757d", 
-                lineHeight: "1.6", 
-                margin: "0",
-                fontSize: "14px",
-                textAlign: "justify"
-              }}
-            >
-              Shaheen Group of Institutions, founded by Abdul Qadeer in Bidar, Karnataka, is a renowned minority educational conglomerate with schools, PU colleges, and graduation colleges spread across 13 states in India. The project focuses on academic excellence but also offers coaching for competitive exams like NEET, JEE Mains, JEE Advanced, UPSC, and more. The project has achieved impressive success where students have been gaining admissions to esteemed medical colleges, including AIIMS Delhi.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Featured Videos */}
-      <div className="row mt-5 mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "20px",
-              textAlign: "center"
-            }}
-          >
-            Featured Videos
-          </h3>
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              color: "#6c757d", 
-              textAlign: "center",
-              marginBottom: "40px",
-              maxWidth: "600px",
-              margin: "0 auto 40px"
-            }}
-          >
-            Highlighted moments that capture the essence of our mission and the transformation happening in communities worldwide.
-          </p>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-12">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", overflow: "hidden" }}
-          >
-            <div className="row g-0">
-              <div className="col-md-6">
-                <div style={{ height: "300px", overflow: "hidden", position: "relative" }}>
-                  <img
-                    src="/assets/images/video-thumbnail.jpg"
-                    alt="NEIEA's Way of Learning"
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                  <div 
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      backgroundColor: "rgba(6, 3, 143, 0.9)",
-                      borderRadius: "50%",
-                      width: "80px",
-                      height: "80px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer"
-                    }}
-                  >
-                    <svg width="30" height="30" fill="white" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="card-body p-4 h-100 d-flex flex-column justify-content-center">
-                  <div className="mb-3">
-                    <span 
-                      style={{ 
-                        backgroundColor: "#fd7e14", 
-                        color: "white", 
-                        padding: "4px 12px", 
-                        borderRadius: "12px", 
-                        fontSize: "12px", 
-                        fontWeight: "600",
-                        textTransform: "uppercase"
+              <div className={`row align-items-center ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+                <div className="col-lg-8">
+                  <div className="d-flex align-items-start mb-3">
+                    <div 
+                      style={{
+                        backgroundColor: "#06038F",
+                        color: "white",
+                        borderRadius: "8px",
+                        width: "40px",
+                        height: "40px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "20px",
+                        marginRight: "15px",
+                        flexShrink: 0
                       }}
                     >
-                      Featured Video
-                    </span>
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h4 
+                        style={{ 
+                          color: "#212529", 
+                          fontWeight: "700", 
+                          marginBottom: "10px",
+                          fontSize: "22px",
+                          lineHeight: "1.3"
+                        }}
+                      >
+                        {feature.title}
+                      </h4>
+                    </div>
                   </div>
-                  <h4 
-                    style={{ 
-                      color: "#212529", 
-                      fontWeight: "600", 
-                      marginBottom: "15px",
-                      fontSize: "24px"
-                    }}
-                  >
-                    NEIEA's Way of Learning: Discourse-Oriented Pedagogy in Action
-                  </h4>
                   <p 
                     style={{ 
-                      color: "#6c757d", 
+                      color: "#2c3e50", 
                       lineHeight: "1.6", 
+                      marginBottom: feature.subtitle ? "15px" : "0",
+                      textAlign: "left",
                       fontSize: "16px",
-                      marginBottom: "20px"
+                      fontWeight: "400"
                     }}
                   >
-                    Watch how our innovative Discourse-Oriented Pedagogy transforms traditional classroom learning into dynamic, interactive experiences that empower students to think critically and communicate effectively.
+                    {feature.description}
                   </p>
-                  <button
-                    className="btn btn-primary"
-                    style={{
-                      backgroundColor: "#06038F",
-                      borderColor: "#06038F",
-                      padding: "10px 25px",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      borderRadius: "20px",
-                      alignSelf: "flex-start"
-                    }}
-                  >
-                    Watch Full Video
-                  </button>
+                  {feature.subtitle && (
+                    <div 
+                      style={{
+                        backgroundColor: "#f8f9fa",
+                        padding: "15px",
+                        borderRadius: "8px",
+                        borderLeft: "4px solid #06038F"
+                      }}
+                    >
+                      <p 
+                        style={{ 
+                          color: "#495057", 
+                          lineHeight: "1.5", 
+                          margin: "0",
+                          fontSize: "15px",
+                          fontStyle: "italic"
+                        }}
+                      >
+                        {feature.subtitle}
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <div className="col-lg-4">
+                  <div className="text-center">
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title} 
+                      className="img-fluid rounded shadow-sm"
+                      style={{ 
+                        maxHeight: "200px", 
+                        width: "auto",
+                        objectFit: "cover"
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Additional Links Section */}
+      <div className="row mb-4">
+        <div className="col-12">
+          <h2 
+            style={{ 
+              fontSize: "30px", 
+              fontWeight: "700", 
+              color: "#212529", 
+              marginBottom: "25px",
+              textAlign: "center"
+            }}
+          >
+            Additional Resources
+          </h2>
+        </div>
+      </div>
+
+      {/* Additional Links Cards */}
+      <div className="row g-3 mb-4">
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 shadow-sm"
+            style={{ 
+              borderRadius: "12px", 
+              padding: "20px",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e9ecef",
+              textAlign: "center",
+              transition: "all 0.3s ease",
+              cursor: "pointer"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#06038F",
+                color: "white",
+                borderRadius: "50%",
+                width: "60px",
+                height: "60px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                margin: "0 auto 15px"
+              }}
+            >
+              🚀
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "600", 
+                marginBottom: "10px" 
+              }}
+            >
+              Why DOP is Disruptive
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                lineHeight: "1.5", 
+                fontSize: "14px",
+                marginBottom: "15px"
+              }}
+            >
+              Discover how DOP transforms traditional education through innovative, transformative, and futuristic approaches.
+            </p>
+            <a 
+              href="#" 
+              style={{
+                color: "#06038F",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontSize: "14px"
+              }}
+            >
+              Learn More →
+            </a>
+          </div>
+        </div>
+
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 shadow-sm"
+            style={{ 
+              borderRadius: "12px", 
+              padding: "20px",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e9ecef",
+              textAlign: "center",
+              transition: "all 0.3s ease",
+              cursor: "pointer"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#28a745",
+                color: "white",
+                borderRadius: "50%",
+                width: "60px",
+                height: "60px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                margin: "0 auto 15px"
+              }}
+            >
+              💬
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "600", 
+                marginBottom: "10px" 
+              }}
+            >
+              Generating Discourse
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                lineHeight: "1.5", 
+                fontSize: "14px",
+                marginBottom: "15px"
+              }}
+            >
+              Learn practical strategies for generating meaningful discourse in English courses and language learning.
+            </p>
+            <a 
+              href="#" 
+              style={{
+                color: "#28a745",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontSize: "14px"
+              }}
+            >
+              Explore Methods →
+            </a>
+          </div>
+        </div>
+
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 shadow-sm"
+            style={{ 
+              borderRadius: "12px", 
+              padding: "20px",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e9ecef",
+              textAlign: "center",
+              transition: "all 0.3s ease",
+              cursor: "pointer"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#fd7e14",
+                color: "white",
+                borderRadius: "50%",
+                width: "60px",
+                height: "60px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                margin: "0 auto 15px"
+              }}
+            >
+              📚
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "600", 
+                marginBottom: "10px" 
+              }}
+            >
+              Modular Transaction
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                lineHeight: "1.5", 
+                fontSize: "14px",
+                marginBottom: "15px"
+              }}
+            >
+              Access comprehensive modular transaction modules designed for effective DOP implementation.
+            </p>
+            <a 
+              href="#" 
+              style={{
+                color: "#fd7e14",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontSize: "14px"
+              }}
+            >
+              View Modules →
+            </a>
           </div>
         </div>
       </div>
@@ -387,8 +573,8 @@ const DiscourseOrientedPedagogy = () => {
           <div 
             style={{ 
               backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
+              padding: "25px", 
+              borderRadius: "12px",
               textAlign: "center"
             }}
           >
@@ -399,33 +585,51 @@ const DiscourseOrientedPedagogy = () => {
                 marginBottom: "15px" 
               }}
             >
-              Implement Discourse-Oriented Pedagogy
+              Ready to Transform Education with DOP?
             </h4>
             <p 
               style={{ 
                 color: "#6c757d", 
-                marginBottom: "25px",
-                maxWidth: "600px",
-                margin: "0 auto 25px"
-              }}
-            >
-              Learn how to integrate discourse-oriented teaching methods into your educational programs and transform your classroom dynamics.
-            </p>
-            <a 
-              href="/about-us/contact" 
-              className="btn btn-primary"
-              style={{
-                backgroundColor: "#06038F",
-                borderColor: "#06038F",
-                padding: "12px 30px",
+                marginBottom: "20px",
                 fontSize: "16px",
-                fontWeight: "600",
-                borderRadius: "25px",
-                textDecoration: "none"
+                maxWidth: "600px",
+                margin: "0 auto 20px"
               }}
             >
-              Learn More
-            </a>
+              Discover how Discourse-Oriented Pedagogy can revolutionize your teaching approach and empower students with critical thinking and communication skills.
+            </p>
+            <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+              <a 
+                href="/about-us/contact"
+                className="btn btn-primary"
+                style={{
+                  backgroundColor: "#06038F",
+                  borderColor: "#06038F",
+                  padding: "12px 25px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  borderRadius: "25px",
+                  textDecoration: "none"
+                }}
+              >
+                Get Started with DOP
+              </a>
+              <a 
+                href="#"
+                className="btn btn-outline-primary"
+                style={{
+                  borderColor: "#06038F",
+                  color: "#06038F",
+                  padding: "12px 25px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  borderRadius: "25px",
+                  textDecoration: "none"
+                }}
+              >
+                Watch Demo Videos
+              </a>
+            </div>
           </div>
         </div>
       </div>

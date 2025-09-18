@@ -13,6 +13,11 @@ const Header = () => {
     partners: false,
     donation: false,
     neiUsa: false,
+    skillsTraining: false,
+    workingModel: false,
+    blendedLearning: false,
+    mediaEvents: false,
+    education: false,
   });
 
   const handleSearchToggle = () => {
@@ -452,10 +457,22 @@ const Header = () => {
                         Teachers Training
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/our-works/skills-training" className="dropdown-item" title="Skills Training">
+                    <li className="dropdown-submenu">
+                      <Link to="#" className="dropdown-item dropdown-toggle" title="Skills Training">
                         Skills Training
                       </Link>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <Link to="/our-works/skills-training/soft-skills" className="dropdown-item" title="Soft Skill Training">
+                            Soft Skill Training
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/skills-training/technical-skills" className="dropdown-item" title="Technical Skill Training">
+                            Technical Skill Training
+                          </Link>
+                        </li>
+                      </ul>
                     </li>
                     <li>
                       <Link to="/our-works/adult-education" className="dropdown-item" title="Adult Education">
@@ -785,10 +802,23 @@ const Header = () => {
                         Teachers Training
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/our-works/skills-training" className="mobile-nav-link">
-                        Skills Training
-                      </Link>
+                    <li className="mobile-nav-submenu-item">
+                      <div className="mobile-nav-submenu-header" onClick={() => toggleMobileNav('skillsTraining')}>
+                        <span className="mobile-nav-submenu-title">Skills Training</span>
+                        <span className={`mobile-nav-submenu-arrow ${mobileNavState.skillsTraining ? 'rotated' : ''}`}>▼</span>
+                      </div>
+                      <ul className={`mobile-nav-submenu-level2 ${mobileNavState.skillsTraining ? 'show' : ''}`}>
+                        <li>
+                          <Link to="/our-works/skills-training/soft-skills" className="mobile-nav-link">
+                            Soft Skill Training
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/our-works/skills-training/technical-skills" className="mobile-nav-link">
+                            Technical Skill Training
+                          </Link>
+                        </li>
+                      </ul>
                     </li>
                     <li>
                       <Link to="/our-works/adult-education" className="mobile-nav-link">
@@ -968,3 +998,4 @@ const Header = () => {
 };
 
 export default Header;
+

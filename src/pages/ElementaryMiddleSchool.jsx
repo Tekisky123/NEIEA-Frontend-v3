@@ -2,46 +2,127 @@ import React from 'react';
 import PageTemplate from '../components/PageTemplate';
 
 const ElementaryMiddleSchool = () => {
-  const programFeatures = [
+  const challenges = [
     {
       id: 1,
-      title: "Age-Appropriate Curriculum",
-      level: "Grades 1-8",
-      description: "Specially designed curriculum that matches cognitive development stages of elementary and middle school students.",
-      modules: ["Foundational Literacy", "Basic Numeracy", "Science Exploration", "Social Skills Development"],
-      outcome: "Strong academic foundation for higher education"
+      title: "Family & Poverty",
+      description: "Many parents are illiterate or semi-literate and unable to guide or encourage academic work. Daily-wage jobs and financial insecurity often pull children away from consistent study.",
+      icon: "👨‍👩‍👧‍👦",
+      color: "#E91E63"
     },
     {
       id: 2,
-      title: "Interactive Learning Methods",
-      level: "Engaging Pedagogy",
-      description: "Using games, storytelling, and hands-on activities to make learning enjoyable and effective for young minds.",
-      modules: ["Educational Games", "Story-based Learning", "Visual Arts Integration", "Music and Movement"],
-      outcome: "Enhanced engagement and retention"
+      title: "School Infrastructure & Teacher Quality",
+      description: "Numerous government-run and low-budget private schools lack trained teachers, adequate classrooms, and learning materials. Guidance and counselling services are almost absent.",
+      icon: "🏫",
+      color: "#FF5722"
     },
     {
       id: 3,
-      title: "Digital Literacy for Young Learners",
-      level: "Technology Integration",
-      description: "Introduction to basic computer skills and digital tools appropriate for elementary and middle school students.",
-      modules: ["Computer Basics", "Educational Software", "Digital Safety", "Creative Tools"],
-      outcome: "Technology-ready students for the digital age"
+      title: "Language & Systemic Barriers",
+      description: "Madrasas and regional/Urdu-medium schools teach in a local language until Grade 6, then suddenly shift to English, leaving students struggling to keep up.",
+      icon: "🗣️",
+      color: "#9C27B0"
     },
     {
       id: 4,
-      title: "Character Development",
-      level: "Values Education",
-      description: "Building moral values, social skills, and emotional intelligence alongside academic learning.",
-      modules: ["Ethics and Values", "Teamwork Skills", "Emotional Intelligence", "Leadership Qualities"],
-      outcome: "Well-rounded individuals with strong character"
+      title: "Exam-Centric Learning",
+      description: "Rote memorisation of likely exam questions dominates classroom practice, leaving students without a conceptual grasp of core subjects.",
+      icon: "📝",
+      color: "#FF9800"
+    }
+  ];
+
+  const neiaeResponse = [
+    {
+      id: 1,
+      title: "Discourse-Oriented Pedagogy (DOP)",
+      description: "Interactive lessons that foster conceptual understanding instead of rote learning, provoking thought process through critical thinking and dialogue.",
+      icon: "💭",
+      color: "#4CAF50"
+    },
+    {
+      id: 2,
+      title: "Bridging Courses",
+      description: "Use of NIOS Levels A, B, C and X, alongside CBSE and select state-approved courses, to help students who have fallen behind re-enter mainstream academics.",
+      icon: "🌉",
+      color: "#2196F3"
+    },
+    {
+      id: 3,
+      title: "English & Math Remediation",
+      description: "Targeted support in Grades 6 and 7 to prevent dropouts during the critical language-transition stage.",
+      icon: "📚",
+      color: "#FF5722"
+    },
+    {
+      id: 4,
+      title: "Progress Tracking & Counselling",
+      description: "Continuous assessment, growth monitoring, and regular counselling sessions for students and families.",
+      icon: "📊",
+      color: "#9C27B0"
     },
     {
       id: 5,
-      title: "Parental Involvement Programs",
-      level: "Community Engagement",
-      description: "Engaging parents and families in the educational process to support student success at home and school.",
-      modules: ["Parent Workshops", "Home Learning Support", "Progress Tracking", "Community Events"],
-      outcome: "Strong school-home partnership for student success"
+      title: "Mainstreaming",
+      description: "Guiding madrasa and regional-medium learners into broader academic streams while respecting their cultural identity.",
+      icon: "🎯",
+      color: "#FF9800"
+    }
+  ];
+
+  const programs = [
+    {
+      id: 1,
+      title: "Core Subjects",
+      description: "English, Mathematics, and Science, taught during school hours or through extra-learning sessions using Discourse-Oriented Pedagogy (DOP) to build conceptual understanding and strong foundations.",
+      icon: "📖",
+      color: "#4CAF50"
+    },
+    {
+      id: 2,
+      title: "Teacher Development",
+      description: "Elementary teachers receive targeted training in DOP and child-centred methods, ensuring that early-grade classrooms foster inquiry and collaboration.",
+      icon: "👩‍🏫",
+      color: "#2196F3"
+    },
+    {
+      id: 3,
+      title: "Classroom Practices",
+      description: "Storytelling circles, group discussions, and picture-description tasks encourage critical thinking, creativity, and confident speaking.",
+      icon: "🎭",
+      color: "#FF5722"
+    },
+    {
+      id: 4,
+      title: "Parental & Community Engagement",
+      description: "Regular parent–teacher meetings and local outreach improve attendance and reinforce learning at home.",
+      icon: "🤝",
+      color: "#9C27B0"
+    },
+    {
+      id: 5,
+      title: "Value-Based Education",
+      description: "Daily lessons integrate empathy, respect, and social responsibility to nurture holistic growth.",
+      icon: "❤️",
+      color: "#FF9800"
+    }
+  ];
+
+  const testimonials = [
+    {
+      id: 1,
+      text: "Earlier, I was shy to speak in English, but now I can explain a science experiment to my class without fear. NEIEA classes make learning exciting and give me confidence for my future.",
+      author: "Ayesha",
+      role: "Grade 7 student, Hyderabad",
+      avatar: "👧"
+    },
+    {
+      id: 2,
+      text: "Before NEIEA's classes, my students struggled to read with confidence. Today, they not only read but also discuss and question.",
+      author: "Teacher",
+      role: "Rural Bengaluru, Karnataka",
+      avatar: "👩‍🏫"
     }
   ];
 
@@ -52,93 +133,211 @@ const ElementaryMiddleSchool = () => {
         { name: "Education", link: null },
         { name: "Elementary & Middle School", link: null }
       ]}
-      title="Elementary & Middle School Education"
-      subtitle="Building Strong Foundations for Young Learners"
-      description="NEIEA's elementary and middle school programs focus on creating solid academic foundations while nurturing creativity, critical thinking, and character development in young students."
-      heroImage="/assets/images/resized_classroom_image.png"
+      title="NEIEA – Elementary & Middle School Initiatives"
+      subtitle="By Syed Danish Ali"
+      description="Building Strong Foundations"
+      heroImage="/assets/images/ElementryEducation/image1.jpg"
     >
       {/* Introduction */}
       <div className="row mb-5">
-        <div className="col-lg-8 mx-auto text-center">
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0",
-              fontWeight: "600"
-            }}
-          >
-            Elementary and middle school years are crucial for laying the foundation of lifelong learning. Our programs are designed to nurture young minds with age-appropriate, engaging, and comprehensive educational experiences.
-          </p>
+        <div className="col-lg-10 mx-auto">
+          <div className="text-center" style={{ padding: "40px 20px" }}>
+            <h2 
+              style={{ 
+                fontSize: "32px", 
+                fontWeight: "700", 
+                marginBottom: "25px",
+                color: "#212529"
+              }}
+            >
+              Building Strong Foundations
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.8", 
+                marginBottom: "0",
+                color: "#6c757d"
+              }}
+            >
+              NEIEA gives special emphasis to elementary and middle school education (Grades 1–8), recognising these formative years as the foundation to lifelong learning. By strengthening literacy and numeracy early, we close learning gaps before they widen and nurture creativity, critical thinking, and emotional well-being. Our programs weave value-based education into daily learning so students grow with empathy, curiosity, and social responsibility. Through inclusive classrooms and age-appropriate technology, NEIEA helps children, especially in underserved schools, develop the academic and personal skills needed for future success.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Program Features */}
+      {/* Why This Work Matters */}
       <div className="row mb-5">
         <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Our Elementary & Middle School Programs
-          </h3>
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              THE CHALLENGE
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Why This Work Matters
+            </h2>
+          </div>
         </div>
       </div>
 
       <div className="row g-4 mb-5">
-        {programFeatures.map((feature) => (
-          <div key={feature.id} className="col-lg-6">
-            <div className="card h-100 border-0 shadow-sm" style={{ borderRadius: "15px" }}>
-              <div className="card-body p-4">
-                <div className="d-flex justify-content-between align-items-start mb-3">
-                  <span 
-                    style={{ 
-                      backgroundColor: "#06038F", 
-                      color: "white", 
-                      padding: "4px 12px", 
-                      borderRadius: "15px", 
-                      fontSize: "12px", 
-                      fontWeight: "600" 
-                    }}
-                  >
-                    {feature.level}
-                  </span>
-                </div>
-                <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-                  {feature.title}
-                </h4>
-                <p style={{ color: "#6c757d", lineHeight: "1.6", marginBottom: "20px" }}>
-                  {feature.description}
-                </p>
-                <div className="mb-3">
-                  <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "10px" }}>
-                    Key Components:
-                  </h6>
-                  <ul style={{ color: "#6c757d", paddingLeft: "20px", margin: "0" }}>
-                    {feature.modules.map((module, index) => (
-                      <li key={index} style={{ marginBottom: "5px", fontSize: "14px" }}>
-                        {module}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px"
+              }}
+            >
+              📊 National Assessment Data
+            </h5>
+            <ul style={{ color: "#6c757d", paddingLeft: "20px", margin: "0", lineHeight: "1.8" }}>
+              <li style={{ marginBottom: "8px" }}>
+                Across India, national assessments show that more than half of Grade 5 students struggle with Grade 2-level reading and math.
+              </li>
+              <li style={{ marginBottom: "8px" }}>
+                According to the ASER 2023 Report, only 43% of rural Grade 5 children can read a Grade 2 text, and fewer than 50% can do basic division.
+              </li>
+              <li style={{ marginBottom: "0" }}>
+                The Ministry of Education's National Achievement Survey 2021 highlights similar foundational gaps nationwide.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px"
+              }}
+            >
+              🎯 Our Intervention Strategy
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                fontSize: "16px", 
+                lineHeight: "1.6",
+                margin: "0"
+              }}
+            >
+              By intervening in these critical years, NEIEA helps children catch up before the transition to secondary school, preventing dropouts and long-term academic setbacks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Structural Challenges */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              BARRIERS TO LEARNING
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              The Structural Challenges Students Face
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "800px",
+                margin: "0 auto"
+              }}
+            >
+              Grades 1–8 constitute the largest segment of NEIEA's student community, yet many learners face entrenched barriers well before reaching higher classes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {challenges.map((challenge) => (
+          <div key={challenge.id} className="col-lg-6">
+            <div style={{ padding: "20px 0" }}>
+              <div className="d-flex align-items-start">
                 <div 
                   style={{ 
-                    backgroundColor: "#f8f9fa", 
-                    padding: "10px 15px", 
-                    borderRadius: "8px",
-                    fontSize: "13px",
-                    color: "#06038F",
-                    fontWeight: "600"
+                    fontSize: "35px", 
+                    marginRight: "20px"
                   }}
                 >
-                  <strong>Outcome:</strong> {feature.outcome}
+                  {challenge.icon}
+                </div>
+                <div>
+                  <h5 
+                    style={{ 
+                      color: "#212529", 
+                      fontWeight: "700", 
+                      marginBottom: "15px",
+                      fontSize: "18px"
+                    }}
+                  >
+                    {challenge.title}
+                  </h5>
+                  <p 
+                    style={{ 
+                      color: "#6c757d", 
+                      fontSize: "15px", 
+                      lineHeight: "1.6", 
+                      margin: "0"
+                    }}
+                  >
+                    {challenge.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -146,320 +345,469 @@ const ElementaryMiddleSchool = () => {
         ))}
       </div>
 
-      {/* Age Group Focus */}
+      {/* NEIEA's Response */}
       <div className="row mb-5">
         <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Age-Appropriate Learning Approach
-          </h3>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>👶</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Early Elementary (Grades 1-3)
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Ages 6-9
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-              Focus on basic literacy, numeracy, and social skills through play-based learning and interactive activities.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🧒</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Late Elementary (Grades 4-5)
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Ages 9-11
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-              Building on foundations with more complex problem-solving, reading comprehension, and independent learning skills.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🧑</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Middle School (Grades 6-8)
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Ages 11-14
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-              Preparing for high school with advanced critical thinking, research skills, and subject specialization.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Learning Outcomes */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Student Learning Outcomes
-          </h3>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-lg-6">
-          <div 
-            className="d-flex align-items-start p-4"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px",
-              height: "100%"
-            }}
-          >
-            <div style={{ fontSize: "30px", marginRight: "15px", color: "#28a745" }}>✅</div>
-            <div>
-              <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "8px" }}>
-                Strong Academic Foundation
-              </h6>
-              <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-                Students develop solid skills in reading, writing, mathematics, and science that prepare them for advanced learning.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="d-flex align-items-start p-4"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px",
-              height: "100%"
-            }}
-          >
-            <div style={{ fontSize: "30px", marginRight: "15px", color: "#28a745" }}>✅</div>
-            <div>
-              <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "8px" }}>
-                Critical Thinking Skills
-              </h6>
-              <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-                Development of analytical and problem-solving abilities through inquiry-based learning approaches.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="d-flex align-items-start p-4"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px",
-              height: "100%"
-            }}
-          >
-            <div style={{ fontSize: "30px", marginRight: "15px", color: "#28a745" }}>✅</div>
-            <div>
-              <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "8px" }}>
-                Social and Emotional Development
-              </h6>
-              <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-                Building empathy, teamwork, communication skills, and emotional intelligence for healthy relationships.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="d-flex align-items-start p-4"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px",
-              height: "100%"
-            }}
-          >
-            <div style={{ fontSize: "30px", marginRight: "15px", color: "#28a745" }}>✅</div>
-            <div>
-              <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "8px" }}>
-                Digital Literacy and 21st Century Skills
-              </h6>
-              <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
-                Preparation for the digital world with technology skills and modern learning competencies.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Why Choose Our Program */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Why Choose Our Elementary & Middle School Program?
-          </h3>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-lg-3 col-md-6">
-          <div className="text-center">
-            <div style={{ fontSize: "50px", marginBottom: "15px" }}>🎯</div>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Child-Centered
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OUR SOLUTION
             </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", margin: "0" }}>
-              Programs designed around child development and learning needs
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div className="text-center">
-            <div style={{ fontSize: "50px", marginBottom: "15px" }}>🎨</div>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Creative
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", margin: "0" }}>
-              Innovative teaching methods that make learning fun and engaging
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div className="text-center">
-            <div style={{ fontSize: "50px", marginBottom: "15px" }}>🏆</div>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Excellence
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", margin: "0" }}>
-              High academic standards with qualified and caring educators
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div className="text-center">
-            <div style={{ fontSize: "50px", marginBottom: "15px" }}>🤗</div>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Supportive
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", margin: "0" }}>
-              Nurturing environment that supports every child's growth
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Mission Statement */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px", backgroundColor: "#f8f9fa" }}
-          >
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              NEIEA's Response
+            </h2>
             <p 
               style={{ 
                 fontSize: "18px", 
-                lineHeight: "1.8", 
-                color: "#495057",
-                marginBottom: "0",
-                textAlign: "center",
-                fontStyle: "italic"
+                color: "#6c757d", 
+                maxWidth: "600px",
+                margin: "0 auto"
               }}
             >
-              We believe that every child deserves a <strong>strong educational foundation</strong> that not only prepares them academically but also nurtures their creativity, character, and love for learning.
+              NEIEA tackles these systemic handicaps through a multi-layered strategy
             </p>
           </div>
         </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="row mt-5">
+      <div className="row g-4 mb-5">
+        {neiaeResponse.map((response) => (
+          <div key={response.id} className="col-lg-4 col-md-6">
+            <div style={{ padding: "20px 0", textAlign: "center" }}>
+              <div 
+                style={{ 
+                  fontSize: "50px", 
+                  marginBottom: "20px"
+                }}
+              >
+                {response.icon}
+              </div>
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "18px"
+                }}
+              >
+                {response.title}
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "14px", 
+                  lineHeight: "1.6", 
+                  margin: "0"
+                }}
+              >
+                {response.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Programs & Interventions */}
+      <div className="row mb-5">
         <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OUR PROGRAMS
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Programs & Interventions
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "700px",
+                margin: "0 auto"
+              }}
+            >
+              NEIEA supports partner schools and learning centres through a blend of classroom innovation and teacher development
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {programs.map((program) => (
+          <div key={program.id} className="col-lg-4 col-md-6">
+            <div style={{ padding: "20px 0", textAlign: "center" }}>
+              <div 
+                style={{ 
+                  fontSize: "45px", 
+                  marginBottom: "20px"
+                }}
+              >
+                {program.icon}
+              </div>
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "18px"
+                }}
+              >
+                {program.title}
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "14px", 
+                  lineHeight: "1.6", 
+                  margin: "0"
+                }}
+              >
+                {program.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Reach & Impact */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OUR IMPACT
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Reach & Impact in Elementary and Middle Schools
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        <div className="col-lg-6">
           <div 
+            className="card border-0"
             style={{ 
-              backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
-              textAlign: "center"
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
             }}
           >
-            <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              ✨ Enroll Your Child in Our Elementary & Middle School Program
-            </h4>
-            <p style={{ color: "#6c757d", marginBottom: "25px", maxWidth: "600px", margin: "0 auto 25px", lineHeight: "1.6" }}>
-              Give your child the best start in their educational journey with our comprehensive, engaging, and nurturing programs designed for young learners.
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/ElementryEducation/image2.png" 
+                alt="NEIEA Impact"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "20px"
+                }}
+              />
+            </div>
+            <div className="card-body p-4">
+              <h4 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "20px"
+                }}
+              >
+                Current Reach
+              </h4>
+              <div className="mb-3">
+                <div 
+                  style={{ 
+                    backgroundColor: "#f8f9fa", 
+                    color: "#212529", 
+                    padding: "8px 16px", 
+                    borderRadius: "6px", 
+                    fontSize: "16px", 
+                    fontWeight: "700",
+                    display: "inline-block",
+                    marginBottom: "10px",
+                    border: "1px solid #e9ecef"
+                  }}
+                >
+                  18 Schools • 1,047 Students
+                </div>
+              </div>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "14px", 
+                  lineHeight: "1.6",
+                  margin: "0"
+                }}
+              >
+                Across Hyderabad (Telangana), Bhopal (Madhya Pradesh), rural Bengaluru (Karnataka), Kolkata (West Bengal), Mumbai & Latur (Maharashtra), Bidar (Karnataka), Gaya (Bihar), Deeg (Rajasthan), and Aligarh (Uttar Pradesh).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px"
+              }}
+            >
+              🎯 Karnataka Case Study
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                fontSize: "15px", 
+                lineHeight: "1.6",
+                marginBottom: "15px"
+              }}
+            >
+              In Karnataka, our team identified that low attendance and poor exam scores in a chain of schools were linked to a language transition: children study in Urdu or Kannada medium until Grade 6, then shift to English medium from Grade 7, making the move to upper grades difficult.
             </p>
-            <div>
-              <a 
-                href="/about-us/contact" 
-                className="btn btn-primary me-3"
-                style={{
-                  backgroundColor: "#06038F",
-                  borderColor: "#06038F",
-                  padding: "12px 30px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+            <p 
+              style={{ 
+                color: "#212529", 
+                fontSize: "14px", 
+                fontWeight: "600",
+                margin: "0"
+              }}
+            >
+              <strong>Solution:</strong> NEIEA has proposed remedial English and Mathematics classes for Grades 6, 7, and 10 to strengthen core concepts, ease the transition, and improve overall performance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              SUCCESS STORIES
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Voices from the Classroom
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {testimonials.map((testimonial) => (
+          <div key={testimonial.id} className="col-lg-6">
+            <div 
+              className="card h-100 border-0"
+              style={{ 
+                borderRadius: "8px", 
+                padding: "30px",
+                backgroundColor: "white",
+                border: "1px solid #e9ecef"
+              }}
+            >
+              <div className="text-center mb-4">
+                <div 
+                  style={{ 
+                    fontSize: "50px",
+                    marginBottom: "20px"
+                  }}
+                >
+                  {testimonial.avatar}
+                </div>
+              </div>
+              <blockquote 
+                className="text-center"
+                style={{ 
+                  fontSize: "16px", 
+                  lineHeight: "1.6", 
+                  color: "#495057",
+                  marginBottom: "20px",
+                  fontStyle: "italic"
                 }}
               >
-                📩 Contact Us
-              </a>
-              <a 
-                href="/about-us/contact" 
-                className="btn btn-outline-primary"
+                "{testimonial.text}"
+              </blockquote>
+              <div className="text-center">
+                <h6 
+                  style={{ 
+                    color: "#212529", 
+                    fontWeight: "700", 
+                    marginBottom: "5px"
+                  }}
+                >
+                  {testimonial.author}
+                </h6>
+                <p 
+                  style={{ 
+                    color: "#6c757d", 
+                    fontSize: "14px",
+                    marginBottom: "0"
+                  }}
+                >
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Mode of Delivery */}
+      <div className="row">
+        <div className="col-12">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/ElementryEducation/image3.jpg" 
+                alt="NEIEA Hybrid Learning"
                 style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  padding: "12px 30px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "20px"
+                }}
+              />
+            </div>
+            <div 
+              className="card-body"
+              style={{ 
+                padding: "30px 40px",
+                backgroundColor: "white"
+              }}
+            >
+              <h3 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "20px",
+                  fontSize: "24px",
+                  textAlign: "center"
                 }}
               >
-                🌐 Learn More
-              </a>
+                Mode of Delivery
+              </h3>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "16px", 
+                  lineHeight: "1.7",
+                  marginBottom: "20px",
+                  textAlign: "center"
+                }}
+              >
+                NEIEA uses a hybrid learning model where live, interactive classes are taught online by NEIEA educators. Students either log in individually from home or join together in IT-enabled classrooms equipped with a large LED screen, a laptop or computer, webcam, microphones and internet.
+              </p>
+              <div 
+                style={{
+                  backgroundColor: "#f8f9fa",
+                  color: "#212529",
+                  padding: "20px 25px",
+                  borderRadius: "8px",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  textAlign: "center",
+                  maxWidth: "600px",
+                  margin: "0 auto",
+                  border: "1px solid #e9ecef"
+                }}
+              >
+                This blended setup combines real-time teacher interaction with on-site peer learning, ensuring consistent, high-quality instruction even in remote or underserved schools.
+              </div>
             </div>
           </div>
         </div>

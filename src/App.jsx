@@ -28,6 +28,8 @@ import PartnerInstitutions from "./pages/PartnerInstitutions";
 import GlobalPartners from "./pages/GlobalPartners";
 import TeachersTraining from "./pages/TeachersTraining";
 import SkillsTraining from "./pages/SkillsTraining";
+import SoftSkillTraining from "./pages/SoftSkillTraining";
+import TechnicalSkillTraining from "./pages/TechnicalSkillTraining";
 import AdultEducation from "./pages/AdultEducation";
 import GlobalEducation from "./pages/GlobalEducation";
 import ElementaryMiddleSchool from "./pages/ElementaryMiddleSchool";
@@ -46,6 +48,8 @@ import ApplyCourseInstitution from './pages/ApplyCourseInstitution';
 import AdminDashboard from './pages/dashboards/adminDashboard/AdminDashboard';
 import EditCoursePage from './pages/dashboards/adminDashboard/EditCoursePage';
 import ScrollToTop from './utils/ScrollToTop';
+import BeAPartner from './pages/BeAPartner.jsx';
+import Volunteer from './pages/Volunteer';
 
 const queryClient = new QueryClient();
 
@@ -81,6 +85,8 @@ function AppContent() {
           {/* Our Work Routes */}
           <Route path="/our-works/teachers-training" element={<TeachersTraining />} />
           <Route path="/our-works/skills-training" element={<SkillsTraining />} />
+          <Route path="/our-works/skills-training/soft-skills" element={<SoftSkillTraining />} />
+          <Route path="/our-works/skills-training/technical-skills" element={<TechnicalSkillTraining />} />
           <Route path="/our-works/adult-education" element={<AdultEducation />} />
           <Route path="/our-works/global-education" element={<GlobalEducation />} />
 
@@ -98,6 +104,7 @@ function AppContent() {
           <Route path="/partners/join" element={<PartnersJoin />} />
           <Route path="/partners/institutions" element={<PartnerInstitutions />} />
           <Route path="/partners/global" element={<GlobalPartners />} />
+          <Route path="/donation/volunteer" element={<Volunteer />} />
 
 
           {/* NEI USA Routes */}
@@ -106,6 +113,7 @@ function AppContent() {
           <Route path="/login" element={<Login />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/donation/form" element={<DonationForm />} />
+          <Route path="/donation/be-partner" element={<BeAPartner />} />
           <Route path="/courses/:category" element={<Courses />} />
           <Route path="/apply-course/:id" element={<ApplyCourse />} />
           <Route path="/apply-course-institution" element={<ApplyCourseInstitution />} />

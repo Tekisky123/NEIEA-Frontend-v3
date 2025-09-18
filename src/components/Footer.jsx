@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
 import NeiSecondaryLogo from '../assets/images/neia-secondary-logo.svg';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
+import { subscribeToNewsletter } from '../lib/subscriptionApi';
+import { subscriptionSchema } from '../lib/subscriptionSchema';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleNewsletterSubmit = (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log('Newsletter subscription:', email);
-    setIsSubscribed(true);
-    setEmail('');
+    
+    // Validate email using Zod
+    const validation = subscriptionSchema.safeParse({ email });
+    if (!validation.success) {
+      const errorMessage = validation.error.errors[0]?.message || 'Invalid email address';
+      toast.error(errorMessage);
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const result = await subscribeToNewsletter({ email });
+      
+      if (result.success) {
+        toast.success(result.message || 'Thank you for subscribing!');
+        setIsSubscribed(true);
+        setEmail('');
+      } else {
+        toast.error(result.message || 'Subscription failed. Please try again.');
+      }
+    } catch (error) {
+      toast.error(error.message || 'An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,9 +62,17 @@ const Footer = () => {
                       placeholder="Enter your email" 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      disabled={isLoading}
                       required 
                     />
-                    <button type="submit" className="btn">Sign up</button>
+                    <button 
+                      type="submit" 
+                      className="btn" 
+                      disabled={isLoading}
+                      style={{ minWidth: isLoading ? '120px' : '80px' }}
+                    >
+                      {isLoading ? 'Subscribing...' : 'Sign up'}
+                    </button>
                   </div>
                 </form>
               </div>
@@ -65,9 +99,17 @@ const Footer = () => {
                     placeholder="Enter your email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={isLoading}
                     required 
                   />
-                  <button type="submit" className="btn newsletter-btn">Sign up</button>
+                  <button 
+                    type="submit" 
+                    className="btn newsletter-btn" 
+                    disabled={isLoading}
+                    style={{ minWidth: isLoading ? '130px' : 'auto', whiteSpace: 'nowrap' }}
+                  >
+                    {isLoading ? 'Subscribing...' : 'Sign up'}
+                  </button>
                 </div>
               </form>
             </div>

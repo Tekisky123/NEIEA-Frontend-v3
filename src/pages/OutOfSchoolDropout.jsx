@@ -2,6 +2,75 @@ import React from 'react';
 import PageTemplate from '../components/PageTemplate';
 
 const OutOfSchoolDropout = () => {
+  const obePrograms = [
+    {
+      id: 1,
+      level: "Level A",
+      equivalent: "Grade 3",
+      subjects: ["English", "Mathematics", "Science", "Data Entry"],
+      icon: "🔹",
+      color: "#4CAF50"
+    },
+    {
+      id: 2,
+      level: "Level B", 
+      equivalent: "Grade 5",
+      subjects: ["English", "Mathematics", "Science", "Data Entry"],
+      icon: "🔹",
+      color: "#2196F3"
+    },
+    {
+      id: 3,
+      level: "Level C",
+      equivalent: "Grade 8", 
+      subjects: ["English", "Mathematics", "Science", "Data Entry"],
+      icon: "🔹",
+      color: "#FF9800"
+    }
+  ];
+
+  const secondarySubjects = [
+    "English",
+    "Mathematics", 
+    "Home Science",
+    "Social Science",
+    "Data Entry (Skill-Based Subject)"
+  ];
+
+  const impactData = [
+    {
+      id: 1,
+      number: "25",
+      title: "NIOS Secondary (10th Grade)",
+      description: "Learners successfully appeared for the NIOS Secondary (10th Grade) examinations in 2024-2025 through NEIEA's academic support.",
+      icon: "🎓",
+      color: "#4CAF50"
+    },
+    {
+      id: 2,
+      number: "33",
+      title: "NIOS Level C (Grade 8)",
+      description: "Learners from Karnataka appeared for the NIOS Level C (Grade 8 equivalent) examination in 2024-2025 under the NEIEA program.",
+      icon: "📚",
+      color: "#2196F3"
+    },
+    {
+      id: 3,
+      number: "25",
+      title: "Current Learners",
+      description: "This year around 25 learners are appearing from Karnataka TUMKUR and HOSKOTE MADARSA.",
+      icon: "📖",
+      color: "#FF9800"
+    },
+    {
+      id: 4,
+      number: "11",
+      title: "Bangalore Learners",
+      description: "Learners from Thanal MLC Slums of Martahalli, Bangalore Karnataka also preparing for NIOS 10th grade for the year 2025-2026.",
+      icon: "🌟",
+      color: "#9C27B0"
+    }
+  ];
 
   return (
     <PageTemplate
@@ -10,197 +79,332 @@ const OutOfSchoolDropout = () => {
         { name: "Education", link: null },
         { name: "Out of School / School Dropout", link: null }
       ]}
-      title="Education for Dropout Children through NIOS"
-      subtitle="Empowering Learners Beyond School Walls"
+      title="Education for OUT OF SCHOOL AND DROPOUT Children through NIOS"
+      subtitle="National Institute of Open Schooling"
       description="To provide a second chance at formal education for dropout children through the NIOS Open Basic Education (OBE) and Secondary Education programs, ensuring they are re-integrated into learning and equipped with academic and vocational skills."
-      heroImage="/assets/images/our-mission.png"
+      heroImage="/assets/images/OutOfSchools/image1.png"
     >
-      {/* Introduction */}
+      {/* Objective */}
       <div className="row mb-5">
-        <div className="col-lg-8 mx-auto text-center">
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0",
-              fontWeight: "600"
-            }}
-          >
-            Through NIOS Open Basic Education (OBE) and Secondary Education programs, we provide structured pathways for dropout children to re-enter formal education, ensuring they receive both academic knowledge and practical skills for future success.
-          </p>
+        <div className="col-lg-10 mx-auto">
+          <div className="text-center" style={{ padding: "40px 20px" }}>
+            <h2 
+              style={{ 
+                fontSize: "32px", 
+                fontWeight: "700", 
+                marginBottom: "25px",
+                color: "#212529"
+              }}
+            >
+              🎯 Our Objective
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.8", 
+                marginBottom: "0",
+                color: "#6c757d"
+              }}
+            >
+              To provide a second chance at formal education for dropout children through the NIOS Open Basic Education (OBE) and Secondary Education programs, ensuring they are re-integrated into learning and equipped with academic and vocational skills.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* NIOS Open Basic Education Programme */}
+      {/* Featured Image Section */}
       <div className="row mb-5">
         <div className="col-12">
-          <h3 
+          <div 
+            className="card border-0"
             style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "20px",
-              textAlign: "center"
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
             }}
           >
-            NIOS Open Basic Education (OBE) Programme
-          </h3>
-          <p 
-            style={{ 
-              fontSize: "16px", 
-              color: "#6c757d", 
-              textAlign: "center",
-              marginBottom: "40px",
-              maxWidth: "700px",
-              margin: "0 auto 40px"
-            }}
-          >
-            Bridging Educational Gaps for Out-of-School Learners. The OBE Programme is implemented across three levels, designed to match the mainstream school grades and suit the learning pace of underprivileged and out-of-school children.
-          </p>
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/OutOfSchools/image1.png" 
+                alt="NIOS learners from AL Furqaan Madarsa presenting science projects"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "15px"
+                }}
+              />
+            </div>
+            <div className="card-body p-4">
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "16px", 
+                  lineHeight: "1.6",
+                  margin: "0",
+                  textAlign: "center",
+                  fontStyle: "italic"
+                }}
+              >
+                NIOS learners from AL Furqaan Madarsa With Modern Touch, Tumkur Karnataka presenting science projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* NIOS Open Basic Education Program */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OBE PROGRAM
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              NIOS Open Basic Education (OBE) Program
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "800px",
+                margin: "0 auto"
+              }}
+            >
+              The OBE Program is implemented across three levels, designed to match the mainstream school grades and suit the learning pace of underprivileged and out-of-school children
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="row g-4 mb-5">
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🔹</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Level A
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Equivalent to Grade 3
+        {obePrograms.map((program) => (
+          <div key={program.id} className="col-lg-4">
+            <div style={{ padding: "20px 0", textAlign: "center" }}>
+              <div 
+                style={{ 
+                  fontSize: "50px", 
+                  marginBottom: "20px"
+                }}
+              >
+                {program.icon}
+              </div>
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "22px"
+                }}
+              >
+                {program.level}
+              </h5>
+              <div 
+                style={{ 
+                  backgroundColor: "#06038F", 
+                  color: "white", 
+                  padding: "8px 16px", 
+                  borderRadius: "20px", 
+                  fontSize: "14px", 
+                  fontWeight: "600", 
+                  marginBottom: "20px",
+                  display: "inline-block"
+                }}
+              >
+                Equivalent to {program.equivalent}
+              </div>
+              <div className="mb-3">
+                <h6 
+                  style={{ 
+                    color: "#495057", 
+                    fontWeight: "600", 
+                    marginBottom: "15px",
+                    fontSize: "16px"
+                  }}
+                >
+                  Subjects Offered:
+                </h6>
+                <div className="d-flex flex-wrap gap-2 justify-content-center">
+                  {program.subjects.map((subject, index) => (
+                    <span 
+                      key={index}
+                      style={{ 
+                        backgroundColor: "#f8f9fa", 
+                        color: "#495057", 
+                        padding: "6px 12px", 
+                        borderRadius: "12px", 
+                        fontSize: "13px",
+                        border: "1px solid #e9ecef",
+                        fontWeight: "500"
+                      }}
+                    >
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", marginBottom: "15px", fontWeight: "600" }}>
-              Subjects Offered:
-            </p>
-            <ul style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", textAlign: "left", paddingLeft: "20px" }}>
-              <li>English</li>
-              <li>Mathematics</li>
-              <li>Science</li>
-              <li>Data Entry</li>
-            </ul>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <div className="col-lg-4">
+      {/* Flexibility Note */}
+      <div className="row mb-5">
+        <div className="col-lg-8 mx-auto">
           <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
           >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🔹</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Level B
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Equivalent to Grade 5
+            <div className="text-center">
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px"
+                }}
+              >
+                📚 Flexible Learning Approach
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "16px", 
+                  lineHeight: "1.6",
+                  margin: "0"
+                }}
+              >
+                These courses are designed with flexibility, allowing learners to study at their own pace, supported by our dedicated team of educators and coordinators.
+              </p>
             </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", marginBottom: "15px", fontWeight: "600" }}>
-              Subjects Offered:
-            </p>
-            <ul style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", textAlign: "left", paddingLeft: "20px" }}>
-              <li>English</li>
-              <li>Mathematics</li>
-              <li>Science</li>
-              <li>Data Entry</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm text-center"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🔹</div>
-            <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              Level C
-            </h5>
-            <div style={{ backgroundColor: "#06038F", color: "white", padding: "5px 15px", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "15px" }}>
-              Equivalent to Grade 8
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", marginBottom: "15px", fontWeight: "600" }}>
-              Subjects Offered:
-            </p>
-            <ul style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.6", textAlign: "left", paddingLeft: "20px" }}>
-              <li>English</li>
-              <li>Mathematics</li>
-              <li>Science</li>
-              <li>Data Entry</li>
-            </ul>
           </div>
         </div>
       </div>
 
-      {/* NIOS Secondary Education Programme */}
+      {/* NIOS Secondary Education Program */}
       <div className="row mb-5">
         <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "20px",
-              textAlign: "center"
-            }}
-          >
-            NIOS Secondary Education Programme
-          </h3>
-          <p 
-            style={{ 
-              fontSize: "16px", 
-              color: "#6c757d", 
-              textAlign: "center",
-              marginBottom: "40px",
-              maxWidth: "600px",
-              margin: "0 auto 40px"
-            }}
-          >
-            A Second Opportunity for Academic Success. For learners aiming to complete their 10th Grade (Secondary Level), NEIEA offers the following subjects under the NIOS curriculum.
-          </p>
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              SECONDARY PROGRAM
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              🎓 NIOS Secondary Education Program
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "700px",
+                margin: "0 auto"
+              }}
+            >
+              For learners aiming to complete their 10th Grade (Secondary Level), NEIEA offers the following subjects under the NIOS curriculum
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="row mb-5">
         <div className="col-lg-8 mx-auto">
           <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "40px",
+              backgroundColor: "white",
+              color: "#212529",
+              border: "1px solid #e9ecef"
+            }}
           >
-            <div className="text-center mb-4">
-              <div style={{ fontSize: "60px", marginBottom: "20px" }}>🎓</div>
-              <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
+            <div className="text-center">
+              <div 
+                style={{ 
+                  fontSize: "60px", 
+                  marginBottom: "25px"
+                }}
+              >
+                🎓
+              </div>
+              <h4 
+                style={{ 
+                  fontWeight: "700", 
+                  marginBottom: "20px",
+                  fontSize: "24px"
+                }}
+              >
                 10th Grade (Secondary Level) Subjects
               </h4>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <ul style={{ color: "#6c757d", fontSize: "16px", paddingLeft: "20px", lineHeight: "2.0" }}>
-                  <li><strong>English</strong></li>
-                  <li><strong>Mathematics</strong></li>
-                  <li><strong>Home Science</strong></li>
-                </ul>
+              <div className="d-flex flex-wrap gap-3 justify-content-center">
+                {secondarySubjects.map((subject, index) => (
+                  <span 
+                    key={index}
+                    style={{ 
+                      backgroundColor: "#f8f9fa", 
+                      color: "#212529", 
+                      padding: "8px 16px", 
+                      borderRadius: "6px", 
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      border: "1px solid #e9ecef"
+                    }}
+                  >
+                    {subject}
+                  </span>
+                ))}
               </div>
-              <div className="col-md-6">
-                <ul style={{ color: "#6c757d", fontSize: "16px", paddingLeft: "20px", lineHeight: "2.0" }}>
-                  <li><strong>Social Science</strong></li>
-                  <li><strong>Data Entry</strong> (Skill-Based Subject)</li>
-                </ul>
-              </div>
-            </div>
-            <div 
-              style={{ 
-                backgroundColor: "#f8f9fa", 
-                padding: "15px", 
-                borderRadius: "10px",
-                marginTop: "20px",
-                textAlign: "center"
-              }}
-            >
-              <p style={{ color: "#495057", fontSize: "14px", margin: "0", fontStyle: "italic" }}>
+              <p 
+                style={{ 
+                  fontSize: "16px", 
+                  marginTop: "25px",
+                  color: "#6c757d",
+                  fontStyle: "italic"
+                }}
+              >
                 Through this structured approach, we ensure not only academic development but also skill enhancement to promote employability and self-reliance.
               </p>
             </div>
@@ -208,605 +412,315 @@ const OutOfSchoolDropout = () => {
         </div>
       </div>
 
-      {/* Impact */}
+      {/* Additional Images Gallery */}
       <div className="row mb-5">
         <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "20px",
-              textAlign: "center"
-            }}
-          >
-            Impact
-          </h3>
-          <p 
-            style={{ 
-              fontSize: "16px", 
-              color: "#6c757d", 
-              textAlign: "center",
-              marginBottom: "40px",
-              maxWidth: "600px",
-              margin: "0 auto 40px"
-            }}
-          >
-            Transforming Lives through Education. In the last academic year, NEIEA is proud to report the following outcomes:
-          </p>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>🎓</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              25
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              NIOS Secondary (10th Grade)
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              PROGRAM HIGHLIGHTS
             </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Learners successfully appeared for NIOS Secondary examinations in 2024-2025 through NEIEA's academic support
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>📚</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              33
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              NIOS Level-C (Grade 8)
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Learners from Karnataka appeared for NIOS Level-C examination in 2024-2025 under the NEIEA program
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>🌟</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              25
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Current Learners
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Learners appearing this year from Karnataka TUMKUR and HOSKOTE MADRASA
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Featured Videos */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "20px",
-              textAlign: "center"
-            }}
-          >
-            Featured Videos
-          </h3>
-          <p 
-            style={{ 
-              fontSize: "16px", 
-              color: "#6c757d", 
-              textAlign: "center",
-              marginBottom: "40px",
-              maxWidth: "600px",
-              margin: "0 auto 40px"
-            }}
-          >
-            Highlighted moments that capture the essence of our mission and the transformation happening in communities worldwide.
-          </p>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        <div className="col-lg-6">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", overflow: "hidden" }}
-          >
-            <div 
+            <h2 
               style={{ 
-                position: "relative", 
-                height: "200px", 
-                backgroundImage: "url('/assets/images/resized_classroom_image.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
               }}
             >
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  bottom: "0",
-                  backgroundColor: "rgba(0, 0, 0, 0.4)"
-                }}
-              ></div>
-              <button 
-                style={{
-                  position: "relative",
-                  backgroundColor: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: "50px",
-                  height: "50px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "16px",
-                  color: "#06038F",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)"
-                }}
-              >
-                ▶️
-              </button>
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "3px 6px",
-                  borderRadius: "4px",
-                  fontSize: "11px",
-                  fontWeight: "600"
-                }}
-              >
-                02:39
-              </div>
-            </div>
-            <div className="card-body p-3">
-              <h6 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "8px",
-                  fontSize: "14px"
-                }}
-              >
-                FREE | Crack the NIOS 10th Class Exams with NEIEA's Expert Preparatory Courses
-              </h6>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  fontSize: "12px", 
-                  lineHeight: "1.5", 
-                  marginBottom: "10px" 
-                }}
-              >
-                Comprehensive FREE NIOS 10th class exam preparatory courses designed to help students excel in their exams.
-              </p>
-              <button 
-                className="btn btn-outline-primary btn-sm"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  borderRadius: "15px",
-                  padding: "4px 12px",
-                  fontSize: "11px",
-                  fontWeight: "500"
-                }}
-              >
-                Watch Video
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", overflow: "hidden" }}
-          >
-            <div 
-              style={{ 
-                position: "relative", 
-                height: "200px", 
-                backgroundImage: "url('/assets/images/resized_classroom_image2.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  bottom: "0",
-                  backgroundColor: "rgba(0, 0, 0, 0.4)"
-                }}
-              ></div>
-              <button 
-                style={{
-                  position: "relative",
-                  backgroundColor: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: "50px",
-                  height: "50px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "16px",
-                  color: "#06038F",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)"
-                }}
-              >
-                ▶️
-              </button>
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "3px 6px",
-                  borderRadius: "4px",
-                  fontSize: "11px",
-                  fontWeight: "600"
-                }}
-              >
-                02:21
-              </div>
-            </div>
-            <div className="card-body p-3">
-              <h6 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "8px",
-                  fontSize: "14px"
-                }}
-              >
-                NEIEA - Education For All
-              </h6>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  fontSize: "12px", 
-                  lineHeight: "1.5", 
-                  marginBottom: "10px" 
-                }}
-              >
-                NEIEA employs cutting-edge technological tools and best pedagogy to expand education to new frontiers.
-              </p>
-              <button 
-                className="btn btn-outline-primary btn-sm"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  borderRadius: "15px",
-                  padding: "4px 12px",
-                  fontSize: "11px",
-                  fontWeight: "500"
-                }}
-              >
-                Watch Video
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", overflow: "hidden" }}
-          >
-            <div 
-              style={{ 
-                position: "relative", 
-                height: "200px", 
-                backgroundImage: "url('/assets/images/vision2.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  bottom: "0",
-                  backgroundColor: "rgba(0, 0, 0, 0.4)"
-                }}
-              ></div>
-              <button 
-                style={{
-                  position: "relative",
-                  backgroundColor: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: "50px",
-                  height: "50px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "16px",
-                  color: "#06038F",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)"
-                }}
-              >
-                ▶️
-              </button>
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "3px 6px",
-                  borderRadius: "4px",
-                  fontSize: "11px",
-                  fontWeight: "600"
-                }}
-              >
-                00:40
-              </div>
-            </div>
-            <div className="card-body p-3">
-              <h6 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "8px",
-                  fontSize: "14px"
-                }}
-              >
-                NEIEA Class Highlights | Empowering Education for All
-              </h6>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  fontSize: "12px", 
-                  lineHeight: "1.5", 
-                  marginBottom: "10px" 
-                }}
-              >
-                Real classroom moments — from slums to madarsas, every student is empowered with knowledge, guidance, and opportunity.
-              </p>
-              <button 
-                className="btn btn-outline-primary btn-sm"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  borderRadius: "15px",
-                  padding: "4px 12px",
-                  fontSize: "11px",
-                  fontWeight: "500"
-                }}
-              >
-                Watch Video
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", overflow: "hidden" }}
-          >
-            <div 
-              style={{ 
-                position: "relative", 
-                height: "200px", 
-                backgroundImage: "url('/assets/images/vision2 (1).jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  bottom: "0",
-                  backgroundColor: "rgba(0, 0, 0, 0.4)"
-                }}
-              ></div>
-              <button 
-                style={{
-                  position: "relative",
-                  backgroundColor: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: "50px",
-                  height: "50px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "16px",
-                  color: "#06038F",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)"
-                }}
-              >
-                ▶️
-              </button>
-              <div 
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "3px 6px",
-                  borderRadius: "4px",
-                  fontSize: "11px",
-                  fontWeight: "600"
-                }}
-              >
-                01:19
-              </div>
-            </div>
-            <div className="card-body p-3">
-              <h6 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "8px",
-                  fontSize: "14px"
-                }}
-              >
-                NEIEA Transforming Lives Through Education
-              </h6>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  fontSize: "12px", 
-                  lineHeight: "1.5", 
-                  marginBottom: "10px" 
-                }}
-              >
-                Young girls confidently reading and speaking in English through NEIEA's free online classes, transforming marginalized communities.
-              </p>
-              <button 
-                className="btn btn-outline-primary btn-sm"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  borderRadius: "15px",
-                  padding: "4px 12px",
-                  fontSize: "11px",
-                  fontWeight: "500"
-                }}
-              >
-                Watch Video
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mission Statement */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px", backgroundColor: "#f8f9fa" }}
-          >
+              NIOS Learning in Action
+            </h2>
             <p 
               style={{ 
                 fontSize: "18px", 
-                lineHeight: "1.8", 
-                color: "#495057",
-                marginBottom: "0",
-                textAlign: "center",
-                fontStyle: "italic"
+                color: "#6c757d", 
+                maxWidth: "600px",
+                margin: "0 auto"
               }}
             >
-              Through NIOS programs, we provide <strong>structured pathways for dropout children</strong> to re-enter formal education, ensuring they receive both academic knowledge and practical skills for employability and self-reliance.
+              Witness the transformation happening in our NIOS programs across different locations
             </p>
           </div>
         </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="row mt-5">
-        <div className="col-12">
+      <div className="row g-4 mb-5">
+        <div className="col-lg-6">
           <div 
+            className="card border-0"
             style={{ 
-              backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
-              textAlign: "center"
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
             }}
           >
-            <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              ✨ Join Our NIOS Education Mission
-            </h4>
-            <p style={{ color: "#6c757d", marginBottom: "25px", maxWidth: "600px", margin: "0 auto 25px", lineHeight: "1.6" }}>
-              Support our NIOS programs to provide second chances for dropout children. Help us transform lives through structured, recognized education pathways.
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/OutOfSchools/image3.png" 
+                alt="NIOS Program Activities"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "15px"
+                }}
+              />
+            </div>
+            <div className="card-body p-4">
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "10px",
+                  textAlign: "center"
+                }}
+              >
+                NIOS Program Activities
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "14px", 
+                  lineHeight: "1.6",
+                  margin: "0",
+                  textAlign: "center"
+                }}
+              >
+                Students actively participating in NIOS educational activities and skill development programs.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/OutOfSchools/image4.png" 
+                alt="NIOS Learning Environment"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "15px"
+                }}
+              />
+            </div>
+            <div className="card-body p-4">
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "10px",
+                  textAlign: "center"
+                }}
+              >
+                NIOS Learning Environment
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "14px", 
+                  lineHeight: "1.6",
+                  margin: "0",
+                  textAlign: "center"
+                }}
+              >
+                Creating supportive learning environments for out-of-school children to successfully complete their education.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Impact Section */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OUR ACHIEVEMENTS
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              🌟 Impact
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "600px",
+                margin: "0 auto"
+              }}
+            >
+              In the last academic year, NEIEA is proud to report the following outcomes
             </p>
-            <div>
-              <a 
-                href="/about-us/contact" 
-                className="btn btn-primary me-3"
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {impactData.map((impact) => (
+          <div key={impact.id} className="col-lg-6">
+            <div 
+              className="card h-100 border-0"
+              style={{ 
+                borderRadius: "8px", 
+                padding: "25px",
+                backgroundColor: "white",
+                border: "1px solid #e9ecef"
+              }}
+            >
+              <div className="d-flex align-items-start">
+                <div 
+                  style={{ 
+                    fontSize: "40px", 
+                    marginRight: "20px"
+                  }}
+                >
+                  {impact.icon}
+                </div>
+                <div>
+                  <div className="d-flex align-items-center mb-2">
+                    <h3 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "700", 
+                        marginRight: "15px",
+                        fontSize: "36px",
+                        marginBottom: "0"
+                      }}
+                    >
+                      {impact.number}
+                    </h3>
+                    <h5 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "600", 
+                        marginBottom: "0",
+                        fontSize: "18px"
+                      }}
+                    >
+                      {impact.title}
+                    </h5>
+                  </div>
+                  <p 
+                    style={{ 
+                      color: "#6c757d", 
+                      fontSize: "14px", 
+                      lineHeight: "1.6", 
+                      margin: "0"
+                    }}
+                  >
+                    {impact.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Second Image Section */}
+      <div className="row">
+        <div className="col-12">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/OutOfSchools/image2.png" 
+                alt="NIOS 10th grade learners from Thanal MLC Bangalore"
                 style={{
-                  backgroundColor: "#06038F",
-                  borderColor: "#06038F",
-                  padding: "12px 30px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "15px"
+                }}
+              />
+            </div>
+            <div 
+              className="card-body"
+              style={{ 
+                padding: "30px 40px",
+                backgroundColor: "white"
+              }}
+            >
+              <h4 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "20px",
+                  textAlign: "center"
                 }}
               >
-                📩 Contact Us
-              </a>
-              <a 
-                href="/donate" 
-                className="btn btn-outline-primary"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  padding: "12px 30px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+                NIOS 10th grade learners from Thanal MLC Bangalore
+              </h4>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "16px", 
+                  lineHeight: "1.6",
+                  margin: "0",
+                  textAlign: "center"
                 }}
               >
-                💝 Support Recovery
-              </a>
+                Supporting learners from marginalized communities in their journey towards completing their secondary education through NIOS programs.
+              </p>
             </div>
           </div>
         </div>

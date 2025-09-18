@@ -6,43 +6,41 @@ const RemoteLearning = () => {
     {
       id: 1,
       title: "English Language Programs",
-      description: "From beginner and foundational levels for first-time learners to advanced modules that refine fluency, confidence, and communication skills.",
+      description: "from beginner and foundational levels for first-time learners to advanced modules that refine fluency, confidence, and communication skills.",
       icon: "🗣️"
     },
     {
       id: 2,
       title: "Mathematics & Science Foundations",
-      description: "Strengthening conceptual clarity, problem-solving, and critical thinking across different age groups.",
+      description: "strengthening conceptual clarity, problem-solving, and critical thinking across different age groups.",
       icon: "🧮"
     },
     {
       id: 3,
       title: "Technical & Digital Literacy",
-      description: "Practical training in Google Workspace, Microsoft Office Suite, and other essential tools for academic, professional, and entrepreneurial growth.",
+      description: "practical training in Google Workspace, Microsoft Office Suite, and other essential tools for academic, professional, and entrepreneurial growth.",
       icon: "💻"
     }
   ];
 
-  const learningFeatures = [
+  const pedagogicalApproach = [
     {
-      title: "Device Flexibility",
-      description: "Access courses using smartphone, laptop, or tablet - learn with any device you have available.",
-      icon: "📱"
+      id: 1,
+      title: "Live Interactive Sessions",
+      description: "led by expert mentors, fostering real-time dialogue, collaboration, and personalized support.",
+      icon: "🎥"
     },
     {
-      title: "Anytime, Anywhere Learning",
-      description: "Transcend geographical boundaries with 24/7 access to expert instruction and resources.",
-      icon: "🌍"
+      id: 2,
+      title: "Digital Resources & Assignments",
+      description: "available anytime for flexible, self-paced learning.",
+      icon: "📚"
     },
     {
-      title: "Expert Instruction",
-      description: "Direct access to qualified mentors providing personalized support and guidance.",
-      icon: "👨‍🏫"
-    },
-    {
-      title: "Holistic Education",
-      description: "Integration of linguistic, academic, and technical skills for comprehensive development.",
-      icon: "🎯"
+      id: 3,
+      title: "Assessments & Feedback",
+      description: "continuous evaluation ensures measurable progress and tailored guidance.",
+      icon: "📋"
     }
   ];
 
@@ -53,74 +51,130 @@ const RemoteLearning = () => {
         { name: "Our Working Model", link: null },
         { name: "Remote Individual Learning", link: null }
       ]}
-      title="Online Education Model for Individual Learners"
+      title="Online education model for individual learners"
       subtitle="Remote Individual Learning"
       description="NEIEA's Online Education Model is a learner-centric framework that empowers individuals to access courses independently using their own digital devices—smartphone, laptop, or tablet."
-      heroImage="/assets/images/innovation.jpeg"
+      heroImage="/assets/images/remoteIndividualLearning.png"
     >
-      {/* Introduction */}
-      <div className="row mb-5">
-        <div className="col-lg-8 mx-auto text-center">
+      {/* Introduction Section */}
+      <div className="row mb-4">
+        <div className="col-lg-11 mx-auto">
+          <div 
+            style={{ 
+              backgroundColor: "#ffffff", 
+              padding: "25px", 
+              borderRadius: "12px",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h2 
+              style={{ 
+                fontSize: "28px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "15px",
+                textAlign: "center",
+                lineHeight: "1.3"
+              }}
+            >
+              Online Education Model for Individual Learners
+            </h2>
+            <div 
+              style={{
+                width: "60px",
+                height: "3px",
+                backgroundColor: "#06038F",
+                margin: "0 auto 20px",
+                borderRadius: "2px"
+              }}
+            ></div>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.6", 
+                color: "#2c3e50",
+                marginBottom: "15px",
+                textAlign: "left",
+                fontWeight: "400"
+              }}
+            >
+              <strong style={{ color: "#06038F" }}>NEIEA's Online Education Model is a learner-centric framework</strong> that empowers individuals to access courses independently using their own digital devices—smartphone, laptop, or tablet. Designed to transcend geographical boundaries, it enables students to learn anytime, anywhere, with direct access to expert instruction and high-quality resources.
+            </p>
           <p 
             style={{ 
               fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0"
-            }}
-          >
-            Designed to transcend geographical boundaries, it enables students to learn anytime, anywhere, with direct access to expert instruction and high-quality resources. By integrating linguistic, academic, and technical education, this model creates a holistic, inclusive, and transformative learning ecosystem that equips learners with critical skills needed to thrive in today's knowledge-driven global economy.
-          </p>
+                lineHeight: "1.6", 
+                color: "#2c3e50",
+                marginBottom: "0",
+                textAlign: "left",
+                fontWeight: "400"
+              }}
+            >
+              By integrating linguistic, academic, and technical education, this model creates a <strong style={{ color: "#06038F" }}>holistic, inclusive, and transformative learning ecosystem</strong>. It equips learners not only with academic excellence but also with the critical skills needed to thrive in today's knowledge-driven global economy.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Courses Offered */}
-      <div className="row mb-5">
+      {/* Courses Offered Section */}
+      <div className="row mb-4">
         <div className="col-12">
-          <h3 
+          <h2 
             style={{ 
-              fontSize: "32px", 
+              fontSize: "30px", 
               fontWeight: "700", 
               color: "#212529", 
-              marginBottom: "40px",
+              marginBottom: "25px",
               textAlign: "center"
             }}
           >
-            Courses Offered
-          </h3>
+            Courses Offered:
+          </h2>
         </div>
       </div>
 
-      <div className="row g-4 mb-5">
+      <div className="row g-3 mb-4">
         {coursesOffered.map((course) => (
           <div key={course.id} className="col-lg-4">
             <div 
-              className="card h-100 border-0 shadow-sm text-center"
-              style={{ borderRadius: "15px", padding: "30px" }}
+              className="card h-100 border-0 shadow-sm"
+              style={{ 
+                borderRadius: "12px", 
+                padding: "20px",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e9ecef",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                textAlign: "center"
+              }}
             >
               <div 
                 style={{ 
-                  fontSize: "60px", 
-                  marginBottom: "20px"
+                  fontSize: "50px", 
+                  marginBottom: "15px"
                 }}
               >
                 {course.icon}
               </div>
-              <h4 
+              <h5 
                 style={{ 
                   color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "15px" 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "20px",
+                  lineHeight: "1.3"
                 }}
               >
                 {course.title}
-              </h4>
+              </h5>
               <p 
                 style={{ 
-                  color: "#6c757d", 
+                  color: "#2c3e50", 
                   lineHeight: "1.6", 
                   margin: "0",
-                  fontSize: "15px"
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  textAlign: "left"
                 }}
               >
                 {course.description}
@@ -130,136 +184,109 @@ const RemoteLearning = () => {
         ))}
       </div>
 
-      {/* Pedagogical Approach */}
-      <div className="row mb-5">
+      {/* Pedagogical Approach Section */}
+      <div className="row mb-4">
         <div className="col-12">
-          <h3 
+          <h2 
             style={{ 
-              fontSize: "32px", 
+              fontSize: "30px", 
               fontWeight: "700", 
               color: "#212529", 
-              marginBottom: "40px",
+              marginBottom: "25px",
               textAlign: "center"
             }}
           >
-            Pedagogical Approach
-          </h3>
+            Pedagogical Approach:
+          </h2>
         </div>
       </div>
 
-      <div className="row g-4 mb-5">
-        <div className="col-lg-4">
+      <div className="row g-3 mb-4">
+        {pedagogicalApproach.map((approach) => (
+          <div key={approach.id} className="col-lg-4">
           <div 
             className="card h-100 border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div className="text-center mb-3">
-              <div style={{ fontSize: "50px", marginBottom: "15px" }}>🎥</div>
-              <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-                Live Interactive Sessions
-              </h5>
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", textAlign: "center", margin: "0" }}>
-              Led by expert mentors, fostering real-time dialogue, collaboration, and personalized support for each learner.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div className="text-center mb-3">
-              <div style={{ fontSize: "50px", marginBottom: "15px" }}>📚</div>
-              <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-                Digital Resources & Assignments
-              </h5>
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", textAlign: "center", margin: "0" }}>
-              Available anytime for flexible, self-paced learning, allowing students to progress at their own rhythm.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-4">
-          <div 
-            className="card h-100 border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px" }}
-          >
-            <div className="text-center mb-3">
-              <div style={{ fontSize: "50px", marginBottom: "15px" }}>📋</div>
-              <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-                Assessments & Feedback
-              </h5>
-            </div>
-            <p style={{ color: "#6c757d", fontSize: "14px", lineHeight: "1.6", textAlign: "center", margin: "0" }}>
-              Continuous evaluation ensures measurable progress and provides tailored guidance for improvement.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Key Learning Features */}
-      <div className="row mt-5 mb-5">
-        <div className="col-12">
-          <h3 
             style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
+                borderRadius: "12px", 
+                padding: "20px",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e9ecef",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
               textAlign: "center"
-            }}
-          >
-            Key Learning Features
-          </h3>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        {learningFeatures.map((feature, index) => (
-          <div key={index} className="col-lg-6">
-            <div 
-              className="d-flex align-items-start p-4"
-              style={{ 
-                backgroundColor: "#f8f9fa", 
-                borderRadius: "15px",
-                height: "100%"
               }}
             >
               <div 
                 style={{ 
-                  fontSize: "40px", 
-                  marginRight: "20px",
-                  flexShrink: 0
+                  fontSize: "50px", 
+                  marginBottom: "15px"
                 }}
               >
-                {feature.icon}
+                {approach.icon}
               </div>
-              <div>
                 <h5 
                   style={{ 
                     color: "#212529", 
-                    fontWeight: "600", 
-                    marginBottom: "10px" 
-                  }}
-                >
-                  {feature.title}
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "20px",
+                  lineHeight: "1.3"
+                }}
+              >
+                {approach.title}
                 </h5>
                 <p 
                   style={{ 
-                    color: "#6c757d", 
+                  color: "#2c3e50", 
                     lineHeight: "1.6", 
-                    margin: "0" 
+                  margin: "0",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  textAlign: "left"
                   }}
                 >
-                  {feature.description}
+                {approach.description}
                 </p>
-              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Conclusion Section */}
+      <div className="row mb-4">
+        <div className="col-lg-11 mx-auto">
+          <div 
+            style={{ 
+              backgroundColor: "#06038F", 
+              color: "white",
+              padding: "25px", 
+              borderRadius: "12px",
+              textAlign: "center"
+            }}
+          >
+            <h3 
+              style={{ 
+                fontSize: "24px", 
+                fontWeight: "700", 
+                marginBottom: "15px",
+                color: "white"
+              }}
+            >
+              Transformative Learning Ecosystem
+            </h3>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.6", 
+                marginBottom: "0",
+                maxWidth: "800px",
+                margin: "0 auto",
+                opacity: "0.95"
+              }}
+            >
+              By integrating linguistic, academic, and technical education, this model creates a holistic, inclusive, and transformative learning ecosystem. It equips learners not only with academic excellence but also with the critical skills needed to thrive in today's knowledge-driven global economy.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Call to Action */}
@@ -268,8 +295,8 @@ const RemoteLearning = () => {
           <div 
             style={{ 
               backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
+              padding: "25px", 
+              borderRadius: "12px",
               textAlign: "center"
             }}
           >
@@ -280,34 +307,51 @@ const RemoteLearning = () => {
                 marginBottom: "15px" 
               }}
             >
-              Transform Your Future with Individual Online Learning
+              Ready to Start Your Individual Learning Journey?
             </h4>
             <p 
               style={{ 
                 color: "#6c757d", 
-                marginBottom: "25px",
-                maxWidth: "700px",
-                margin: "0 auto 25px",
-                lineHeight: "1.6"
+                marginBottom: "20px",
+                fontSize: "16px",
+                maxWidth: "600px",
+                margin: "0 auto 20px"
               }}
             >
-              Join NEIEA's learner-centric online education model and gain the critical skills needed to thrive in today's knowledge-driven global economy. Access expert instruction, high-quality resources, and transformative learning experiences from any device, anywhere.
+              Join NEIEA's learner-centric online education model and access courses independently using your own digital device. Learn anytime, anywhere with expert instruction.
             </p>
+            <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
             <a 
               href="/about-us/contact" 
               className="btn btn-primary"
               style={{
                 backgroundColor: "#06038F",
                 borderColor: "#06038F",
-                padding: "12px 30px",
+                  padding: "12px 25px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  borderRadius: "25px",
+                  textDecoration: "none"
+                }}
+              >
+                Start Learning Today
+              </a>
+              <a 
+                href="/courses"
+                className="btn btn-outline-primary"
+                style={{
+                  borderColor: "#06038F",
+                  color: "#06038F",
+                  padding: "12px 25px",
                 fontSize: "16px",
                 fontWeight: "600",
                 borderRadius: "25px",
                 textDecoration: "none"
               }}
             >
-              Get Started Today
+                Explore Courses
             </a>
+            </div>
           </div>
         </div>
       </div>

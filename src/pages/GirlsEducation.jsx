@@ -2,48 +2,60 @@ import React from 'react';
 import PageTemplate from '../components/PageTemplate';
 
 const GirlsEducation = () => {
-  const programFeatures = [
+  const initiatives = [
     {
       id: 1,
-      title: "Safe Learning Environments",
-      level: "Security & Safety",
-      description: "Creating secure, supportive spaces where girls can learn without fear, harassment, or discrimination.",
-      modules: ["Safe Spaces", "Female Mentors", "Anti-Harassment Policies", "Supportive Counseling"],
-      outcome: "Confident and secure female learners"
+      title: "Education for Homeless & Destitute Girls",
+      partner: "Mamidipudi Venkatarangaiya Foundation (MVF)",
+      location: "Hyderabad",
+      startDate: "February 1, 2024",
+      description: "Partnership with MVF, a trust committed to ensuring all children aged 5-14 receive an education.",
+      achievements: [
+        "Completed two batches for 152 female students",
+        "Teacher training for 115 male and 82 female educators",
+        "Focus on English and Mathematics classes"
+      ],
+      icon: "🏠",
+      color: "#E91E63"
     },
     {
       id: 2,
-      title: "Gender-Sensitive Curriculum",
-      level: "Inclusive Education",
-      description: "Curriculum that challenges gender stereotypes and promotes equal opportunities for girls in all subjects including STEM.",
-      modules: ["STEM for Girls", "Leadership Training", "Career Guidance", "Role Model Programs"],
-      outcome: "Girls pursuing diverse career paths confidently"
-    },
-    {
-      id: 3,
-      title: "Financial Support & Scholarships",
-      level: "Economic Empowerment",
-      description: "Removing financial barriers through scholarships, free materials, and support for families to keep girls in school.",
-      modules: ["Scholarships", "Free Materials", "Uniform Support", "Family Assistance"],
-      outcome: "Reduced dropout rates due to economic constraints"
-    },
-    {
-      id: 4,
-      title: "Life Skills & Empowerment",
-      level: "Personal Development",
-      description: "Building confidence, leadership skills, and life skills that empower girls to make informed decisions about their futures.",
-      modules: ["Leadership Skills", "Communication Training", "Decision Making", "Self-Defense"],
-      outcome: "Empowered and confident young women"
-    },
-    {
-      id: 5,
-      title: "Community Awareness Programs",
-      level: "Social Change",
-      description: "Working with families and communities to change attitudes about girls' education and promote gender equality.",
-      modules: ["Community Workshops", "Parent Education", "Awareness Campaigns", "Male Ally Programs"],
-      outcome: "Changed community attitudes supporting girls' education"
+      title: "Girl Education in Slums: Umeed Centres",
+      partner: "Dr. Mohsin Raza's Umeed Education & Welfare (UEW)",
+      location: "Jamalpur, Aligarh",
+      startDate: "April 15, 2024",
+      description: "Partnership with four Umeed Centres providing educational opportunities to underprivileged children.",
+      achievements: [
+        "Umeed Centre No. 5 & 14: 134 students (38 male, 96 female)",
+        "Umeed Centre No. 15: 27 students (11 male, 16 female)",
+        "Umeed Centre No. 13: 55 students (26 male, 29 female)",
+        "One batch completed, new batch underway"
+      ],
+      icon: "🏘️",
+      color: "#FF5722"
     }
   ];
+
+  const partners = {
+    telangana: ["Ayesha Niswan Madarsa", "Banatul Abrar"],
+    bihar: [
+      "Jamia fatima lilbanat baswariya",
+      "Jamiatus Salehat",
+      "Jamia Rabbani Manorwa Sharif",
+      "Jamia Kanzul Iman",
+      "Jamia Mariya Niswan",
+      "Madarsa Jamia Islamia Kariniya Rahimia lilbanat",
+      "Madarsa Islamiya Dariyapur",
+      "Jamia Umme Kulsoom Lilbanat Hardiya",
+      "Jamia Umm Jamia Ummul Qura Lilbanat"
+    ],
+    uttarPradesh: [
+      "Aaghaz Foundation & Hafsa lilbanat (girls)",
+      "Jamia Islamia Siddiqa Lilbanat"
+    ],
+    haryana: ["MDD Bal Bhawan"],
+    gujarat: ["Jamiya Kanzul Iman"]
+  };
 
   return (
     <PageTemplate
@@ -52,200 +64,196 @@ const GirlsEducation = () => {
         { name: "Education", link: null },
         { name: "Girl's Education", link: null }
       ]}
-      title="Girl's Education Programs"
-      subtitle="Empowering Girls Through Quality Education"
-      description="NEIEA is committed to ensuring that girls have equal access to quality education, breaking down barriers and creating opportunities for female empowerment through learning."
-      heroImage="/assets/images/vision2 (1).jpg"
+      title="Empowering Generations: NEIEA's Commitment to Girls' Education"
+      subtitle="Educate a girl, empower a generation"
+      description="At NEIEA, we firmly believe that educating girls is the bedrock of building a just, inclusive, and progressive society"
+      heroImage="/assets/images/GirlsEducation/image1.png"
     >
-      {/* Introduction */}
+      {/* Vision and Philosophy */}
       <div className="row mb-5">
-        <div className="col-lg-8 mx-auto text-center">
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0",
-              fontWeight: "600"
-            }}
-          >
-            Educating girls transforms not just individual lives, but entire communities and societies. Our programs focus on breaking down barriers, challenging stereotypes, and creating supportive environments where girls can thrive academically and personally.
-          </p>
+        <div className="col-lg-10 mx-auto">
+          <div className="text-center" style={{ padding: "40px 20px" }}>
+            <h2 
+              style={{ 
+                fontSize: "32px", 
+                fontWeight: "700", 
+                marginBottom: "25px",
+                color: "#212529"
+              }}
+            >
+              Our Vision and Approach
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.8", 
+                marginBottom: "0",
+                color: "#6c757d"
+              }}
+            >
+              At the New Equitable and Innovative Educational Association (NEIEA), we firmly believe that educating girls is the bedrock of building a just, inclusive, and progressive society. In communities where socio-economic barriers and cultural norms limit access to quality schooling, NEIEA serves as a catalyst for change.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Impact Statistics */}
+      {/* Philosophy */}
       <div className="row mb-5">
-        <div className="col-12">
-          <h3 
+        <div className="col-lg-8 mx-auto">
+          <div 
+            className="card border-0"
             style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
+              borderRadius: "8px", 
+              padding: "40px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
             }}
           >
-            Our Impact on Girls' Education
-          </h3>
+            <div className="text-center">
+              <h4 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "20px",
+                  fontSize: "24px"
+                }}
+              >
+                💫 Our Philosophy
+              </h4>
+              <p 
+                style={{ 
+                  fontSize: "18px", 
+                  lineHeight: "1.8", 
+                  color: "#6c757d",
+                  marginBottom: "0",
+                  fontStyle: "italic"
+                }}
+              >
+                Our philosophy is simple yet profound: <strong style={{ color: "#212529" }}>educate a girl, empower a generation</strong>. We are dedicated to ensuring every girl, regardless of her background, has access to high-quality, relevant, and empowering education. Our blended learning model combines live online instruction with on-site facilitation, mentorship, and regular assessments, creating an engaging and inclusive environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* On-the-Ground Initiatives */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              OUR INITIATIVES
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              On-the-Ground Initiatives
+            </h2>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                color: "#6c757d", 
+                maxWidth: "600px",
+                margin: "0 auto"
+              }}
+            >
+              Targeted programs addressing specific community needs
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="row g-4 mb-5">
-        <div className="col-lg-3 col-md-6">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>👩‍🎓</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              80%
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Girl Students
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Of our 10,116 total learners, demonstrating our commitment to girls' education
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>👩‍🏫</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              90%
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Women Educators
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Female role models inspiring and teaching our students daily
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>🆓</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              100%
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Free Education
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              All courses provided free to remove financial barriers for girls
-            </p>
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6">
-          <div 
-            className="card h-100 border-0 text-center"
-            style={{ 
-              backgroundColor: "#f8f9fa", 
-              borderRadius: "15px", 
-              padding: "25px 20px" 
-            }}
-          >
-            <div style={{ fontSize: "40px", marginBottom: "15px" }}>🌟</div>
-            <h4 style={{ color: "#06038F", fontWeight: "700", marginBottom: "10px" }}>
-              1,500+
-            </h4>
-            <h6 style={{ color: "#212529", fontWeight: "600", marginBottom: "10px" }}>
-              Girls Certified
-            </h6>
-            <p style={{ color: "#6c757d", fontSize: "13px", lineHeight: "1.5", margin: "0" }}>
-              Female students who have successfully completed our programs
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Program Features */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Our Girls' Education Programs
-          </h3>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        {programFeatures.map((feature) => (
-          <div key={feature.id} className="col-lg-6">
-            <div className="card h-100 border-0 shadow-sm" style={{ borderRadius: "15px" }}>
-              <div className="card-body p-4">
-                <div className="d-flex justify-content-between align-items-start mb-3">
-                  <span 
+        {initiatives.map((initiative) => (
+          <div key={initiative.id} className="col-lg-6">
+            <div 
+              className="card h-100 border-0"
+              style={{ 
+                borderRadius: "8px",
+                backgroundColor: "white",
+                border: "1px solid #e9ecef"
+              }}
+            >
+              <div 
+                style={{ 
+                  backgroundColor: "#f8f9fa",
+                  padding: "25px 30px",
+                  color: "#212529",
+                  borderBottom: "1px solid #e9ecef"
+                }}
+              >
+                <div className="d-flex align-items-center justify-content-between mb-3">
+                  <div 
                     style={{ 
-                      backgroundColor: "#06038F", 
-                      color: "white", 
-                      padding: "4px 12px", 
-                      borderRadius: "15px", 
-                      fontSize: "12px", 
-                      fontWeight: "600" 
+                      fontSize: "40px"
                     }}
                   >
-                    {feature.level}
-                  </span>
+                    {initiative.icon}
+                  </div>
+                  <div className="text-end">
+                    <div style={{ color: "#6c757d", fontSize: "12px" }}>
+                      Started: {initiative.startDate}
+                    </div>
+                  </div>
                 </div>
-                <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-                  {feature.title}
+                <h4 
+                  style={{ 
+                    color: "#212529", 
+                    fontWeight: "700", 
+                    marginBottom: "10px"
+                  }}
+                >
+                  {initiative.title}
                 </h4>
+                <p 
+                  style={{ 
+                    color: "#6c757d", 
+                    fontSize: "14px",
+                    marginBottom: "5px"
+                  }}
+                >
+                  <strong>Partner:</strong> {initiative.partner}
+                </p>
+                <p 
+                  style={{ 
+                    color: "#6c757d", 
+                    fontSize: "14px",
+                    marginBottom: "0"
+                  }}
+                >
+                  <strong>Location:</strong> {initiative.location}
+                </p>
+              </div>
+              
+              <div className="card-body p-4">
                 <p style={{ color: "#6c757d", lineHeight: "1.6", marginBottom: "20px" }}>
-                  {feature.description}
+                  {initiative.description}
                 </p>
                 <div className="mb-3">
-                  <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "10px" }}>
-                    Key Components:
+                  <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "15px" }}>
+                    Key Achievements:
                   </h6>
-                  <ul style={{ color: "#6c757d", paddingLeft: "20px", margin: "0" }}>
-                    {feature.modules.map((module, index) => (
-                      <li key={index} style={{ marginBottom: "5px", fontSize: "14px" }}>
-                        {module}
+                  <ul style={{ color: "#6c757d", paddingLeft: "20px", margin: "0", lineHeight: "1.6" }}>
+                    {initiative.achievements.map((achievement, index) => (
+                      <li key={index} style={{ marginBottom: "8px", fontSize: "14px" }}>
+                        {achievement}
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div 
-                  style={{ 
-                    backgroundColor: "#f8f9fa", 
-                    padding: "10px 15px", 
-                    borderRadius: "8px",
-                    fontSize: "13px",
-                    color: "#06038F",
-                    fontWeight: "600"
-                  }}
-                >
-                  <strong>Outcome:</strong> {feature.outcome}
                 </div>
               </div>
             </div>
@@ -253,77 +261,469 @@ const GirlsEducation = () => {
         ))}
       </div>
 
-      {/* Mission Statement */}
+      {/* Our Impact */}
       <div className="row mb-5">
         <div className="col-12">
-          <div 
-            className="card border-0 shadow-sm"
-            style={{ borderRadius: "15px", padding: "30px", backgroundColor: "#f8f9fa" }}
-          >
-            <p 
-              style={{ 
-                fontSize: "18px", 
-                lineHeight: "1.8", 
-                color: "#495057",
-                marginBottom: "0",
-                textAlign: "center",
-                fontStyle: "italic"
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
               }}
             >
-              At NEIEA, we recognize the <strong>transformative power of education</strong> in the lives of young girls. By providing free courses and creating inclusive learning environments, we aim to break down barriers and empower the next generation of female leaders.
+              OUR IMPACT
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Nationwide Girls' Education Impact
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                padding: "20px",
+                textAlign: "center"
+              }}
+            >
+              <img 
+                src="/assets/images/GirlsEducation/image2.jpg" 
+                alt="NEIEA Girls Education Impact"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  marginBottom: "20px"
+                }}
+              />
+            </div>
+            <div className="card-body p-4">
+              <h4 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "20px",
+                  textAlign: "center"
+                }}
+              >
+                Total Impact
+              </h4>
+              <div className="text-center mb-3">
+                <div 
+                  style={{ 
+                    backgroundColor: "#f8f9fa", 
+                    color: "#212529", 
+                    padding: "12px 20px", 
+                    borderRadius: "6px", 
+                    fontSize: "18px", 
+                    fontWeight: "700",
+                    display: "inline-block",
+                    marginBottom: "15px",
+                    border: "1px solid #e9ecef"
+                  }}
+                >
+                  9,643 Girls & Women Educated
+                </div>
+              </div>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "15px", 
+                  lineHeight: "1.6",
+                  margin: "0",
+                  textAlign: "center"
+                }}
+              >
+                Since our inception, NEIEA has created meaningful impact through collaborations with numerous girl-focused organizations across several Indian states.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div 
+            className="card border-0"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "20px"
+              }}
+            >
+              🌟 Our Partner Organizations
+            </h5>
+            
+            <div className="mb-4">
+              <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "10px", fontSize: "14px" }}>
+                📍 Telangana:
+              </h6>
+              <div className="d-flex flex-wrap gap-2 mb-3">
+                {partners.telangana.map((partner, index) => (
+                  <span 
+                    key={index}
+                    style={{ 
+                      backgroundColor: "#f8f9fa", 
+                      color: "#212529", 
+                      padding: "4px 8px", 
+                      borderRadius: "6px", 
+                      fontSize: "11px",
+                      fontWeight: "500",
+                      border: "1px solid #e9ecef"
+                    }}
+                  >
+                    {partner}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "10px", fontSize: "14px" }}>
+                📍 Bihar:
+              </h6>
+              <div className="d-flex flex-wrap gap-2 mb-3">
+                {partners.bihar.slice(0, 4).map((partner, index) => (
+                  <span 
+                    key={index}
+                    style={{ 
+                      backgroundColor: "#f8f9fa", 
+                      color: "#212529", 
+                      padding: "4px 8px", 
+                      borderRadius: "6px", 
+                      fontSize: "11px",
+                      fontWeight: "500",
+                      border: "1px solid #e9ecef"
+                    }}
+                  >
+                    {partner}
+                  </span>
+                ))}
+              </div>
+              <p style={{ color: "#6c757d", fontSize: "12px", fontStyle: "italic" }}>
+                +5 more partner organizations
+              </p>
+            </div>
+
+            <div className="mb-4">
+              <h6 style={{ color: "#495057", fontWeight: "600", marginBottom: "10px", fontSize: "14px" }}>
+                📍 Other States:
+              </h6>
+              <div className="d-flex flex-wrap gap-2">
+                {[...partners.uttarPradesh, ...partners.haryana, ...partners.gujarat].map((partner, index) => (
+                  <span 
+                    key={index}
+                    style={{ 
+                      backgroundColor: "#f8f9fa", 
+                      color: "#212529", 
+                      padding: "4px 8px", 
+                      borderRadius: "6px", 
+                      fontSize: "11px",
+                      fontWeight: "500",
+                      border: "1px solid #e9ecef"
+                    }}
+                  >
+                    {partner}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Looking Forward */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="text-center mb-5">
+            <h6 
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "15px"
+              }}
+            >
+              FUTURE VISION
+            </h6>
+            <h2 
+              style={{ 
+                fontSize: "36px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "20px",
+                lineHeight: "1.3"
+              }}
+            >
+              Looking Forward
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 text-center"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                fontSize: "50px", 
+                marginBottom: "20px"
+              }}
+            >
+              🏫
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px",
+                fontSize: "18px"
+              }}
+            >
+              Expanding to More Schools
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                fontSize: "14px", 
+                lineHeight: "1.6", 
+                margin: "0"
+              }}
+            >
+              NEIEA is committed to expanding its girls' education programs to more schools across India.
+            </p>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 text-center"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                fontSize: "50px", 
+                marginBottom: "20px"
+              }}
+            >
+              🕌
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px",
+                fontSize: "18px"
+              }}
+            >
+              Madrasas Integration
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                fontSize: "14px", 
+                lineHeight: "1.6", 
+                margin: "0"
+              }}
+            >
+              Expanding partnerships with madrasas to provide quality education while respecting cultural values.
+            </p>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div 
+            className="card h-100 border-0 text-center"
+            style={{ 
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <div 
+              style={{ 
+                fontSize: "50px", 
+                marginBottom: "20px"
+              }}
+            >
+              🏘️
+            </div>
+            <h5 
+              style={{ 
+                color: "#212529", 
+                fontWeight: "700", 
+                marginBottom: "15px",
+                fontSize: "18px"
+              }}
+            >
+              Community Centers
+            </h5>
+            <p 
+              style={{ 
+                color: "#6c757d", 
+                fontSize: "14px", 
+                lineHeight: "1.6", 
+                margin: "0"
+              }}
+            >
+              Reaching more community centers to ensure no girl is left behind in her educational journey.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="row mt-5">
-        <div className="col-12">
+      {/* Scalable Model */}
+      <div className="row mb-5">
+        <div className="col-lg-8 mx-auto">
           <div 
+            className="card border-0"
             style={{ 
-              backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
-              textAlign: "center"
+              borderRadius: "8px", 
+              padding: "30px",
+              backgroundColor: "white",
+              border: "1px solid #e9ecef"
             }}
           >
-            <h4 style={{ color: "#212529", fontWeight: "600", marginBottom: "15px" }}>
-              ✨ Support Girls' Education Initiative
-            </h4>
-            <p style={{ color: "#6c757d", marginBottom: "25px", maxWidth: "600px", margin: "0 auto 25px", lineHeight: "1.6" }}>
-              Join us in empowering girls through education. Your support helps create opportunities for girls to learn, grow, and become leaders in their communities.
+            <div className="text-center">
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px"
+                }}
+              >
+                🚀 Scalable & Sustainable Model
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "16px", 
+                  lineHeight: "1.6",
+                  margin: "0"
+                }}
+              >
+                Our model is <strong>scalable, sustainable, and deeply rooted in community participation</strong>, ensuring long-term impact and growth in girls' education initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Join the Movement */}
+      <div className="row">
+        <div className="col-lg-10 mx-auto">
+          <div 
+            className="card border-0 text-center"
+            style={{ 
+              borderRadius: "8px", 
+              backgroundColor: "white",
+              color: "#212529",
+              padding: "50px 40px",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h3 
+              style={{ 
+                fontSize: "28px", 
+                fontWeight: "700", 
+                marginBottom: "20px"
+              }}
+            >
+              Join the Movement
+            </h3>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                marginBottom: "25px",
+                color: "#6c757d",
+                maxWidth: "700px",
+                margin: "0 auto 25px"
+              }}
+            >
+              At NEIEA, we don't just educate girls—we shape futures. Together with our partners and supporters, we envision a world where every girl can dream freely, learn confidently, and lead boldly.
             </p>
-            <div>
-              <a 
-                href="/about-us/contact" 
-                className="btn btn-primary me-3"
+            <p 
+              style={{ 
+                fontSize: "16px", 
+                marginBottom: "30px",
+                color: "#495057",
+                fontWeight: "600"
+              }}
+            >
+              Let's invest in girls' education today for a more equitable tomorrow.
+            </p>
+            <div className="d-flex gap-3 justify-content-center flex-wrap">
+              <button 
+                className="btn btn-lg"
                 style={{
-                  backgroundColor: "#06038F",
-                  borderColor: "#06038F",
+                  borderRadius: "6px",
                   padding: "12px 30px",
-                  fontSize: "16px",
                   fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+                  fontSize: "16px",
+                  color: "white",
+                  backgroundColor: "#212529",
+                  border: "1px solid #212529"
                 }}
               >
-                📩 Get Involved
-              </a>
-              <a 
-                href="/donate" 
-                className="btn btn-outline-primary"
+                💝 Support Girls' Education
+              </button>
+              <button 
+                className="btn btn-outline-secondary btn-lg"
                 style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
+                  borderRadius: "6px",
                   padding: "12px 30px",
-                  fontSize: "16px",
                   fontWeight: "600",
-                  borderRadius: "25px",
-                  textDecoration: "none"
+                  fontSize: "16px",
+                  borderColor: "#6c757d",
+                  color: "#6c757d",
+                  backgroundColor: "transparent"
                 }}
               >
-                💝 Support Girls
-              </a>
+                📞 Get Involved
+              </button>
             </div>
           </div>
         </div>

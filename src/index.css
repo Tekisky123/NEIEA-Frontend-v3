@@ -174,6 +174,185 @@ button:focus-visible {
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
+  /* Custom Checkbox Styling - Higher Specificity */
+  button.custom-checkbox,
+  .custom-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border: 2px solid #6b7280 !important;
+    border-radius: 4px !important;
+    background-color: white !important;
+    background-image: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+  }
+
+  button.custom-checkbox:hover,
+  .custom-checkbox:hover {
+    border-color: #06038F !important;
+    background-color: white !important;
+  }
+
+  button.custom-checkbox[data-state="checked"],
+  .custom-checkbox[data-state="checked"] {
+    background-color: #06038F !important;
+    border-color: #06038F !important;
+    color: white !important;
+  }
+
+  button.custom-checkbox[data-state="checked"] svg,
+  .custom-checkbox[data-state="checked"] svg {
+    display: block !important;
+    color: white !important;
+    width: 14px !important;
+    height: 14px !important;
+    opacity: 1 !important;
+  }
+
+  button.custom-checkbox[data-state="unchecked"] svg,
+  .custom-checkbox[data-state="unchecked"] svg {
+    display: none !important;
+  }
+
+  /* Fallback for checkboxes that might not have data-state */
+  button.custom-checkbox[aria-checked="true"],
+  .custom-checkbox[aria-checked="true"] {
+    background-color: #06038F !important;
+    border-color: #06038F !important;
+    color: white !important;
+  }
+
+  button.custom-checkbox[aria-checked="true"] svg,
+  .custom-checkbox[aria-checked="true"] svg {
+    display: block !important;
+    color: white !important;
+    width: 14px !important;
+    height: 14px !important;
+    opacity: 1 !important;
+  }
+
+  button.custom-checkbox[aria-checked="false"] svg,
+  .custom-checkbox[aria-checked="false"] svg {
+    display: none !important;
+  }
+
+  /* Override any conflicting styles */
+  button.custom-checkbox *,
+  .custom-checkbox * {
+    pointer-events: none;
+  }
+
+  /* Custom Radio Button Styling - Higher Specificity */
+  button.custom-radio,
+  .custom-radio {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border: 2px solid #6b7280 !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    background-image: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+  }
+
+  button.custom-radio:hover,
+  .custom-radio:hover {
+    border-color: #06038F !important;
+    background-color: white !important;
+  }
+
+  button.custom-radio[data-state="checked"],
+  .custom-radio[data-state="checked"] {
+    border-color: #06038F !important;
+    background-color: white !important;
+  }
+
+  button.custom-radio[data-state="checked"] svg,
+  .custom-radio[data-state="checked"] svg {
+    display: block !important;
+    color: #06038F !important;
+    width: 10px !important;
+    height: 10px !important;
+    opacity: 1 !important;
+  }
+
+  button.custom-radio[data-state="unchecked"] svg,
+  .custom-radio[data-state="unchecked"] svg {
+    display: none !important;
+  }
+
+  /* Fallback for radio buttons that might not have data-state */
+  button.custom-radio[aria-checked="true"],
+  .custom-radio[aria-checked="true"] {
+    border-color: #06038F !important;
+    background-color: white !important;
+  }
+
+  button.custom-radio[aria-checked="true"] svg,
+  .custom-radio[aria-checked="true"] svg {
+    display: block !important;
+    color: #06038F !important;
+    width: 10px !important;
+    height: 10px !important;
+    opacity: 1 !important;
+  }
+
+  button.custom-radio[aria-checked="false"] svg,
+  .custom-radio[aria-checked="false"] svg {
+    display: none !important;
+  }
+
+  /* Override any conflicting styles */
+  button.custom-radio *,
+  .custom-radio * {
+    pointer-events: none;
+  }
+
+  /* Force reset any potential conflicting styles */
+  [data-radix-collection-item].custom-checkbox,
+  [data-radix-collection-item].custom-radio {
+    all: unset !important;
+  }
+
+  /* Re-apply our custom styles after reset */
+  [data-radix-collection-item].custom-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #6b7280 !important;
+    border-radius: 4px !important;
+    background-color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
+
+  [data-radix-collection-item].custom-radio {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #6b7280 !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
   
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);

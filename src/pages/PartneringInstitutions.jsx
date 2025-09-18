@@ -1,88 +1,44 @@
 import React from 'react';
 import PageTemplate from '../components/PageTemplate';
+import { Link } from 'react-router-dom';
 
 const PartneringInstitutions = () => {
-  const partners = [
+  const partnershipPrinciples = [
     {
       id: 1,
-      name: "Delhi Public School Network",
-      type: "K-12 Schools",
-      location: "Pan India",
-      collaboration: "Curriculum Enhancement & Teacher Training",
-      students: "50,000+",
-      since: "2022"
+      title: "Partnership Relationship",
+      description: "Clear division of work between NEIEA and Partners. Partner institutions help enroll students, ensure safety, establish building infrastructure and IT-enabled classrooms.",
+      icon: "🤝"
     },
     {
       id: 2,
-      name: "Jamia Millia Islamia",
-      type: "University",
-      location: "New Delhi",
-      collaboration: "Research & Higher Education Programs",
-      students: "15,000+",
-      since: "2023"
+      title: "NEIEA's Role",
+      description: "Develop course content for multiple subjects using Discourse Oriented Pedagogy, create worksheets, and deliver LIVE classes on a regular basis.",
+      icon: "📚"
     },
     {
       id: 3,
-      name: "Kendriya Vidyalaya Sangathan",
-      type: "Government Schools",
-      location: "National",
-      collaboration: "Digital Learning Infrastructure",
-      students: "1,200,000+",
-      since: "2023"
+      title: "Nominal Service Charges",
+      description: "NEIEA charges a very nominal amount for its services from the Partner, making quality education accessible and affordable.",
+      icon: "💰"
     },
     {
       id: 4,
-      name: "Teach for India",
-      type: "NGO",
-      location: "Multiple Cities",
-      collaboration: "Teacher Fellowship Programs",
-      students: "40,000+",
-      since: "2022"
+      title: "Parental Involvement",
+      description: "Coordinates with Partnering institutions to reach out to Parents, show monthly progress reports, and build Parental involvement in the teaching process.",
+      icon: "👨‍👩‍👧‍👦"
     },
     {
       id: 5,
-      name: "IIT Delhi",
-      type: "Technical Institute",
-      location: "New Delhi",
-      collaboration: "EdTech Research & Development",
-      students: "8,000+",
-      since: "2023"
+      title: "Teacher Support",
+      description: "Utilizes a teacher provided by the Partner as class monitor/coordinator, entrusted with maintaining class decorum and following Mentor Teacher instructions.",
+      icon: "👨‍🏫"
     },
     {
       id: 6,
-      name: "Ashoka University",
-      type: "Private University",
-      location: "Haryana",
-      collaboration: "Liberal Arts & Innovation Programs",
-      students: "3,000+",
-      since: "2023"
-    }
-  ];
-
-  const partnershipTypes = [
-    {
-      type: "Academic Partnerships",
-      description: "Collaborative programs with universities and colleges for research, curriculum development, and student exchange.",
-      benefits: ["Joint research projects", "Faculty exchange", "Student mobility", "Shared resources"],
+      title: "Institutional Capacity Building",
+      description: "NEIEA builds institutional capacity by Training Partner Teachers in Pedagogy, Technology, Classroom Management, and English Proficiency.",
       icon: "🎓"
-    },
-    {
-      type: "School Collaborations",
-      description: "Working directly with K-12 schools to implement innovative teaching methods and improve learning outcomes.",
-      benefits: ["Teacher training", "Curriculum support", "Technology integration", "Assessment tools"],
-      icon: "🏫"
-    },
-    {
-      type: "Government Partnerships",
-      description: "Collaborating with government bodies and public institutions to scale educational initiatives.",
-      benefits: ["Policy alignment", "Large-scale implementation", "Funding support", "Regulatory compliance"],
-      icon: "🏛️"
-    },
-    {
-      type: "NGO Alliances",
-      description: "Partnering with non-governmental organizations to reach underserved communities and marginalized populations.",
-      benefits: ["Community outreach", "Social impact", "Resource sharing", "Grassroots implementation"],
-      icon: "🤝"
     }
   ];
 
@@ -94,55 +50,468 @@ const PartneringInstitutions = () => {
         { name: "Partnering with Educational Institutions", link: null }
       ]}
       title="Partnering with Educational Institutions"
-      subtitle="Building Collaborative Networks for Educational Excellence"
-      description="NEIEA works closely with educational institutions across India and globally to create sustainable, scalable, and impactful educational programs."
-      heroImage="/assets/images/testimonial1.jpg"
+      subtitle="Collective Working Through Partnerships"
+      description="NEIEA adheres to the notion that transformative progression is only possible through collective, not singular, effort."
+      heroImage="/assets/images/partnering2.png"
     >
-      {/* Partnership Overview */}
-      <div className="row mb-5">
-        <div className="col-lg-8 mx-auto text-center">
+      {/* Main Content Introduction */}
+      <div className="row mb-4">
+        <div className="col-lg-11 mx-auto">
+          <div 
+            style={{ 
+              backgroundColor: "#ffffff", 
+              padding: "25px", 
+              borderRadius: "12px",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+              border: "1px solid #e9ecef"
+            }}
+          >
+            <h2 
+              style={{ 
+                fontSize: "28px", 
+                fontWeight: "700", 
+                color: "#212529", 
+                marginBottom: "15px",
+                textAlign: "center",
+                lineHeight: "1.3"
+              }}
+            >
+              Overview
+            </h2>
+            <div 
+              style={{
+                width: "60px",
+                height: "3px",
+                backgroundColor: "#06038F",
+                margin: "0 auto 20px",
+                borderRadius: "2px"
+              }}
+            ></div>
           <p 
             style={{ 
               fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0"
-            }}
-          >
-            Our institutional partnerships form the backbone of NEIEA's mission to transform education. 
-            By collaborating with schools, universities, government bodies, and NGOs, we create a 
-            comprehensive ecosystem that supports innovative teaching, learning, and educational research.
+                lineHeight: "1.6", 
+                color: "#2c3e50",
+                marginBottom: "0",
+                textAlign: "left",
+                fontWeight: "400",
+                letterSpacing: "0.2px"
+              }}
+            >
+              NEIEA adheres to the notion that <strong style={{ color: "#06038F" }}>transformative progression is only possible through a collective, and not a singular, effort</strong>. It implements the policy of collective working through multiple strategic approaches:
+            </p>
+          </div>
+
+          <div className="row g-3" style={{ marginTop: "20px" }}>
+            {/* Partnership Relationship */}
+            <div className="col-12">
+              <div 
+                className="card border-0 shadow-sm"
+                style={{ 
+                  borderRadius: "12px", 
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e9ecef",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+                }}
+              >
+                <div className="d-flex align-items-start">
+                  <div 
+                    style={{
+                      backgroundColor: "#06038F",
+                      color: "white",
+                      borderRadius: "8px",
+                      width: "35px",
+                      height: "35px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginRight: "15px",
+                      flexShrink: 0,
+                      marginTop: "2px"
+                    }}
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h5 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "700", 
+                        marginBottom: "10px",
+                        fontSize: "20px",
+                        lineHeight: "1.3"
+                      }}
+                    >
+                      Partnership Relationship with Educational Institutions
+                    </h5>
+                    <p 
+                      style={{ 
+                        color: "#2c3e50", 
+                        lineHeight: "1.6", 
+                        margin: "0",
+                        textAlign: "left",
+                        fontSize: "16px",
+                        letterSpacing: "0.1px",
+                        fontWeight: "400"
+                      }}
+                    >
+                      NEIEA builds partnerships with educational institutions that seek to provide good quality education for their youth. There is a <strong style={{ color: "#06038F" }}>clear-cut division of work</strong> between NEIEA and its Partners. The Partnering institution helps enroll the students and takes care of their safety, establishing the building infrastructure and IT enabled classroom. NEIEA's role is to develop course content for multiple subjects, using Discourse Oriented Pedagogy, develop worksheets and deliver LIVE classes on a regular basis.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Nominal Service Charges */}
+            <div className="col-12">
+              <div 
+                className="card border-0 shadow-sm"
+                style={{ 
+                  borderRadius: "12px", 
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e9ecef",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+                }}
+              >
+                <div className="d-flex align-items-start">
+                  <div 
+                    style={{
+                      backgroundColor: "#06038F",
+                      color: "white",
+                      borderRadius: "8px",
+                      width: "35px",
+                      height: "35px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginRight: "15px",
+                      flexShrink: 0,
+                      marginTop: "2px"
+                    }}
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h5 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "700", 
+                        marginBottom: "10px",
+                        fontSize: "20px",
+                        lineHeight: "1.3"
+                      }}
+                    >
+                      Affordable Service Model
+                    </h5>
+                    <p 
+                      style={{ 
+                        color: "#2c3e50", 
+                        lineHeight: "1.6", 
+                        margin: "0",
+                        textAlign: "left",
+                        fontSize: "16px",
+                        letterSpacing: "0.1px",
+                        fontWeight: "400"
+                      }}
+                    >
+                      NEIEA charges a <strong style={{ color: "#06038F" }}>very nominal amount</strong> for its services from the Partner, making quality education accessible and affordable for institutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Parental Involvement */}
+            <div className="col-12">
+              <div 
+                className="card border-0 shadow-sm"
+                style={{ 
+                  borderRadius: "12px", 
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e9ecef",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+                }}
+              >
+                <div className="d-flex align-items-start">
+                  <div 
+                    style={{
+                      backgroundColor: "#06038F",
+                      color: "white",
+                      borderRadius: "8px",
+                      width: "35px",
+                      height: "35px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginRight: "15px",
+                      flexShrink: 0,
+                      marginTop: "2px"
+                    }}
+                  >
+                    3
+                  </div>
+                  <div>
+                    <h5 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "700", 
+                        marginBottom: "10px",
+                        fontSize: "20px",
+                        lineHeight: "1.3"
+                      }}
+                    >
+                      Parental Engagement and Progress Monitoring
+                    </h5>
+                    <p 
+                      style={{ 
+                        color: "#2c3e50", 
+                        lineHeight: "1.6", 
+                        margin: "0",
+                        textAlign: "left",
+                        fontSize: "16px",
+                        letterSpacing: "0.1px",
+                        fontWeight: "400"
+                      }}
+                    >
+                      NEIEA coordinates with the Partnering institution in reaching out to the Parents of its students, showing them <strong style={{ color: "#06038F" }}>monthly progress reports</strong> and building Parental involvement and support in the teaching process. It also takes the help of a teacher provided by the Partner. This teacher is the class monitor or class coordinator who is entrusted with the tasks of maintaining class decorum and following the instructions of the Mentor Teacher.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Institutional Capacity Building */}
+            <div className="col-12">
+              <div 
+                className="card border-0 shadow-sm"
+                style={{ 
+                  borderRadius: "12px", 
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e9ecef",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+                }}
+              >
+                <div className="d-flex align-items-start">
+                  <div 
+                    style={{
+                      backgroundColor: "#06038F",
+                      color: "white",
+                      borderRadius: "8px",
+                      width: "35px",
+                      height: "35px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginRight: "15px",
+                      flexShrink: 0,
+                      marginTop: "2px"
+                    }}
+                  >
+                    4
+                  </div>
+                  <div>
+                    <h5 
+                      style={{ 
+                        color: "#212529", 
+                        fontWeight: "700", 
+                        marginBottom: "10px",
+                        fontSize: "20px",
+                        lineHeight: "1.3"
+                      }}
+                    >
+                      Institutional Capacity Building
+                    </h5>
+                    <p 
+                      style={{ 
+                        color: "#2c3e50", 
+                        lineHeight: "1.6", 
+                        margin: "0",
+                        textAlign: "left",
+                        fontSize: "16px",
+                        letterSpacing: "0.1px",
+                        fontWeight: "400"
+                      }}
+                    >
+                      NEIEA builds institutional capacity of the Partnering institution by <strong style={{ color: "#06038F" }}>Training its Teachers</strong> in Pedagogy, Technology, Classroom Management and English Proficiency.
           </p>
         </div>
       </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* Partnership Types */}
-      <div className="row mb-5">
+      {/* Featured Image */}
+      {/* <div className="row mb-5">
         <div className="col-12">
-          <h3 
+          <div className="d-flex justify-content-center">
+            <img 
+              src="/assets/images/partnering.png" 
+              alt="NEIEA Partnership Model" 
+              className="img-fluid rounded shadow-sm"
+              style={{ 
+                maxHeight: "400px", 
+                width: "auto",
+                objectFit: "cover",
+                display: "block",
+                margin: "0 auto"
+              }}
+            />
+          </div>
+        </div>
+      </div> */}
+
+      {/* Partnership Principles */}
+      {/* <div className="row mb-5">
+        <div className="col-12">
+          <h2 
             style={{ 
-              fontSize: "32px", 
+              fontSize: "36px", 
               fontWeight: "700", 
               color: "#212529", 
               marginBottom: "40px",
               textAlign: "center"
             }}
           >
-            Types of Partnerships
-          </h3>
+            How Our Partnership Model Works
+          </h2>
+        </div>
+      </div> */}
+
+      {/* Partnership Principles Grid */}
+      {/* <div className="row g-4 mb-5">
+        {partnershipPrinciples.map((principle) => (
+          <div key={principle.id} className="col-lg-6">
+            <div 
+              className="card h-100 border-0 shadow-sm"
+              style={{ borderRadius: "15px", padding: "25px" }}
+            >
+              <div className="d-flex align-items-start">
+                <div 
+                  style={{
+                    backgroundColor: "#06038F",
+                    color: "white",
+                    borderRadius: "12px",
+                    width: "60px",
+                    height: "60px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "24px",
+                    marginRight: "20px",
+                    flexShrink: 0
+                  }}
+                >
+                  {principle.icon}
+                </div>
+                <div>
+                  <h5 
+                  style={{ 
+                    color: "#212529", 
+                    fontWeight: "600", 
+                    marginBottom: "15px" 
+                  }}
+                >
+                    {principle.title}
+                  </h5>
+                <p 
+                  style={{ 
+                    color: "#6c757d", 
+                    lineHeight: "1.6", 
+                      margin: "0",
+                      textAlign: "justify"
+                  }}
+                >
+                    {principle.description}
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div> */}
+
+      {/* Three Main Sections */}
+      <div className="row mb-4">
+        <div className="col-12">
+          <h2 
+            style={{ 
+              fontSize: "30px", 
+              fontWeight: "700", 
+              color: "#212529", 
+              marginTop: "25px",
+              textAlign: "center"
+            }}
+          >
+            Explore Our Partnership Network
+          </h2>
+          <div 
+              style={{
+                width: "60px",
+                height: "3px",
+                backgroundColor: "#06038F",
+                margin: "20px auto 0px",
+                borderRadius: "2px"
+              }}
+            ></div>
         </div>
       </div>
 
-      <div className="row g-4 mb-5">
-        {partnershipTypes.map((partnership, index) => (
-          <div key={index} className="col-lg-6">
+      {/* Three Partnership Links */}
+      <div className="row g-3 mb-4">
+        {/* Join NEIEA as a Partner */}
+        <div className="col-lg-4">
+          <Link 
+            to="/partners/join" 
+            className="text-decoration-none"
+            style={{ color: "inherit" }}
+          >
             <div 
-              className="card h-100 border-0 shadow-sm"
-              style={{ borderRadius: "15px", padding: "30px" }}
+              className="card h-100 border-0 shadow-sm hover-card"
+              style={{ 
+                borderRadius: "12px", 
+                padding: "20px",
+                transition: "all 0.3s ease",
+                cursor: "pointer"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+              }}
             >
-              <div className="text-center mb-3">
-                <div style={{ fontSize: "48px", marginBottom: "15px" }}>
-                  {partnership.icon}
+              <div className="text-center">
+                <div 
+                    style={{ 
+                      backgroundColor: "#06038F", 
+                      color: "white", 
+                    borderRadius: "50%",
+                    width: "80px",
+                    height: "80px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "32px",
+                    margin: "0 auto 20px"
+                  }}
+                >
+                  🤝
                 </div>
                 <h4 
                   style={{ 
@@ -151,202 +520,154 @@ const PartneringInstitutions = () => {
                     marginBottom: "15px" 
                   }}
                 >
-                  {partnership.type}
+                  Join NEIEA as a Partner
                 </h4>
-                <p 
-                  style={{ 
-                    color: "#6c757d", 
+                  <p 
+                    style={{ 
+                      color: "#6c757d", 
                     lineHeight: "1.6", 
-                    marginBottom: "20px" 
+                    margin: "0"
                   }}
                 >
-                  {partnership.description}
+                  Become part of our educational transformation network and help us reach more students with quality education.
                 </p>
-              </div>
-              <div>
-                <h6 
+                <div 
                   style={{ 
-                    color: "#495057", 
-                    fontWeight: "600", 
-                    marginBottom: "10px" 
+                    marginTop: "20px",
+                    color: "#06038F",
+                    fontWeight: "600"
                   }}
                 >
-                  Key Benefits:
-                </h6>
-                <ul style={{ color: "#6c757d", paddingLeft: "20px", margin: "0" }}>
-                  {partnership.benefits.map((benefit, benefitIndex) => (
-                    <li key={benefitIndex} style={{ marginBottom: "5px", fontSize: "14px" }}>
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+                  Learn More →
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Current Partners */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
-            Our Institutional Partners
-          </h3>
+          </Link>
         </div>
-      </div>
 
-      <div className="row g-4 mb-5">
-        {partners.map((partner) => (
-          <div key={partner.id} className="col-lg-4 col-md-6">
+        {/* Partnering Institutions */}
+        <div className="col-lg-4">
+          <Link 
+            to="/partners/institutions" 
+            className="text-decoration-none"
+            style={{ color: "inherit" }}
+          >
             <div 
-              className="card h-100 border-0 shadow-sm"
-              style={{ borderRadius: "15px" }}
+              className="card h-100 border-0 shadow-sm hover-card"
+              style={{ 
+                borderRadius: "12px", 
+                padding: "20px",
+                transition: "all 0.3s ease",
+                cursor: "pointer"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+              }}
             >
-              <div className="card-body p-4">
-                <div className="d-flex justify-content-between align-items-start mb-3">
-                  <span 
-                    style={{ 
-                      backgroundColor: "#06038F", 
-                      color: "white", 
-                      padding: "4px 12px", 
-                      borderRadius: "15px", 
-                      fontSize: "12px", 
-                      fontWeight: "600" 
-                    }}
-                  >
-                    {partner.type}
-                  </span>
-                  <span style={{ color: "#6c757d", fontSize: "12px" }}>
-                    Since {partner.since}
-                  </span>
+              <div className="text-center">
+                <div 
+                  style={{ 
+                    backgroundColor: "#06038F", 
+                    color: "white",
+                    borderRadius: "50%",
+                    width: "80px",
+                    height: "80px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "32px",
+                    margin: "0 auto 20px"
+                  }}
+                >
+                  🏫
                 </div>
-                
-                <h5 
+                <h4 
                   style={{ 
                     color: "#212529", 
                     fontWeight: "600", 
-                    marginBottom: "10px",
-                    lineHeight: "1.3"
+                    marginBottom: "15px" 
                   }}
                 >
-                  {partner.name}
-                </h5>
-                
-                <div className="mb-3">
+                  Partnering Institutions
+                </h4>
                   <p 
                     style={{ 
                       color: "#6c757d", 
-                      fontSize: "14px", 
-                      marginBottom: "8px" 
+                    lineHeight: "1.6", 
+                    margin: "0"
                     }}
                   >
-                    📍 {partner.location}
+                  Discover the educational institutions that are already part of our partnership network and their success stories.
                   </p>
-                  <p 
-                    style={{ 
-                      color: "#6c757d", 
-                      fontSize: "14px", 
-                      marginBottom: "8px" 
-                    }}
-                  >
-                    👥 {partner.students} students impacted
-                  </p>
-                </div>
-                
-                <p 
+                <div 
                   style={{ 
-                    color: "#495057", 
-                    fontSize: "14px", 
-                    lineHeight: "1.5",
-                    marginBottom: "0",
-                    fontStyle: "italic"
+                    marginTop: "20px",
+                    color: "#06038F",
+                    fontWeight: "600"
                   }}
                 >
-                  {partner.collaboration}
-                </p>
+                  Explore →
               </div>
             </div>
           </div>
-        ))}
+          </Link>
       </div>
 
-      {/* Partnership Process */}
-      <div className="row mb-5">
-        <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
+        {/* Global Partners */}
+        <div className="col-lg-4">
+          <Link 
+            to="/partners/global" 
+            className="text-decoration-none"
+            style={{ color: "inherit" }}
           >
-            How We Partner
-          </h3>
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col-lg-8 mx-auto">
-          {[
-            {
-              step: "1",
-              title: "Initial Assessment",
-              description: "We evaluate the institution's needs, goals, and current educational practices to identify collaboration opportunities."
-            },
-            {
-              step: "2",
-              title: "Partnership Design",
-              description: "Together, we design a customized partnership model that aligns with both organizations' objectives and capabilities."
-            },
-            {
-              step: "3",
-              title: "Pilot Implementation",
-              description: "We start with pilot programs to test effectiveness and gather feedback before full-scale implementation."
-            },
-            {
-              step: "4",
-              title: "Scale & Sustain",
-              description: "Successful programs are scaled across the institution with ongoing support, training, and continuous improvement."
-            }
-          ].map((step, index) => (
-            <div key={index} className="d-flex mb-4">
+            <div 
+              className="card h-100 border-0 shadow-sm hover-card"
+            style={{ 
+                borderRadius: "12px", 
+                padding: "20px",
+                transition: "all 0.3s ease",
+                cursor: "pointer"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+              }}
+            >
+              <div className="text-center">
               <div 
                 style={{ 
                   backgroundColor: "#06038F", 
                   color: "white", 
                   borderRadius: "50%", 
-                  width: "40px", 
-                  height: "40px", 
+                    width: "80px",
+                    height: "80px",
                   display: "flex", 
                   alignItems: "center", 
                   justifyContent: "center", 
-                  fontWeight: "600",
-                  marginRight: "20px",
-                  flexShrink: 0
+                    fontSize: "32px",
+                    margin: "0 auto 20px"
                 }}
               >
-                {step.step}
+                  🌍
               </div>
-              <div>
-                <h5 
+                <h4 
                   style={{ 
                     color: "#212529", 
                     fontWeight: "600", 
-                    marginBottom: "8px" 
+                    marginBottom: "15px" 
                   }}
                 >
-                  {step.title}
-                </h5>
+                  Global Partners
+                </h4>
                 <p 
                   style={{ 
                     color: "#6c757d", 
@@ -354,22 +675,69 @@ const PartneringInstitutions = () => {
                     margin: "0" 
                   }}
                 >
-                  {step.description}
+                  Meet our international partners who are helping us expand quality education across borders and cultures.
                 </p>
+                <div 
+                  style={{ 
+                    marginTop: "20px",
+                    color: "#06038F",
+                    fontWeight: "600"
+                  }}
+                >
+                  View Partners →
+                </div>
               </div>
             </div>
-          ))}
+          </Link>
         </div>
       </div>
 
+      {/* Collective Impact Statement */}
+      {/* <div className="row mb-5">
+        <div className="col-12">
+          <div 
+            style={{ 
+              backgroundColor: "#06038F", 
+              color: "white",
+              padding: "40px", 
+              borderRadius: "15px",
+              textAlign: "center"
+            }}
+          >
+            <h3 
+              style={{ 
+                fontSize: "28px", 
+                fontWeight: "700", 
+                marginBottom: "20px",
+                color: "white"
+              }}
+            >
+              Transformative Progression Through Collective Effort
+            </h3>
+            <p 
+              style={{ 
+                fontSize: "18px", 
+                lineHeight: "1.8", 
+                marginBottom: "0",
+                maxWidth: "800px",
+                margin: "0 auto",
+                opacity: "0.95"
+              }}
+            >
+              At NEIEA, we believe that meaningful change in education happens when institutions work together, sharing resources, expertise, and commitment to student success. Our partnership model ensures sustainable, scalable, and impactful educational transformation.
+            </p>
+          </div>
+        </div>
+      </div> */}
+
       {/* Call to Action */}
-      <div className="row mt-5">
+      <div className="row">
         <div className="col-12">
           <div 
             style={{ 
               backgroundColor: "#f8f9fa", 
-              padding: "40px", 
-              borderRadius: "15px",
+              padding: "25px", 
+              borderRadius: "12px",
               textAlign: "center"
             }}
           >
@@ -380,22 +748,23 @@ const PartneringInstitutions = () => {
                 marginBottom: "15px" 
               }}
             >
-              Partner with NEIEA
+              Ready to Transform Education Together?
             </h4>
             <p 
               style={{ 
                 color: "#6c757d", 
-                marginBottom: "25px",
+                marginBottom: "20px",
+                fontSize: "16px",
                 maxWidth: "600px",
-                margin: "0 auto 25px"
+                margin: "0 auto 20px"
               }}
             >
-              Join our network of institutional partners and help us transform education for millions of students across India and beyond.
+              Join our network of educational partners and be part of the collective effort to provide quality education to students across India and beyond.
             </p>
-            <div>
-              <a 
-                href="/partners/join" 
-                className="btn btn-primary me-3"
+            <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+              <Link 
+                to="/partners/join"
+                className="btn btn-primary"
                 style={{
                   backgroundColor: "#06038F",
                   borderColor: "#06038F",
@@ -407,9 +776,9 @@ const PartneringInstitutions = () => {
                 }}
               >
                 Become a Partner
-              </a>
-              <a 
-                href="/about-us/contact" 
+              </Link>
+              <Link 
+                to="/about-us/contact"
                 className="btn btn-outline-primary"
                 style={{
                   borderColor: "#06038F",
@@ -421,8 +790,8 @@ const PartneringInstitutions = () => {
                   textDecoration: "none"
                 }}
               >
-                Learn More
-              </a>
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>
