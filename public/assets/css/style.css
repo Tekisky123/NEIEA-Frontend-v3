@@ -760,6 +760,66 @@ header{
   filter: brightness(100);
 }
 
+/* EMERGENCY FIX: Simple and direct approach */
+
+/* Reset ALL dropdown submenu states first */
+.dropdown-submenu > a {
+  background: transparent !important;
+  color: #212529 !important;
+}
+
+.dropdown-submenu > a::after {
+  filter: none !important;
+}
+
+/* Current page items get blue background */
+.dropdown-item.current-page-item,
+.dropdown-submenu > a.current-page-item {
+  background-color: #06038F !important;
+  color: #fff !important;
+}
+
+.dropdown-item.current-page-item::after,
+.dropdown-submenu > a.current-page-item::after {
+  filter: brightness(100) !important;
+}
+
+/* Hover states for current page items */
+.dropdown-item.current-page-item:hover,
+.dropdown-item.current-page-item:focus,
+.dropdown-submenu > a.current-page-item:hover,
+.dropdown-submenu > a.current-page-item:focus {
+  background-color: #f8f9fa !important;
+  color: #06038F !important;
+}
+
+.dropdown-item.current-page-item:hover::after,
+.dropdown-item.current-page-item:focus::after,
+.dropdown-submenu > a.current-page-item:hover::after,
+.dropdown-submenu > a.current-page-item:focus::after {
+  filter: none !important;
+}
+
+/* Normal hover for non-current page items */
+.dropdown-item:not(.current-page-item):hover,
+.dropdown-submenu > a:not(.current-page-item):hover {
+  background-color: #06038F !important;
+  color: white !important;
+}
+
+/* Ensure normal dropdown items still have proper hover behavior */
+.navbar .dropdown-item:not(.current-page-item):hover {
+  background-color: #06038F !important;
+  color: white !important;
+}
+
+.dropdown-submenu .dropdown-item:not(.current-page-item):hover,
+.dropdown-submenu .dropdown-item:not(.current-page-item):focus,
+.dropdown-submenu .dropdown-item:not(.current-page-item):active {
+  background-color: #06038F !important;
+  color: white !important;
+}
+
 .dropdown-submenu a::after {
   transform: rotate(-90deg);
   position: absolute;
@@ -771,17 +831,7 @@ header{
   left: 100%;
 }
 
-.navbar .dropdown-item:hover {
-  background-color: #06038F;
-  color: white;
-}
-
-.dropdown-submenu .dropdown-item:hover,
-.dropdown-submenu .dropdown-item:focus,
-.dropdown-submenu .dropdown-item:active {
-  background-color: #06038F;
-  color: white;
-}
+/* Original hover rules removed - now handled by more specific rules above */
 
 .dropdown-submenu .dropdown-toggle:hover:after,
 .dropdown-submenu .dropdown-toggle:focus:after {

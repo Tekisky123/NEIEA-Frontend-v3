@@ -120,7 +120,7 @@ const AdultEducation = () => {
       title="Adult Education Programs"
       subtitle="It's Never Too Late to Learn"
       description="NEIEA's adult education programs provide second-chance learning opportunities for adults who want to complete their education, develop new skills, or advance their careers."
-      heroImage="/assets/images/testimonial1.jpg"
+      heroImage="/assets/images/waise12.png"
     >
       {/* Program Overview */}
       <div className="row mb-5">

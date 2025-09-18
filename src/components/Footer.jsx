@@ -47,9 +47,19 @@ const Footer = () => {
           <div className="col-md-6">
             <nav className="footer-navbar">
               <a title="logo" href="#" className="logo">
-                <img src={NeiSecondaryLogo} height={"80px"} alt="NEIEA Logo" />
+                <img 
+                  src={NeiSecondaryLogo} 
+                  height={"80px"} 
+                  alt="NEIEA Logo" 
+                  style={{
+                    height: '80px',
+                    maxHeight: '80px',
+                    width: 'auto'
+                  }}
+                  className="footer-logo"
+                />
               </a>
-              <p className="foot-mob-copy">© 2012-2024 Indiaspora, Inc. All rights reserved.</p>
+              <p className="foot-mob-copy">© 2022-2025 NEIEA, Inc. All rights reserved.</p>
               
               <div className="footer-form d-block d-md-none">
                 <h4 className="common-heading-24">Subscribe to our newsletter</h4>
@@ -64,6 +74,12 @@ const Footer = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={isLoading}
                       required 
+                      style={{
+                        minHeight: '44px',
+                        padding: '12px 16px',
+                        fontSize: '1rem',
+                        borderRadius: '6px'
+                      }}
                     />
                     <button 
                       type="submit" 
@@ -81,7 +97,6 @@ const Footer = () => {
                 <ul className="footer-menu">
                   <li><Link to="/about-us/testimonials">Featured Stories</Link></li>
                   <li><Link to="/about-us/contact">Contact Us</Link></li>
-                  <li><Link to="/careers">Careers</Link></li>
                   <li><Link to="/login">Login</Link></li>
                 </ul>
               </div>
@@ -101,6 +116,12 @@ const Footer = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading}
                     required 
+                    style={{
+                      minHeight: '44px',
+                      padding: '12px 16px',
+                      fontSize: '1rem',
+                      borderRadius: '6px'
+                    }}
                   />
                   <button 
                     type="submit" 

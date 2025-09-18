@@ -51,7 +51,7 @@ const Leadership = () => {
                   lineHeight: "1.2",
                 }}
               >
-                Meet The Team
+                Meet Our Team
               </h1>
               <p
                 style={{
@@ -65,59 +65,17 @@ const Leadership = () => {
               </p>
             </div>
             <div className="col-lg-6">
-              <div className="position-relative" style={{ height: "400px" }}>
-                {/* Decorative gradient circles */}
-                <div
-                  className="position-absolute"
+              <div className="text-center">
+                <img 
+                  src="/assets/images/banner-2.png" 
+                  alt="Leadership Team" 
+                  className="img-fluid"
                   style={{
-                    top: "10%",
-                    right: "20%",
-                    width: "80px",
-                    height: "80px",
-                    background: "linear-gradient(45deg, #ff6b6b, #ffa726)",
-                    borderRadius: "50%",
-                    opacity: "0.8",
+                    maxWidth: "100%",
+                    height: "auto",
+                    borderRadius: "15px"
                   }}
-                ></div>
-                <div
-                  className="position-absolute"
-                  style={{
-                    top: "30%",
-                    right: "10%",
-                    width: "60px",
-                    height: "60px",
-                    background: "linear-gradient(45deg, #667eea, #764ba2)",
-                    borderRadius: "50%",
-                    opacity: "0.7",
-                  }}
-                ></div>
-                <div
-                  className="position-absolute"
-                  style={{
-                    bottom: "20%",
-                    right: "25%",
-                    width: "100px",
-                    height: "100px",
-                    background: "linear-gradient(45deg, #f093fb, #f5576c)",
-                    borderRadius: "50%",
-                    opacity: "0.6",
-                  }}
-                ></div>
-                
-                {/* Abstract people illustration */}
-                <div
-                  className="position-absolute"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    fontSize: "120px",
-                    opacity: "0.3",
-                    color: "#06038F",
-                  }}
-                >
-                  👥
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -346,7 +304,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial1.jpg"
+                    src="/assets/images/waise12.png"
                     alt="Ms Tahseen Sakina"
                     style={{
                       width: "100%",
@@ -535,12 +493,13 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial4.jpg"
+                    src="/assets/images/kaur1.jpeg"
                     alt="Prof. Shantha Sinha"
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
+                      objectFit: "contain",
+                      objectPosition: "center",
                     }}
                   />
                 </div>
@@ -1168,7 +1127,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/vision2 (1).jpg"
+                    src="/assets/images/homegroup.png"
                     alt="Ms Arzoo Siraj"
                     style={{
                       width: "100%",

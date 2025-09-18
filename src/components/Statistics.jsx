@@ -16,12 +16,12 @@ const Statistics = () => {
 
   const targetValues = {
     statOne: 16,
-    statTwo: 63,
-    statThree: 94,
-    statFour: 2000,
-    statFive: 6182,
-    statSix: 10612,
-    statSeven: 16801
+    statTwo: 68,
+    statThree: 87,
+    statFour: 2197,
+    statFive: 6361,
+    statSix: 12659,
+    statSeven: 19020
   };
 
   useEffect(() => {
@@ -70,6 +70,7 @@ const Statistics = () => {
     });
   };
 
+  // SAME COMPONENT FOR ALL SCREENS - Only CSS changes the layout
   return (
     <section className="home-stats p-fade-anim" ref={statsRef}>
       <div className="container">
@@ -92,7 +93,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-two" style={{display: 'none'}}>63</span>
+                <span id="home-stat-two" style={{display: 'none'}}>68</span>
                 <span className="home-stat-two">{counters.statTwo}</span>+
               </h4>
               <p>Live Online Classes</p>
@@ -101,7 +102,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-three" style={{display: 'none'}}>94</span>
+                <span id="home-stat-three" style={{display: 'none'}}>87</span>
                 <span className="home-stat-three">{counters.statThree}</span>+
               </h4>
               <p>Partnerships</p>
@@ -110,7 +111,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-four" style={{display: 'none'}}>2000</span>
+                <span id="home-stat-four" style={{display: 'none'}}>2197</span>
                 <span className="home-stat-four">{counters.statFour.toLocaleString()}</span>+
               </h4>
               <p>Teachers Trained</p>
@@ -121,7 +122,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-4 col-sm-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-five" style={{display: 'none'}}>6182</span>
+                <span id="home-stat-five" style={{display: 'none'}}>6361</span>
                 <span className="home-stat-five">{counters.statFive.toLocaleString()}</span>+
               </h4>
               <p>Institutional Enrollments</p>
@@ -130,7 +131,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-4 col-sm-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-six" style={{display: 'none'}}>10612</span>
+                <span id="home-stat-six" style={{display: 'none'}}>12659</span>
                 <span className="home-stat-six">{counters.statSix.toLocaleString()}</span>+
               </h4>
               <p>Individual Enrollments</p>
@@ -139,7 +140,7 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-4 col-sm-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-seven" style={{display: 'none'}}>16801</span>
+                <span id="home-stat-seven" style={{display: 'none'}}>19020</span>
                 <span className="home-stat-seven">{counters.statSeven.toLocaleString()}</span>+
               </h4>
               <p>Total Enrollments</p>

@@ -56,7 +56,7 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
-                  <img src="/assets/images/testimonial1.jpg" alt="Md Wais Raza" />
+                  <img src="/assets/images/waise12.png" alt="Md Wais Raza" />
                 </div>
               </div>
               <div className="col-lg-7">
@@ -80,7 +80,7 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <img src="/assets/images/ChatGPT Image Sep 16, 2025, 09_58_12 PM.png" alt="Misbah Rehman" />
+                  <img src="/assets/images/misbha1.png" alt="Misbah Rehman" />
                 </div>
               </div>
               <div className="col-lg-7">
@@ -102,20 +102,20 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes3.png" alt="Quote" />
-                  <img src="/assets/images/testimonial3.jpg" alt="Anita Manwani" />
+                  <img src="/assets/images/malik khan .png" alt="Malik Khan" />
                 </div>
               </div>
               <div className="col-lg-7">
                 <div className="test-cont">
                   <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Anita Manwani</h5>
-                    <p>Former CEO, IBM India<br /><span>Board Member, Indiaspora</span></p>
+                    <h5>Malik Khan</h5>
+                    <p>Karnataka India</p>
                   </div>
                   <img className="d-none d-md-block" src="/assets/images/Quotes3.png" alt="Quote" />
-                  <p>Being part of Indiaspora has given me the opportunity to connect with incredible leaders from the Indian diaspora community. The organization's commitment to fostering collaboration and driving positive change is truly inspiring.</p>
+                  <p>I took an online course in NEIEA which is regarding spoken English and I was blown away by how much I learned. The instructor was engaging and knowledgeable, and the course material was presented in a clear and concise way ....</p>
                   <div className="profile-name d-none d-md-block">
-                    <h5>Anita Manwani</h5>
-                    <p>Former CEO, IBM India<br /><span>Board Member, Indiaspora</span></p>
+                    <h5>Malik Khan</h5>
+                    <p>Karnataka India</p>
                   </div>
                 </div>
               </div>
@@ -126,20 +126,20 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes4.png" alt="Quote" />
-                  <img src="/assets/images/testimonial4.jpg" alt="Rajiv Shah" />
+                  <img src="/assets/images/kaur1.jpeg" alt="Jaswinder Kaur" />
                 </div>
               </div>
               <div className="col-lg-7">
                 <div className="test-cont">
                   <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Rajiv Shah</h5>
-                    <p>President, Rockefeller Foundation<br /><span>Former USAID Administrator</span></p>
+                    <h5>Jaswinder Kaur</h5>
+                    <p></p>
                   </div>
                   <img className="d-none d-md-block" src="/assets/images/Quotes4.png" alt="Quote" />
-                  <p>Indiaspora represents the best of what the Indian diaspora can achieve when we come together with purpose and vision. The organization's impact on global development and social change is remarkable.</p>
+                  <p>As a 59-year-old from Nagpur, I'm thrilled to have discovered NEIEA. Thanks to Niloufer Ma'am's excellent teaching and patience, I've been able to overcome my doubts and learn effectively. Online classes have made it easy for me to pursue my education, and I'm so grateful for this opportunity. NEIEA has shown me that age is no barrier to learning, and I can't wait to continue my studies. Thank you, NEIEA!</p>
                   <div className="profile-name d-none d-md-block">
-                    <h5>Rajiv Shah</h5>
-                    <p>President, Rockefeller Foundation<br /><span>Former USAID Administrator</span></p>
+                    <h5>Jaswinder Kaur</h5>
+                    <p></p>
                   </div>
                 </div>
               </div>

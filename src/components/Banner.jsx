@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // Using public path for consistency with other components
 const slider1 = '/assets/images/resized_classroom_image.png';
 const slider2 = '/assets/images/resized_classroom_image2.png';
@@ -6,128 +6,344 @@ const slider3 = '/assets/images/slider5 (1).jpg';
 const slider4 = '/assets/images/slider6 (1).jpeg';
 
 const Banner = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    { img: slider1, alt: "Philanthropy Summit" },
+    { img: slider2, alt: "US Forum" },
+    { img: slider3, alt: "Impact Report" },
+    { img: slider4, alt: "New Event" }
+  ];
+
   useEffect(() => {
-    // Initialize Owl Carousel after component mounts
-    const initOwlCarousel = () => {
-      if (window.$ && window.$.fn.owlCarousel) {
-        // Destroy existing carousel if it exists
-        $('.banner-car').trigger('destroy.owl.carousel');
-        $('.banner-car').removeClass('owl-carousel owl-theme');
-        
-        // Reinitialize
-        $('.banner-car').addClass('owl-carousel owl-theme').owlCarousel({
-          items: 1,
-          loop: true,
-          autoplay: true,
-          autoplayTimeout: 5000,
-          autoplayHoverPause: true,
-          nav: false,
-          dots: true,
-          animateOut: 'fadeOut',
-          animateIn: 'fadeIn',
-          responsive: {
-            0: { items: 1 },
-            768: { items: 1 },
-            1024: { items: 1 }
-          }
-        });
-      } else {
-        // Wait for scripts to load with timeout limit
-        const retryCount = (window.bannerRetryCount || 0) + 1;
-        if (retryCount < 50) { // Max 5 seconds
-          window.bannerRetryCount = retryCount;
-          setTimeout(initOwlCarousel, 100);
-        }
-      }
+    // Check if mobile
+    const checkMobile = () => {
+      const newIsMobile = window.innerWidth <= 767;
+      setIsMobile(newIsMobile);
     };
 
-    // Small delay to ensure DOM is ready
-    setTimeout(initOwlCarousel, 200);
-    
-    // Cleanup function
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     return () => {
-      if (window.$ && window.$.fn.owlCarousel) {
-        $('.banner-car').trigger('destroy.owl.carousel');
-      }
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
+  // Separate effect for mobile auto-advance
+  useEffect(() => {
+    if (!isMobile) return;
+
+    console.log('Starting mobile carousel auto-advance');
+    
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => {
+        const nextSlide = (prev + 1) % slides.length;
+        console.log(`Mobile carousel advancing from ${prev} to ${nextSlide}`);
+        return nextSlide;
+      });
+    }, 2000);
+
+    return () => {
+      console.log('Clearing mobile carousel auto-advance');
+      clearInterval(interval);
+    };
+  }, [isMobile, slides.length]);
+
+  // Separate effect for desktop Owl Carousel
+  useEffect(() => {
+    if (isMobile) return;
+
+    const initOwlCarousel = () => {
+      try {
+        if (window.$ && window.$.fn.owlCarousel) {
+          const $carousel = $('.banner-car');
+          
+          // Destroy existing carousel first
+          if ($carousel.hasClass('owl-loaded')) {
+            $carousel.trigger('destroy.owl.carousel');
+            $carousel.removeClass('owl-carousel owl-theme owl-loaded');
+          }
+          
+          // Initialize fresh carousel
+          if ($carousel.length) {
+            $carousel.addClass('owl-carousel owl-theme').owlCarousel({
+              items: 1,
+              loop: true,
+              autoplay: true,
+              autoplayTimeout: 2000,
+              autoplayHoverPause: false, // Disable pause on hover to ensure continuous autoplay
+              autoplaySpeed: 800,
+              smartSpeed: 800,
+              nav: false,
+              dots: true,
+              animateOut: 'fadeOut',
+              animateIn: 'fadeIn',
+              mouseDrag: true,
+              touchDrag: true,
+              pullDrag: true,
+              freeDrag: false,
+              margin: 0,
+              stagePadding: 0,
+              merge: false,
+              mergeFit: true,
+              autoWidth: false,
+              startPosition: 0,
+              rtl: false,
+              center: false,
+              onInitialized: (event) => {
+                console.log('Owl Carousel initialized successfully with autoplay');
+                // Force start autoplay
+                setTimeout(() => {
+                  if (event.target && event.target.owlCarousel) {
+                    $(event.target).trigger('play.owl.autoplay', [2000]);
+                  }
+                }, 1000);
+              },
+              onChanged: (event) => {
+                console.log('Slide changed to:', event.item.index);
+              }
+            });
+            
+            // Force enable autoplay after initialization
+            setTimeout(() => {
+              $carousel.trigger('play.owl.autoplay', [2000]);
+            }, 500);
+          }
+        } else {
+          // Wait for scripts to load for desktop
+          const retryCount = (window.bannerRetryCount || 0) + 1;
+          if (retryCount < 30) {
+            window.bannerRetryCount = retryCount;
+            setTimeout(initOwlCarousel, 200);
+          }
+        }
+      } catch (error) {
+        console.warn('Owl Carousel initialization error:', error);
+      }
+    };
+
+    const timeoutId = setTimeout(initOwlCarousel, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      try {
+        if (window.$ && window.$.fn.owlCarousel) {
+          const $carousel = $('.banner-car');
+          if ($carousel.length && $carousel.hasClass('owl-loaded')) {
+            $carousel.trigger('stop.owl.autoplay');
+            $carousel.trigger('destroy.owl.carousel');
+            $carousel.removeClass('owl-carousel owl-theme owl-loaded');
+          }
+        }
+      } catch (error) {
+        console.warn('Owl Carousel cleanup error:', error);
+      }
+    };
+  }, [isMobile]);
+
+  // Handle touch events for mobile swiper with error handling
+  const handleTouchStart = (e) => {
+    try {
+      if (!isMobile || !e.touches || !e.touches[0]) return;
+      const touch = e.touches[0];
+      setTouchStart(touch.clientX);
+      setTouchEnd(null);
+    } catch (error) {
+      console.warn('Touch start error:', error);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    try {
+      if (!isMobile || !touchStart || !e.touches || !e.touches[0]) return;
+      const touch = e.touches[0];
+      setTouchEnd(touch.clientX);
+    } catch (error) {
+      console.warn('Touch move error:', error);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    try {
+      if (!isMobile || touchStart === null || touchEnd === null) return;
+      
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+
+      if (isLeftSwipe) {
+        setCurrentSlide(prev => (prev + 1) % slides.length);
+      } else if (isRightSwipe) {
+        setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
+      }
+
+      setTouchStart(null);
+      setTouchEnd(null);
+    } catch (error) {
+      console.warn('Touch end error:', error);
+      setTouchStart(null);
+      setTouchEnd(null);
+    }
+  };
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Error boundary component
+  const ErrorBoundary = ({ children, fallback = null }) => {
+    const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+      setHasError(false);
+    }, [isMobile]);
+
+    if (hasError) {
+      return fallback;
+    }
+
+    return children;
+  };
+
   return (
-    <section className="banner">
+    <section className="banner" style={{ position: 'relative', overflow: 'hidden' }}>
       <div className="banner-body">
-        <div className="owl-carousel owl-theme banner-car">
-          {/* Slider 1 */}
-          <div className="item">
-            <img className="main-img home-banner-desk" src={slider1} alt="Philanthropy Summit" />
-            <img className="main-img home-banner-mob" src={slider1} alt="Philanthropy Summit" />
-            <div className="container">
-              {/* <div className="ban-cont">
-                <a className="main-btn" href="#">
-                  Explore More
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                    <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </a>
-              </div> */}
+        <ErrorBoundary fallback={<div>Loading carousel...</div>}>
+          {isMobile ? (
+            // Mobile Swiper Carousel
+            <div 
+              key="mobile-carousel"
+              className="mobile-swiper-container"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden'
+              }}
+            >
+              <div 
+                className="mobile-swiper-wrapper"
+                style={{
+                  display: 'flex',
+                  width: `${slides.length * 100}%`,
+                  height: '100%',
+                  transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
+                  transition: 'transform 0.3s ease-in-out'
+                }}
+              >
+                {slides.map((slide, index) => (
+                  <div 
+                    key={`mobile-slide-${index}`}
+                    className="mobile-slide"
+                    style={{
+                      width: `${100 / slides.length}%`,
+                      height: '100%',
+                      position: 'relative'
+                    }}
+                  >
+                    <img 
+                      src={slide.img} 
+                      alt={slide.alt}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      onError={(e) => {
+                        console.warn('Image load error:', slide.img);
+                        e.target.style.display = 'none';
+                      }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        display: 'block'
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Mobile Pagination Dots */}
+              <div 
+                className="mobile-pagination"
+                style={{
+                  position: 'absolute',
+                  bottom: '20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  gap: '8px',
+                  zIndex: 10
+                }}
+              >
+                {slides.map((_, index) => (
+                  <button
+                    key={`mobile-dot-${index}`}
+                    onClick={() => {
+                      try {
+                        setCurrentSlide(index);
+                      } catch (error) {
+                        console.warn('Dot click error:', error);
+                      }
+                    }}
+                    style={{
+                      width: currentSlide === index ? '30px' : '8px',
+                      height: '8px',
+                      borderRadius: '4px',
+                      border: 'none',
+                      backgroundColor: currentSlide === index ? '#fff' : 'rgba(255, 255, 255, 0.6)',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer'
+                    }}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-
-          {/* Slider 2 */}
-          <div className="item">
-            <img className="main-img home-banner-desk" src={slider2} alt="US Forum" />
-            <img className="main-img home-banner-mob" src={slider2} alt="US Forum" />
-            <div className="container">
-              {/* <div className="ban-cont">
-                <a className="main-btn" href="#">
-                  Explore More
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                    <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </a>
-              </div> */}
+          ) : (
+            // Desktop Owl Carousel
+            <div key="desktop-carousel" className="owl-carousel owl-theme banner-car">
+              {slides.map((slide, index) => (
+                <div key={`desktop-slide-${index}`} className="item">
+                  <img 
+                    className="main-img home-banner-desk" 
+                    src={slide.img} 
+                    alt={slide.alt}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    onError={(e) => {
+                      console.warn('Desktop image load error:', slide.img);
+                    }}
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
+                  <img 
+                    className="main-img home-banner-mob" 
+                    src={slide.img} 
+                    alt={slide.alt}
+                    loading="lazy"
+                    onError={(e) => {
+                      console.warn('Mobile image load error:', slide.img);
+                    }}
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
+                  <div className="container">
+                    {/* Content can be added here if needed */}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-
-          {/* Slider 3 */}
-          <div className="item">
-            <img className="main-img home-banner-desk" src={slider3} alt="Impact Report" />
-            <img className="main-img home-banner-mob" src={slider3} alt="Impact Report" />
-            <div className="container">
-              {/* <div className="ban-cont">
-                <h2><span></span> BCG-Indiaspora Impact Report</h2>
-                <p>First-ever data-driven report showcasing the contributions of the Indian diaspora in the US</p>
-                <a className="main-btn" href="#">
-                  Explore More
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                    <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </a>
-              </div> */}
-            </div>
-          </div>
-
-          {/* Slider 4 (New) */}
-          <div className="item">
-            <img className="main-img home-banner-desk" src={slider4} alt="New Event" />
-            <img className="main-img home-banner-mob" src={slider4} alt="New Event" />
-            <div className="container">
-              {/* <div className="ban-cont">
-                <h2><span>EVENT</span> Special Highlight</h2>
-                <p>This slide showcases the latest update or event highlight.</p>
-                <a className="main-btn" href="#">
-                  Explore More
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 12H18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                    <path d="M12 6L18 12L12 18" stroke="#06038F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                  </svg>
-                </a>
-              </div> */}
-            </div>
-          </div>
-        </div>
+          )}
+        </ErrorBoundary>
       </div>
 
       {/* Scroll Mouse Indicator */}
