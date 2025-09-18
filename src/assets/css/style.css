@@ -4278,11 +4278,20 @@ padding: 12px 20px;
 	transition: 0.3s all;
 }
 
-/* Specific styling for video-thumbnail.jpg image */
-.youtube-player-wrapper .thumb-img[src*="video-thumbnail.jpg"] {
+/* Specific styling for innovation (1).png image */
+.youtube-player-wrapper .thumb-img[src*="innovation (1).png"] {
 	width: 200% !important;
 	height: 600px !important;
 	object-fit: contain !important;
+}
+
+/* Innovation image in VideoSection - Full size display */
+.our-mission .om-cont img[src*="innovation (1).png"] {
+	width: 100% !important;
+	height: auto !important;
+	max-height: 500px !important;
+	object-fit: contain !important;
+	object-position: center !important;
 }
 
 .youtube-player-wrapper .thumb-img,
@@ -4446,7 +4455,7 @@ padding: 12px 20px;
 }
 
 /* Specific positioning for Misbah Rehman's image - crop from bottom, not top */
-.testimonial-car .row .col-lg-5 .test-cont img[src*="testimonial2.jpg"] {
+.testimonial-car .row .col-lg-5 .test-cont img[src*="ChatGPT Image Sep 16, 2025, 09_58_45 PM.png"] {
   object-position: top !important;
 }
 
