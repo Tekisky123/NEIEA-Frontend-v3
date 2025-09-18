@@ -128,7 +128,7 @@ const Introduction = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial1.jpg"
+                    src="/assets/images/waise12.png"
                     alt="Group photo"
                     className="rounded-3 shadow-lg"
                     style={{
@@ -415,7 +415,7 @@ const Introduction = () => {
                 </div>
                 <div className="col-6">
                   <img
-                    src="/assets/images/testimonial4.jpg"
+                    src="/assets/images/kaur1.jpeg"
                     alt="Innovation"
                     className="img-fluid rounded-3 shadow-sm"
                     style={{

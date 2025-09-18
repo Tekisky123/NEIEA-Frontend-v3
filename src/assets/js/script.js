@@ -170,18 +170,34 @@ jQuery(document).ready(function ($) {
 			$('.dropdown-menu .dropdown-submenu').hover(
                 function() {
                     $(this).find('> .dropdown-menu').addClass('show');
+                    // NEVER add activechild to current page items
+                    if (!$(this).find('> a').hasClass('current-page-item')) {
+                        $(this).addClass('activechild');
+                    }
                 },
                 function() {
                     $(this).find('> .dropdown-menu').removeClass('show');
+                    $(this).removeClass('activechild');
+                    // Force cleanup
+                    $(this).find('.dropdown-submenu').removeClass('activechild show');
+                    $(this).find('.dropdown-submenu .dropdown-menu').removeClass('show');
                 }
             );
             
             $('.dropdown-menu .dropdown-submenu .dropdown-menu').hover(
                 function() {
                     $(this).addClass('show');
+                    // Only add activechild if parent is NOT a current page item
+                    if (!$(this).parent().find('> a').hasClass('current-page-item')) {
+                        $(this).parent().addClass('activechild');
+                    }
                 },
                 function() {
                     $(this).removeClass('show');
+                    $(this).parent().removeClass('activechild');
+                    // Reset any deeper nested states
+                    $(this).find('.dropdown-submenu').removeClass('activechild show');
+                    $(this).find('.dropdown-submenu .dropdown-menu').removeClass('show');
                 }
             );
         } else {
@@ -221,6 +237,9 @@ jQuery(document).ready(function ($) {
         $('.nav-item.dropdown').on('mouseleave', function(){
             $(this).find('> a').removeClass('show');
             $(this).find('> .dropdown-menu').removeClass('show');
+            // Reset all nested dropdown states
+            $(this).find('.dropdown-submenu').removeClass('activechild show');
+            $(this).find('.dropdown-submenu .dropdown-menu').removeClass('show');
         })
         $('.menu-item').on('mouseenter', function(){
             $(this).find('> a').addClass('show');
@@ -230,8 +249,51 @@ jQuery(document).ready(function ($) {
         $('.menu-item').on('mouseleave', function(){
             $(this).find('> a').removeClass('show');
             $(this).find('> .dropdown-menu').removeClass('show');
+            // Reset all nested dropdown states
+            $(this).find('.dropdown-submenu').removeClass('activechild show');
+            $(this).find('.dropdown-submenu .dropdown-menu').removeClass('show');
         })
     }
+
+    // Global dropdown cleanup function
+    function resetAllDropdownStates() {
+        $('.dropdown-submenu').removeClass('activechild show');
+        $('.dropdown-menu').removeClass('show');
+        $('.dropdown-toggle').removeClass('show active');
+        // Note: We don't remove current-page-item class as it indicates the current page
+        console.log('Reset all dropdown states');
+    }
+    
+    // Enhanced cleanup function for navigation changes
+    function resetAllDropdownStatesOnNavigation() {
+        $('.dropdown-submenu').removeClass('activechild show');
+        $('.dropdown-menu').removeClass('show');
+        $('.dropdown-toggle').removeClass('show active');
+        // Force re-evaluation of current page items
+        setTimeout(updateCurrentPageItems, 50);
+        console.log('Reset all dropdown states on navigation');
+    }
+    
+    // Aggressive nested dropdown cleanup function
+    function forceResetNestedDropdowns() {
+        $('.dropdown-submenu').removeClass('activechild');
+        $('.dropdown-submenu .dropdown-menu').removeClass('show');
+        console.log('Force reset nested dropdowns');
+    }
+
+    // Reset dropdown states when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.dropdown, .dropdown-menu, .dropdown-submenu').length) {
+            resetAllDropdownStates();
+        }
+    });
+
+    // Reset dropdown states when pressing escape
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            resetAllDropdownStates();
+        }
+    });
 
     handleDropdownEvents();
     $(window).resize(function () {
@@ -735,23 +797,102 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    // Members Item Active
+    // Comprehensive current page item management - handles all navigation sections
+    function updateCurrentPageItems() {
     let pageURL = window.location.href;
+        let currentPath = '';
+        
+        // Extract the current path from URL
+        if (pageURL.includes('/about')) {
     let index = pageURL.indexOf('/about');
-    let afterAbout = pageURL.substring(index);
-    $(`a[href="${afterAbout}"].dropdown-item`).css('background-color', '#06038F');
-    $(`a[href="${afterAbout}"].dropdown-item`).css('color', '#fff');
+            currentPath = pageURL.substring(index);
+        } else if (pageURL.includes('/our-works')) {
+            let index = pageURL.indexOf('/our-works');
+            currentPath = pageURL.substring(index);
+        } else if (pageURL.includes('/courses')) {
+            let index = pageURL.indexOf('/courses');
+            currentPath = pageURL.substring(index);
+        } else if (pageURL.includes('/partners')) {
+            let index = pageURL.indexOf('/partners');
+            currentPath = pageURL.substring(index);
+        } else if (pageURL.includes('/donation')) {
+            let index = pageURL.indexOf('/donation');
+            currentPath = pageURL.substring(index);
+        } else if (pageURL.includes('/nei-usa')) {
+            let index = pageURL.indexOf('/nei-usa');
+            currentPath = pageURL.substring(index);
+        }
+        
+        // Remove any existing current page classes first
+        $('.dropdown-item').removeClass('current-page-item');
+        
+        // Add current page class to matching items
+        if (currentPath) {
+            $(`a[href="${currentPath}"].dropdown-item`).addClass('current-page-item');
+            console.log('Updated current page items for:', currentPath);
+        } else {
+            console.log('No matching navigation path found for:', pageURL);
+        }
+    }
+    
+    // Initialize current page items
+    updateCurrentPageItems();
+    
+    // EMERGENCY: Force reset all dropdown states immediately
+    function emergencyReset() {
+        $('.dropdown-submenu').removeClass('activechild');
+        $('.dropdown-menu').removeClass('show');
+        $('.dropdown-toggle').removeClass('show active');
+        console.log('Emergency reset executed');
+    }
+    
+    // Run emergency reset immediately
+    emergencyReset();
+    
+    // Also run it after a short delay to catch any delayed state changes
+    setTimeout(emergencyReset, 100);
+    setTimeout(emergencyReset, 500);
+    
+    // Re-run on navigation changes (for React Router)
+    $(document).on('click', 'a[href]', function() {
+        // Reset all dropdown states immediately
+        resetAllDropdownStatesOnNavigation();
+        // Small delay to allow navigation to complete
+        setTimeout(updateCurrentPageItems, 100);
+    });
+    
+    // Also run on popstate (back/forward button)
+    $(window).on('popstate', function() {
+        setTimeout(updateCurrentPageItems, 100);
+    });
+    
+    // Periodic cleanup to prevent stuck states (every 2 seconds)
+    setInterval(function() {
+        // Check if any nested dropdowns are stuck with activechild class
+        $('.dropdown-submenu.activechild').each(function() {
+            if (!$(this).is(':hover')) {
+                $(this).removeClass('activechild');
+                console.log('Cleaned up stuck activechild state');
+            }
+        });
+    }, 2000);
 
 
     // Submenu Active on Child hover : Header
     $('.second-level-wrapper').parent().hover(
         function() {
             let parentLi = $(this).parent();
+            // Only add activechild if this is NOT a current page item
+            if (!parentLi.find('> a').hasClass('current-page-item')) {
             parentLi.addClass('activechild');
+            }
         },
         function() {
             let parentLi = $(this).parent();
             parentLi.removeClass('activechild');
+            // Ensure all child dropdown states are reset
+            parentLi.find('.dropdown-submenu').removeClass('activechild show');
+            parentLi.find('.dropdown-menu').removeClass('show');
         }
     );
 	

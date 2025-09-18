@@ -55,7 +55,7 @@ const GirlsEducation = () => {
       title="Girl's Education Programs"
       subtitle="Empowering Girls Through Quality Education"
       description="NEIEA is committed to ensuring that girls have equal access to quality education, breaking down barriers and creating opportunities for female empowerment through learning."
-      heroImage="/assets/images/vision2 (1).jpg"
+      heroImage="/assets/images/homegroup.png"
     >
       {/* Introduction */}
       <div className="row mb-5">

@@ -8,7 +8,7 @@ const Testimonials = () => {
       name: "Md Wais Raza",
       role: "Student",
       location: "Bihar",
-      image: "/assets/images/testimonial1.jpg",
+      image: "/assets/images/waise12.png",
       content: "I am thrilled to share my experience with the NEIEA English proficiency course that is completely free of cost! Actually, I have completed my matriculation from English medium school but even then I used to hesitate before speaking English with others I wanted to speak fluent and flawless English...."
     },
     {
@@ -24,7 +24,7 @@ const Testimonials = () => {
       name: "Malik Khan",
       role: "Student",
       location: "Karnataka",
-      image: "/assets/images/testimonial3.jpg",
+      image: "/assets/images/malik khan .png",
       content: "I took an online course in NEIEA which is regarding spoken English and I was blown away by how much I learned. The instructor was engaging and knowledgeable, and the course material was presented in a clear and concise way ...."
     },
     {
@@ -32,7 +32,7 @@ const Testimonials = () => {
       name: "Asna Shaikh",
       role: "Student",
       location: "Telangana",
-      image: "/assets/images/testimonial4.jpg",
+      image: "/assets/images/kaur1.jpeg",
       content: "I know how to speak in English but I was hesitant to speak in English in front of others. I was confused, about how to take out this fear. Then I got to know about the NEIEA free English course. I have joined this course. After joining this course, I have seen much improvement in my communication skills...."
     },
     {
@@ -105,7 +105,7 @@ const Testimonials = () => {
       title="Testimonials & Featured Stories"
       subtitle="Voices of Change"
       description="Hear from students, teachers, parents, and communities whose lives have been transformed through NEIEA's educational programs."
-      heroImage="/assets/images/testimonial1.jpg"
+      heroImage="/assets/images/waise12.png"
     >
       {/* Testimonials Section */}
       <div className="row mb-5">

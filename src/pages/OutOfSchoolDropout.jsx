@@ -644,7 +644,7 @@ const OutOfSchoolDropout = () => {
               style={{ 
                 position: "relative", 
                 height: "200px", 
-                backgroundImage: "url('/assets/images/vision2 (1).jpg')",
+                backgroundImage: "url('/assets/images/homegroup.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 display: "flex",

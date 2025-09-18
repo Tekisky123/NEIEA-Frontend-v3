@@ -23,10 +23,10 @@ const Gallery = () => {
     { id: 1, title: "Web-1", category: "digital", image: "/assets/images/innovation.jpeg", description: "Digital Innovation Platform", year: "2023" },
     { id: 2, title: "Web-2", category: "digital", image: "/assets/images/event1.jpg", description: "Web-based Learning Solutions", year: "2023" },
     { id: 3, title: "Web-3", category: "digital", image: "/assets/images/event2.jpg", description: "Digital Education Tools", year: "2023" },
-    { id: 4, title: "Web-4", category: "digital", image: "/assets/images/testimonial1.jpg", description: "Online Learning Environment", year: "2023" },
+    { id: 4, title: "Web-4", category: "digital", image: "/assets/images/waise12.png", description: "Online Learning Environment", year: "2023" },
     { id: 5, title: "Web-5", category: "digital", image: "/assets/images/testimonial2.jpg", description: "Digital Classroom Interface", year: "2023" },
     { id: 6, title: "Web-6", category: "digital", image: "/assets/images/testimonial3.jpg", description: "Virtual Learning Platform", year: "2023" },
-    { id: 7, title: "Republic Day India 2025", category: "digital", image: "/assets/images/testimonial4.jpg", description: "Digital Celebration", year: "2023" },
+    { id: 7, title: "Republic Day India 2025", category: "digital", image: "/assets/images/kaur1.jpeg", description: "Digital Celebration", year: "2023" },
     { id: 8, title: "NEIEA Exhibition 2025", category: "digital", image: "/assets/images/leader.jpg", description: "Digital Exhibition Showcase", year: "2023" },
 
     // Design Category
@@ -41,13 +41,13 @@ const Gallery = () => {
     { id: 15, title: "Exhibition", category: "events", image: "/assets/images/resized_classroom_image.png", description: "Showcase Event", year: "2023" },
     { id: 16, title: "Community Leaders Gathering", category: "events", image: "/assets/images/resized_classroom_image2.png", description: "Mr. Javeed Mirza in Jeddah", year: "2023" },
     { id: 17, title: "Mr. Javeed Mirza's Conversations", category: "events", image: "/assets/images/vision2.jpg", description: "Education For All Event in Riyadh", year: "2023" },
-    { id: 18, title: "Ashraf Shah's Discussion", category: "events", image: "/assets/images/vision2 (1).jpg", description: "Educational Growth of Minorities in India", year: "2023" },
+    { id: 18, title: "Ashraf Shah's Discussion", category: "events", image: "/assets/images/homegroup.png", description: "Educational Growth of Minorities in India", year: "2023" },
     { id: 19, title: "Ms. Tasmia's Views", category: "events", image: "/assets/images/Stats_Background.jpg", description: "Education Need Discussion in Riyadh", year: "2023" },
     { id: 20, title: "Community Leaders Event", category: "events", image: "/assets/images/our-mission.png", description: "Impactful Gathering in Riyadh", year: "2023" },
     { id: 21, title: "Community Leaders Collaboration", category: "events", image: "/assets/images/our-mission-bg.png", description: "Education For All Event in Riyadh", year: "2023" },
     { id: 22, title: "NEIEA's Event in Riyadh", category: "events", image: "/assets/images/global-map.png", description: "Influential Leaders Gathering", year: "2023" },
     { id: 23, title: "Mission Unveiling in Riyadh", category: "events", image: "/assets/images/ChatGPT Image Sep 16, 2025, 09_58_45 PM.png", description: "Ms. Tasneem's Educational Talk", year: "2023" },
-    { id: 24, title: "Ms. Tasneem's Mission", category: "events", image: "/assets/images/innovation (1).png", description: "NEIEA's Mission Explanation in Jeddah", year: "2023" },
+    { id: 24, title: "Ms. Tasneem's Mission", category: "events", image: "/assets/images/innovation__1_-removebg-preview.png", description: "NEIEA's Mission Explanation in Jeddah", year: "2023" },
     { id: 25, title: "Inspiring Discourse in Jeddah", category: "events", image: "/assets/images/Quotes1.png", description: "Mr. Javeed Mirza's Educational Talk", year: "2023" },
     { id: 26, title: "Impactful Talk in Dammam", category: "events", image: "/assets/images/Quotes2.png", description: "Mr. Javeed Mirza's Educational Discourse", year: "2023" },
     { id: 27, title: "Education For All Talk", category: "events", image: "/assets/images/Quotes3.png", description: "Mr. Javeed Mirza with Former MP and HRD Minister", year: "2023" },
@@ -73,7 +73,7 @@ const Gallery = () => {
     { id: 41, title: "Educational Workshop", category: "workshops", image: "/assets/images/vision2.jpg", description: "Morning Session on September 21, 2023", year: "2023" },
 
     // Learning Category
-    { id: 42, title: "Group Discussion", category: "learning", image: "/assets/images/vision2 (1).jpg", description: "Interactive Learning Environment", year: "2023" },
+    { id: 42, title: "Group Discussion", category: "learning", image: "/assets/images/homegroup.png", description: "Interactive Learning Environment", year: "2023" },
     { id: 43, title: "Learning Session", category: "learning", image: "/assets/images/Stats_Background.jpg", description: "Educational Activities", year: "2023" },
 
     // Team Category
@@ -84,7 +84,7 @@ const Gallery = () => {
     { id: 46, title: "Summer Program", category: "programs", image: "/assets/images/global-map.png", description: "July 27, 2023 Activities", year: "2023" },
 
     // Presentations Category
-    { id: 47, title: "Presentation Session", category: "presentations", image: "/assets/images/innovation (1).png", description: "Student Presentations", year: "2023" }
+    { id: 47, title: "Presentation Session", category: "presentations", image: "/assets/images/innovation__1_-removebg-preview.png", description: "Student Presentations", year: "2023" }
   ];
 
   const filteredItems = activeCategory === 'all' 

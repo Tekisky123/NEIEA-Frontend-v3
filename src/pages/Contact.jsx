@@ -89,7 +89,9 @@ const Contact = () => {
                       style={{
                         borderRadius: "8px",
                         border: "1px solid #dee2e6",
-                        padding: "12px 15px"
+                        padding: "12px 15px",
+                        minHeight: "44px",
+                        fontSize: "1rem"
                       }}
                     />
                   </div>
@@ -113,7 +115,9 @@ const Contact = () => {
                       style={{
                         borderRadius: "8px",
                         border: "1px solid #dee2e6",
-                        padding: "12px 15px"
+                        padding: "12px 15px",
+                        minHeight: "44px",
+                        fontSize: "1rem"
                       }}
                     />
                   </div>
@@ -139,7 +143,9 @@ const Contact = () => {
                       style={{
                         borderRadius: "8px",
                         border: "1px solid #dee2e6",
-                        padding: "12px 15px"
+                        padding: "12px 15px",
+                        minHeight: "44px",
+                        fontSize: "1rem"
                       }}
                     />
                   </div>
@@ -161,7 +167,9 @@ const Contact = () => {
                       style={{
                         borderRadius: "8px",
                         border: "1px solid #dee2e6",
-                        padding: "12px 15px"
+                        padding: "12px 15px",
+                        minHeight: "44px",
+                        fontSize: "1rem"
                       }}
                     >
                       <option value="">Select your state</option>
@@ -199,7 +207,9 @@ const Contact = () => {
                       style={{
                         borderRadius: "8px",
                         border: "1px solid #dee2e6",
-                        padding: "12px 15px"
+                        padding: "12px 15px",
+                        minHeight: "44px",
+                        fontSize: "1rem"
                       }}
                     />
                   </div>
@@ -225,7 +235,9 @@ const Contact = () => {
                       borderRadius: "8px",
                       border: "1px solid #dee2e6",
                       padding: "12px 15px",
-                      resize: "vertical"
+                      resize: "vertical",
+                      minHeight: "120px",
+                      fontSize: "1rem"
                     }}
                     placeholder="Tell us more about your inquiry..."
                   ></textarea>
@@ -240,7 +252,10 @@ const Contact = () => {
                     padding: "12px 30px",
                     fontSize: "16px",
                     fontWeight: "600",
-                    borderRadius: "25px"
+                    borderRadius: "25px",
+                    minHeight: "48px",
+                    width: "100%",
+                    transition: "all 0.3s ease"
                   }}
                 >
                   Send Message
