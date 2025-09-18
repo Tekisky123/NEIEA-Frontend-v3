@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react';
-import slider1 from '../assets/images/resized_classroom_image.png';
-import slider2 from '../assets/images/resized_classroom_image2.png';
-import slider3 from '../assets/images/slider5 (1).jpg';
-import slider4 from '../assets/images/slider6 (1).jpeg';
+// Using public path for consistency with other components
+const slider1 = '/assets/images/resized_classroom_image.png';
+const slider2 = '/assets/images/resized_classroom_image2.png';
+const slider3 = '/assets/images/slider5 (1).jpg';
+const slider4 = '/assets/images/slider6 (1).jpeg';
 
 const Banner = () => {
   useEffect(() => {
     // Initialize Owl Carousel after component mounts
     const initOwlCarousel = () => {
       if (window.$ && window.$.fn.owlCarousel) {
-        $('.banner-car').owlCarousel({
+        // Destroy existing carousel if it exists
+        $('.banner-car').trigger('destroy.owl.carousel');
+        $('.banner-car').removeClass('owl-carousel owl-theme');
+        
+        // Reinitialize
+        $('.banner-car').addClass('owl-carousel owl-theme').owlCarousel({
           items: 1,
           loop: true,
           autoplay: true,
@@ -18,15 +24,32 @@ const Banner = () => {
           nav: false,
           dots: true,
           animateOut: 'fadeOut',
-          animateIn: 'fadeIn'
+          animateIn: 'fadeIn',
+          responsive: {
+            0: { items: 1 },
+            768: { items: 1 },
+            1024: { items: 1 }
+          }
         });
       } else {
-        // Wait for scripts to load
-        setTimeout(initOwlCarousel, 100);
+        // Wait for scripts to load with timeout limit
+        const retryCount = (window.bannerRetryCount || 0) + 1;
+        if (retryCount < 50) { // Max 5 seconds
+          window.bannerRetryCount = retryCount;
+          setTimeout(initOwlCarousel, 100);
+        }
       }
     };
 
-    initOwlCarousel();
+    // Small delay to ensure DOM is ready
+    setTimeout(initOwlCarousel, 200);
+    
+    // Cleanup function
+    return () => {
+      if (window.$ && window.$.fn.owlCarousel) {
+        $('.banner-car').trigger('destroy.owl.carousel');
+      }
+    };
   }, []);
 
   return (

@@ -5,7 +5,12 @@ const Testimonials = () => {
     // Initialize Owl Carousel for testimonials
     const initTestimonialCarousel = () => {
       if (window.$ && window.$.fn.owlCarousel) {
-        $('.testimonial-car').owlCarousel({
+        // Destroy existing carousel if it exists
+        $('.testimonial-car').trigger('destroy.owl.carousel');
+        $('.testimonial-car').removeClass('owl-carousel owl-theme');
+        
+        // Reinitialize
+        $('.testimonial-car').addClass('owl-carousel owl-theme').owlCarousel({
           items: 1,
           loop: true,
           autoplay: true,
@@ -14,15 +19,32 @@ const Testimonials = () => {
           nav: false,
           dots: true,
           animateOut: 'fadeOut',
-          animateIn: 'fadeIn'
+          animateIn: 'fadeIn',
+          responsive: {
+            0: { items: 1 },
+            768: { items: 1 },
+            1024: { items: 1 }
+          }
         });
       } else {
-        // Wait for scripts to load
-        setTimeout(initTestimonialCarousel, 100);
+        // Wait for scripts to load with timeout limit
+        const retryCount = (window.owlRetryCount || 0) + 1;
+        if (retryCount < 50) { // Max 5 seconds
+          window.owlRetryCount = retryCount;
+          setTimeout(initTestimonialCarousel, 100);
+        }
       }
     };
 
-    initTestimonialCarousel();
+    // Small delay to ensure DOM is ready
+    setTimeout(initTestimonialCarousel, 200);
+    
+    // Cleanup function
+    return () => {
+      if (window.$ && window.$.fn.owlCarousel) {
+        $('.testimonial-car').trigger('destroy.owl.carousel');
+      }
+    };
   }, []);
 
   return (
@@ -34,7 +56,7 @@ const Testimonials = () => {
               <div className="col-lg-5">
                 <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
-                  <img src="/assets/images/MdWais.jpeg" alt="Md Wais Raza" />
+                  <img src="/assets/images/testimonial1.jpg" alt="Md Wais Raza" />
                 </div>
               </div>
               <div className="col-lg-7">
