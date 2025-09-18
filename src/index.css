@@ -73,7 +73,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  height: auto !important;
+  width: 100% !important;
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 h1 {
@@ -125,7 +129,7 @@ button:focus-visible {
   }
   
   .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8;
   }
   
   .container-neiea {
@@ -191,6 +195,17 @@ button:focus-visible {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Force scrollbar visibility utilities */
+  .scrollbar-show {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scrollbar-show-always {
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch;
+  }
   
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out;
@@ -214,6 +229,129 @@ button:focus-visible {
   
   .animate-bounce-in {
     animation: bounceIn 0.6s ease-out;
+  }
+
+  /* Mobile-specific utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Responsive text utilities */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  
+  /* Responsive spacing utilities - Reduced */
+  .spacing-responsive-sm {
+    @apply p-1 sm:p-2 md:p-3;
+  }
+  
+  .spacing-responsive-md {
+    @apply p-2 sm:p-3 md:p-4;
+  }
+  
+  .spacing-responsive-lg {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  
+  /* Mobile-first button utilities */
+  .btn-responsive {
+    @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+  
+  /* Container utilities */
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+  }
+  
+  .container-full-mobile {
+    @apply w-full px-4 sm:container sm:px-6 lg:px-8;
+  }
+  
+  /* Height utilities */
+  .h-responsive-sm {
+    @apply h-32 sm:h-40 md:h-48;
+  }
+  
+  .h-responsive-md {
+    @apply h-48 sm:h-56 md:h-64;
+  }
+  
+  .h-responsive-lg {
+    @apply h-64 sm:h-72 md:h-80;
+  }
+  
+  .h-responsive-xl {
+    @apply h-80 sm:h-96 md:h-[28rem];
+  }
+  
+  /* Width utilities */
+  .w-responsive-sm {
+    @apply w-full sm:w-3/4 md:w-1/2;
+  }
+  
+  .w-responsive-md {
+    @apply w-full sm:w-4/5 md:w-3/4;
+  }
+  
+  .w-responsive-lg {
+    @apply w-full sm:w-5/6 md:w-4/5;
+  }
+  
+  /* Auto height and width */
+  .h-auto-responsive {
+    @apply h-auto;
+  }
+  
+  .w-auto-responsive {
+    @apply w-auto max-w-full;
+  }
+  
+  /* Fix common dimension issues */
+  .dimensions-auto {
+    height: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  
+  .dimensions-responsive {
+    @apply w-full h-auto max-w-full;
   }
 }
 

@@ -112,7 +112,8 @@ const AdultEducation = () => {
   ];
 
   return (
-    <PageTemplate
+    <div className="our-work-page">
+      <PageTemplate
       breadcrumbPath={[
         { name: "Our Work", link: null },
         { name: "Adult Education", link: null }
@@ -513,7 +514,8 @@ const AdultEducation = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

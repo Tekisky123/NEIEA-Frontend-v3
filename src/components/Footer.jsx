@@ -15,59 +15,103 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="container">
+    <footer className="footer safe-area-bottom">
+      <div className="container container-responsive">
         <div className="row footer-top">
           <div className="col-md-6">
             <nav className="footer-navbar">
-              <a title="logo" href="#" className="logo">
-                <img src={NeiSecondaryLogo} height={"80px"} alt="NEIEA Logo" />
+              <a title="logo" href="#" className="logo touch-manipulation">
+                <img 
+                  src={NeiSecondaryLogo} 
+                  className="h-16 sm:h-20 w-auto" 
+                  alt="NEIEA Logo" 
+                />
               </a>
-              <p className="foot-mob-copy">© 2012-2024 Indiaspora, Inc. All rights reserved.</p>
+              <p className="foot-mob-copy text-responsive-sm">© 2012-2024 Indiaspora, Inc. All rights reserved.</p>
               
-              <div className="footer-form d-block d-md-none">
-                <h4 className="common-heading-24">Subscribe to our newsletter</h4>
+              <div className="footer-form d-block d-md-none spacing-responsive-sm">
+                <h4 className="common-heading-24 text-responsive-lg">Subscribe to our newsletter</h4>
                 <form className="footer-mob-form" onSubmit={handleNewsletterSubmit}>
                   <div className="form-group">
                     <input 
                       type="email" 
                       name="email" 
-                      className="form-control" 
+                      className="form-control touch-manipulation min-h-[44px] text-responsive-sm" 
                       placeholder="Enter your email" 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required 
+                      aria-label="Email address for newsletter subscription"
                     />
-                    <button type="submit" className="btn">Sign up</button>
+                    <button 
+                      type="submit" 
+                      className="btn touch-manipulation min-h-[44px] min-w-[80px] text-responsive-sm"
+                    >
+                      Sign up
+                    </button>
                   </div>
                 </form>
               </div>
 
               <div className="menu-footer-menu-container">
                 <ul className="footer-menu">
-                  <li><Link to="/about-us/testimonials">Featured Stories</Link></li>
-                  <li><Link to="/about-us/contact">Contact Us</Link></li>
-                  <li><Link to="/careers">Careers</Link></li>
-                  <li><Link to="/login">Login</Link></li>
+                  <li>
+                    <Link 
+                      to="/about-us/testimonials" 
+                      className="touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                    >
+                      Featured Stories
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/about-us/contact" 
+                      className="touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/careers" 
+                      className="touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                    >
+                      Careers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/login" 
+                      className="touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                    >
+                      Login
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </nav>
           </div>
           <div className="col-md-6">
-            <div className="footer-form">
-              <h4 className="common-heading-24">Subscribe to our newsletter</h4>
+            <div className="footer-form spacing-responsive-md">
+              <h4 className="common-heading-24 text-responsive-lg">Subscribe to our newsletter</h4>
               <form onSubmit={handleNewsletterSubmit}>
                 <div className="form-group newsletter-form">
                   <input 
                     type="email" 
                     name="email" 
-                    className="form-control newsletter-input" 
+                    className="form-control newsletter-input touch-manipulation text-responsive-sm" 
                     placeholder="Enter your email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required 
+                    aria-label="Email address for newsletter subscription"
                   />
-                  <button type="submit" className="btn newsletter-btn">Sign up</button>
+                  <button 
+                    type="submit" 
+                    className="btn newsletter-btn touch-manipulation text-responsive-sm"
+                  >
+                    Sign up
+                  </button>
                 </div>
               </form>
             </div>
@@ -75,16 +119,31 @@ const Footer = () => {
         </div>
         <div className="row footer-btm">
           <div className="col-md-6 p-0">
-            <div className="copyright">© 2022-2025 NEIEA, Inc. All rights reserved.</div>
+            <div className="copyright text-responsive-xs">© 2022-2025 NEIEA, Inc. All rights reserved.</div>
           </div>
           <div className="col-md-6 p-0">
             <ul className="social-links">
-              <li><a target="_blank" href="https://www.linkedin.com/company/the-neiea/" rel="noopener noreferrer">
+              <li>
+                <a 
+                  target="_blank" 
+                  href="https://www.linkedin.com/company/the-neiea/" 
+                  rel="noopener noreferrer"
+                  className="touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  aria-label="Follow us on LinkedIn"
+                >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.20508 3.75075C5.20488 4.14858 5.04665 4.53003 4.76521 4.81119C4.48376 5.09236 4.10215 5.2502 3.70433 5.25C3.3065 5.2498 2.92505 5.09158 2.64389 4.81013C2.36272 4.52869 2.20488 4.14708 2.20508 3.74925C2.20528 3.35143 2.3635 2.96997 2.64495 2.68881C2.92639 2.40765 3.308 2.2498 3.70583 2.25C4.10365 2.2502 4.48511 2.40843 4.76627 2.68987C5.04743 2.97132 5.20528 3.35293 5.20508 3.75075ZM5.25008 6.36075H2.25008V15.7508H5.25008V6.36075ZM9.99008 6.36075H7.00508V15.7508H9.96008V10.8233C9.96008 8.07825 13.5376 7.82325 13.5376 10.8233V15.7508H16.5001V9.80325C16.5001 5.17575 11.2051 5.34825 9.96008 7.62075L9.99008 6.36075Z" fill="white"></path>
                 </svg>
-              </a></li>
-              <li><a target="_blank" href="https://www.youtube.com/@neiea_india" rel="noopener noreferrer">
+              </a>
+              </li>
+              <li>
+                <a 
+                  target="_blank" 
+                  href="https://www.youtube.com/@neiea_india" 
+                  rel="noopener noreferrer"
+                  className="touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  aria-label="Subscribe to our YouTube channel"
+                >
                 <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.7821 1.87347C16.6845 1.51105 16.4935 1.1806 16.2281 0.915205C15.9627 0.649811 15.6323 0.458778 15.2699 0.361225C13.9352 1.19209e-07 8.57189 0 8.57189 0C8.57189 0 3.20863 1.19209e-07 1.87393 0.361225C1.51151 0.458778 1.18106 0.649811 0.915666 0.915205C0.650272 1.1806 0.459238 1.51105 0.361685 1.87347C0.112468 3.23465 -0.0084701 4.61622 0.000460675 6C-0.0084701 7.38378 0.112468 8.76535 0.361685 10.1265C0.459238 10.489 0.650272 10.8194 0.915666 11.0848C1.18106 11.3502 1.51151 11.5412 1.87393 11.6388C3.20863 12 8.57189 12 8.57189 12C8.57189 12 13.9352 12 15.2699 11.6388C15.6323 11.5412 15.9627 11.3502 16.2281 11.0848C16.4935 10.8194 16.6845 10.489 16.7821 10.1265C17.0313 8.76535 17.1523 7.38378 17.1433 6C17.1523 4.61622 17.0313 3.23465 16.7821 1.87347ZM6.85761 8.57143V3.42857L11.3086 6L6.85761 8.57143Z" fill="white"></path>
                 </svg>

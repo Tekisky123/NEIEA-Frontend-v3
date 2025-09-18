@@ -12,20 +12,14 @@ const PageTemplate = ({
   return (
     <div className="page-template">
       {/* Breadcrumb */}
-      <div
-        className="container-fluid"
-        style={{ backgroundColor: "#f8f9fa", padding: "10px 0" }}
-      >
-        <div className="container">
+      <div className="container-fluid bg-gray-50 py-3 safe-area-top">
+        <div className="container container-responsive">
           <nav aria-label="breadcrumb">
-            <ol
-              className="breadcrumb mb-0"
-              style={{ backgroundColor: "transparent" }}
-            >
+            <ol className="breadcrumb mb-0 bg-transparent flex-wrap">
               <li className="breadcrumb-item">
                 <a
                   href="/"
-                  style={{ color: "#6c757d", textDecoration: "none" }}
+                  className="text-gray-600 hover:text-ngo-color1 text-responsive-xs touch-manipulation min-h-[32px] flex items-center"
                 >
                   🏠 Home
                 </a>
@@ -36,12 +30,12 @@ const PageTemplate = ({
                     {item.link ? (
                       <a
                         href={item.link}
-                        style={{ color: "#6c757d", textDecoration: "none" }}
+                        className="text-gray-600 hover:text-ngo-color1 text-responsive-xs touch-manipulation min-h-[32px] flex items-center"
                       >
                         {item.name}
                       </a>
                     ) : (
-                      <span style={{ color: "#6c757d" }}>{item.name}</span>
+                      <span className="text-gray-600 text-responsive-xs">{item.name}</span>
                     )}
                   </li>
                 </React.Fragment>
@@ -53,42 +47,20 @@ const PageTemplate = ({
 
       {/* Hero Section */}
       {showHeroSection && (
-        <section style={{ backgroundColor: "#f8f9fa", padding: "80px 0" }}>
-          <div className="container">
+        <section className="bg-gray-50 section-padding">
+          <div className="container container-responsive">
             <div className="row align-items-center">
               <div className="col-lg-8">
-                <h1
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: "700",
-                    color: "#212529",
-                    marginBottom: "20px",
-                    lineHeight: "1.2",
-                  }}
-                >
+                <h1 className="text-responsive-3xl font-bold text-gray-900 mb-5 leading-tight">
                   {title}
                 </h1>
                 {subtitle && (
-                  <h2
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "600",
-                      color: "#06038F",
-                      marginBottom: "20px",
-                    }}
-                  >
+                  <h2 className="text-responsive-xl font-semibold text-ngo-color1 mb-5">
                     {subtitle}
                   </h2>
                 )}
                 {description && (
-                  <p
-                    style={{
-                      fontSize: "18px",
-                      lineHeight: "1.6",
-                      color: "#6c757d",
-                      marginBottom: "0",
-                    }}
-                  >
+                  <p className="text-responsive-lg leading-relaxed text-gray-600 mb-0">
                     {description}
                   </p>
                 )}
@@ -99,8 +71,9 @@ const PageTemplate = ({
                     <img
                       src={heroImage}
                       alt={title}
-                      className="img-fluid rounded-3 shadow-lg"
+                      className="w-full h-auto rounded-lg shadow-soft img-mobile-responsive"
                       style={{ maxHeight: "300px", objectFit: "cover" }}
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -111,8 +84,8 @@ const PageTemplate = ({
       )}
 
       {/* Content Section */}
-      <section style={{ backgroundColor: "#fff", padding: "60px 0" }}>
-        <div className="container">
+      <section className="bg-white section-padding safe-area-bottom">
+        <div className="container container-responsive">
           {children}
         </div>
       </section>

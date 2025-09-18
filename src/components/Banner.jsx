@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// Using public path for consistency with other components
+// Using public path for images
 const slider1 = '/assets/images/resized_classroom_image.png';
 const slider2 = '/assets/images/resized_classroom_image2.png';
 const slider3 = '/assets/images/slider5 (1).jpg';
@@ -58,9 +58,19 @@ const Banner = () => {
         <div className="owl-carousel owl-theme banner-car">
           {/* Slider 1 */}
           <div className="item">
-            <img className="main-img home-banner-desk" src={slider1} alt="Philanthropy Summit" />
-            <img className="main-img home-banner-mob" src={slider1} alt="Philanthropy Summit" />
-            <div className="container">
+            <img 
+              className="main-img home-banner-desk" 
+              src={slider1} 
+              alt="Philanthropy Summit" 
+              loading="eager"
+            />
+            <img 
+              className="main-img home-banner-mob" 
+              src={slider1} 
+              alt="Philanthropy Summit" 
+              loading="eager"
+            />
+            <div className="container container-responsive">
               {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
                   Explore More
@@ -75,9 +85,19 @@ const Banner = () => {
 
           {/* Slider 2 */}
           <div className="item">
-            <img className="main-img home-banner-desk" src={slider2} alt="US Forum" />
-            <img className="main-img home-banner-mob" src={slider2} alt="US Forum" />
-            <div className="container">
+            <img 
+              className="main-img home-banner-desk" 
+              src={slider2} 
+              alt="US Forum" 
+              loading="lazy"
+            />
+            <img 
+              className="main-img home-banner-mob" 
+              src={slider2} 
+              alt="US Forum" 
+              loading="lazy"
+            />
+            <div className="container container-responsive">
               {/* <div className="ban-cont">
                 <a className="main-btn" href="#">
                   Explore More
@@ -92,9 +112,19 @@ const Banner = () => {
 
           {/* Slider 3 */}
           <div className="item">
-            <img className="main-img home-banner-desk" src={slider3} alt="Impact Report" />
-            <img className="main-img home-banner-mob" src={slider3} alt="Impact Report" />
-            <div className="container">
+            <img 
+              className="main-img home-banner-desk" 
+              src={slider3} 
+              alt="Impact Report" 
+              loading="lazy"
+            />
+            <img 
+              className="main-img home-banner-mob" 
+              src={slider3} 
+              alt="Impact Report" 
+              loading="lazy"
+            />
+            <div className="container container-responsive">
               {/* <div className="ban-cont">
                 <h2><span></span> BCG-Indiaspora Impact Report</h2>
                 <p>First-ever data-driven report showcasing the contributions of the Indian diaspora in the US</p>
@@ -111,9 +141,19 @@ const Banner = () => {
 
           {/* Slider 4 (New) */}
           <div className="item">
-            <img className="main-img home-banner-desk" src={slider4} alt="New Event" />
-            <img className="main-img home-banner-mob" src={slider4} alt="New Event" />
-            <div className="container">
+            <img 
+              className="main-img home-banner-desk" 
+              src={slider4} 
+              alt="New Event" 
+              loading="lazy"
+            />
+            <img 
+              className="main-img home-banner-mob" 
+              src={slider4} 
+              alt="New Event" 
+              loading="lazy"
+            />
+            <div className="container container-responsive">
               {/* <div className="ban-cont">
                 <h2><span>EVENT</span> Special Highlight</h2>
                 <p>This slide showcases the latest update or event highlight.</p>

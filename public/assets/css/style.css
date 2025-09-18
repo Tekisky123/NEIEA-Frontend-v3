@@ -182,6 +182,7 @@ svg{
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
+  cursor: pointer;
 }
 .main-btn svg  {
   transition: .5s all;
@@ -202,6 +203,15 @@ svg{
 
 .main-btn:hover svg {
   transform: translateX(5px);
+}
+
+/* Leadership card hover effects */
+.card:hover .view-bio-overlay {
+  opacity: 1 !important;
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 .right-btn:hover svg{

@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Leadership = () => {
+  const navigate = useNavigate();
+
+  const navigateToProfile = (memberSlug) => {
+    navigate(`/about-us/leadership/${memberSlug}`);
+  };
+
   return (
-    <div className="leadership-page">
+    <div className="leadership-page our-work-page">
       {/* Breadcrumb */}
       <div
         className="container-fluid"
@@ -38,7 +45,7 @@ const Leadership = () => {
       </div>
 
       {/* Hero Section */}
-      <section style={{ backgroundColor: "#f8f9fa", padding: "80px 0" }}>
+      <section style={{ backgroundColor: "#f8f9fa", padding: "100px 0 30px 0" }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -125,7 +132,7 @@ const Leadership = () => {
       </section>
 
       {/* Board Members Section */}
-      <section style={{ backgroundColor: "#fff", padding: "80px 0" }}>
+      <section style={{ backgroundColor: "#fff", padding: "60px 0" }}>
         <div className="container">
           <div className="row g-4">
             {/* Team Member 1 - Mr Javeed Mirza */}
@@ -154,17 +161,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/leader.jpg"
+                    src="/assets/images/leader4.png"
                     alt="Mr Javeed Mirza"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("javeed-mirza")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -217,17 +255,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/Leader2.jpeg"
+                    src="/assets/images/leader5.png"
                     alt="Dr. K. N. Anandan"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("k-n-anandan")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -280,17 +349,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/leader4.png"
+                    src="/assets/images/leader6.jpg"
                     alt="Ms Nasreen Fatima"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("nasreen-fatima")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -343,17 +443,49 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial1.jpg"
+                    src="/assets/images/leader7.png"
                     alt="Ms Tahseen Sakina"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      objectPosition: "top center",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("tahseen-sakina")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -406,17 +538,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial2.jpg"
+                    src="/assets/images/leader8.jpg"
                     alt="Ms Niloufer Baig"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("niloufer-baig")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -469,17 +632,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial3.jpg"
+                    src="/assets/images/leader9.jpeg"
                     alt="Dr. Peshimam Nazeer Ahmed"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("peshimam-nazeer")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -532,17 +726,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial4.jpg"
+                    src="/assets/images/leader10.png"
                     alt="Prof. Shantha Sinha"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => alert("Profile page coming soon for Prof. Shantha Sinha!")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -595,17 +820,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/MdWais.jpeg"
+                    src="/assets/images/leader11.png"
                     alt="Mrs. M. Chaya Ratan"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("chaya-ratan")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -658,17 +914,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/event1.jpg"
+                    src="/assets/images/leader12.jpg"
                     alt="Vinod Mubayi"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("vinod-mubayi")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -721,17 +1008,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/event2.jpg"
+                    src="/assets/images/leader13.png"
                     alt="Ms AV AMBIKA"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("av-ambika")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -784,17 +1102,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/innovation.jpeg"
+                    src="/assets/images/No image.webp"
                     alt="Hrushikesh M"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => alert("Profile page coming soon for this member!")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -850,17 +1199,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/leaderimage.jpeg"
+                    src="/assets/images/leader14.png"
                     alt="Ms Uzma Nahid"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => alert("Profile page coming soon for Ms Uzma Nahid!")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -913,17 +1293,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/slider5 (1).jpg"
+                    src="/assets/images/leader15.jpeg"
                     alt="Syed Danish Ali"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("danish-ali")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -976,17 +1387,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/slider6 (1).jpeg"
+                    src="/assets/images/leader16.png"
                     alt="Ms Taskeen Tarannum"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("taskeen-tarannum")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -1039,17 +1481,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/vision2.jpg"
+                    src="/assets/images/No image.webp"
                     alt="Ms Farha Khan"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("farha-khan")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -1102,17 +1575,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/ChatGPT Image Sep 16, 2025, 09_58_45 PM.png"
+                    src="/assets/images/No image.webp"
                     alt="Ms Gulfisha Khan"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("gulfisha-khan")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -1165,17 +1669,48 @@ const Leadership = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     overflow: "hidden",
+                    position: "relative",
+                    cursor: "pointer",
                   }}
                 >
                   <img
-                    src="/assets/images/vision2 (1).jpg"
+                    src="/assets/images/No image.webp"
                     alt="Ms Arzoo Siraj"
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(0, 0, 0, 0.7)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      color: "white",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                    className="view-bio-overlay"
+                    onClick={() => navigateToProfile("arzoo-siraj")}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      View Bio
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 6L18 12L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div className="card-body p-4">
                   <h4
@@ -1201,6 +1736,8 @@ const Leadership = () => {
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </section>

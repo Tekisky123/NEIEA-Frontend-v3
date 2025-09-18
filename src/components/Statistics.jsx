@@ -71,78 +71,78 @@ const Statistics = () => {
   };
 
   return (
-    <section className="home-stats p-fade-anim" ref={statsRef}>
-      <div className="container">
+    <section className="home-stats p-fade-anim section-padding safe-area-bottom h-auto-responsive" ref={statsRef}>
+      <div className="container container-responsive">
         <div className="row">
-          <div className="col-12 text-center mb-5">
-            <h2 className="section-title">Our Impact in Numbers</h2>
-            <p className="section-subtitle">Transforming education through innovative approaches and meaningful partnerships</p>
+          <div className="col-12 text-center mb-3">
+            <h2 className="section-title text-responsive-3xl font-bold text-white mb-2">Our Impact in Numbers</h2>
+            <p className="section-subtitle text-responsive-lg text-white opacity-90">Transforming education through innovative approaches and meaningful partnerships</p>
           </div>
         </div>
-        <div className="row">
-          <div className="col-lg-3 col-md-6">
-            <div className="hs-cont">
-              <h4>
+        <div className="row gap-mobile">
+          <div className="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-3xl font-bold text-white mb-2">
                 <span id="home-stat-one" style={{display: 'none'}}>16</span>
                 <span className="home-stat-one">{counters.statOne}</span>+
               </h4>
-              <p>Online Courses</p>
+              <p className="text-responsive-base text-white opacity-90">Online Courses</p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="hs-cont">
-              <h4>
+          <div className="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-3xl font-bold text-white mb-2">
                 <span id="home-stat-two" style={{display: 'none'}}>63</span>
                 <span className="home-stat-two">{counters.statTwo}</span>+
               </h4>
-              <p>Live Online Classes</p>
+              <p className="text-responsive-base text-white opacity-90">Live Online Classes</p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="hs-cont">
-              <h4>
+          <div className="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-3xl font-bold text-white mb-2">
                 <span id="home-stat-three" style={{display: 'none'}}>94</span>
                 <span className="home-stat-three">{counters.statThree}</span>+
               </h4>
-              <p>Partnerships</p>
+              <p className="text-responsive-base text-white opacity-90">Partnerships</p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="hs-cont">
-              <h4>
+          <div className="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-3xl font-bold text-white mb-2">
                 <span id="home-stat-four" style={{display: 'none'}}>2000</span>
                 <span className="home-stat-four">{counters.statFour.toLocaleString()}</span>+
               </h4>
-              <p>Teachers Trained</p>
+              <p className="text-responsive-base text-white opacity-90">Teachers Trained</p>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-lg-3 col-md-4 col-sm-6">
-            <div className="hs-cont">
-              <h4>
+        <div className="row justify-content-center mt-4">
+          <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-2xl font-bold text-white mb-2">
                 <span id="home-stat-five" style={{display: 'none'}}>6182</span>
                 <span className="home-stat-five">{counters.statFive.toLocaleString()}</span>+
               </h4>
-              <p>Institutional Enrollments</p>
+              <p className="text-responsive-sm text-white opacity-90">Institutional Enrollments</p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-4 col-sm-6">
-            <div className="hs-cont">
-              <h4>
+          <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-2xl font-bold text-white mb-2">
                 <span id="home-stat-six" style={{display: 'none'}}>10612</span>
                 <span className="home-stat-six">{counters.statSix.toLocaleString()}</span>+
               </h4>
-              <p>Individual Enrollments</p>
+              <p className="text-responsive-sm text-white opacity-90">Individual Enrollments</p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-4 col-sm-6">
-            <div className="hs-cont">
-              <h4>
+          <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
+            <div className="hs-cont stats-card text-center spacing-responsive-sm h-auto-responsive w-auto-responsive">
+              <h4 className="text-responsive-2xl font-bold text-white mb-2">
                 <span id="home-stat-seven" style={{display: 'none'}}>16801</span>
                 <span className="home-stat-seven">{counters.statSeven.toLocaleString()}</span>+
               </h4>
-              <p>Total Enrollments</p>
+              <p className="text-responsive-sm text-white opacity-90">Total Enrollments</p>
             </div>
           </div>
         </div>

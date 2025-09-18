@@ -31,16 +31,17 @@ const SkillsTraining = () => {
 
 
   return (
-    <PageTemplate
-      breadcrumbPath={[
-        { name: "Our Work", link: null },
-        { name: "Skills Training", link: null }
-      ]}
-      title="Tailored Online Courses"
-      subtitle="Tailored Online Courses"
-      description="Bilingual live classes for diverse groups"
-      heroImage="/assets/images/innovation.jpeg"
-    >
+    <div className="our-work-page">
+      <PageTemplate
+        breadcrumbPath={[
+          { name: "Our Work", link: null },
+          { name: "Skills Training", link: null }
+        ]}
+        title="Tailored Online Courses"
+        subtitle="Tailored Online Courses"
+        description="Bilingual live classes for diverse groups"
+        heroImage="/assets/images/innovation.jpeg"
+      >
       {/* Program Overview */}
       <div className="row mb-5">
         <div className="col-lg-8 mx-auto text-center">
@@ -361,7 +362,8 @@ const SkillsTraining = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

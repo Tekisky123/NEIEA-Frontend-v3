@@ -265,15 +265,16 @@ const Header = () => {
         `}
       </style>
 
-      <header className="primary-header">
+      <header className="primary-header safe-area-top">
         <nav className="navbar navbar-expand-lg">
-          <div className="container">
+          <div className="container container-responsive">
             <div className="navbar-brand-wrapper d-flex align-items-center">
-              <Link className="navbar-brand primary-logo" to="/">
-                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height="80px" />
-              </Link>
               <Link className="navbar-brand" to="/">
-                <img src={NeiSecondaryLogo} height="80px" alt="NEIEA Secondary Logo" />
+                <img 
+                  src={NeiPrimaryLogo} 
+                  alt="NEIEA Logo" 
+                  className="h-16 sm:h-20 w-auto touch-manipulation" 
+                />
               </Link>
             </div>
 
@@ -607,22 +608,23 @@ const Header = () => {
               </ul>
 
               <div className="d-none d-lg-block">
-                <Link to="/donate" className="btn donate-btn btn-yellow donate-button">
+                <Link to="/donate" className="btn donate-btn btn-yellow donate-button btn-responsive touch-manipulation">
                   DONATE
                 </Link>
               </div>
             </div>
 
-            <div className="d-flex align-items-center d-lg-none">
-              <Link to="/donate" className="btn donate-btn btn-yellow donate-button me-2">
+            <div className="d-flex align-items-center d-lg-none gap-2">
+              <Link to="/donate" className="btn donate-btn btn-yellow donate-button text-xs px-3 py-2 touch-manipulation">
                 DONATE
               </Link>
               <button
-                className="navbar-toggler mob-nav-cta"
+                className="navbar-toggler mob-nav-cta touch-manipulation p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar"
+                aria-label="Toggle navigation"
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -631,32 +633,56 @@ const Header = () => {
         </nav>
 
         {/* Mobile Offcanvas Navigation */}
-        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div className="offcanvas-header">
+        <div className="offcanvas offcanvas-start mobile-scroll" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div className="offcanvas-header safe-area-top px-4 py-3">
             <div className="navbar-brand-wrapper d-flex align-items-center">
-              <Link className="navbar-brand primary-logo" to="/">
-                <img src={NeiPrimaryLogo} alt="NEIEA Logo" height="50px" />
+              <Link className="navbar-brand primary-logo" to="/" data-bs-dismiss="offcanvas">
+                <img src={NeiPrimaryLogo} alt="NEIEA Logo" className="h-12 w-auto" />
               </Link>
             </div>
-            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button 
+              type="button" 
+              className="btn-close touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center" 
+              data-bs-dismiss="offcanvas" 
+              aria-label="Close"
+            ></button>
           </div>
-          <div className="offcanvas-body">
+          <div className="offcanvas-body mobile-scroll safe-area-bottom px-4">
             <ul className="navbar-nav mobile-nav-list">
               {/* About Section */}
               <li className="nav-item">
                 <div className="mobile-nav-section">
-                  <div className="mobile-nav-header" onClick={() => toggleMobileNav('about')}>
-                    <span className="mobile-nav-title">About</span>
-                    <span className={`mobile-nav-arrow ${mobileNavState.about ? 'rotated' : ''}`}>▼</span>
+                  <div 
+                    className="mobile-nav-header touch-manipulation min-h-[48px] flex items-center" 
+                    onClick={() => toggleMobileNav('about')}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMobileNav('about');
+                      }
+                    }}
+                  >
+                    <span className="mobile-nav-title text-responsive-base font-medium">About</span>
+                    <span className={`mobile-nav-arrow ${mobileNavState.about ? 'rotated' : ''} text-lg`}>▼</span>
                   </div>
                   <ul className={`mobile-nav-submenu ${mobileNavState.about ? 'show' : ''}`}>
                     <li>
-                      <Link to="/about-us/introduction" className="mobile-nav-link">
+                      <Link 
+                        to="/about-us/introduction" 
+                        className="mobile-nav-link touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                        data-bs-dismiss="offcanvas"
+                      >
                         Introduction
                       </Link>
                     </li>
                     <li>
-                      <Link to="/about-us/leadership" className="mobile-nav-link">
+                      <Link 
+                        to="/about-us/leadership" 
+                        className="mobile-nav-link touch-manipulation min-h-[44px] flex items-center text-responsive-sm"
+                        data-bs-dismiss="offcanvas"
+                      >
                         Leadership
                       </Link>
                     </li>

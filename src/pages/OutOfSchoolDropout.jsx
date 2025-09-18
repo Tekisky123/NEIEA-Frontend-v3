@@ -4,7 +4,8 @@ import PageTemplate from '../components/PageTemplate';
 const OutOfSchoolDropout = () => {
 
   return (
-    <PageTemplate
+    <div className="our-work-page">
+      <PageTemplate
       breadcrumbPath={[
         { name: "Our Work", link: null },
         { name: "Education", link: null },
@@ -811,7 +812,8 @@ const OutOfSchoolDropout = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

@@ -51,55 +51,40 @@ const TeachersTraining = () => {
   ];
 
   return (
-    <PageTemplate
-      breadcrumbPath={[
-        { name: "Our Work", link: null },
-        { name: "Teachers Training", link: null }
-      ]}
-      title="NEIEA Teacher Training Program"
-      subtitle="Building Educators. Shaping Futures."
-      description="At NEIEA, we believe that the foundation of quality education lies in empowered teachers. Our Teacher Training Program is designed to equip educators with the skills, confidence, and digital readiness needed to create impactful and engaging learning experiences."
-      heroImage="/assets/images/testimonial3.jpg"
-    >
+    <div className="our-work-page">
+      <PageTemplate
+        breadcrumbPath={[
+          { name: "Our Work", link: null },
+          { name: "Teachers Training", link: null }
+        ]}
+        title="NEIEA Teacher Training Program"
+        subtitle="Building Educators. Shaping Futures."
+        description="At NEIEA, we believe that the foundation of quality education lies in empowered teachers. Our Teacher Training Program is designed to equip educators with the skills, confidence, and digital readiness needed to create impactful and engaging learning experiences."
+        heroImage="/assets/images/testimonial3.jpg"
+      >
       {/* Introduction */}
-      <div className="row mb-5">
+      <div className="row mb-3">
         <div className="col-lg-8 mx-auto text-center">
-          <p 
-            style={{ 
-              fontSize: "18px", 
-              lineHeight: "1.8", 
-              color: "#495057",
-              marginBottom: "0",
-              fontWeight: "600"
-            }}
-          >
+          <p className="text-responsive-lg leading-relaxed text-gray-600 font-semibold mb-0">
             Teacher training at NEIEA is not just a process—it's a transformation.
           </p>
         </div>
       </div>
 
       {/* Our Training Pathways */}
-      <div className="row mb-5">
+      <div className="row mb-3">
         <div className="col-12">
-          <h3 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              color: "#212529", 
-              marginBottom: "40px",
-              textAlign: "center"
-            }}
-          >
+          <h3 className="text-responsive-2xl font-bold text-gray-900 mb-6 text-center">
             Our Training Pathways
           </h3>
         </div>
       </div>
 
-      <div className="row g-4 mb-5">
+      <div className="row g-4 mb-3">
         {trainingPathways.map((pathway) => (
-          <div key={pathway.id} className="col-lg-6">
-            <div className="card h-100 border-0 shadow-sm" style={{ borderRadius: "15px" }}>
-              <div className="card-body p-4">
+          <div key={pathway.id} className="col-lg-6 col-md-6 mb-4">
+            <div className="card h-auto border-0 shadow-soft card-mobile-optimized">
+              <div className="card-body spacing-responsive-md form-mobile-optimized">
                 <div className="d-flex justify-content-between align-items-start mb-3">
                   <span 
                     style={{ 
@@ -493,7 +478,8 @@ const TeachersTraining = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

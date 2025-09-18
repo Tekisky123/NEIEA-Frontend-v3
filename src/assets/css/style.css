@@ -62,10 +62,9 @@ svg{
 
 /* banner css */
 .banner {
-  height: 768px;
-  /* background: url(../images/Banner_Image.jpg) no-repeat center; */
-  /* background-size: cover; */
+  height: 700px;
   position: relative;
+  overflow: hidden;
 }
 
 .banner .container{
@@ -183,6 +182,7 @@ svg{
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
+  cursor: pointer;
 }
 .main-btn svg  {
   transition: .5s all;
@@ -195,6 +195,15 @@ svg{
   background: var(--btn-color);
   color: #fff;
   padding-right: 28px;
+}
+
+/* Leadership card hover effects */
+.card:hover .view-bio-overlay {
+  opacity: 1 !important;
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 /* Donate Button */
@@ -218,6 +227,11 @@ svg{
 .donate-btn:hover {
   background: var(--Gray_10, #FFFFFF);
   border: 1px solid var(--btn-color);
+  color: var(--btn-color);
+}
+
+.donate-btn:hover svg path {
+  stroke: var(--btn-color);
 }
 /* Donate Button End */
 
@@ -1935,18 +1949,9 @@ ul#tabs-nav li:hover a {
   align-items: center;
 }
 
-/* Hide primary logo on mobile, show secondary logo */
-@media (max-width: 991px) {
-  .primary-header .navbar-brand.primary-logo {
-    display: none;
-  }
-}
-
-/* Show primary logo on desktop, hide secondary logo */
-@media (min-width: 992px) {
-  .primary-header .navbar-brand:not(.primary-logo) {
-    display: none;
-  }
+/* Single logo display on all devices */
+.primary-header .navbar-brand {
+  display: block;
 }
 
 /* Mobile Navigation Styles */
@@ -2917,13 +2922,10 @@ margin-top: -2px;
     fill: #fff;
   }
   .banner {
-    /* background: url(../images/banner-mob.jpg); */
-    height: 592px;
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
+    height: 400px !important;
     display: flex;
     align-items: center;
+    overflow: hidden;
   }
   .mouse-indi-wrap{
     display: none !important;
@@ -4425,6 +4427,738 @@ padding: 12px 20px;
 	.footer-form .form-group input{
 	    padding: 14px 16px;
 	}
+}
+
+/* Enhanced Mobile-First Responsive Utilities */
+
+/* Touch-friendly interactive elements */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Improved mobile navigation */
+.mobile-nav-optimized {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.mobile-nav-optimized .nav-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-optimized .nav-link {
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  touch-action: manipulation;
+}
+
+/* Better mobile forms */
+.form-mobile-optimized input,
+.form-mobile-optimized select,
+.form-mobile-optimized textarea {
+  font-size: 16px; /* Prevents zoom on iOS */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e2e8f0;
+  transition: border-color 0.2s ease;
+}
+
+.form-mobile-optimized input:focus,
+.form-mobile-optimized select:focus,
+.form-mobile-optimized textarea:focus {
+  border-color: #06038F;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(6, 3, 143, 0.1);
+}
+
+/* Enhanced button styles for mobile */
+.btn-mobile-enhanced {
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  touch-action: manipulation;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-mobile-enhanced:active {
+  transform: scale(0.98);
+}
+
+/* Improved mobile cards */
+.card-mobile-optimized {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card-mobile-optimized:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile-first typography scale */
+@media (max-width: 640px) {
+  .text-mobile-xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-mobile-lg { font-size: 1.5rem; line-height: 2rem; }
+  .text-mobile-base { font-size: 1rem; line-height: 1.5rem; }
+  .text-mobile-sm { font-size: 0.875rem; line-height: 1.25rem; }
+  .text-mobile-xs { font-size: 0.75rem; line-height: 1rem; }
+}
+
+/* Improved mobile spacing */
+@media (max-width: 640px) {
+  .section-mobile { padding: 2rem 1rem; }
+  .container-mobile { padding-left: 1rem; padding-right: 1rem; }
+  .gap-mobile { gap: 1rem; }
+  .gap-mobile-sm { gap: 0.5rem; }
+  .gap-mobile-lg { gap: 1.5rem; }
+}
+
+/* Better mobile images */
+.img-mobile-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Mobile-optimized loading states */
+.loading-mobile {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner-mobile {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e2e8f0;
+  border-top: 2px solid #06038F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced mobile accessibility */
+.focus-mobile:focus {
+  outline: 2px solid #06038F;
+  outline-offset: 2px;
+}
+
+.sr-only-mobile {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile-first grid improvements */
+@media (max-width: 640px) {
+  .grid-mobile-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-mobile-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .grid-tablet-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-tablet-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Enhanced mobile form styling */
+@media (max-width: 768px) {
+  .form-control, .form-select, .btn {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    min-height: 48px;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn {
+    font-weight: 600;
+    touch-action: manipulation;
+    user-select: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-dialog {
+    margin: 1rem;
+  }
+  
+  .table-responsive {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better mobile navigation */
+  .navbar-nav .nav-link {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Mobile-optimized dropdowns */
+  .dropdown-menu {
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+  }
+  
+  .dropdown-item {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.25rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Better mobile modals */
+  .modal-content {
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+  
+  .modal-header, .modal-footer {
+    padding: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile-specific component improvements */
+@media (max-width: 480px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .row {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+  
+  .col, [class*="col-"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Extra small form elements */
+  .form-control, .form-select, .btn {
+    font-size: 16px !important;
+    min-height: 44px;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .btn-sm {
+    min-height: 40px;
+    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .btn-lg {
+    min-height: 52px;
+    font-size: 18px;
+    padding: 0.875rem 1.25rem;
+  }
+  
+  /* Fix small screen heights */
+  .banner {
+    height: auto !important;
+    min-height: 300px;
+  }
+  
+  .our-mission, .global-program, .testimonials {
+    padding: 20px 0;
+  }
+  
+  .home-stats {
+    padding: 30px 0;
+  }
+}
+
+/* General height and width fixes */
+.container, .container-fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix image dimensions */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive images */
+.img-responsive, .img-fluid {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/* Fix card heights */
+.card {
+  height: auto;
+  min-height: auto;
+}
+
+/* Fix modal dimensions */
+.modal-dialog {
+  width: 90%;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+/* Fix navbar height */
+.navbar {
+  min-height: 80px;
+  height: auto;
+}
+
+/* Fix footer height */
+.footer {
+  height: auto;
+  min-height: auto;
+}
+
+/* Comprehensive height and width fixes */
+
+/* Banner specific fixes */
+.banner {
+  height: 700px !important;
+  min-height: 400px;
+  max-height: 700px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-body {
+  height: 100%;
+  width: 100%;
+}
+
+.banner-car {
+  height: 100%;
+  width: 100%;
+}
+
+.banner-car .owl-stage-outer,
+.banner-car .owl-stage,
+.banner-car .owl-item,
+.banner-car .item {
+  height: 100% !important;
+  width: 100%;
+}
+
+.banner-car .owl-item .item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Banner responsive heights */
+@media (max-width: 640px) {
+  .banner {
+    height: 400px !important;
+    min-height: 350px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .banner {
+    height: 600px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .banner {
+    height: 700px !important;
+  }
+}
+
+/* Section height fixes */
+.our-mission,
+.global-program,
+.testimonials,
+.home-stats {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+}
+
+/* Image dimension fixes */
+.main-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Home page specific image fixes */
+.home .main-img.home-banner-desk {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.home .main-img.home-banner-mob {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Our Mission image */
+.our-mission img {
+  max-height: 350px !important;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Innovation image */
+.home-video img {
+  max-height: 350px !important;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Global map image */
+.gp-cont img {
+  max-height: 500px !important;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Testimonial images */
+.test-cont img {
+  max-height: 280px !important;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Stats container fixes */
+.hs-cont {
+  height: auto !important;
+  min-height: 120px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Testimonial fixes */
+.test-cont {
+  height: auto !important;
+  width: 100%;
+  max-width: 100%;
+}
+
+.test-cont img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+}
+
+/* Card dimension fixes */
+.card, .stats-card, .testimonial-card {
+  height: auto !important;
+  width: 100%;
+  max-width: 100%;
+  min-height: auto;
+}
+
+/* Override fixed heights on mobile */
+@media (max-width: 768px) {
+  .banner {
+    height: 400px !important;
+    min-height: 350px !important;
+    max-height: 450px !important;
+  }
+  
+  .banner-body,
+  .banner-car,
+  .banner-car .ban-cont,
+  .banner-car .owl-stage-outer,
+  .banner-car .owl-stage,
+  .banner-car .owl-item,
+  .banner-car .item {
+    height: 100% !important;
+  }
+  
+  .main-img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+  }
+  
+  /* Home page mobile image fixes */
+  .home .main-img.home-banner-desk {
+    height: 400px !important;
+  }
+  
+  .home .main-img.home-banner-mob {
+    height: 400px !important;
+  }
+  
+  /* Component image fixes for mobile */
+  .our-mission img {
+    max-height: 250px !important;
+  }
+  
+  .home-video img {
+    max-height: 250px !important;
+  }
+  
+  .gp-cont img {
+    max-height: 300px !important;
+  }
+  
+  .test-cont img {
+    max-height: 200px !important;
+  }
+  
+  .hs-cont {
+    height: auto !important;
+    min-height: 100px !important;
+    padding: 20px !important;
+  }
+  
+  .test-cont {
+    height: auto !important;
+    padding: 15px !important;
+  }
+  
+  /* Fix any fixed height elements */
+  .col-lg-6, .col-md-6, .col-sm-6 {
+    height: auto !important;
+  }
+  
+  .row {
+    height: auto !important;
+  }
+  
+  /* Reduce excessive spacing */
+  .mb-5, .my-5 {
+    margin-bottom: 2rem !important;
+  }
+  
+  .mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .py-16 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .py-12 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  /* Section specific spacing reductions */
+  .section-padding {
+    padding: 1.5rem 0 !important;
+  }
+  
+  /* Our Work pages mobile responsive fixes */
+  .our-work-page .card {
+    margin-bottom: 1rem !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .our-work-page .card-body {
+    padding: 1rem !important;
+  }
+  
+  .our-work-page h3, .our-work-page h4 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .our-work-page h5, .our-work-page h6 {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .our-work-page p {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .our-work-page .btn {
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1rem !important;
+    min-height: 44px !important;
+  }
+  
+  .our-work-page .col-lg-6 {
+    margin-bottom: 1rem;
+  }
+  
+  .our-work-page .col-lg-4, .our-work-page .col-md-6 {
+    margin-bottom: 1rem;
+  }
+  
+  .our-work-page .row {
+    margin-bottom: 1rem !important;
+  }
+}
+  
+  /* Global spacing reduction */
+  .spacing-responsive-sm {
+    padding: 0.5rem !important;
+  }
+  
+  .spacing-responsive-md {
+    padding: 0.75rem !important;
+  }
+  
+  .spacing-responsive-lg {
+    padding: 1rem !important;
+  }
+  
+  /* Reduce margins between sections */
+  section + section {
+    margin-top: -1rem;
+  }
+  
+  /* Compact mobile layout */
+  .mb-8 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mb-6 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .mb-5 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .mb-3 {
+    margin-bottom: 0.5rem !important;
+  }
+
+/* Fix scrollbar visibility issues */
+html, body {
+  overflow-x: hidden !important; /* Hide horizontal scrollbar only */
+  overflow-y: auto !important; /* Always show vertical scrollbar */
+}
+
+.App {
+  overflow-x: hidden; /* Hide horizontal scrollbar only */
+  overflow-y: visible; /* Allow vertical scrolling */
+}
+
+/* Ensure body scrolling is never disabled */
+body.overflow-hidden {
+  overflow-y: auto !important; /* Force vertical scrolling even when class is applied */
+}
+
+/* Override any JavaScript that tries to hide scrollbars */
+body, html {
+  scrollbar-width: auto !important;
+  -ms-overflow-style: auto !important;
+}
+
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  display: block !important;
+  width: auto !important;
+}
+
+/* Specific fix for components that might hide overflow */
+.banner, .testimonials, .home-stats, .global-program {
+  overflow: visible !important;
+}
+
+.banner.relative.overflow-hidden {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
+
+/* Fix for mobile scroll issues */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    height: auto !important; /* Allow natural height */
+  }
+  
+  .App {
+    min-height: 100vh;
+    height: auto; /* Allow natural height */
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+  
+  /* Fix section heights - Reduced spacing */
+  .banner {
+    height: auto !important;
+    min-height: 400px;
+    max-height: none;
+  }
+  
+  .home-stats {
+    height: auto !important;
+    padding: 40px 0;
+  }
+  
+  .testimonials {
+    height: auto !important;
+    padding: 40px 0;
+  }
+  
+  .our-mission {
+    height: auto !important;
+    padding: 40px 0;
+  }
+  
+  .global-program {
+    height: auto !important;
+    padding: 40px 0;
+  }
 }
 
 /* 404 Not Found Page Styles */

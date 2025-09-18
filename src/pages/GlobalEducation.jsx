@@ -88,7 +88,8 @@ const GlobalEducation = () => {
   ];
 
   return (
-    <PageTemplate
+    <div className="our-work-page">
+      <PageTemplate
       breadcrumbPath={[
         { name: "Our Work", link: null },
         { name: "Global Education", link: null }
@@ -552,7 +553,8 @@ const GlobalEducation = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

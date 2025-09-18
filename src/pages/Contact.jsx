@@ -45,25 +45,13 @@ const Contact = () => {
     >
       <div className="row">
         {/* Contact Form */}
-        <div className="col-lg-8">
-          <div className="card border-0 shadow-sm" style={{ borderRadius: "15px" }}>
-            <div className="card-body p-4">
-              <h3 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "600", 
-                  marginBottom: "15px" 
-                }}
-              >
+        <div className="col-lg-8 mb-4 mb-lg-0">
+          <div className="card border-0 shadow-soft card-mobile-optimized">
+            <div className="card-body spacing-responsive-md form-mobile-optimized">
+              <h3 className="text-responsive-2xl font-semibold text-gray-800 mb-4">
                 Get In Touch
               </h3>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  marginBottom: "30px",
-                  fontSize: "16px"
-                }}
-              >
+              <p className="text-responsive-base text-gray-600 mb-8 leading-relaxed">
                 Fill out the form below and we'll get back to you as soon as possible.
               </p>
               

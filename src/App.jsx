@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Introduction from "./pages/Introduction.jsx";
 import Leadership from "./pages/Leadership";
+import LeadershipProfile from "./pages/LeadershipProfile";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import BlendedLearning from "./pages/BlendedLearning";
@@ -55,15 +56,16 @@ function AppContent() {
   const isAdminRoute = location.pathname.startsWith('/admin/');
 
   return (
-    <div className={`App ${isHomePage ? 'home' : ''}`}>
+    <div className={`App scrollbar-show ${isHomePage ? 'home' : ''}`}>
       {!isAdminRoute && <Header />}
-      <main>
+      <main className="scrollbar-show">
         <Routes>
           <Route path="/" element={<Home />} />
 
           {/* About Us Routes */}
           <Route path="/about-us/introduction" element={<Introduction />} />
           <Route path="/about-us/leadership" element={<Leadership />} />
+          <Route path="/about-us/leadership/:memberSlug" element={<LeadershipProfile />} />
           <Route path="/about-us/testimonials" element={<Testimonials />} />
           <Route path="/about-us/contact" element={<Contact />} />
 

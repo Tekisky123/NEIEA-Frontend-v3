@@ -46,7 +46,8 @@ const Madrasa = () => {
   ];
 
   return (
-    <PageTemplate
+    <div className="our-work-page">
+      <PageTemplate
       breadcrumbPath={[
         { name: "Our Work", link: null },
         { name: "Education", link: null },
@@ -545,7 +546,8 @@ const Madrasa = () => {
           </div>
         </div>
       </div>
-    </PageTemplate>
+      </PageTemplate>
+    </div>
   );
 };
 

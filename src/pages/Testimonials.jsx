@@ -8,7 +8,7 @@ const Testimonials = () => {
       name: "Md Wais Raza",
       role: "Student",
       location: "Bihar",
-      image: "/assets/images/testimonial1.jpg",
+      image: "/assets/images/Md Wais Raza.png",
       content: "I am thrilled to share my experience with the NEIEA English proficiency course that is completely free of cost! Actually, I have completed my matriculation from English medium school but even then I used to hesitate before speaking English with others I wanted to speak fluent and flawless English...."
     },
     {
@@ -16,7 +16,7 @@ const Testimonials = () => {
       name: "Misbah Rehman",
       role: "Student",
       location: "India",
-      image: "/assets/images/testimonial2.jpg",
+      image: "/assets/images/Misbah Rehman.png",
       content: "Today I am talking about my English class. This class is too good. After taking these classes my confidence to speak english has built up. Now , I speak English properly. Now , when I speak English I do not hesitate. In these classes we are not only studying, we also have fun."
     },
     {
@@ -24,7 +24,7 @@ const Testimonials = () => {
       name: "Malik Khan",
       role: "Student",
       location: "Karnataka",
-      image: "/assets/images/testimonial3.jpg",
+      image: "/assets/images/Malik Khan.png",
       content: "I took an online course in NEIEA which is regarding spoken English and I was blown away by how much I learned. The instructor was engaging and knowledgeable, and the course material was presented in a clear and concise way ...."
     },
     {
@@ -32,7 +32,7 @@ const Testimonials = () => {
       name: "Asna Shaikh",
       role: "Student",
       location: "Telangana",
-      image: "/assets/images/testimonial4.jpg",
+      image: "/assets/images/No image.webp",
       content: "I know how to speak in English but I was hesitant to speak in English in front of others. I was confused, about how to take out this fear. Then I got to know about the NEIEA free English course. I have joined this course. After joining this course, I have seen much improvement in my communication skills...."
     },
     {
@@ -40,7 +40,7 @@ const Testimonials = () => {
       name: "Shagufta Nemath",
       role: "Student",
       location: "India",
-      image: "/assets/images/event1.jpg",
+      image: "/assets/images/Shagufta Nemath.jpg",
       content: "I am filled with immense joy while telling you that, despite the increasing cost of education, some philanthropists have come together to initiate an organization that aims to uplift those sections of society who not only lack financial resources but also access to basic amenities......"
     },
     {
@@ -48,7 +48,7 @@ const Testimonials = () => {
       name: "Shaista Parveen Begum",
       role: "Student",
       location: "India",
-      image: "/assets/images/event2.jpg",
+      image: "/assets/images/Shaista Parveen Begum.png",
       content: "In March, I embarked on my NEIEA class journey with excitement. The course offered a chance to learn without cost and gain knowledge. The instructors, Sree Kutty Ma'am, Zeba Ma'am, and Danish Ali Sir, were inspiring, especially Sir's English skills and his signature address, 'GUYS....'"
     },
     {
@@ -56,7 +56,7 @@ const Testimonials = () => {
       name: "Shaik Azhar Shareef",
       role: "Student",
       location: "Hyderabad",
-      image: "/assets/images/innovation.jpeg",
+      image: "/assets/images/Shaik Azhar Shareef.png",
       content: "Kick off with greetings I am Shaik Azhar Shareef, currently dwelling in Hyderabad Rajendra Nagar. I am pursuing B.com (computer) final year from Osmania University. Anyway, I have completed Board of Secondary Education in English medium. However, I wasn't speaking manifestly in front of people, relatives, strangers......"
     },
     {
@@ -64,8 +64,32 @@ const Testimonials = () => {
       name: "Amena",
       role: "Student",
       location: "Telangana, Hyderabad",
-      image: "/assets/images/leader.jpg",
+      image: "/assets/images/No image.webp",
       content: "I am writing this to express my gratitude to NEIEA. When I saw this course I thought it must be a fake why would anyone provide a 3 months free course but it was real joining this course was my best decision. Best of all I felt no student will be bored by the syllabus prepared by them...."
+    },
+    {
+      id: 9,
+      name: "Jaswinder Kaur",
+      role: "Student",
+      location: "Nagpur, Maharashtra",
+      image: "/assets/images/Jaswinder kaur .jpg",
+      content: "As a 59-year-old from Nagpur, I'm thrilled to have discovered NEIEA. Thanks to Niloufer Ma'am's excellent teaching and patience, I've been able to overcome my doubts and learn effectively. Online classes have made it easy for me to pursue my education, and I'm so grateful for this opportunity. NEIEA has shown me that age is no barrier to learning, and I can't wait to continue my studies."
+    },
+    {
+      id: 10,
+      name: "Mohan",
+      role: "Student",
+      location: "Hyderabad, Telangana",
+      image: "/assets/images/Mohan .jpg",
+      content: "I had to leave my education earlier due to personal reasons, but thanks to NEIEA's free online classes, I've been able to continue learning in new ways. The Microsoft Office course for beginners has been a huge help, especially for my business. I can now create advertisements, keep records, and manage my tasks much more efficiently. I'm really impressed with the quality of the classes, and I'm grateful for the opportunity to learn and grow again. NEIEA's support has truly made a difference in my life."
+    },
+    {
+      id: 11,
+      name: "PALAK MEHTA",
+      role: "Student",
+      location: "Patiala, Punjab",
+      image: "/assets/images/palak mehta .jpg",
+      content: "Hello, my name is Palak from Patiala, Punjab. I want to share my experience with NEIEA, an online platform offering 100% free courses in subjects like English, Maths, and Science. I completed the foundational English course and truly enjoyed the classes. My mother and younger brother were so impressed by the teaching that they joined as well. Now, I'm pursuing the proficiency-level English course, which is also free. The teachers are cooperative, and NEIEA even provides certificates for their courses. I highly recommend NEIEA to everyone—it's a great opportunity for learning!"
     }
   ];
 
@@ -136,7 +160,12 @@ const Testimonials = () => {
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="rounded-circle me-3"
-                  style={{ width: "60px", height: "60px", objectFit: "cover" }}
+                  style={{ 
+                    width: "60px", 
+                    height: "60px", 
+                    objectFit: "cover",
+                    objectPosition: (testimonial.name === "Md Wais Raza" || testimonial.name === "Malik Khan") ? "top" : testimonial.name === "Shaik Azhar Shareef" ? "center top" : "center"
+                  }}
                 />
                 <div>
                   <h5 style={{ color: "#212529", fontWeight: "600", marginBottom: "5px" }}>
