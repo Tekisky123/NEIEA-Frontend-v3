@@ -22,7 +22,7 @@ const GlobalPrograms = () => {
           </div>
           <div className="col-md-6">
             <div className="gp-cont">
-              <img src="/assets/images/global-map.png" alt="Global Map" />
+              <img src="/assets/images/HomImages/HomePartnership.png" alt="Global Map" />
             </div>
           </div>
         </div>

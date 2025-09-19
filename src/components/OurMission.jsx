@@ -48,8 +48,8 @@ const OurMission = () => {
                 <p>Visionary leaders dedicated to transforming education and empowering communities</p>
                 
                 <div className="leadership-card">
-                  <h4>Founder & President</h4>
-                  <h3>Javeed Mirza</h3>
+                  <h3>javeed Mirza</h3>
+                  <h4>Founder & Preisident</h4>
                   <p>Javeed Mirza, Founder and President of NEIEA… A visionary leader with global experience in social and political activism, teaching, business and in research. It was his passionate pursuit for ending inequity and injustice meted out to the marginalized, that made him strive for many decades and build NEIEA…. a low-cost scalable model of education that has the potential to transform global education.</p>
                 </div>
                 

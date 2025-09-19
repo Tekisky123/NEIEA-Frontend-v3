@@ -8,7 +8,8 @@ const Statistics = () => {
     statFour: 0,
     statFive: 0,
     statSix: 0,
-    statSeven: 0
+    statSeven: 0,
+    statEight: 0
   });
 
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,8 @@ const Statistics = () => {
     statFour: 2197,
     statFive: 6361,
     statSix: 12659,
-    statSeven: 19020
+    statSeven: 18942,
+    statEight: 500000
   };
 
   useEffect(() => {
@@ -76,8 +78,7 @@ const Statistics = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 text-center mb-5">
-            <h2 className="section-title">Our Impact in Numbers</h2>
-            <p className="section-subtitle">Transforming education through innovative approaches and meaningful partnerships</p>
+            <h2 className="section-title">IMPACT & ACHIEVEMENTS</h2>
           </div>
         </div>
         <div className="row">
@@ -122,28 +123,19 @@ const Statistics = () => {
           <div className="col-lg-3 col-md-4 col-sm-6">
             <div className="hs-cont">
               <h4>
-                <span id="home-stat-five" style={{display: 'none'}}>6361</span>
-                <span className="home-stat-five">{counters.statFive.toLocaleString()}</span>+
-              </h4>
-              <p>Institutional Enrollments</p>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 col-sm-6">
-            <div className="hs-cont">
-              <h4>
-                <span id="home-stat-six" style={{display: 'none'}}>12659</span>
-                <span className="home-stat-six">{counters.statSix.toLocaleString()}</span>+
-              </h4>
-              <p>Individual Enrollments</p>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 col-sm-6">
-            <div className="hs-cont">
-              <h4>
-                <span id="home-stat-seven" style={{display: 'none'}}>19020</span>
+                <span id="home-stat-seven" style={{display: 'none'}}>18942</span>
                 <span className="home-stat-seven">{counters.statSeven.toLocaleString()}</span>+
               </h4>
-              <p>Total Enrollments</p>
+              <p>Learner Empowered</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-4 col-sm-6">
+            <div className="hs-cont">
+              <h4>
+                <span id="home-stat-eight" style={{display: 'none'}}>500000</span>
+                <span className="home-stat-eight">{counters.statEight.toLocaleString()}</span>+
+              </h4>
+              <p>Indirectly Empowered</p>
             </div>
           </div>
         </div>
