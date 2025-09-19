@@ -12,7 +12,6 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import axiosInstance from "@/lib/axiosInstance";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, Heart, Users } from "lucide-react";
 import { toast } from "sonner";
 
 type LanguageProficiency = {
@@ -320,7 +319,7 @@ const VolunteerForm = () => {
       } catch (error) {
         console.error("Error submitting form:", error);
         toast.error(`An error occurred. Please try again.
-            ${error.response?.data?.error}
+            ${error instanceof Error && 'response' in error ? (error as any).response?.data?.error : 'Unknown error'}
         `)
       } finally {
         setIsSubmitting(false);
@@ -379,7 +378,7 @@ const VolunteerForm = () => {
       socialMedia: {
         ...prev.socialMedia,
         [platform]: value,
-      },
+      } as SocialMedia,
     }));
   };
 
@@ -389,7 +388,7 @@ const VolunteerForm = () => {
       contentCreation: {
         ...prev.contentCreation,
         [field]: value,
-      },
+      } as ContentCreation,
     }));
   };
 
@@ -399,7 +398,7 @@ const VolunteerForm = () => {
       outreach: {
         ...prev.outreach,
         [field]: value,
-      },
+      } as Outreach,
     }));
   };
 
@@ -409,32 +408,10 @@ const VolunteerForm = () => {
       fundraising: {
         ...prev.fundraising,
         [field]: value,
-      },
+      } as Fundraising,
     }));
   };
 
-  const volunteerBenefits = [
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Transform Lives",
-      description: "Teach and mentor students who need guidance",
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Strengthen Communities",
-      description: "Support programs that uplift marginalized groups.",
-    },
-    {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: "Enhance Your Skills",
-      description: "Gain hands-on experience in various roles.",
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Be Part of a Movement",
-      description: "Work with like-minded individuals passionate about change.",
-    },
-  ];
 
   return (
     <Layout>
@@ -444,69 +421,80 @@ const VolunteerForm = () => {
         subtitle="Join NEIEA as a Volunteer and Make a Difference!"
         description="Join our mission to make quality education accessible to all. Your skills, passion, and time can transform lives and communities."
       >
-      {
-  /* Why Volunteer Section */
-}
-<section className="py-24 bg-white">
-  
-  <div className="container mx-auto px-4">
-    
-    <div className="text-center mb-16">
-      
-      <h2 className="text-4xl lg:text-5xl font-heading font-bold text-ngo-color6 mb-8">
-        
-        Why Volunteer With NEIEA?
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        
-        NEIEA is a dedicated NGO committed to empowering underserved communities
-        through education and skill development. We believe in the power of
-        collective efforts to bring meaningful change, and we are looking for
-        passionate individuals to join us as volunteers. If you have the drive
-        to make an impact, we need you!
-      </p>
-    </div>
-    <div className="text-center mb-16">
-      
-      <h2 className="text-4xl lg:text-5xl font-heading font-bold text-ngo-color6 mb-8">
-        
-        Who Can Volunteer?
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        
-        Anyone passionate about making a difference! Whether you are a student,
-        working professional, or retiree, your time and skills can change lives.
-        By becoming a volunteer, you will:
-      </p>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      {volunteerBenefits.map((benefit, index) => (
-        <Card
-          key={index}
-          className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow"
-        >
-          
-          <CardContent className="p-8">
-            
-            <div className="w-16 h-16 bg-ngo-color4/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              
-              <div className="text-ngo-color4">{benefit.icon}</div>
+      {/* Volunteer Content Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Main Title */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                Volunteer with NEIEA – Empower and build a better society
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+                Join The New Equitable and Innovative Educational Association (NEIEA) and make a real difference in the lives of children from slums, marginalized communities, and madrasas. By volunteering, you contribute to the upliftment of underserved communities across India and elsewhere, through online education.
+              </p>
             </div>
-            <h3 className="text-xl font-heading font-bold text-ngo-color6 mb-4">
-              
-              {benefit.title}
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              
-              {benefit.description}
-            </p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>;
+
+            {/* Why Volunteer Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Why Volunteer?</h2>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <span className="text-2xl text-gray-700 mr-3">●</span>
+                  <p className="text-lg text-gray-700">Impact lives by supporting low cost and free education.</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-2xl text-gray-700 mr-3">●</span>
+                  <p className="text-lg text-gray-700">Develop skills in teaching, leadership, and communication.</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-2xl text-gray-700 mr-3">●</span>
+                  <p className="text-lg text-gray-700">Flexible roles – teach, mentor, fundraise, create content, or support events.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Who Can Join Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Who Can Join?</h2>
+              <p className="text-xl text-gray-700">
+                Students, professionals, homemakers, or retirees – anyone passionate about education is welcome.
+              </p>
+            </div>
+
+            {/* Get Started Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Get Started</h2>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <span className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold mr-4 mt-1">1</span>
+                  <p className="text-lg text-gray-700">Fill out the volunteer form.</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold mr-4 mt-1">2</span>
+                  <p className="text-lg text-gray-700">Get connected with our team.</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="bg-gray-900 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold mr-4 mt-1">3</span>
+                  <p className="text-lg text-gray-700">Begin your journey of change.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Volunteer Image */}
+            <div className="text-center">
+              <img 
+                src="/assets/images/volunteerImage.jpg" 
+                alt="Volunteer with NEIEA" 
+                className="max-w-full h-auto mx-auto rounded-lg shadow-lg"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
@@ -641,9 +629,9 @@ const VolunteerForm = () => {
                       {(Object.keys(formData.languageProficiency) as Array<keyof FormData["languageProficiency"]>)
                         .filter((lang) => lang !== "otherLanguage")
                         .map((lang) => (
-                          <div key={lang} className="mb-4">
-                            <Label className="capitalize">{lang}</Label>
-                            <div className="flex space-x-4">
+                          <div key={lang} className="mb-6">
+                            <Label className="capitalize text-base font-medium mb-3 block">{lang}</Label>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                               {(Object.keys(formData.languageProficiency[lang]) as Array<keyof LanguageProficiency>).map((skill) => (
                                 <div key={skill} className="flex items-center space-x-2">
                                   <Checkbox
@@ -651,7 +639,7 @@ const VolunteerForm = () => {
                                     onCheckedChange={(checked) => handleLanguageChange(lang, skill, !!checked)}
                                     className="custom-checkbox"
                                   />
-                                  <Label className="capitalize">{skill}</Label>
+                                  <Label className="capitalize text-sm">{skill}</Label>
                                 </div>
                               ))}
                             </div>
@@ -680,13 +668,19 @@ const VolunteerForm = () => {
                           value={formData.dailyCommitment}
                           onValueChange={(value) => handleChange("dailyCommitment", value)}
                         >
-                          <SelectTrigger className={errors.dailyCommitment ? "border-red-500" : ""}>
+                          <SelectTrigger className={`w-full ${errors.dailyCommitment ? "border-red-500" : ""}`}>
                             <SelectValue placeholder="Select hours" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent 
+                            className="z-[100] max-h-[200px] overflow-y-auto"
+                            position="popper"
+                            sideOffset={4}
+                          >
                             <SelectItem value="1-2 hours">1-2 hours</SelectItem>
                             <SelectItem value="2-3 hours">2-3 hours</SelectItem>
                             <SelectItem value="3-4 hours">3-4 hours</SelectItem>
+                            <SelectItem value="4-5 hours">4-5 hours</SelectItem>
+                            <SelectItem value="More than 5 hours">More than 5 hours</SelectItem>
                           </SelectContent>
                         </Select>
                         {errors.dailyCommitment && <p className="text-red-500 text-sm">{errors.dailyCommitment}</p>}
@@ -694,16 +688,18 @@ const VolunteerForm = () => {
 
                       <div className="mb-6">
                         <Label>Availability *</Label>
-                        {["Early Morning (6:00 AM - 9:00 AM)", "Late Morning (9:00 AM - 12:00 PM)", "Afternoon (12:00 PM - 4:00 PM)", "Evening (4:00 PM - 8:00 PM)", "Late Evening (8:00 PM - 11:00 PM)"].map((time) => (
-                          <div key={time} className="flex items-center space-x-2">
-                            <Checkbox
-                              checked={formData.availability.includes(time)}
-                              onCheckedChange={() => handleArrayChange("availability", time)}
-                              className="custom-checkbox"
-                            />
-                            <Label>{time}</Label>
-                          </div>
-                        ))}
+                        <div className="space-y-3">
+                          {["Early Morning (6:00 AM - 9:00 AM)", "Late Morning (9:00 AM - 12:00 PM)", "Afternoon (12:00 PM - 4:00 PM)", "Evening (4:00 PM - 8:00 PM)", "Late Evening (8:00 PM - 11:00 PM)"].map((time) => (
+                            <div key={time} className="flex items-center space-x-2">
+                              <Checkbox
+                                checked={formData.availability.includes(time)}
+                                onCheckedChange={() => handleArrayChange("availability", time)}
+                                className="custom-checkbox"
+                              />
+                              <Label className="text-sm sm:text-base">{time}</Label>
+                            </div>
+                          ))}
+                        </div>
                         {errors.availability && <p className="text-red-500 text-sm">{errors.availability}</p>}
                       </div>
 
@@ -713,10 +709,14 @@ const VolunteerForm = () => {
                           value={formData.volunteerField}
                           onValueChange={(value) => handleChange("volunteerField", value)}
                         >
-                          <SelectTrigger className={errors.volunteerField ? "border-red-500" : ""}>
+                          <SelectTrigger className={`w-full ${errors.volunteerField ? "border-red-500" : ""}`}>
                             <SelectValue placeholder="Select field" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent 
+                            className="z-[100] max-h-[200px] overflow-y-auto"
+                            position="popper"
+                            sideOffset={4}
+                          >
                             <SelectItem value="Teaching">Teaching</SelectItem>
                             <SelectItem value="Social Media Management">Social Media Management</SelectItem>
                             <SelectItem value="Content Creation">Content Creation</SelectItem>
@@ -769,12 +769,15 @@ const VolunteerForm = () => {
                             <Select
                               value={formData.onlineTeachingYears || ""}
                               onValueChange={(value) => handleChange("onlineTeachingYears", value)}
-                              className={errors.onlineTeachingYears ? "border-red-500" : ""}
                             >
-                              <SelectTrigger>
+                              <SelectTrigger className={errors.onlineTeachingYears ? "border-red-500" : ""}>
                                 <SelectValue placeholder="Select years" />
                               </SelectTrigger>
-                              <SelectContent>
+                              <SelectContent 
+                                className="z-[100] max-h-[200px] overflow-y-auto"
+                                position="popper"
+                                sideOffset={4}
+                              >
                                 <SelectItem value="No Experience">No Experience</SelectItem>
                                 <SelectItem value="Less than 1 year">Less than 1 year</SelectItem>
                                 <SelectItem value="1-3 years">1-3 years</SelectItem>
@@ -848,7 +851,11 @@ const VolunteerForm = () => {
                                 <SelectTrigger className={errors[platform] ? "border-red-500" : ""}>
                                   <SelectValue placeholder="Select experience" />
                                 </SelectTrigger>
-                                <SelectContent>
+                                <SelectContent 
+                                  className="z-[100] max-h-[200px] overflow-y-auto"
+                                  position="popper"
+                                  sideOffset={4}
+                                >
                                   <SelectItem value="Expert">Expert</SelectItem>
                                   <SelectItem value="Intermediate">Intermediate</SelectItem>
                                   <SelectItem value="Beginner">Beginner</SelectItem>
