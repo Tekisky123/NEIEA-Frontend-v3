@@ -4894,6 +4894,55 @@ padding: 12px 20px;
   object-fit: cover !important;
 }
 
+/* Testimonials Page - Profile Image Fixes */
+/* Fix for Jaswinder Kaur image */
+img[src*="Jaswinder kaur  (1).jpg"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+/* Fix for Mohan image in testimonials page */
+img[src*="Mohan .jpg"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+/* Fix for Palak image */
+img[src*="palak mehta .jpg"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+/* Fix for Shagufta Nemat image */
+img[src*="Shagufta-Nemat.jpg"] {
+  object-position: center 30% !important;
+  object-fit: cover !important;
+  transform: scale(1.1) !important;
+}
+
+/* Fix for Shaik Azhar Shareef image */
+img[src*="Shaik-Azhar-Shareef.png"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+/* Fix for Shaista Parveen Begum image */
+img[src*="Shaista-Parveen-Begum.png"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+/* Fix for existing images that might be cropping */
+img[src*="waise12.png"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
+img[src*="malik khan .png"] {
+  object-position: center top !important;
+  object-fit: cover !important;
+}
+
 /* Specific positioning for Kaur image - show full image without cropping */
 .testimonial-car .row .col-lg-5 .test-cont img[src*="kaur1.jpeg"],
 img[src*="kaur1.jpeg"] {
