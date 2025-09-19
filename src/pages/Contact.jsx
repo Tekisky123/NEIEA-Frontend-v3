@@ -73,7 +73,7 @@ const Contact = () => {
       ]}
       title="Contact"
       subtitle="Hyderabad, Telangana, India"
-      description="Email: feedback@neiea.org | Phone: +91 70907 70784 | Working Hours: Monday – Friday: 10 AM – 6 PM"
+      description="Email: feedback@neiea.org | Phone: +91 70907 70784 | Working Hours: Monday – Friday 10 AM – 6 PM"
     >
       <div className="row">
         {/* Contact Information */}

@@ -38,9 +38,36 @@ const Introduction = () => {
       </div>
 
       {/* Our Mission Section */}
-      <section style={{ backgroundColor: "#f8f9fa", padding: "80px 0" }}>
-        <div className="container">
+      <section style={{ backgroundColor: "#f8f9fa", padding: "60px 0" }}>
+        <div className="container ">
           <div className="text-center">
+            <h6
+              style={{
+                color: "#fd7e14",
+                fontSize: "14px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                marginBottom: "30px",
+              }}
+            >
+              OUR VISION
+            </h6>
+            <blockquote
+              style={{
+                fontSize: "28px",
+                lineHeight: "1.4",
+                color: "#495057",
+                maxWidth: "800px",
+                margin: "0 auto",
+                fontWeight: "400",
+              }}
+            >
+              "To envision a society where all youth and citizens are able to obtain good quality education and use this to transform society ensuring human welfare, sustainability, and progress."
+            </blockquote>
+          </div>
+          
+          <div className="text-center mt-5">
             <h6
               style={{
                 color: "#fd7e14",
