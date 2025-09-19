@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageTemplate from '../components/PageTemplate';
 
 const TeachersTraining = () => {
+  const navigate = useNavigate();
+
   const trainingPathways = [
     {
       id: 1,
@@ -753,22 +756,9 @@ const TeachersTraining = () => {
                   backgroundColor: "#212529",
                   border: "1px solid #212529"
                 }}
+                onClick={() => navigate('/about-us/contact')}
               >
                 📩 Contact Us
-              </button>
-              <button 
-                className="btn btn-outline-secondary btn-lg"
-                style={{
-                  borderRadius: "6px",
-                  padding: "12px 30px",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                  borderColor: "#6c757d",
-                  color: "#6c757d",
-                  backgroundColor: "transparent"
-                }}
-              >
-                🌐 Apply Now
               </button>
             </div>
           </div>
