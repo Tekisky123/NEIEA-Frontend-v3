@@ -170,7 +170,7 @@ const DiscourseOrientedPedagogy = () => {
             }}
           >
             <div className="row align-items-center">
-              <div className="col-lg-3 text-center mb-3 mb-lg-0">
+              <div className="col-lg-3 text-center flex-column align-items-center d-flex mb-3 mb-lg-0">
                 <img
                   src="/assets/images/DOP_Images/Picture2.png"
                   alt="Dr. K.N. Anandan"

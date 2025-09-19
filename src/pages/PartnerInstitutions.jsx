@@ -222,7 +222,7 @@ const PartnerInstitutions = () => {
               className="card h-100 border-0 shadow-sm"
               style={{ borderRadius: "15px", padding: "25px" }}
             >
-              <div className="d-flex align-items-start mb-3">
+              <div className="d-flex align-items-center mb-3">
                 <div 
                   style={{ 
                     fontSize: "40px", 

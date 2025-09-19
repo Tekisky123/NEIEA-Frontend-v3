@@ -336,21 +336,6 @@ const RemoteLearning = () => {
               >
                 Start Learning Today
               </a>
-              <a 
-                href="/courses"
-                className="btn btn-outline-primary"
-                style={{
-                  borderColor: "#06038F",
-                  color: "#06038F",
-                  padding: "12px 25px",
-                fontSize: "16px",
-                fontWeight: "600",
-                borderRadius: "25px",
-                textDecoration: "none"
-              }}
-            >
-                Explore Courses
-            </a>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ const Leadership = () => {
       name: 'Mr Javeed Mirza',
       title: 'Founder & President',
       description: 'Highly motivated and dynamic Educator, Entrepreneur and Community activist interested in bringing Quality Education to the underprivileged youth of India',
-      image: '/assets/images/Leader2.jpeg',
+      image: '/assets/images/leadership/Leader2.jpeg',
       hasImage: true,
       category: 'directors'
     },
@@ -19,7 +19,7 @@ const Leadership = () => {
       name: 'Ms Nasreen Fatima',
       title: 'Director',
       description: 'Secretary and Correspondent of Neo Rosary School. B.Sc, B.Ed, B.M.R.C.Sc., MA in English Literature, and M.Ed',
-      image: '/assets/images/Ms.-Nasreen-Fatima-Director-1.jpg',
+      image: '/assets/images/leadership/Ms.-Nasreen-Fatima-Director-1.jpg',
       hasImage: true,
       category: 'directors'
     },
@@ -27,7 +27,7 @@ const Leadership = () => {
       name: 'Ms Tahseen Sakina',
       title: 'Director',
       description: 'Trained post graduate with over 32 years of experience in reputed schools as Academic Director, Principal, Vice Principal',
-      image: '/assets/images/Ms-Tahseen-Sakina-Director.png',
+      image: '/assets/images/leadership/Ms-Tahseen-Sakina-Director.png',
       hasImage: true,
       category: 'directors'
     },
@@ -35,7 +35,7 @@ const Leadership = () => {
       name: 'Ms Niloufer Baig',
       title: 'Director',
       description: 'Senior Leader with Master\'s degree and over 12 years of experience overseeing operations across Telangana and Andhra Pradesh',
-      image: '/assets/images/Niloufer Baig_croped.jpg',
+      image: '/assets/images/leadership/Niloufer Baig_croped.jpg',
       hasImage: true,
       category: 'directors'
     },
@@ -45,7 +45,7 @@ const Leadership = () => {
       name: 'Dr. K. N. Anandan',
       title: 'Co-Founder & Guru',
       description: 'Indian Linguist, ELT specialist and social activist. Developer of Discourse Oriented Pedagogy (DOP)',
-      image: '/assets/images/Dr.K.Anand.png',
+      image: '/assets/images/leadership/Dr.K.Anand.png',
       hasImage: true,
       category: 'advisors'
     },
@@ -53,7 +53,7 @@ const Leadership = () => {
       name: 'Dr. Peshimam Nazeer Ahmed',
       title: 'Joint Secretary OMEIAT',
       description: '45 years Administrative & Teaching Experience, Government Best Teacher Awardee',
-      image: '/assets/images/Dr.-Peshimam-Nazeer-Ahmed.png',
+      image: '/assets/images/leadership/Dr. Peshimam Nazeer Ahmed.jpg',
       hasImage: true,
       category: 'advisors'
     },
@@ -61,7 +61,7 @@ const Leadership = () => {
       name: 'Prof. Shantha Sinha',
       title: 'Advisor',
       description: 'India\'s leading child rights activist. Headed National Commission for Protection of Child Rights (2007-2013), Ramon Magsaysay Award recipient',
-      image: '/assets/images/Prof.-Shantha-Sinha.png',
+      image: '/assets/images/leadership/Prof. Shantha Sinha.png',
       hasImage: true,
       category: 'advisors'
     },
@@ -69,7 +69,7 @@ const Leadership = () => {
       name: 'Mrs. M. Chaya Ratan',
       title: 'Advisor',
       description: 'IAS (Rtd.) - Retired IAS officer (1977 batch), Master\'s degree in Eco-Social Policy and Planning from London School of Economics',
-      image: '/assets/images/chaya.png',
+      image: '/assets/images/leadership/Mrs. M. Chaya Ratan.jpg',
       hasImage: true,
       category: 'advisors'
     },
@@ -77,7 +77,7 @@ const Leadership = () => {
       name: 'Vinod Mubayi',
       title: 'Advisor',
       description: 'American Physicist - Member American Association for the Advancement of Science, American Nuclear Society, PhD from Brandeis University',
-      image: '/assets/images/Vinod-Mubayi.jpg',
+      image: '/assets/images/leadership/Vinod Mubayi.jpg',
       hasImage: true,
       category: 'advisors'
     },
@@ -85,7 +85,7 @@ const Leadership = () => {
       name: 'Ms AV AMBIKA',
       title: 'Advisor',
       description: 'Treasurer of Aman Vedika - Activist, school teacher, theatre artist, singer, documentary film maker',
-      image: '/assets/images/AV-AMBIKA.png',
+      image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
       hasImage: true,
       category: 'advisors'
     },
@@ -93,15 +93,103 @@ const Leadership = () => {
       name: 'Hrushikesh M',
       title: 'Vice President',
       description: 'Human Resources, Capgemini India Pvt. Ltd. Over three decades of HR experience, XLRI alumnus',
-      image: '/assets/images/defaultProfile2.jpg',
-      hasImage: true,
+      image: '/assets/images/leadership/defaultProfile2.jpg',
+      hasImage: false,
       category: 'advisors'
     },
     {
       name: 'Ms Uzma Nahid',
       title: 'Advisor',
       description: 'Founder President of India International Women\'s Alliance (IIWA), renowned social activist empowering women since 1977',
-      image: '/assets/images/Ms.-Uzma-Nahid.png',
+      image: '/assets/images/leadership/Ms Uzma Nahid.jpg',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Ms. Rubina Mazhar',
+      title: 'CEO, SAFA Society',
+      description: '',
+      image: '/assets/images/leadership/Rubina Mazhar.jpg',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Dr. Noor Muhammad',
+      title: '(Retired IAS) to the Advisory Board. Electoral Management Expert',
+      description: '',
+      image: '/assets/images/leadership/Dr Noor Muhammad.png',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Dr. Ashraf Shah',
+      title: 'Management Expert',
+      description: '',
+      image: '/assets/images/leadership/Dr Ashraf Shah.jpg',
+      hasImage: false,
+      category: 'advisors'
+    },
+    {
+      name: 'Muhammad Husain Zulqarnain',
+      title: 'Educationist',
+      description: '',
+      image: '/assets/images/leadership/Muhammed Husain Zulqarnain .png',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Mahmood Khan',
+      title: 'Management Consultant',
+      description: '',
+      image: '/assets/images/leadership/Mahmood Khan.jpg',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Basir Mchawi',
+      title: 'Director, NEI',
+      description: 'Mr. Basir Mchawi is a lifelong activist, educator, and communicator who has dedicated over fifty years to African liberation, cultural celebration, and community empowerment.',
+      image: '/assets/images/leadership/Basir Mchawi Director Of NEIEA.png',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Shahzad Nabi',
+      title: 'Director, NEI',
+      description: 'Mr. Shahzad Nabi is a visionary senior executive and CSR-certified leader driving innovation, sustainable growth, and social impact through his expertise in IT, corporate strategy, and philanthropy.',
+      image: '/assets/images/leadership/Shahzad-nabi-Director.png',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Prof. Pritham Singh',
+      title: '',
+      description: '',
+      image: '/assets/images/leadership/Pritam-Singh.jpg',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Prof. Ritu Deewan',
+      title: '',
+      description: '',
+      image: '/assets/images/leadership/Ritu-Dewan.jpg',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Sumeet Rawla',
+      title: 'Social Activist',
+      description: '',
+      image: '/assets/images/leadership/Sumeet Rawla.png',
+      hasImage: true,
+      category: 'advisors'
+    },
+    {
+      name: 'Gita Ramaswamy',
+      title: 'Social Activist',
+      description: '',
+      image: '/assets/images/leadership/Gita Ramaswamy.png',
       hasImage: true,
       category: 'advisors'
     },
@@ -111,7 +199,39 @@ const Leadership = () => {
       name: 'Syed Danish Ali',
       title: 'Supervisor',
       description: '20 years experience in diverse domains, 7 years BPO experience, 5 years dedicated to education and teaching',
-      image: '/assets/images/Syed Danish Ali.jpg',
+      image: '/assets/images/leadership/Syed Danish Ali.jpg',
+      hasImage: true,
+      category: 'staff'
+    },
+    {
+      name: 'Ms. Reshma Parveen',
+      title: 'Human Resource Manager',
+      description: '',
+      image: '/assets/images/leadership/Dr. Reshma parveen.png',
+      hasImage: true,
+      category: 'staff'
+    },
+    {
+      name: 'Mr. Sajjad Qasmi',
+      title: 'Head of Madarsa Outreach',
+      description: '',
+      image: '/assets/images/leadership/Dr. Reshma parveen.png',
+      hasImage: false,
+      category: 'staff'
+    },
+    {
+      name: 'Dr. Saleem Ahmed Qasmi',
+      title: 'Leader of Madarsa Outreach',
+      description: '',
+      image: '/assets/images/leadership/Dr Saleem Ahmad Qasmi.png',
+      hasImage: true,
+      category: 'staff'
+    },
+    {
+      name: 'Ms. Tasneem Khan',
+      title: 'Head of English',
+      description: '',
+      image: '/assets/images/leadership/Tasneem Maam.jpg',
       hasImage: true,
       category: 'staff'
     },
@@ -119,15 +239,15 @@ const Leadership = () => {
       name: 'Ms Taskeen Tarannum',
       title: 'Deputy Supervisor',
       description: 'B.A, B.Ed with over 12 years of teaching experience, driving force behind online English program at NEIEA',
-      image: '/assets/images/Ms-Taskeen-Tarannum croped.png',
+      image: '/assets/images/leadership/Ms-Taskeen-Tarannum croped.png',
       hasImage: true,
       category: 'staff'
     },
     {
       name: 'Ms Farha Khan',
-      title: 'Math Team Leader & IT Deputy Team Leader',
+      title: 'Head of Mathematics and IT',
       description: 'Google certified educator, Master\'s in Computer Applications and Mathematics, 15+ years experience',
-      image: '/assets/images/Farha Khan.jpg',
+      image: '/assets/images/leadership/Farha Khan.jpg',
       hasImage: true,
       category: 'staff'
     },
@@ -135,16 +255,24 @@ const Leadership = () => {
       name: 'Ms Gulfisha Khan',
       title: 'English Proficiency Level-1 Team Leader',
       description: '15 years media experience, Bachelor\'s in Political Science, Post Graduation in Journalism',
-      image: '/assets/images/defaultProfile2.jpg',
-      hasImage: true,
+      image: '/assets/images/leadership/defaultProfile2.jpg',
+      hasImage: false,
       category: 'staff'
     },
     {
       name: 'Ms Arzoo Siraj',
-      title: 'Data Entry Operation Lead',
+      title: 'Head of Social Media and IT Skills training',
       description: 'M.Tech in Computer Science, technical member and team leader for Data entry and operation course',
-      image: '/assets/images/defaultProfile2.jpg',
-      hasImage: true,
+      image: '/assets/images/leadership/defaultProfile2.jpg',
+      hasImage: false,
+      category: 'staff'
+    },
+    {
+      name: 'Ms. Saba Manzoor',
+      title: 'Project Manager',
+      description: '',
+      image: '/assets/images/leadership/defaultProfile2.jpg',
+      hasImage: false,
       category: 'staff'
     }
   ];
