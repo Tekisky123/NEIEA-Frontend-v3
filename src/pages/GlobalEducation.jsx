@@ -69,8 +69,8 @@ const GlobalEducation = () => {
         { name: "Global Education" }
       ]}
       title="Global Education"
-      subtitle="Education: A Potent Tool for Climate Control"
-      description="NEIEA envisions a society where quality education empowers individuals to drive positive changes for human welfare, sustainability, and progress."
+      subtitle="Empowering Communities Through Quality Education"
+      description="NEIEA's commitment to providing inclusive, equitable education that transforms lives and builds sustainable communities worldwide."
     >
       {/* Introduction */}
       <div className="row mb-5">
@@ -84,7 +84,7 @@ const GlobalEducation = () => {
                 color: "#212529"
               }}
             >
-              Education: A potent tool for Climate Control
+              Transforming Lives Through Global Education
             </h2>
             <p 
               style={{ 
@@ -94,40 +94,13 @@ const GlobalEducation = () => {
                 color: "#6c757d"
               }}
             >
-              The New Equitable and Innovative Educational Association (NEIEA) envisions a society where quality education empowers individuals to drive positive changes for human welfare, sustainability, and progress. In an era where climate change poses an urgent threat to our planet, this vision has never been more critical. The challenge of climate control is not merely a scientific or political one; it is fundamentally an educational one.
+              The New Equitable and Innovative Educational Association (NEIEA) envisions a society where quality education empowers individuals to drive positive changes for human welfare, sustainability, and progress. Our global education mission focuses on breaking barriers, bridging gaps, and building inclusive learning communities that serve marginalized populations worldwide.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Climate Education Urgency */}
-      <div className="row mb-5">
-        <div className="col-lg-8 mx-auto">
-          <div className="text-center" style={{ padding: "30px 20px" }}>
-            <h5 
-              style={{ 
-                color: "#212529", 
-                fontWeight: "700", 
-                marginBottom: "15px"
-              }}
-            >
-              🚨 The Urgency of Climate Education
-            </h5>
-            <p 
-              style={{ 
-                color: "#6c757d", 
-                fontSize: "16px", 
-                lineHeight: "1.6",
-                margin: "0"
-              }}
-            >
-              The issue of Climate Control needs to begin from Elementary school. Education should serve to internalize Climate Control in all students. The segment that is most affected adversely are the young. A whole generation of youth are going to face the terrible consequences of bad climate. Understanding the forces that purposefully degrade Climate for their vested interests is important. Making youth and students aware of this and structuring Education to produce globally minded, well-informed citizenry equipped with the knowledge and critical thinking skills to address the root causes of environmental degradation is needed.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* NEIEA's Climate Mission */}
+      {/* NEIEA's Global Mission */}
       <div className="row mb-5">
         <div className="col-lg-6 d-flex align-items-center">
           <div style={{ padding: "20px 0" }}>
@@ -139,24 +112,24 @@ const GlobalEducation = () => {
                 fontSize: "24px"
               }}
             >
-              NEIEA's Climate Mission
+              NEIEA's Global Education Mission
             </h4>
             <p 
               style={{ 
                 color: "#6c757d",
                 fontSize: "16px", 
-                lineHeight: "1.6",
+                lineHeight: "1.8",
                 margin: "0"
               }}
             >
-              NEIEA's mission is to provide good quality, innovative education to all, with a special focus on marginalized communities. This inclusive approach is vital for climate control. Environmental burdens often disproportionately affect the poor and marginalized, making their education and empowerment a matter of social and climate justice. By offering free online courses and employing a modern pedagogy like Discourse Oriented Pedagogy (DOP), NEIEA is fostering a generation of learners who can think critically, analyze complex problems, and collaborate on solutions—skills that are essential for tackling a challenge as multifaceted as climate change.
+              NEIEA's mission is to provide high-quality, innovative education to all, with a special focus on marginalized communities worldwide. Our inclusive approach ensures that education reaches those typically left behind in mainstream systems—girls, slum-dwelling children, dropouts, Madrasa students, and learners in underserved communities. Through free online courses and modern pedagogies like Discourse Oriented Pedagogy (DOP), we foster critical thinking, collaboration, and problem-solving skills essential for global citizenship.
             </p>
           </div>
         </div>
         <div className="col-lg-6 d-flex align-items-center justify-content-center">
           <img 
             src="/assets/images/GlobalEducation/image2.jpg" 
-            alt="NEIEA's Climate Mission" 
+            alt="NEIEA's Global Education Mission" 
             style={{ 
               width: "80%", 
               maxHeight: "300px", 
@@ -166,35 +139,165 @@ const GlobalEducation = () => {
         </div>
       </div>
 
-      {/* Climate Education Approach */}
+      {/* SDG Section */}
       <div className="row mb-5">
-        <div className="col-lg-10 mx-auto">
-          <div className="text-center" style={{ padding: "30px 20px" }}>
-            <h5 
+        <div className="col-lg-12">
+          <div className="text-center mb-4">
+            <h3 
               style={{ 
-                color: "#212529", 
+                color: "#212529",
+                fontSize: "28px", 
                 fontWeight: "700", 
-                marginBottom: "15px"
+                marginBottom: "20px"
               }}
             >
-              🧠 Beyond Rote Learning
-            </h5>
+              Sustainable Development Goals: NEIEA's Commitment to Quality Education for All
+            </h3>
             <p 
               style={{ 
-                color: "#6c757d", 
-                fontSize: "16px", 
-                lineHeight: "1.6",
-                margin: "0"
+                color: "#6c757d",
+                fontSize: "18px", 
+                lineHeight: "1.8",
+                maxWidth: "800px",
+                margin: "0 auto"
               }}
             >
-              Climate control demands more than just rote memorization of facts about greenhouse gases or melting ice caps. It requires a deep understanding of interconnected systems—how human activities impact ecosystems, how economic decisions affect our carbon footprint, and how personal choices can lead to collective action. NEIEA's work moves beyond passive learning, encouraging students to actively engage with the issue, ask difficult questions, and propose innovative solutions.
+              The United Nations Sustainable Development Goals (SDGs) provide a global blueprint to create a more equitable, sustainable, and prosperous world by 2030. Among the 17 goals, SDG 4 — to "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all" — resonates deeply with NEIEA's mission and work.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Education as Climate Control */}
+      {/* NEIEA's Focus on SDG 4 */}
       <div className="row mb-5">
+        <div className="col-lg-12">
+          <div className="text-center mb-4">
+            <h4 
+              style={{ 
+                color: "#212529",
+                fontSize: "24px", 
+                fontWeight: "700", 
+                marginBottom: "20px"
+              }}
+            >
+              NEIEA's Focus on SDG 4
+            </h4>
+            <p 
+              style={{ 
+                color: "#6c757d",
+                fontSize: "16px", 
+                lineHeight: "1.8",
+                maxWidth: "900px",
+                margin: "0 auto 30px"
+              }}
+            >
+              NEIEA wholeheartedly aligns with SDG 4 by delivering inclusive, quality education, especially to those typically left behind in mainstream education systems—girls, slum-dwelling children, dropouts, Madrasa students, and learners in underserved public and private schools. NEIEA's key contributions include:
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {sdgContributions.map((contribution) => (
+          <div key={contribution.id} className="col-lg-4">
+            <div 
+              className="card border-0 text-center"
+              style={{ 
+                padding: "30px 20px",
+                backgroundColor: "white",
+                border: "1px solid #e9ecef",
+                borderRadius: "8px"
+              }}
+            >
+              <div 
+                style={{ 
+                  fontSize: "50px",
+                  marginBottom: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "80px"
+                }}
+              >
+                {contribution.icon}
+              </div>
+              <h5 
+                style={{ 
+                  color: "#212529", 
+                  fontWeight: "700", 
+                  marginBottom: "15px",
+                  fontSize: "18px"
+                }}
+              >
+                {contribution.title}
+              </h5>
+              <p 
+                style={{ 
+                  color: "#6c757d", 
+                  fontSize: "15px", 
+                  lineHeight: "1.6",
+                  marginBottom: "0"
+                }}
+              >
+                {contribution.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Equity and Impact Section */}
+      <div className="row mb-5">
+        <div className="col-lg-10 mx-auto">
+          <div className="text-center" style={{ padding: "30px 20px" }}>
+            <h4 
+              style={{ 
+                color: "#212529",
+                fontSize: "24px", 
+                fontWeight: "700", 
+                marginBottom: "20px"
+              }}
+            >
+              Equity, Transparency, and Sustainable Impact
+            </h4>
+            <div style={{ textAlign: "left", maxWidth: "800px", margin: "0 auto" }}>
+              <p 
+                style={{ 
+                  color: "#6c757d",
+                  fontSize: "16px", 
+                  lineHeight: "1.8",
+                  marginBottom: "15px"
+                }}
+              >
+                NEIEA ensures equity by making all its educational offerings low-cost/free—removing financial barriers that prevent marginalized children from accessing learning.
+              </p>
+              <p 
+                style={{ 
+                  color: "#6c757d",
+                  fontSize: "16px", 
+                  lineHeight: "1.8",
+                  margin: "0"
+                }}
+              >
+                NEIEA practices transparency and accountability, earning certifications like 80G and operating under public accountability frameworks—including the Darpan ID—reinforcing trust and engagement within communities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="row mb-5">
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <img 
+            src="/assets/images/GlobalEducation/image4.jpg" 
+            alt="Impact and Equity" 
+            style={{ 
+              width: "100%", 
+              maxHeight: "400px", 
+              objectFit: "contain"
+            }} 
+          />
+        </div>
         <div className="col-lg-6 d-flex align-items-center">
           <div style={{ padding: "20px 0" }}>
             <h4 
@@ -205,49 +308,33 @@ const GlobalEducation = () => {
                 fontSize: "24px"
               }}
             >
-              Education as Powerful Climate Control
+              Why It Matters
             </h4>
             <p 
               style={{ 
                 color: "#6c757d",
                 fontSize: "16px", 
-                lineHeight: "1.6",
+                lineHeight: "1.8",
                 margin: "0"
               }}
             >
-              The very act of providing accessible education for all contributes to a more sustainable future. Education reduces poverty, promotes better health outcomes, and empowers communities to make more informed decisions about resource management. By leveraging technology and building a resilient educational system, NEIEA ensures that the pursuit of knowledge is not disrupted by external factors, mirroring the sustainability we seek for our planet.
+              By operationalizing SDG 4 with purpose and precision, NEIEA is doing more than imparting education, it's creating pathways out of poverty, enabling lifelong growth, and empowering future generations. When marginalized learners get access to high-quality, meaningful education, entire communities transform.
             </p>
           </div>
-        </div>
-        <div className="col-lg-6 d-flex align-items-center justify-content-center">
-          <img 
-            src="/assets/images/GlobalEducation/image3.jpg" 
-            alt="Education as Climate Control" 
-            style={{ 
-              width: "80%", 
-              maxHeight: "300px", 
-              objectFit: "contain"
-            }} 
-          />
         </div>
       </div>
 
-      {/* Final Climate Statement */}
       <div className="row mb-5">
-        <div className="col-lg-10 mx-auto">
-          <div className="text-center" style={{ padding: "30px 20px" }}>
-            <p 
-              style={{ 
-                color: "#6c757d",
-                fontSize: "18px", 
-                lineHeight: "1.8",
-                margin: "0",
-                fontStyle: "italic"
-              }}
-            >
-              Ultimately, NEIEA's work in education is a powerful form of climate control. It's an investment in people—the catalysts for change. By equipping every individual with the knowledge and skills to understand and address environmental challenges, NEIEA is helping to create a society where human progress and ecological balance are not in conflict but are mutually reinforcing. Our journey towards a sustainable future begins not with a treaty or a new technology, but with the universal and equitable right to education.
-            </p>
-          </div>
+        <div className="col-lg-12 text-center">
+          <img 
+            src="/assets/images/GlobalEducation/imagels.jpg" 
+            alt="Global Education Impact" 
+            style={{ 
+              width: "100%", 
+              maxHeight: "500px", 
+              objectFit: "contain"
+            }} 
+          />
         </div>
       </div>
 
@@ -265,6 +352,17 @@ const GlobalEducation = () => {
             >
               Integrating Values in Education
             </h3>
+            <p 
+              style={{ 
+                color: "#6c757d",
+                fontSize: "18px", 
+                lineHeight: "1.8",
+                maxWidth: "800px",
+                margin: "0 auto"
+              }}
+            >
+              NEIEA's approach to global education is rooted in strong values that ensure holistic development and meaningful impact.
+            </p>
           </div>
         </div>
       </div>
@@ -285,7 +383,11 @@ const GlobalEducation = () => {
                 <div 
                   style={{ 
                     fontSize: "40px", 
-                    marginRight: "20px"
+                    marginRight: "20px",
+                    minWidth: "60px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
                   }}
                 >
                   {value.icon}
@@ -337,253 +439,6 @@ const GlobalEducation = () => {
         </div>
       </div>
 
-      {/* SDG Section */}
-      <div className="row mb-5">
-        <div className="col-lg-12">
-          <div className="text-center mb-4">
-            <h3 
-              style={{ 
-                color: "#212529",
-                fontSize: "28px", 
-                fontWeight: "700", 
-                marginBottom: "20px"
-              }}
-            >
-              Sustainable Development Goals: NEIEA's Commitment to Quality Education for All
-            </h3>
-            <p 
-              style={{ 
-                color: "#6c757d",
-                fontSize: "18px", 
-                lineHeight: "1.8",
-                maxWidth: "800px",
-                margin: "0 auto"
-              }}
-            >
-              The United Nations Sustainable Development Goals (SDGs) provide a global blueprint to create a more equitable, sustainable, and prosperous world by 2030. Among the 17 goals, SDG 4 — to "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all" — resonates deeply with NEIEA's mission and work.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Key Contributions */}
-      <div className="row mb-5">
-        <div className="col-lg-12">
-          <div className="text-center mb-4">
-            <h4 
-              style={{ 
-                color: "#212529",
-                fontSize: "24px", 
-                fontWeight: "700", 
-                marginBottom: "30px"
-              }}
-            >
-              NEIEA's Key Contributions
-            </h4>
-          </div>
-        </div>
-      </div>
-
-      <div className="row g-4 mb-5">
-        {sdgContributions.map((contribution) => (
-          <div key={contribution.id} className="col-lg-4">
-            <div 
-              className="card border-0 text-center"
-              style={{ 
-                padding: "30px 20px",
-                backgroundColor: "white",
-                border: "1px solid #e9ecef",
-                borderRadius: "8px"
-              }}
-            >
-              <div 
-                style={{ 
-                  fontSize: "50px",
-                  marginBottom: "20px"
-                }}
-              >
-                {contribution.icon}
-              </div>
-              <h5 
-                style={{ 
-                  color: "#212529", 
-                  fontWeight: "700", 
-                  marginBottom: "15px",
-                  fontSize: "18px"
-                }}
-              >
-                {contribution.title}
-              </h5>
-              <p 
-                style={{ 
-                  color: "#6c757d", 
-                  fontSize: "15px", 
-                  lineHeight: "1.6",
-                  marginBottom: "0"
-                }}
-              >
-                {contribution.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Equity and Impact Section */}
-      <div className="row mb-5">
-        <div className="col-lg-10 mx-auto">
-          <div className="text-center" style={{ padding: "30px 20px" }}>
-            <h4 
-              style={{ 
-                color: "#212529",
-                fontSize: "24px", 
-                fontWeight: "700", 
-                marginBottom: "20px"
-              }}
-            >
-              Equity, Transparency, and Sustainable Impact
-            </h4>
-            <p 
-              style={{ 
-                color: "#6c757d",
-                fontSize: "16px", 
-                lineHeight: "1.8",
-                margin: "0"
-              }}
-            >
-              NEIEA ensures equity by making all its educational offerings low-cost/free—removing financial barriers that prevent marginalized children from accessing learning. NEIEA practices transparency and accountability, earning certifications like 80G and operating under public accountability frameworks—including the Darpan ID—reinforcing trust and engagement within communities.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="row mb-5">
-        <div className="col-lg-6 d-flex align-items-center justify-content-center">
-          <img 
-            src="/assets/images/GlobalEducation/image4.jpg" 
-            alt="Impact and Equity" 
-            style={{ 
-              width: "100%", 
-              maxHeight: "400px", 
-              objectFit: "contain"
-            }} 
-          />
-        </div>
-        <div className="col-lg-6 d-flex align-items-center">
-          <div style={{ padding: "20px 0" }}>
-            <h4 
-              style={{ 
-                color: "#212529",
-                fontWeight: "700", 
-                marginBottom: "20px",
-                fontSize: "24px"
-              }}
-            >
-              Why It Matters
-            </h4>
-            <p 
-              style={{ 
-                color: "#6c757d",
-                fontSize: "16px", 
-                lineHeight: "1.6",
-                margin: "0"
-              }}
-            >
-              By operationalizing SDG 4 with purpose and precision, NEIEA is doing more than imparting education, it's creating pathways out of poverty, enabling lifelong growth, and empowering future generations. When marginalized learners get access to high-quality, meaningful education, entire communities transform.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="row mb-5">
-        <div className="col-lg-12 text-center">
-          <img 
-            src="/assets/images/GlobalEducation/imagels.jpg" 
-            alt="Global Education Impact" 
-            style={{ 
-              width: "100%", 
-              maxHeight: "500px", 
-              objectFit: "contain"
-            }} 
-          />
-        </div>
-      </div>
-
-      {/* Final Call to Action */}
-      <div className="row">
-        <div className="col-lg-10 mx-auto">
-          <div 
-            className="card border-0 text-center"
-            style={{ 
-              padding: "40px 20px",
-              backgroundColor: "white",
-              border: "1px solid #e9ecef",
-              borderRadius: "8px"
-            }}
-          >
-            <h3 
-              style={{ 
-                fontSize: "28px", 
-                fontWeight: "700", 
-                marginBottom: "20px",
-                color: "#212529"
-              }}
-            >
-              🌍 Join Our Global Education Mission
-            </h3>
-            <p 
-              style={{ 
-                fontSize: "18px", 
-                marginBottom: "25px",
-                color: "#6c757d",
-                maxWidth: "700px",
-                margin: "0 auto 25px"
-              }}
-            >
-              Be part of creating a society where human progress and ecological balance are mutually reinforcing. Together, we can build a sustainable future through quality education for all.
-            </p>
-            <p 
-              style={{ 
-                fontSize: "16px", 
-                marginBottom: "30px",
-                color: "#6c757d",
-                fontWeight: "600"
-              }}
-            >
-              Our journey towards sustainability begins with the universal and equitable right to education.
-            </p>
-            <div className="d-flex gap-3 justify-content-center flex-wrap">
-              <button 
-                className="btn btn-lg"
-                style={{
-                  backgroundColor: "#212529",
-                  borderColor: "#212529",
-                  color: "white",
-                  padding: "12px 30px",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                  borderRadius: "6px"
-                }}
-              >
-                🌱 Support Climate Education
-              </button>
-              <button 
-                className="btn btn-outline-secondary btn-lg"
-                style={{
-                  borderColor: "#6c757d",
-                  color: "#6c757d",
-                  padding: "12px 30px",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                  borderRadius: "6px"
-                }}
-              >
-                📞 Get Involved
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </PageTemplate>
   );
 };
