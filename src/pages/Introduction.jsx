@@ -132,73 +132,7 @@ const Introduction = () => {
                 NEIEA was officially registered on April 18, 2022, as a Section 8a non-profit educational organization in India, after two years of active educational discussions and planning during the Pandemic. NEIEA has 12a and 80g approvals from the Government of India and also Darpan ID.
               </p>
             </div>
-            <div className="col-lg-6">
-              <div className="position-relative" style={{ height: "400px" }}>
-                {/* Main group photo */}
-                <div
-                  className="position-absolute"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: "1",
-                  }}
-                >
-                  {/* <img
-                    src="/assets/images/testimonial1.jpg"
-                    alt="Group photo"
-                    className="rounded-3 shadow-lg"
-                    style={{
-                      width: "350px",
-                      height: "220px",
-                      objectFit: "cover",
-                    }}
-                  /> */}
-                </div>
-
-                {/* Top left circular image */}
-                <div
-                  className="position-absolute"
-                  style={{
-                    top: "20px",
-                    left: "20px",
-                    zIndex: "2",
-                  }}
-                >
-                  {/* <img
-                    src="/assets/images/leader.jpg"
-                    alt="Leader"
-                    className="rounded-circle shadow-lg"
-                    style={{
-                      width: "120px",
-                      height: "120px",
-                      objectFit: "cover",
-                    }}
-                  /> */}
-                </div>
-
-                {/* Bottom right circular image */}
-                <div
-                  className="position-absolute"
-                  style={{
-                    bottom: "20px",
-                    right: "20px",
-                    zIndex: "2",
-                  }}
-                >
-                  {/* <img
-                    src="/assets/images/Leader2.jpeg"
-                    alt="Leader 2"
-                    className="rounded-circle shadow-lg"
-                    style={{
-                      width: "120px",
-                      height: "120px",
-                      objectFit: "cover",
-                    }}
-                  /> */}
-                </div>
-              </div>
-            </div>
+   
           </div>
         </div>
       </section>
