@@ -115,7 +115,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/leader.jpg"
+                    src="/assets/images/Leader2.jpeg"
                     alt="Mr Javeed Mirza"
                     style={{
                       width: "100%",
@@ -178,7 +178,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/Leader2.jpeg"
+                    src="/assets/images/Dr.K.Anand.png"
                     alt="Dr. K. N. Anandan"
                     style={{
                       width: "100%",
@@ -241,7 +241,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/leader4.png"
+                    src="/assets/images/Ms.-Nasreen-Fatima-Director-1.jpg"
                     alt="Ms Nasreen Fatima"
                     style={{
                       width: "100%",
@@ -304,7 +304,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/waise12.png"
+                    src="/assets/images/Ms-Tahseen-Sakina-Director.png"
                     alt="Ms Tahseen Sakina"
                     style={{
                       width: "100%",
@@ -367,7 +367,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial2.jpg"
+                    src="/assets/images/Niloufer Baig_croped.jpg"
                     alt="Ms Niloufer Baig"
                     style={{
                       width: "100%",
@@ -430,7 +430,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/testimonial3.jpg"
+                    src="/assets/images/Dr.-Peshimam-Nazeer-Ahmed.png"
                     alt="Dr. Peshimam Nazeer Ahmed"
                     style={{
                       width: "100%",
@@ -493,7 +493,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/kaur1.jpeg"
+                    src="/assets/images/Prof.-Shantha-Sinha.png"
                     alt="Prof. Shantha Sinha"
                     style={{
                       width: "100%",
@@ -557,7 +557,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/MdWais.jpeg"
+                    src="/assets/images/chaya.png"
                     alt="Mrs. M. Chaya Ratan"
                     style={{
                       width: "100%",
@@ -620,7 +620,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/event1.jpg"
+                    src="/assets/images/Vinod-Mubayi.jpg"
                     alt="Vinod Mubayi"
                     style={{
                       width: "100%",
@@ -683,7 +683,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/event2.jpg"
+                    src="/assets/images/AV-AMBIKA.png"
                     alt="Ms AV AMBIKA"
                     style={{
                       width: "100%",
@@ -746,7 +746,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/innovation.jpeg"
+                    src="/assets/images/defaultProfile2.jpg"
                     alt="Hrushikesh M"
                     style={{
                       width: "100%",
@@ -812,7 +812,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/leaderimage.jpeg"
+                    src="/assets/images/Ms.-Uzma-Nahid.png"
                     alt="Ms Uzma Nahid"
                     style={{
                       width: "100%",
@@ -875,7 +875,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/slider5 (1).jpg"
+                    src="/assets/images/danishAli.jpeg"
                     alt="Syed Danish Ali"
                     style={{
                       width: "100%",
@@ -938,7 +938,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/slider6 (1).jpeg"
+                    src="/assets/images/Ms-Taskeen-Tarannum croped.png"
                     alt="Ms Taskeen Tarannum"
                     style={{
                       width: "100%",
@@ -1001,7 +1001,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/vision2.jpg"
+                    src="/assets/images/defaultProfile2.jpg"
                     alt="Ms Farha Khan"
                     style={{
                       width: "100%",
@@ -1064,7 +1064,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/ChatGPT Image Sep 16, 2025, 09_58_45 PM.png"
+                    src="/assets/images/defaultProfile2.jpg"
                     alt="Ms Gulfisha Khan"
                     style={{
                       width: "100%",
@@ -1127,7 +1127,7 @@ const Leadership = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/homegroup.png"
+                    src="/assets/images/defaultProfile2.jpg"
                     alt="Ms Arzoo Siraj"
                     style={{
                       width: "100%",

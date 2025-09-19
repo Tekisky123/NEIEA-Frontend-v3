@@ -16,7 +16,7 @@ const Testimonials = () => {
       name: "Misbah Rehman",
       role: "Student",
       location: "India",
-      image: "/assets/images/testimonial2.jpg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "Today I am talking about my English class. This class is too good. After taking these classes my confidence to speak english has built up. Now , I speak English properly. Now , when I speak English I do not hesitate. In these classes we are not only studying, we also have fun."
     },
     {
@@ -32,7 +32,7 @@ const Testimonials = () => {
       name: "Asna Shaikh",
       role: "Student",
       location: "Telangana",
-      image: "/assets/images/kaur1.jpeg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "I know how to speak in English but I was hesitant to speak in English in front of others. I was confused, about how to take out this fear. Then I got to know about the NEIEA free English course. I have joined this course. After joining this course, I have seen much improvement in my communication skills...."
     },
     {
@@ -40,7 +40,7 @@ const Testimonials = () => {
       name: "Shagufta Nemath",
       role: "Student",
       location: "India",
-      image: "/assets/images/event1.jpg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "I am filled with immense joy while telling you that, despite the increasing cost of education, some philanthropists have come together to initiate an organization that aims to uplift those sections of society who not only lack financial resources but also access to basic amenities......"
     },
     {
@@ -48,7 +48,7 @@ const Testimonials = () => {
       name: "Shaista Parveen Begum",
       role: "Student",
       location: "India",
-      image: "/assets/images/event2.jpg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "In March, I embarked on my NEIEA class journey with excitement. The course offered a chance to learn without cost and gain knowledge. The instructors, Sree Kutty Ma'am, Zeba Ma'am, and Danish Ali Sir, were inspiring, especially Sir's English skills and his signature address, 'GUYS....'"
     },
     {
@@ -56,7 +56,7 @@ const Testimonials = () => {
       name: "Shaik Azhar Shareef",
       role: "Student",
       location: "Hyderabad",
-      image: "/assets/images/innovation.jpeg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "Kick off with greetings I am Shaik Azhar Shareef, currently dwelling in Hyderabad Rajendra Nagar. I am pursuing B.com (computer) final year from Osmania University. Anyway, I have completed Board of Secondary Education in English medium. However, I wasn't speaking manifestly in front of people, relatives, strangers......"
     },
     {
@@ -64,7 +64,7 @@ const Testimonials = () => {
       name: "Amena",
       role: "Student",
       location: "Telangana, Hyderabad",
-      image: "/assets/images/leader.jpg",
+      image: "/assets/images/defaultProfile2.jpg",
       content: "I am writing this to express my gratitude to NEIEA. When I saw this course I thought it must be a fake why would anyone provide a 3 months free course but it was real joining this course was my best decision. Best of all I felt no student will be bored by the syllabus prepared by them...."
     }
   ];
@@ -105,7 +105,7 @@ const Testimonials = () => {
       title="Testimonials & Featured Stories"
       subtitle="Voices of Change"
       description="Hear from students, teachers, parents, and communities whose lives have been transformed through NEIEA's educational programs."
-      heroImage="/assets/images/waise12.png"
+      heroImage="/assets/images/testimonialImage.jpg"
     >
       {/* Testimonials Section */}
       <div className="row mb-5">
@@ -156,7 +156,7 @@ const Testimonials = () => {
       </div>
 
       {/* Featured Videos Section */}
-      <div className="row mb-5">
+      {/* <div className="row mb-5">
         <div className="col-12">
           <h3 
             style={{ 
@@ -182,9 +182,9 @@ const Testimonials = () => {
             Highlighted moments that capture the essence of our mission and the transformation happening in communities worldwide.
           </p>
         </div>
-      </div>
+      </div> */}
 
-      <div className="row g-4">
+      {/* <div className="row g-4">
         {featuredVideos.map((video) => (
           <div key={video.id} className="col-lg-4 col-md-6">
             <div 
@@ -276,10 +276,10 @@ const Testimonials = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* Call to Action */}
-      <div className="row mt-5">
+      {/* <div className="row mt-5">
         <div className="col-12 text-center">
           <div 
             style={{ 
@@ -324,7 +324,7 @@ const Testimonials = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </PageTemplate>
   );
 };
