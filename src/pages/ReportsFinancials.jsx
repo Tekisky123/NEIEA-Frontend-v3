@@ -49,7 +49,7 @@ const ReportsFinancials = () => {
       title="NEIEA: Transforming Education, Empowering Communities"
       subtitle="Since 2022, reshaping education through inclusive and quality learning opportunities"
       description="Our programs range from English and Math to digital skills, NIOS-based courses, and more - reaching children and youth across India."
-      heroImage="/assets/images/Stats_Background.jpg"
+      // heroImage="/assets/images/Stats_Background.jpg"
     >
       {/* Mission Statement */}
       <div className="row mb-5">
@@ -199,7 +199,7 @@ const ReportsFinancials = () => {
               >
                 📥 Download Impact Report
               </a>
-              <a
+              {/* <a
                 href="/about-us/contact"
                 className="btn btn-outline-primary btn-lg"
                 style={{
@@ -212,7 +212,7 @@ const ReportsFinancials = () => {
                 }}
               >
                 📞 Contact Us
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

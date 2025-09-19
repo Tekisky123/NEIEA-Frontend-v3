@@ -117,7 +117,7 @@ const Introduction = () => {
                     zIndex: "1",
                   }}
                 >
-                  <img
+                  {/* <img
                     src="/assets/images/testimonial1.jpg"
                     alt="Group photo"
                     className="rounded-3 shadow-lg"
@@ -126,7 +126,7 @@ const Introduction = () => {
                       height: "220px",
                       objectFit: "cover",
                     }}
-                  />
+                  /> */}
                 </div>
 
                 {/* Top left circular image */}
@@ -138,7 +138,7 @@ const Introduction = () => {
                     zIndex: "2",
                   }}
                 >
-                  <img
+                  {/* <img
                     src="/assets/images/leader.jpg"
                     alt="Leader"
                     className="rounded-circle shadow-lg"
@@ -147,7 +147,7 @@ const Introduction = () => {
                       height: "120px",
                       objectFit: "cover",
                     }}
-                  />
+                  /> */}
                 </div>
 
                 {/* Bottom right circular image */}
@@ -159,7 +159,7 @@ const Introduction = () => {
                     zIndex: "2",
                   }}
                 >
-                  <img
+                  {/* <img
                     src="/assets/images/Leader2.jpeg"
                     alt="Leader 2"
                     className="rounded-circle shadow-lg"
@@ -168,7 +168,7 @@ const Introduction = () => {
                       height: "120px",
                       objectFit: "cover",
                     }}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
