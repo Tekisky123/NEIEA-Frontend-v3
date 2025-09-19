@@ -4887,6 +4887,13 @@ padding: 12px 20px;
   height: 260px !important;
 }
 
+/* Specific positioning for Mohan's image - prevent top cropping and adjust height */
+.testimonial-car .row .col-lg-5 .test-cont img[src*="MohanImageHome.png"] {
+  object-position: center top !important;
+  height: 280px !important;
+  object-fit: cover !important;
+}
+
 /* Specific positioning for Kaur image - show full image without cropping */
 .testimonial-car .row .col-lg-5 .test-cont img[src*="kaur1.jpeg"],
 img[src*="kaur1.jpeg"] {
