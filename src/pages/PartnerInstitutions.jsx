@@ -178,7 +178,7 @@ const PartnerInstitutions = () => {
       title="Partnering Institutions"
       subtitle="Building Educational Excellence Together"
       description="NEIEA collaborates with educational institutions across India to enhance learning outcomes, improve teaching quality, and expand access to innovative education."
-      heroImage="/assets/images/waise12.png"
+      // heroImage="/assets/images/waise12.png"
     >
       {/* Partnership Overview */}
       <div className="row mb-5">

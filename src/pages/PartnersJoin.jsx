@@ -81,7 +81,7 @@ const PartnersJoin = () => {
       title="Join NEIEA as a Partner"
       subtitle="Together We Can Transform Education"
       description="Partner with NEIEA to create lasting impact in education. Join our network of organizations committed to providing equitable and innovative learning opportunities."
-      heroImage="/assets/images/waise12.png"
+      // heroImage="/assets/images/waise12.png"
     >
       {/* Why Partner with NEIEA */}
       <div className="row mb-5">
