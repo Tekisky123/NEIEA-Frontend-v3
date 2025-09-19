@@ -197,7 +197,7 @@ const ReportsFinancials = () => {
                   textDecoration: "none"
                 }}
               >
-                📥 Download Impact Report
+                📥 Read Complete Report
               </a>
               {/* <a
                 href="/about-us/contact"

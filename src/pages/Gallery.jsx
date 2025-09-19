@@ -68,12 +68,12 @@ const Gallery = () => {
     { id: 45, title: "Creative Workshop", category: "workshops", image: "/assets/images/gallary/neonl3.jpg", description: "Creative Problem Solving", year: "2023" },
 
     // Digital Category
-    { id: 46, title: "Web Development 1", category: "digital", image: "/assets/images/gallary/web-1.jpg", description: "Digital Platform Development", year: "2023" },
-    { id: 47, title: "Web Development 2", category: "digital", image: "/assets/images/gallary/web-2.jpg", description: "Online Learning Platform", year: "2023" },
-    { id: 48, title: "Web Development 3", category: "digital", image: "/assets/images/gallary/web-3.jpg", description: "Educational Technology", year: "2023" },
-    { id: 49, title: "Web Development 4", category: "digital", image: "/assets/images/gallary/web-4.jpg", description: "Digital Learning Tools", year: "2023" },
-    { id: 50, title: "Web Development 5", category: "digital", image: "/assets/images/gallary/web-5.jpg", description: "Web-based Education", year: "2023" },
-    { id: 51, title: "Web Development 6", category: "digital", image: "/assets/images/gallary/web-6.jpg", description: "Digital Education Platform", year: "2023" },
+    { id: 46, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-1.jpg", description: "Digital Platform Development", year: "2023" },
+    { id: 47, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-2.jpg", description: "Online Learning Platform", year: "2023" },
+    { id: 48, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-3.jpg", description: "Educational Technology", year: "2023" },
+    { id: 49, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-4.jpg", description: "Digital Learning Tools", year: "2023" },
+    { id: 50, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-5.jpg", description: "Web-based Education", year: "2023" },
+    { id: 51, title: "Online Learning", category: "digital", image: "/assets/images/gallary/web-6.jpg", description: "Digital Education Platform", year: "2023" },
     { id: 52, title: "Web Interface 1", category: "digital", image: "/assets/images/gallary/web1.jpg", description: "User Interface Design", year: "2023" },
     { id: 53, title: "Web Interface 2", category: "digital", image: "/assets/images/gallary/web1-1.jpg", description: "Digital Interface Development", year: "2023" },
     { id: 54, title: "Web Interface 3", category: "digital", image: "/assets/images/gallary/web1-2.jpg", description: "Educational Web Design", year: "2023" },
@@ -84,9 +84,11 @@ const Gallery = () => {
     { id: 59, title: "Web Platform 4", category: "digital", image: "/assets/images/gallary/web273.jpg", description: "Digital Education Framework", year: "2023" }
   ];
 
+  const reversedGalleryImages = [...galleryItems].reverse();
+
   const filteredItems = activeCategory === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeCategory);
+    ? reversedGalleryImages 
+    : reversedGalleryImages.filter(item => item.category === activeCategory);
 
   return (
     <PageTemplate
