@@ -55,6 +55,54 @@ const Testimonials = () => {
             <div className="row">
               <div className="col-lg-5">
                 <div className="test-cont">
+                  <img className="d-block d-md-none" src="/assets/images/Quotes4.png" alt="Quote" />
+                  <img src="/assets/images/kaur1.jpeg" alt="Jaswinder Kaur" />
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="test-cont">
+                  <div className="profile-name d-block d-md-none mt-4 mb-4">
+                    <h5>Jaswinder Kaur</h5>
+                    <p></p>
+                  </div>
+                  <img className="d-none d-md-block" src="/assets/images/Quotes4.png" alt="Quote" />
+                  <p>As a 59-year-old from Nagpur, I'm thrilled to have discovered NEIEA. Thanks to Niloufer Ma'am's excellent teaching and patience, I've been able to overcome my doubts and learn effectively. Online classes have made it easy for me to pursue my education, and I'm so grateful for this opportunity. NEIEA has shown me that age is no barrier to learning, and I can't wait to continue my studies. Thank you, NEIEA!</p>
+                  <div className="profile-name d-none d-md-block">
+                    <h5>Jaswinder Kaur</h5>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="item">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="test-cont">
+                  <img className="d-block d-md-none" src="/assets/images/Quotes2.png" alt="Quote" />
+                  <img src="/assets/images/HomImages/MohanImageHome.png" alt="Mohan" />
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="test-cont">
+                  <div className="profile-name d-block d-md-none mt-4 mb-4">
+                    <h5>Mohan</h5>
+                    <p>Hyderabad, Telangana</p>
+                  </div>
+                  <img className="d-none d-md-block" src="/assets/images/Quotes2.png" alt="Quote" />
+                  <p>I had to leave my education earlier due to personal reasons, but thanks to NEIEA's free online classes, I've been able to continue learning in new ways. The Microsoft Office course for beginners has been a huge help, especially for my business. I can now create advertisements, keep records, and manage my tasks much more efficiently. I'm really impressed with the quality of the classes, and I'm grateful for the opportunity to learn and grow again. NEIEA's support has truly made a difference in my life.</p>
+                  <div className="profile-name d-none d-md-block">
+                    <h5>Mohan</h5>
+                    <p>Hyderabad, Telangana</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="item">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
                   <img src="/assets/images/waise12.png" alt="Md Wais Raza" />
                 </div>
@@ -79,28 +127,6 @@ const Testimonials = () => {
             <div className="row">
               <div className="col-lg-5">
                 <div className="test-cont">
-                  <img className="d-block d-md-none" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <img src="/assets/images/misbha1.png" alt="Misbah Rehman" />
-                </div>
-              </div>
-              <div className="col-lg-7">
-                <div className="test-cont">
-                  <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Misbah Rehman</h5>
-                  </div>
-                  <img className="d-none d-md-block" src="/assets/images/Quotes2.png" alt="Quote" />
-                  <p>Today I am talking about my English class. This class is too good. After taking these classes my confidence to speak english has built up. Now , I speak English properly. Now , when I speak English I do not hesitate. In these classes we are not only studying, we also have fun.</p>
-                  <div className="profile-name d-none d-md-block">
-                    <h5>Misbah Rehman</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="row">
-              <div className="col-lg-5">
-                <div className="test-cont">
                   <img className="d-block d-md-none" src="/assets/images/Quotes3.png" alt="Quote" />
                   <img src="/assets/images/malik khan .png" alt="Malik Khan" />
                 </div>
@@ -116,30 +142,6 @@ const Testimonials = () => {
                   <div className="profile-name d-none d-md-block">
                     <h5>Malik Khan</h5>
                     <p>Karnataka India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="row">
-              <div className="col-lg-5">
-                <div className="test-cont">
-                  <img className="d-block d-md-none" src="/assets/images/Quotes4.png" alt="Quote" />
-                  <img src="/assets/images/kaur1.jpeg" alt="Jaswinder Kaur" />
-                </div>
-              </div>
-              <div className="col-lg-7">
-                <div className="test-cont">
-                  <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Jaswinder Kaur</h5>
-                    <p></p>
-                  </div>
-                  <img className="d-none d-md-block" src="/assets/images/Quotes4.png" alt="Quote" />
-                  <p>As a 59-year-old from Nagpur, I'm thrilled to have discovered NEIEA. Thanks to Niloufer Ma'am's excellent teaching and patience, I've been able to overcome my doubts and learn effectively. Online classes have made it easy for me to pursue my education, and I'm so grateful for this opportunity. NEIEA has shown me that age is no barrier to learning, and I can't wait to continue my studies. Thank you, NEIEA!</p>
-                  <div className="profile-name d-none d-md-block">
-                    <h5>Jaswinder Kaur</h5>
-                    <p></p>
                   </div>
                 </div>
               </div>
