@@ -5348,6 +5348,109 @@ img[src*="kaur1.jpeg"] {
   }
 }
 
+/* Testimonials Page Responsive Styles */
+@media (max-width: 768px) {
+  .testimonial-card .profile-image-container {
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 2px solid #06038F !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .testimonial-card .profile-image-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 50% !important;
+  }
+  
+  .testimonial-card .testimonial-name {
+    font-size: 16px !important;
+  }
+  
+  .testimonial-card {
+    padding: 20px 15px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-card .d-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .testimonial-card .profile-image-container {
+    width: 70px !important;
+    height: 70px !important;
+    margin-right: 0 !important;
+    margin-bottom: 15px !important;
+    align-self: center !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 3px solid #06038F !important;
+  }
+  
+  .testimonial-card .profile-image-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 50% !important;
+  }
+  
+  /* Enhanced mobile layout for testimonial cards */
+  .testimonial-card {
+    margin-bottom: 20px !important;
+  }
+  
+  .testimonial-card .d-flex.align-items-center {
+    align-items: flex-start !important;
+  }
+  
+  .testimonial-card h5 {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .testimonial-card p {
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 15px 10px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .testimonial-card .profile-image-container {
+    width: 60px !important;
+    height: 60px !important;
+    border: 2px solid #06038F !important;
+  }
+  
+  .testimonial-card h5 {
+    font-size: 13px !important;
+  }
+  
+  .testimonial-card p {
+    font-size: 11px !important;
+  }
+  
+  /* Ensure testimonial content text is readable */
+  .testimonial-card div[style*="backgroundColor"] p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    padding: 15px !important;
+  }
+}
+
 /* CRITICAL: Mobile Banner Fixes */
 @media screen and (max-width: 767px) {
   .banner {
