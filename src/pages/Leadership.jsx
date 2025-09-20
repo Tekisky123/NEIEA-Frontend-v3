@@ -8,14 +8,6 @@ const Leadership = () => {
   const teamMembers = [
     // Directors
     {
-      name: 'Mr Javeed Mirza',
-      title: 'Founder & President',
-      description: 'Highly motivated and dynamic Educator, Entrepreneur and Community activist interested in bringing Quality Education to the underprivileged youth of India',
-      image: '/assets/images/leadership/Leader2.jpeg',
-      hasImage: true,
-      category: 'directors'
-    },
-    {
       name: 'Ms Nasreen Fatima',
       title: 'Director',
       description: 'Secretary and Correspondent of Neo Rosary School. B.Sc, B.Ed, B.M.R.C.Sc., MA in English Literature, and M.Ed',
@@ -251,14 +243,14 @@ const Leadership = () => {
       hasImage: true,
       category: 'staff'
     },
-    {
-      name: 'Ms Gulfisha Khan',
-      title: 'English Proficiency Level-1 Team Leader',
-      description: '15 years media experience, Bachelor\'s in Political Science, Post Graduation in Journalism',
-      image: '/assets/images/leadership/defaultProfile2.jpg',
-      hasImage: false,
-      category: 'staff'
-    },
+    // {
+    //   name: 'Ms Gulfisha Khan',
+    //   title: 'English Proficiency Level-1 Team Leader',
+    //   description: '15 years media experience, Bachelor\'s in Political Science, Post Graduation in Journalism',
+    //   image: '/assets/images/leadership/defaultProfile2.jpg',
+    //   hasImage: false,
+    //   category: 'staff'
+    // },
     {
       name: 'Ms Arzoo Siraj',
       title: 'Head of Social Media and IT Skills training',
@@ -344,7 +336,7 @@ const Leadership = () => {
           >
             {member.title}
           </p>
-          {member.description && (
+          {/* {member.description && (
             <p
               style={{
                 color: "#6c757d",
@@ -356,7 +348,7 @@ const Leadership = () => {
             >
               {member.description}
             </p>
-          )}
+          )} */}
         </div>
       </div>
     </div>
