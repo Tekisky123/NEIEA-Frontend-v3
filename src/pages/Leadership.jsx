@@ -73,14 +73,14 @@ const Leadership = () => {
       hasImage: true,
       category: 'advisors'
     },
-    // {
-    //   name: 'Ms AV AMBIKA',
-    //   title: 'Advisor',
-    //   description: 'Treasurer of Aman Vedika - Activist, school teacher, theatre artist, singer, documentary film maker',
-    //   image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
-    //   hasImage: true,
-    //   category: 'advisors'
-    // },
+    {
+      name: 'Ms AV AMBIKA',
+      title: 'Director',
+      description: 'Treasurer of Aman Vedika - Activist, school teacher, theatre artist, singer, documentary film maker',
+      image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
+      hasImage: true,
+      category: 'directors'
+    },
     // {
     //   name: 'Hrushikesh M',
     //   title: 'Vice President',
