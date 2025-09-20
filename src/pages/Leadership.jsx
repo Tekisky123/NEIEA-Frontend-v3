@@ -186,7 +186,15 @@ const Leadership = () => {
       category: 'advisors'
     },
 
-    // Staff
+    // Staff - Reordered according to new sequence
+    {
+      name: 'Ms. Reshma Parveen',
+      title: 'Human Resource Manager',
+      description: '',
+      image: '/assets/images/leadership/Dr. Reshma parveen.png',
+      hasImage: true,
+      category: 'staff'
+    },
     {
       name: 'Syed Danish Ali',
       title: 'Supervisor',
@@ -196,10 +204,10 @@ const Leadership = () => {
       category: 'staff'
     },
     {
-      name: 'Ms. Reshma Parveen',
-      title: 'Human Resource Manager',
-      description: '',
-      image: '/assets/images/leadership/Dr. Reshma parveen.png',
+      name: 'Ms Taskeen Tarannum',
+      title: 'Deputy Supervisor',
+      description: 'B.A, B.Ed with over 12 years of teaching experience, driving force behind online English program at NEIEA',
+      image: '/assets/images/leadership/Ms-Taskeen-Tarannum croped.png',
       hasImage: true,
       category: 'staff'
     },
@@ -213,7 +221,7 @@ const Leadership = () => {
     },
     {
       name: 'Dr. Saleem Ahmed Qasmi',
-      title: 'Leader of Madarsa Outreach',
+      title: 'Madrasa Outreach leader',
       description: '',
       image: '/assets/images/leadership/Dr Saleem Ahmad Qasmi.png',
       hasImage: true,
@@ -228,14 +236,6 @@ const Leadership = () => {
       category: 'staff'
     },
     {
-      name: 'Ms Taskeen Tarannum',
-      title: 'Deputy Supervisor',
-      description: 'B.A, B.Ed with over 12 years of teaching experience, driving force behind online English program at NEIEA',
-      image: '/assets/images/leadership/Ms-Taskeen-Tarannum croped.png',
-      hasImage: true,
-      category: 'staff'
-    },
-    {
       name: 'Ms Farha Khan',
       title: 'Head of Mathematics and IT',
       description: 'Google certified educator, Master\'s in Computer Applications and Mathematics, 15+ years experience',
@@ -243,14 +243,6 @@ const Leadership = () => {
       hasImage: true,
       category: 'staff'
     },
-    // {
-    //   name: 'Ms Gulfisha Khan',
-    //   title: 'English Proficiency Level-1 Team Leader',
-    //   description: '15 years media experience, Bachelor\'s in Political Science, Post Graduation in Journalism',
-    //   image: '/assets/images/leadership/defaultProfile2.jpg',
-    //   hasImage: false,
-    //   category: 'staff'
-    // },
     {
       name: 'Ms Arzoo Siraj',
       title: 'Head of Social Media and IT Skills training',
