@@ -219,14 +219,14 @@ const Testimonials = () => {
               <div className="col-lg-7">
                 <div className="test-cont">
                   <div className="profile-name d-block d-md-none mt-4 mb-4">
-                    <h5>Heartfelt Appreciation</h5>
-                    <p>Gratitude from Our Community</p>
+                    <h5>Mr. Kodandram Reddy</h5>
+                    <p>MLC, Telangana</p>
                   </div>
                   <img className="d-none d-md-block" src="/assets/images/Quotes1.png" alt="Quote" />
                   <p>A sincere message of gratitude and appreciation from our community members, acknowledging NEIEA's dedication to providing quality education and making a positive impact in people's lives.</p>
                   <div className="profile-name d-none d-md-block">
-                    <h5>Heartfelt Appreciation</h5>
-                    <p>Gratitude from Our Community</p>
+                    <h5>Mr. Kodandram Reddy</h5>
+                    <p>MLC, Telangana</p>
                   </div>
                 </div>
               </div>
