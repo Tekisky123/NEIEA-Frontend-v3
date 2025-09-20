@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 const Bio = () => {
   const { memberName } = useParams();
   const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Team members data (same as Leadership page)
   const teamMembers = [
@@ -15,7 +16,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms.-Nasreen-Fatima-Director-1.jpg',
       hasImage: true,
       category: 'directors',
-      fullBio: 'Ms. Nasreen Fatima serves as the Director of NEIEA and is the Secretary and Correspondent of Neo Rosary School. She holds multiple academic qualifications including B.Sc, B.Ed, B.M.R.C.Sc., MA in English Literature, and M.Ed. With her extensive educational background and administrative experience, she brings valuable leadership to the organization, focusing on educational excellence and institutional development.'
+      fullBio: 'Nasreen Fatima has dedicated her career to educational leadership. She has also served as the Joint Secretary of Nation Builders Academy and the General Secretary of Telangana Science Fair Academy.\n\nHer contributions to the field have included the publication of several books such as "English Language Program" for School Students (I to X), "A Creative Approach to Learning Pedagogy" for Kindergarten, and "Collaboration of School with Organizations/Universities/Institutions." Additionally, her seminar paper on National Science Day was published by SCERT.\n\nNasreen Fatima has actively participated in various workshops and training programs to enhance her skills. These have included a 15-day workshop on "Jiva\'s Career Guidance and Livelihood Program," a two-year program on "Teachers Training and Management Skills" by the Centre for Better Teachers (CfBT), and the City Fellowship Program by the India School Leadership Institute (ISLI). Moreover, she is a certified Career Counselor from IC3 (International Career and College Counseling).\n\nAs an advocate for quality education, Nasreen Fatima has been recognized and awarded for her contributions. Some notable achievements include the Rotary Club award for promoting girls\' education, the India School Leadership award for completing the fellowship program with distinction, and the Global Education and Training Institute award for participating in a panel discussion on the pandemic\'s effect on education stakeholders.\n\nShe has also been recognized for her writing and speaking engagements, receiving awards such as the Dynamic Woman Award, Science Seva Ratna Award, Iconic Woman Award, and the Bharat Ratna Moulana Abul Kalam Azad Award. Furthermore, she has actively contributed to the community during challenging times, receiving the Seva Bharat Award for serving humanity during the pandemic.'
     },
     {
       name: 'Ms Tahseen Sakina',
@@ -304,6 +305,26 @@ const Bio = () => {
 
   return (
     <div className="bio-page">
+      {/* Custom scrollbar styles */}
+      <style>
+        {`
+          .member-details::-webkit-scrollbar {
+            width: 0px !important;
+            height: 0px !important;
+            display: none !important;
+          }
+          .member-details::-webkit-scrollbar-track {
+            display: none !important;
+          }
+          .member-details::-webkit-scrollbar-thumb {
+            display: none !important;
+          }
+          .member-details {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+          }
+        `}
+      </style>
       {/* Breadcrumb */}
       <div className="container-fluid" style={{ backgroundColor: "#f8f9fa", padding: "10px 0" }}>
         <div className="container">
@@ -328,22 +349,24 @@ const Bio = () => {
       </div>
 
       {/* Bio Content */}
-      <section style={{ backgroundColor: "#fff", padding: "60px 0" }}>
+      <section style={{ backgroundColor: "#ffffff", padding: "40px 0" }}>
         <div className="container">
-          <div className="row">
+
+          <div className="row align-items-start" style={{ minHeight: "500px" }}>
             <div className="col-lg-4 mb-4">
               {/* Member Image */}
               <div 
                 className="member-image"
                 style={{
                   height: "400px",
+                  width: "100%",
                   background: "#f8f9fa",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
-                  borderRadius: "15px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                  borderRadius: "8px",
+                  border: "1px solid #dee2e6"
                 }}
               >
                 {member.hasImage ? (
@@ -361,7 +384,7 @@ const Bio = () => {
                     style={{
                       width: "150px",
                       height: "150px",
-                      backgroundColor: "#06038F",
+                      backgroundColor: "#6c757d",
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
@@ -375,128 +398,415 @@ const Bio = () => {
                   </div>
                 )}
               </div>
-
-              {/* Back Button */}
-              <div className="text-center mt-4">
-                <button
-                  onClick={() => navigate('/about-us/leadership')}
-                  className="btn"
-                  style={{
-                    backgroundColor: "#06038F",
-                    color: "white",
-                    padding: "12px 30px",
-                    borderRadius: "25px",
-                    border: "none",
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#050277";
-                    e.target.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "#06038F";
-                    e.target.style.transform = "translateY(0)";
-                  }}
-                >
-                  ← Back to Leadership
-                </button>
-              </div>
             </div>
 
             <div className="col-lg-8">
               {/* Member Details */}
-              <div className="member-details">
-                <h1 
-                  style={{
-                    fontSize: "42px",
-                    fontWeight: "700",
-                    color: "#212529",
-                    marginBottom: "10px",
-                    lineHeight: "1.2"
-                  }}
-                >
-                  {member.name}
-                </h1>
-
-                <h3 
-                  style={{
-                    fontSize: "24px",
-                    color: "#06038F",
-                    fontWeight: "600",
-                    marginBottom: "30px"
-                  }}
-                >
-                  {member.title}
-                </h3>
-
-                {member.description && (
-                  <div 
-                    className="mb-4 p-4"
+              <div 
+                className="member-details"
+                style={{
+                  paddingLeft: "30px",
+                  height: "400px",
+                  overflowY: "auto",
+                  scrollbarWidth: "thin",
+                  scrollbarColor: "#6c757d #f8f9fa"
+                }}
+              >
+                <div>
+                  <h1 
                     style={{
-                      backgroundColor: "#f8f9fa",
-                      borderRadius: "10px",
-                      borderLeft: "4px solid #06038F"
+                      fontSize: "48px",
+                      fontWeight: "400",
+                      color: "#333333",
+                      marginBottom: "8px",
+                      lineHeight: "1.1",
+                      fontFamily: "Georgia, serif"
                     }}
                   >
-                    <p 
+                    {member.name}
+                  </h1>
+
+                  <h3 
+                    style={{
+                      fontSize: "20px",
+                      color: "#6c757d",
+                      fontWeight: "400",
+                      marginBottom: "30px",
+                      fontFamily: "Georgia, serif"
+                    }}
+                  >
+                    {member.title}
+                  </h3>
+
+                  {/* Full Bio */}
+                  <div className="bio-content">
+                    <div 
                       style={{
-                        fontSize: "18px",
-                        color: "#495057",
-                        lineHeight: "1.6",
-                        margin: "0",
-                        fontStyle: "italic"
+                        fontSize: "16px",
+                        lineHeight: "1.7",
+                        color: "#333333",
+                        textAlign: "justify",
+                        whiteSpace: "pre-line",
+                        fontFamily: "Georgia, serif"
                       }}
                     >
-                      "{member.description}"
-                    </p>
-                  </div>
-                )}
-
-                {/* Full Bio */}
-                <div className="bio-content">
-                  <h4 
-                    style={{
-                      fontSize: "28px",
-                      fontWeight: "600",
-                      color: "#212529",
-                      marginBottom: "20px",
-                      borderBottom: "2px solid #06038F",
-                      paddingBottom: "10px"
-                    }}
-                  >
-                    Biography
-                  </h4>
-                  
-                  <div 
-                    style={{
-                      fontSize: "18px",
-                      lineHeight: "1.8",
-                      color: "#495057",
-                      textAlign: "justify"
-                    }}
-                  >
-                    <p>{member.fullBio || member.description || 'Biography information will be updated soon.'}</p>
+                      <p style={{ margin: "0 0 18px 0" }}>
+                        {member.fullBio || member.description || 'Biography information will be updated soon.'}
+                      </p>
+                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                {/* Category Badge */}
-                <div className="mt-4">
-                  <span 
-                    className="badge"
-                    style={{
-                      backgroundColor: "#06038F",
-                      color: "white",
-                      fontSize: "14px",
-                      padding: "8px 16px",
-                      borderRadius: "20px",
-                      textTransform: "capitalize"
-                    }}
-                  >
-                    {member.category === 'directors' ? 'Director' : 
-                     member.category === 'advisors' ? 'Advisor' : 'Staff Member'}
-                  </span>
+      {/* Team Members Carousel */}
+      <section style={{ backgroundColor: "#f8f9fa", padding: "40px 0", display: "none" }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              {/* Section Title */}
+              <div style={{ textAlign: "center", marginBottom: "30px" }}>
+                <h3 style={{
+                  fontSize: "24px",
+                  fontWeight: "400",
+                  color: "#333333",
+                  fontFamily: "Georgia, serif",
+                  textTransform: "capitalize"
+                }}>
+                  Other {member.category === 'directors' ? 'Directors' : 
+                         member.category === 'advisors' ? 'Advisors' : 'Staff Members'}
+                </h3>
+              </div>
+              
+              <div style={{ position: "relative", overflow: "hidden" }}>
+                {(() => {
+                  const sameCategoryMembers = teamMembers.filter(m => m.name !== member.name && m.category === member.category);
+                  const showNavigation = sameCategoryMembers.length > 2;
+                  
+                  return (
+                    <>
+                      {/* Navigation Buttons - Only show if more than 2 members */}
+                      {showNavigation && (
+                        <>
+                          <button
+                            onClick={() => {
+                              const prevIndex = currentSlide === 0 ? Math.ceil(sameCategoryMembers.length / 2) - 1 : currentSlide - 1;
+                              setCurrentSlide(prevIndex);
+                            }}
+                            style={{
+                              position: "absolute",
+                              left: "10px",
+                              top: "50%",
+                              transform: "translateY(-50%)",
+                              zIndex: 10,
+                              backgroundColor: "#ffffff",
+                              border: "1px solid #6c757d",
+                              borderRadius: "4px",
+                              width: "36px",
+                              height: "36px",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              fontSize: "16px",
+                              color: "#6c757d",
+                              fontWeight: "bold"
+                            }}
+                          >
+                            ←
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              const nextIndex = currentSlide === Math.ceil(sameCategoryMembers.length / 2) - 1 ? 0 : currentSlide + 1;
+                              setCurrentSlide(nextIndex);
+                            }}
+                            style={{
+                              position: "absolute",
+                              right: "10px",
+                              top: "50%",
+                              transform: "translateY(-50%)",
+                              zIndex: 10,
+                              backgroundColor: "#ffffff",
+                              border: "1px solid #6c757d",
+                              borderRadius: "4px",
+                              width: "36px",
+                              height: "36px",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              fontSize: "16px",
+                              color: "#6c757d",
+                              fontWeight: "bold"
+                            }}
+                          >
+                            →
+                          </button>
+                        </>
+                      )}
+                    </>
+                  );
+                })()}
+
+                {/* Carousel Content */}
+                <div style={{ 
+                  display: "flex",
+                  transition: "transform 0.3s ease",
+                  transform: `translateX(-${currentSlide * 100}%)`
+                }}>
+                  {(() => {
+                    const sameCategoryMembers = teamMembers.filter(m => m.name !== member.name && m.category === member.category);
+                    const slides = [];
+                    
+                    // Only show carousel if there are other members in the same category
+                    if (sameCategoryMembers.length === 0) {
+                      return <div style={{ padding: "40px", textAlign: "center", color: "#6c757d" }}>
+                        No other {member.category} members to display.
+                      </div>;
+                    }
+                    
+                    //Special case for single member - show on the right with arrow
+                    if (sameCategoryMembers.length === 1) {
+                      const singleMember = sameCategoryMembers[0];
+                      return (
+                        <div style={{ 
+                          minWidth: "100%", 
+                          display: "flex", 
+                          justifyContent: "center", 
+                          alignItems: "center",
+                          padding: "0 40px",
+                          gap: "20px"
+                        }}>
+                          {/* Single Member Card */}
+                          <div 
+                            style={{
+                              width: "280px",
+                              backgroundColor: "transparent",
+                              borderRadius: "8px",
+                              padding: "12px",
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "12px",
+                              border: "none",
+                              cursor: "pointer",
+                              transition: "transform 0.2s ease",
+                              minHeight: "120px"
+                            }}
+                            onClick={() => {
+                              const memberSlug = singleMember.name.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
+                              navigate(`/about-us/leadership/bio/${memberSlug}`);
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.transform = "translateY(-2px)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                            }}
+                          >
+                            Member Image
+                            <div 
+                              style={{
+                                width: "80px",
+                                height: "100px",
+                                borderRadius: "8px",
+                                overflow: "hidden",
+                                flexShrink: 0,
+                                backgroundColor: "#f8f9fa"
+                              }}
+                            >
+                              {singleMember.hasImage ? (
+                                <img
+                                  src={singleMember.image}
+                                  alt={singleMember.name}
+                                  style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    objectFit: "cover"
+                                  }}
+                                />
+                              ) : (
+                                <div 
+                                  style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundColor: "#6c757d",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "white",
+                                    fontSize: "24px",
+                                    fontWeight: "bold"
+                                  }}
+                                >
+                                  {singleMember.name.charAt(0)}
+                                </div>
+                              )}
+                            </div>
+
+                              {/* Member Info */}
+                              <div style={{ flex: 1, paddingLeft: "10px" }}>
+                                <h4 
+                                  style={{
+                                    fontSize: "18px",
+                                    fontWeight: "400",
+                                    color: "#333333",
+                                    marginBottom: "6px",
+                                    fontFamily: "Georgia, serif",
+                                    lineHeight: "1.2"
+                                  }}
+                                >
+                                  {singleMember.name}
+                                </h4>
+                                <p 
+                                  style={{
+                                    fontSize: "14px",
+                                    color: "#6c757d",
+                                    margin: "0",
+                                    fontFamily: "Georgia, serif",
+                                    lineHeight: "1.4"
+                                  }}
+                                >
+                                  {singleMember.title}
+                                </p>
+                              </div>
+                          </div>
+                          
+                          {/* Navigation Arrow */}
+                          <div
+                            style={{
+                              backgroundColor: "#ffffff",
+                              border: "1px solid #6c757d",
+                              borderRadius: "4px",
+                              width: "36px",
+                              height: "36px",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              fontSize: "16px",
+                              color: "#6c757d",
+                              fontWeight: "bold"
+                            }}
+                            onClick={() => {
+                              const memberSlug = singleMember.name.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
+                              navigate(`/about-us/leadership/bio/${memberSlug}`);
+                            }}
+                          >
+                            →
+                          </div>
+                        </div>
+                      );
+                    }
+                    
+                    for (let i = 0; i < sameCategoryMembers.length; i += 2) {
+                      const slideMembers = sameCategoryMembers.slice(i, i + 2);
+                      slides.push(
+                        <div key={i} style={{ minWidth: "100%", display: "flex", gap: "20px", padding: "0 60px", justifyContent: "space-between" }}>
+                          {slideMembers.map((teamMember, index) => (
+                            <div 
+                              key={teamMember.name}
+                              style={{
+                                width: "280px",
+                                backgroundColor: "transparent",
+                                borderRadius: "8px",
+                                padding: "12px",
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                border: "none",
+                                cursor: "pointer",
+                                transition: "transform 0.2s ease",
+                                minHeight: "120px"
+                              }}
+                              onClick={() => {
+                                const memberSlug = teamMember.name.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
+                                navigate(`/about-us/leadership/bio/${memberSlug}`);
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = "translateY(-2px)";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = "translateY(0)";
+                              }}
+                            >
+                              {/* Member Image */}
+                              <div 
+                                style={{
+                                  width: "80px",
+                                  height: "100px",
+                                  borderRadius: "8px",
+                                  overflow: "hidden",
+                                  flexShrink: 0,
+                                  backgroundColor: "#f8f9fa"
+                                }}
+                              >
+                                {teamMember.hasImage ? (
+                                  <img
+                                    src={teamMember.image}
+                                    alt={teamMember.name}
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      objectFit: "cover"
+                                    }}
+                                  />
+                                ) : (
+                                  <div 
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      backgroundColor: "#6c757d",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      color: "white",
+                                      fontSize: "24px",
+                                      fontWeight: "bold"
+                                    }}
+                                  >
+                                    {teamMember.name.charAt(0)}
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Member Info */}
+                              <div style={{ flex: 1, paddingLeft: "10px" }}>
+                                <h4 
+                                  style={{
+                                    fontSize: "18px",
+                                    fontWeight: "400",
+                                    color: "#333333",
+                                    marginBottom: "6px",
+                                    fontFamily: "Georgia, serif",
+                                    lineHeight: "1.2"
+                                  }}
+                                >
+                                  {teamMember.name}
+                                </h4>
+                                <p 
+                                  style={{
+                                    fontSize: "14px",
+                                    color: "#6c757d",
+                                    margin: "0",
+                                    fontFamily: "Georgia, serif",
+                                    lineHeight: "1.4"
+                                  }}
+                                >
+                                  {teamMember.title}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                    
+                    return slides;
+                  })()}
                 </div>
               </div>
             </div>
