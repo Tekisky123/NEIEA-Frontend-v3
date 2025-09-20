@@ -5,6 +5,54 @@ const Bio = () => {
   const { memberName } = useParams();
   const navigate = useNavigate();
 
+  // Function to render bio text with clickable links and proper formatting
+  const renderBioText = (text) => {
+    if (!text) return 'Biography information will be updated soon.';
+    
+    // Split text by paragraphs (double newlines)
+    const paragraphs = text.split('\n\n');
+    
+    return paragraphs.map((paragraph, index) => {
+      // Regular expression to find URLs
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      
+      // Split paragraph by URLs to create parts
+      const parts = paragraph.split(urlRegex);
+      
+      return (
+        <p key={index} style={{ marginBottom: '1.5rem' }}>
+          {parts.map((part, partIndex) => {
+            // Check if this part is a URL
+            if (urlRegex.test(part)) {
+              return (
+                <a
+                  key={partIndex}
+                  href={part}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#06038F',
+                    textDecoration: 'underline',
+                    fontWeight: '500'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = '#050277';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = '#06038F';
+                  }}
+                >
+                  {part}
+                </a>
+              );
+            }
+            return part;
+          })}
+        </p>
+      );
+    });
+  };
+
   // Team members data (same as Leadership page)
   const teamMembers = [
     // Directors
@@ -15,7 +63,17 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms.-Nasreen-Fatima-Director-1.jpg',
       hasImage: true,
       category: 'directors',
-      fullBio: 'Ms. Nasreen Fatima serves as the Director of NEIEA and is the Secretary and Correspondent of Neo Rosary School. She holds multiple academic qualifications including B.Sc, B.Ed, B.M.R.C.Sc., MA in English Literature, and M.Ed. With her extensive educational background and administrative experience, she brings valuable leadership to the organization, focusing on educational excellence and institutional development.'
+      fullBio: `Secretary and Correspondent of Neo Rosary Nursery, K.G & High School. With a background in B.Sc, B.Ed, B.M.R.C.Sc., MA in English Literature, and M.Ed. 
+      
+Nasreen Fatima has dedicated her career to educational leadership. She has also served as the Joint Secretary of Nation Builders Academy and the General Secretary of Telangana Science Fair Academy.
+
+Her contributions to the field have included the publication of several books such as “English Language Program” for School Students (I to X), “A Creative Approach to Learning Pedagogy” for Kindergarten, and “Collaboration of School with Organizations/Universities/Institutions.” Additionally, her seminar paper on National Science Day was published by SCERT.
+
+Nasreen Fatima has actively participated in various workshops and training programs to enhance her skills. These have included a 15-day workshop on “Jiva’s Career Guidance and Livelihood Program,” a two-year program on “Teachers Training and Management Skills” by the Centre for Better Teachers (CfBT), and the City Fellowship Program by the India School Leadership Institute (ISLI). Moreover, she is a certified Career Counselor from IC3 (International Career and College Counseling).
+
+As an advocate for quality education, Nasreen Fatima has been recognized and awarded for her contributions. Some notable achievements include the Rotary Club award for promoting girls’ education, the India School Leadership award for completing the fellowship program with distinction, and the Global Education and Training Institute award for participating in a panel discussion on the pandemic’s effect on education stakeholders.
+
+She has also been recognized for her writing and speaking engagements, receiving awards such as the Dynamic Woman Award, Science Seva Ratna Award, Iconic Woman Award, and the Bharat Ratna Moulana Abul Kalam Azad Award. Furthermore, she has actively contributed to the community during challenging times, receiving the Seva Bharat Award for serving humanity during the pandemic.`
     },
     {
       name: 'Ms Tahseen Sakina',
@@ -24,7 +82,25 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms-Tahseen-Sakina-Director.png',
       hasImage: true,
       category: 'directors',
-      fullBio: 'Ms. Tahseen Sakina is a trained post graduate with over 32 years of distinguished experience in reputed educational institutions. She has served in various leadership roles including Academic Director, Principal, and Vice Principal. Her extensive experience in educational administration and academic leadership makes her an invaluable asset to NEIEA\'s mission of providing quality education and skill development programs.'
+      fullBio: `Resource Person, Facilitator(Educomp Solutions Limited) & Manager Academics,Project Coordinator (Learning Links Foundation ) for a successful Research Project on Whole School transformation-How Do Students Want To Learn (2008-2013) based on Activity based ,Student centric approach for Affordable private schools, presently Academic Director For a Group of Schools and Alhamdulillah as a team member of WOMEN EDUCATIONAL FORUM & AIMPLB Women’s Wing.
+
+Core competencies:
+
+⦿  Trainings & Orientation Programs for the Stake Holders of Schools.
+
+⦿  Training the Trainers (For different Projects of Learning Links FoundationIndia)
+
+⦿  Life Skills Trainer (Grade 1 to 10)
+
+⦿  Math Lab Manipulatives Trainer.
+
+⦿  English Proficiency Development Trainer.
+
+⦿  Center Head -Hindi Prachar Sabha,Hyderabad.
+
+⦿  Certified Google Educator Level 1 ( 2021)
+
+⦿  International Certified Career Coach Level 1-Mindler (2020)`
     },
     {
       name: 'Ms Niloufer Baig',
@@ -33,7 +109,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Niloufer Baig_croped.jpg',
       hasImage: true,
       category: 'directors',
-      fullBio: 'Ms. Niloufer Baig is a Senior Leader with a Master\'s degree and over 12 years of comprehensive experience in overseeing operations across Telangana and Andhra Pradesh. Her regional expertise and operational management skills have been instrumental in expanding NEIEA\'s reach and impact in these key states. She specializes in program implementation, stakeholder management, and strategic planning for educational initiatives.'
+      fullBio: 'Niloufer Baig, with a Master’s degree and over 12 years of extensive experience in the education sector, has excelled across various domains such as delivering curriculum to the secondary school learners, administrative management, grievance handling, and staff recruitment. Her broad expertise and comprehensive understanding of educational operations have made her a dynamic and adaptable leader. Currently, she holds the position of Senior Leader at NEIEA, overseeing operations across Telangana and Andhra Pradesh. In this role, she is deeply involved in strategic leadership, client liaisoning, and mentorship, fostering collaboration among stakeholders contributing to the professional development of her team.'
     },
 
     // Advisors
@@ -44,7 +120,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Dr.K.Anand.png',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Dr. K. N. Anandan is the Co-Founder & Guru of NEIEA, renowned as an Indian Linguist, ELT (English Language Teaching) specialist, and dedicated social activist. He is the visionary developer of Discourse Oriented Pedagogy (DOP), an innovative teaching methodology that has revolutionized language learning approaches. His groundbreaking work in linguistics and pedagogy has significantly influenced educational practices and continues to shape NEIEA\'s teaching methodologies.'
+      fullBio: 'Dr. K. N. Anandan holds a PGCTE, PGDTE, M. Litt, and PhD from CIEFL, Hyderabad. He has extensive experience working as a consultant with the District Primary Education Programme (DPEP) and later with Sarva Shiksha Abhiyan (SSA) in Kerala.\n\nAnandan\'s conceptualization of Discourse Oriented Pedagogy (DOP) has revolutionized second language pedagogy in the states of Kerala and Telangana, as reflected in the Kerala Curriculum Framework (KCF-2007) and the State Curriculum Framework (SCF-2011). DOP draws inspiration from linguistic theories, SLA theories, and cognitive psychology. Its implementation has made a significant impact in select schools of Pondicherry, Mandya in Karnataka, and other regions.\n\nDr. Anandan has contributed to the field of second language pedagogy through his publications in esteemed journals such as LLT – A Journal on Language and Language Teaching, Fortell – A peer-reviewed journal of Teaching English, and REISI journals. Notably, he has authored two books on second language pedagogy, "Tuition to Intuition" (2006) and "Freedom from Imperial Shackles" (2016). His book "Bhashasastrathile Chomskyan Viplavam" (The Chomskyan Revolution in Linguistics) written in Malayalam, was honored with the Kerala Sahithya Academy Endowment Award (2006). Additionally, he shares his insights and research on pedagogy through his blog, "Critical Lens" (http://drknanandan.blogspot.com).\n\nOver the past two decades, Dr. Anandan has developed various programs based on DOP principles, including Second Language Acquisition Programme (SLAP), Rapid Acquisition of Competence in English (RACE), Rapid English Acquisition Programme (REAP), Promoting Acquisition of Competence in English (PACE), Facilitating Acquisition of Competence in English (FACE), Acquiring Competence in English (ACE), and Special Package for Acquiring Competence in English (SPACE). These programs cater to different government agencies and NGOs, targeting learners at various levels.\n\nCurrently, Dr. Anandan serves as a freelance English consultant, offering his expertise and services to various institutions and organizations. Further information about his work can be found on his website at http://www.anandanacademy.org.'
     },
     {
       name: 'Dr. Peshimam Nazeer Ahmed',
@@ -53,7 +129,51 @@ const Bio = () => {
       image: '/assets/images/leadership/Dr. Peshimam Nazeer Ahmed.jpg',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Dr. Peshimam Nazeer Ahmed brings 45 years of exceptional administrative and teaching experience to NEIEA. He serves as Joint Secretary of OMEIAT and is a distinguished Government Best Teacher Awardee. His extensive career in education administration and his recognition as an outstanding educator make him a valuable advisor in shaping educational policies and practices within the organization.'
+      fullBio: `⦿ Administrative & Teaching Experience of 45 years.
+
+⦿ Special Grade Founder Headmaster, Osmania Hr.Sec.School (33 Years) Tirupathur Tirupathur District.
+
+⦿ WMO, CBSE School Principal, Wayanad (5 years)
+
+⦿ Principal, Matriculation Hr.Sec.School, Tirupathur. ( 2 Years )
+
+⦿ Mentor, CBSE Schools.
+
+⦿ Govt. of Tamil Nadu Best Teacher Awardee.
+
+⦿ Best Teacher-National Awardee.
+
+⦿ Trained in NCERT Educational & Cultural Program of 40 days in New Delhi.
+
+⦿ Trained in Mathematics Orientation Course at Aligarh Muslim University, Aligarh.
+
+⦿ Trained in Teachers Orientation Program at Jamia Milliah, New Delhi.
+
+⦿ Trained in Teachers Orientation Program at Osmania University, Hyderabad.
+
+⦿ Organization of Muslim Educational Institutions & Associations of Tamil Nadu (OMEIAT) Joint Secretary , MEMBER and Ex. Member OMEIAT since 1977.
+
+⦿ Vice-president – Federation of Muslim Educational Institutions and All India Private Schools and Children’s welfare Association.
+
+⦿ Secretary, Federation of Muslim Educational Institutions Tamil Nadu.
+
+⦿ Educational Advisor – State Board and CBSE Schools.
+
+⦿ Editor, Educational Vision.
+
+⦿ Former Head TN, Association of Muslim Professionals.
+
+⦿ Executive Member – Ambur Muslim Educational Society , Ambur.
+
+⦿ Ex General Secretary, Osmania Hr Sec School, Primary School and Muslim Orphanage., Tirupathur, Tirupathur District.
+
+⦿ CBSE Schools Recognition Inspection Panel Former Member.
+
+⦿ Former Chairperson, Minority Languages ,Tamilnadu Text Books Society.
+
+⦿ Director, New Education Policy 1986, Mass Teacher Training Program.
+
+⦿ Secretary, Falah e Millath Federation, Tirupathur.`
     },
     {
       name: 'Prof. Shantha Sinha',
@@ -62,16 +182,22 @@ const Bio = () => {
       image: '/assets/images/leadership/Prof. Shantha Sinha.png',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Prof. Shantha Sinha is India\'s leading child rights activist and a Ramon Magsaysay Award recipient. She headed the National Commission for Protection of Child Rights from 2007-2013 and has dedicated her life to protecting children\'s rights and promoting their welfare. Her expertise in child protection, education rights, and social activism provides invaluable guidance to NEIEA\'s mission of ensuring quality education for all children, especially those from marginalized communities.'
+      fullBio: `India’s leading child rights activist. She headed the National Commission for Protection of Child Rights, Govt of India, from 2007-2013.
+
+In this capacity she addressed issues concerning violation of children’s rights in relation to children’s right to education;child labour and child trafficking; rights of children in areas of civil unrest;  juvenile justice system; corporal punishment, child abuse and violence on children; child malnutrition gender discrimination and girls’ education and so on.
+
+She was the Founder Secretary Trustee of M V Foundation which was responsible for withdrawing over one million children from work and mainstreaming them into public schools. She spearheaded the bridge course program in India for older children. She is the recipient of the Albert Shanker International Educational Award presented by Educational International in recognition in 1998, Ramon Magsaysay Award, 2003 for community leadership and the Padma Shri ( highest civilian award) in 1998 by the Government of India among others. She is also a retired Professor in Political Science, University of Hyderabad.
+
+`
     },
     {
       name: 'Mrs. M. Chaya Ratan',
-      title: 'Advisor',
+      title: 'IAS (Rtd.)',
       description: 'IAS (Rtd.) - Retired IAS officer (1977 batch), Master\'s degree in Eco-Social Policy and Planning from London School of Economics',
       image: '/assets/images/leadership/Mrs. M. Chaya Ratan.jpg',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Mrs. M. Chaya Ratan is a retired IAS officer from the 1977 batch who brings decades of administrative excellence and policy expertise to NEIEA. She holds a Master\'s degree in Eco-Social Policy and Planning from the prestigious London School of Economics. Her extensive experience in government administration, policy formulation, and her specialized knowledge in eco-social planning make her an invaluable advisor for strategic planning and policy development.'
+      fullBio: 'Mrs. Ratan is a retired IAS officer (1977 batch). She was an able administrator, implementing several reforms to bring about change in various departments such as health, college and school education, family welfare and tribal welfare, among others. She worked to uplift poor and marginal sections (including the differently abled members) of society, facilitating their access to basic services. Her efforts helped establish 45 Public Healthcare Centres (PHCs) in tribal areas. She holds a master’s degree in Eco-Social Policy and Planning from London School of Economics, England.'
     },
     {
       name: 'Vinod Mubayi',
@@ -80,7 +206,15 @@ const Bio = () => {
       image: '/assets/images/leadership/Vinod Mubayi.jpg',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Vinod Mubayi is an accomplished American Physicist with a PhD from Brandeis University. He is a distinguished member of the American Association for the Advancement of Science and the American Nuclear Society. His scientific background and international perspective bring valuable insights to NEIEA\'s technology integration and scientific approach to education. His expertise helps bridge the gap between traditional education and modern scientific methodologies.'
+      fullBio: `Vinod Mubayi, American Physicist. Member American Association for the Advancement of Science, American Nuclear Society, American Solar Energy Society, New York Academy Science.
+
+Mubayi, Vinod was born on September 27, 1941 in Lahore, Punjab, Pakistan. Son of Baikunth Nath and Kunwar Rani (Razdan) Mubayi.
+
+Education:
+Bachelor of Science, Delhi (India) U., 1961; Doctor of Philosophy, Brandeis U., 1968. Career Research associate, Cornell Univercity, Ithaca, New York, 1967-1969; research fellow, Tata Institute Fund Research, Bombay, 1969-1974; research associate, Brandeis U., Waltham, Massachusetts, 1974-1975; physicist, Brookhaven National Laboratory, Upton, New York, since 1976. Adjunct Professor State University of New York, Stony Brook, 1978-1981. Consultant United Nations, New York City, 1981-1985, Idea, Inc., Washington, 1984-1987.
+
+Achievements:
+Vinod Mubayi has been listed as a noteworthy Physicist by Marquis Who’s Who. Membership Member American Association for the Advancement of Science, American Nuclear Society, American Solar Energy Society, New York Academy Science.`
     },
     {
       name: 'Ms AV AMBIKA',
@@ -89,7 +223,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
       hasImage: true,
       category: 'directors',
-      fullBio: 'Ms. AV Ambika serves as Treasurer of Aman Vedika and is a multi-talented individual with diverse expertise. She is an activist, experienced school teacher, theatre artist, singer, and documentary filmmaker. Her multifaceted background in education, arts, and social activism brings a unique perspective to NEIEA\'s leadership team. Her creative approach to education and her commitment to social causes align perfectly with NEIEA\'s mission of holistic development.'
+      fullBio: 'Treasurer of Aman Vedika. She has donned many hats- activist, school teacher, theatre artist, singer, documentary film maker for all of which she used her theatre skills to spread her message more effectively.'
     },
     {
       name: 'Ms Uzma Nahid',
@@ -98,7 +232,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms Uzma Nahid.jpg',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Ms. Uzma Nahid is the Founder President of India International Women\'s Alliance (IIWA) and has been a renowned social activist dedicated to empowering women since 1977. Her decades-long commitment to women\'s rights and empowerment brings crucial perspective to NEIEA\'s programs, especially those focused on girls\' education and women\'s skill development. Her extensive experience in grassroots activism and women\'s advocacy helps shape inclusive educational policies.'
+      fullBio: 'A renowned social activist, is the Founder President of India International Women’s Alliance (IIWA). Her journey began in 1977, dedicated to empowering women, particularly within the Muslim community.'
     },
     {
       name: 'Ms. Rubina Mazhar',
@@ -152,7 +286,15 @@ const Bio = () => {
       image: '/assets/images/leadership/Basir Mchawi Director Of NEIEA.png',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Mr. Basir Mchawi is a lifelong activist, educator, and communicator who has dedicated over fifty years to African liberation, cultural celebration, and community empowerment. As Director of NEI, he brings invaluable international perspective and cross-cultural understanding to NEIEA\'s global initiatives. His extensive experience in community empowerment and cultural advocacy helps in developing culturally sensitive and inclusive educational programs that respect and celebrate diversity.'
+      fullBio: `Mr. Basir Mchawi is a remarkable figure whose career spans activism, education, and communication. With over fifty years devoted to the African Liberation struggle, Mr. Mchawi has emerged as a champion for change.
+
+As an educator, he has held roles from teacher to central office administrator, advocating for independent Black schools. During his tenure in New York City’s Public Schools, he amplified the voices of communities of color as a special assistant to Dr. Richard Green, the city’s first African American Public Schools Chancellor.
+
+Mr. Mchawi co-founded the African Street Carnival, now known as the International African Arts Festival, which celebrates African culture. He recognizes the significance of African cultural practices, having chaired the IAAF for over a decade.
+
+His commitment to community empowerment extends to media. He’s been an editor, contributor, and radio show host, bringing crucial information to the public. Currently, he hosts the award-winning WBAI radio program “Education at the Crossroads” and contributes to local newspapers.
+
+While retired, Mr. Mchawi continues to teach in the CUNY system and remains dedicated to community engagement. His legacy thrives through his tireless dedication to “the people’s” work`
     },
     {
       name: 'Shahzad Nabi',
@@ -161,7 +303,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Shahzad-nabi-Director.png',
       hasImage: true,
       category: 'advisors',
-      fullBio: 'Mr. Shahzad Nabi is a visionary senior executive and CSR-certified leader who drives innovation, sustainable growth, and social impact through his expertise in IT, corporate strategy, and philanthropy. As Director of NEI, he brings cutting-edge technology insights and corporate strategic thinking to NEIEA\'s operations. His expertise in IT and digital transformation helps in leveraging technology for educational innovation and program scalability.'
+      fullBio: `Mr. Shahzad Nabi is a dynamic Senior Executive and visionary leader in NEI. With a strong focus on sustainable growth, diversity, and inclusion, he brings strategic guidance and IT expertise to organizations, catalyzing the advancement of technology-based startups and SMEs. With a distinguished career spanning Fortune 500 Companies like Verizon Business and MCI WORLDCOM, Mr. Nabi’s impact is evident. As the Director of NexGen Excellence, he has been fostering innovation since 2011. Beyond corporate achievements, he contributes to philanthropy as a Board Trustee at RS Care Foundation. With a background in Computer Science from Birla Institute of Technology Mesra and a commitment to social responsibility, he’s certified as a Corporate Social Responsibility Professional and advocates for peacebuilding. Possessing a diverse skill set ranging from IT management to non-profit leadership, Mr. Shahzad Nabi is a dedicated advocate for growth, innovation, and positive change, making him an exemplary corporate and social influencer.`
     },
     {
       name: 'Prof. Pritham Singh',
@@ -217,7 +359,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Syed Danish Ali.jpg',
       hasImage: true,
       category: 'staff',
-      fullBio: 'Syed Danish Ali serves as a Supervisor with 20 years of diverse professional experience spanning multiple domains. His background includes 7 years in BPO operations and 5 years specifically dedicated to education and teaching. This unique combination of corporate and educational experience allows him to bring operational efficiency and educational insight to program supervision and quality assurance at NEIEA.'
+      fullBio: 'Syed Danish Ali is an ardent and devoted individual currently serving as a Supervisor at NEIEA. He holds a background in Political Science and boasts an extensive 20-year experience in diverse domains. During his formative years, he developed impeccable teamwork abilities while working at renowned International BPOs for a period of 7 years. Following that, he ventured into the public relations sector with Hype Communication, where he served many reputable entities for over 7 years as a team leader. However, it was after completing the Effective Teachers Course from Scientology that he discovered his true passion for education. Over the past 5 years, he has diligently honed his teaching skills and expertise, being associated with esteemed institutions like Wigan and Leigh College & IMTA. His profound dedication has had a positive and transformative impact on the lives of countless students and colleagues across India.'
     },
     {
       name: 'Ms Taskeen Tarannum',
@@ -226,7 +368,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Ms-Taskeen-Tarannum croped.png',
       hasImage: true,
       category: 'staff',
-      fullBio: 'Ms. Taskeen Tarannum serves as Deputy Supervisor and holds B.A and B.Ed qualifications with over 12 years of dedicated teaching experience. She is the driving force behind NEIEA\'s online English program, demonstrating exceptional leadership in digital education delivery. Her expertise in English language instruction and online pedagogy has been instrumental in expanding NEIEA\'s reach through innovative digital learning platforms.'
+      fullBio: "Ms. Taskeen Tarannum is a highly experienced educator with a B.A, and B.Ed. With over 12 years of teaching experience, she has been a driving force behind the online English program at NEIEA. Ms. Taskeen's unwavering commitment to professional development and adaptability has shaped NEIEA into a pioneering institution in online education. As the deputy supervisor, she continues to inspire her team and foster a positive learning environment for all students at NEIEA."
     },
     {
       name: 'Mr. Sajjad Qasmi',
@@ -262,7 +404,7 @@ const Bio = () => {
       image: '/assets/images/leadership/Farha Khan.jpg',
       hasImage: true,
       category: 'staff',
-      fullBio: 'Ms. Farha Khan is the Head of Mathematics and IT, bringing exceptional qualifications including Google certification as an educator, Master\'s degrees in Computer Applications and Mathematics, and over 15 years of experience. Her dual expertise in mathematics and information technology makes her uniquely qualified to lead NEIEA\'s STEM education initiatives. Her innovative approach to integrating technology in mathematics education helps students develop both computational thinking and mathematical proficiency.'
+      fullBio: "Ms. Farha is a dynamic team leader, driven by innovation and resourcefulness, boasting a solid background as a Google certified educator, and holding Master's degrees in both Computer Applications and Mathematics. With over 15 years of enriched teaching experience and 5 years as a proficient team leader, she brings a unique blend of technical expertise and academic knowledge to the table."
     },
     {
       name: 'Ms Arzoo Siraj',
@@ -271,7 +413,7 @@ const Bio = () => {
       image: '/assets/images/leadership/defaultProfile2.jpg',
       hasImage: false,
       category: 'staff',
-      fullBio: 'Ms. Arzoo Siraj holds an M.Tech in Computer Science and serves as the Head of Social Media and IT Skills training. She is a technical member and team leader for data entry and operations courses, bringing cutting-edge technical knowledge to NEIEA\'s digital skills programs. Her expertise in computer science and her leadership in IT skills training help prepare students for the digital economy and modern workplace requirements.'
+      fullBio: "Arzoo Siraj, a young and innovative individual has an M.Tech in Computer Science. At NEIEA,she serves as a technical member and holds the role of a team leader for the Data entry and operation course. Her passion lies in providing education to people from all walks of life, empowering them with essential skills. As a multitasking person,she strives to create a dynamic and engaging learning environment that fosters growth and development."
     },
     {
       name: 'Ms. Saba Manzoor',
@@ -477,7 +619,7 @@ const Bio = () => {
                       textAlign: "justify"
                     }}
                   >
-                    <p>{member.fullBio || member.description || 'Biography information will be updated soon.'}</p>
+                    {renderBioText(member.fullBio || member.description)}
                   </div>
                 </div>
 
