@@ -500,9 +500,9 @@ const VolunteerForm = () => {
       } catch (error) {
         console.error("Error submitting form:", error);
         const errorMessage = error instanceof Error && 'response' in error 
-          ? (error as any).response?.data?.error || (error as any).response?.data?.message || 'Unknown error'
+          ? (error as any).response?.data?.errors || (error as any).response?.data?.message || 'Unknown error'
           : 'Unknown error';
-        toast.error(`An error occurred. Please try again`);
+        toast.error(`${errorMessage}`);
       } finally {
         setIsSubmitting(false);
       }
