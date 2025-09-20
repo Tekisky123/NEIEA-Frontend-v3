@@ -26,7 +26,7 @@ const countryCodes = {
   "Other": "+"
 };
 
-// Updated form schema with country-based validation
+// Updated form schema with proper validation
 const formSchema = z.object({
   fullName: z.string().min(1, "Full Name is required"),
   email: z.string().email("Invalid email address"),
@@ -38,16 +38,16 @@ const formSchema = z.object({
   age: z.string().min(1, "Age is required"),
   gender: z.string().min(1, "Gender is required"),
   isStudent: z.string().min(1, "This field is required"),
-  classStudying: z.string().optional(),
-  state: z.string().optional(),
-  city: z.string().optional(),
-  address: z.string().optional(),
+  classStudying: z.string().optional().or(z.literal("")),
+  state: z.string().optional().or(z.literal("")),
+  city: z.string().optional().or(z.literal("")),
+  address: z.string().optional().or(z.literal("")),
   whatsappNumber: z.string()
     .min(10, "WhatsApp number must be at least 10 digits")
     .regex(/^\d{10,15}$/, "Invalid WhatsApp number format"),
   referredBy: z.string().min(1, "Referred By is required"),
   convenientTimeSlot: z.string().min(1, "Convenient Time Slot is required"),
-  message: z.string().optional(),
+  message: z.string().optional().or(z.literal("")),
 }).superRefine((data, ctx) => {
   // If country is India, state and city are required
   if (data.country === "India") {
@@ -75,6 +75,15 @@ const formSchema = z.object({
       });
     }
   }
+
+  // If isStudent is "Yes", classStudying is required
+  if (data.isStudent === "Yes" && !data.classStudying) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Class studying is required when you're a student",
+      path: ["classStudying"],
+    });
+  }
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -95,7 +104,14 @@ const ApplyCourse = () => {
   const { register, handleSubmit, setValue, reset, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      country: "India"
+      country: "India",
+      gender: "",
+      isStudent: "",
+      referredBy: "",
+      state: "",
+      city: "",
+      classStudying: "",
+      convenientTimeSlot: course?.timeSlots?.[0] || "",
     }
   });
 
@@ -106,6 +122,10 @@ const ApplyCourse = () => {
     try {
       const response = await axiosInstance.get(`/course/getOneCourse/${id}`);
       setCourse(response.data);
+      // Set default time slot if available
+      if (response.data.timeSlots?.length > 0) {
+        setValue("convenientTimeSlot", response.data.timeSlots[0]);
+      }
     } catch (error) {
       toast.error("Failed to load course");
     }
@@ -147,6 +167,7 @@ const ApplyCourse = () => {
     if (name === "state" && country === "India") {
       const selectedState = statesAndCities.find((s) => s.state === value);
       setCities(selectedState ? selectedState.cities : []);
+      setValue("city", ""); // Reset city when state changes
     }
   };
 
@@ -232,16 +253,34 @@ const ApplyCourse = () => {
       const formattedPhone = formatPhoneNumber(data.phone, data.country);
       const formattedWhatsapp = formatPhoneNumber(data.whatsappNumber, data.country);
 
-      const payload = {
-        ...data,
-        course: course?._id,
+      // Prepare payload with only relevant fields
+      const payload: any = {
+        fullName: data.fullName,
+        email: data.email,
+        country: data.country,
         phone: formattedPhone,
+        motherTongue: data.motherTongue,
+        age: data.age,
+        gender: data.gender,
+        isStudent: data.isStudent,
         whatsappNumber: formattedWhatsapp,
-        // Only include address if country is not India
-        ...(data.country !== "India" && { address: data.address }),
-        // Only include state/city if country is India
-        ...(data.country === "India" && { state: data.state, city: data.city })
+        referredBy: data.referredBy,
+        convenientTimeSlot: data.convenientTimeSlot,
+        message: data.message || "",
+        course: course?._id,
       };
+
+      // Add conditional fields only if they have values
+      if (data.country === "India") {
+        payload.state = data.state;
+        payload.city = data.city;
+      } else {
+        payload.address = data.address;
+      }
+
+      if (data.isStudent === "Yes") {
+        payload.classStudying = data.classStudying;
+      }
 
       if (course.fees > 0) {
         const resp = await axiosInstance.post(`/course/verify-apply-course/${id}`, payload);
@@ -324,6 +363,12 @@ const ApplyCourse = () => {
               <h2 className="form-title">Application Form</h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-grid">
+                  {/* Hidden inputs for default values */}
+                  <input type="hidden" {...register("gender")} value="" />
+                  <input type="hidden" {...register("isStudent")} value="" />
+                  <input type="hidden" {...register("referredBy")} value="" />
+                  <input type="hidden" {...register("convenientTimeSlot")} value={course.timeSlots?.[0] || ""} />
+
                   <div className="form-group">
                     <label htmlFor="fullName" className="form-label">Full Name *</label>
                     <Input id="fullName" {...register("fullName")} placeholder="Your Full Name" className="form-input" />
@@ -444,14 +489,14 @@ const ApplyCourse = () => {
                         <div key={gender} className="radio-item">
                           <input
                             type="radio"
-                            id={gender}
+                            id={`gender-${gender}`}
                             {...register("gender")}
                             value={gender}
                             checked={watch("gender") === gender}
                             onChange={() => setValue("gender", gender)}
                             className="radio-input"
                           />
-                          <label htmlFor={gender} className="radio-label">{gender}</label>
+                          <label htmlFor={`gender-${gender}`} className="radio-label">{gender}</label>
                         </div>
                       ))}
                     </div>
@@ -465,14 +510,14 @@ const ApplyCourse = () => {
                         <div key={option} className="radio-item">
                           <input
                             type="radio"
-                            id={option}
+                            id={`student-${option}`}
                             {...register("isStudent")}
                             value={option}
                             checked={watch("isStudent") === option}
                             onChange={() => setValue("isStudent", option)}
                             className="radio-input"
                           />
-                          <label htmlFor={option} className="radio-label">{option}</label>
+                          <label htmlFor={`student-${option}`} className="radio-label">{option}</label>
                         </div>
                       ))}
                     </div>
@@ -530,24 +575,27 @@ const ApplyCourse = () => {
                             <div key={slot} className="time-slot-item">
                               <input
                                 type="radio"
-                                id={slot}
+                                id={`slot-${slot}`}
                                 {...register("convenientTimeSlot")}
                                 value={slot}
                                 checked={watch("convenientTimeSlot") === slot}
                                 onChange={() => setValue("convenientTimeSlot", slot)}
                                 className="time-slot-input"
                               />
-                              <label htmlFor={slot} className="time-slot-label">{slot}</label>
+                              <label htmlFor={`slot-${slot}`} className="time-slot-label">{slot}</label>
                             </div>
                           ))}
                         </div>
                       </div>
                     ) : (
-                      <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                        <p className="text-yellow-800 text-sm">
-                          <strong>Note:</strong> Convenient time slots have not been added for this course yet. Please contact the administrator for scheduling information.
-                        </p>
-                      </div>
+                      <>
+                        <input type="hidden" {...register("convenientTimeSlot")} value="Not specified" />
+                        <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <p className="text-yellow-800 text-sm">
+                            <strong>Note:</strong> Convenient time slots have not been added for this course yet. Please contact the administrator for scheduling information.
+                          </p>
+                        </div>
+                      </>
                     )}
                     {errors.convenientTimeSlot && <p className="form-error">{errors.convenientTimeSlot.message}</p>}
                   </div>
