@@ -4,6 +4,7 @@ const slider1 = '/assets/images/resized_classroom_image.png';
 const slider2 = '/assets/images/resized_classroom_image2.png';
 const slider3 = '/assets/images/slider5 (1).jpg';
 const slider4 = '/assets/images/slider6 (1).jpeg';
+const slider5 = '/assets/images/homesider6image.jpg';
 
 const Banner = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -13,7 +14,8 @@ const Banner = () => {
     { img: slider1, alt: "Philanthropy Summit" },
     { img: slider2, alt: "US Forum" },
     { img: slider3, alt: "Impact Report" },
-    { img: slider4, alt: "New Event" }
+    { img: slider4, alt: "New Event" },
+    { img: slider5, alt: "Home Slider 6" }
   ];
 
   useEffect(() => {

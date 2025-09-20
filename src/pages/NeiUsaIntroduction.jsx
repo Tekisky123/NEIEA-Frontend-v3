@@ -349,27 +349,11 @@ const NeiUsaIntroduction = () => {
               >
                 Whether as a learner, volunteer, donor, or partner — your support strengthens our mission of building equitable access to education for all.
               </p>
-              <div className="mb-4">
-                <p style={{ color: "#495057", fontSize: "16px", marginBottom: "15px" }}>
-                  For more details, please visit:
-                </p>
-                <a 
-                  href="https://neiusa.org/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    color: "#06038F", 
-                    fontSize: "18px", 
-                    fontWeight: "600",
-                    textDecoration: "none"
-                  }}
-                >
-                  https://neiusa.org/
-                </a>
-              </div>
               <div>
                 <a 
-                  href="/about-us/contact" 
+                  href="https://neiusa.org/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary me-3"
                   style={{
                     backgroundColor: "#06038F",

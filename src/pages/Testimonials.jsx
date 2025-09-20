@@ -170,7 +170,7 @@ const Testimonials = () => {
 
       <div className="row g-4 mb-5">
         {testimonials.map((testimonial, index) => (
-          <div key={testimonial.id} className="col-lg-4 col-md-6 col-sm-12">
+          <div key={testimonial.id} className="col-lg-4 col-md-6 col-12 mb-4">
              <div 
                className="testimonial-card h-100"
                style={{ 
@@ -182,7 +182,7 @@ const Testimonials = () => {
                  position: "relative",
                  overflow: "hidden",
                  transition: "all 0.3s ease",
-                 minHeight: "420px",
+                 minHeight: "auto",
                  display: "flex",
                  flexDirection: "column"
                }}
@@ -220,14 +220,15 @@ const Testimonials = () => {
                <div className="d-flex align-items-center mb-4">
                  <div 
                    style={{
-                     width: "100px",
-                     height: "100px",
+                     width: "80px",
+                     height: "80px",
                      borderRadius: "50%",
                      overflow: "hidden",
                      border: "3px solid #06038F",
-                     marginRight: "20px",
+                     marginRight: "15px",
                      flexShrink: 0
                    }}
+                   className="profile-image-container"
                  >
                 <img
                   src={testimonial.image}
@@ -246,9 +247,10 @@ const Testimonials = () => {
                        color: "#212529", 
                        fontWeight: "700", 
                        marginBottom: "8px",
-                       fontSize: "20px",
+                       fontSize: "18px",
                        fontFamily: "inherit"
                      }}
+                     className="testimonial-name"
                    >
                     {testimonial.name}
                   </h5>
@@ -273,9 +275,10 @@ const Testimonials = () => {
                   padding: "20px",
                   marginTop: "20px",
                   position: "relative",
-                  minHeight: "140px",
+                  minHeight: "auto",
                   display: "flex",
-                  alignItems: "flex-start"
+                  alignItems: "flex-start",
+                  flex: "1"
                 }}
               >
                 <p 
@@ -285,12 +288,7 @@ const Testimonials = () => {
                     fontSize: "14px",
                     fontStyle: "italic",
                     margin: "0",
-                    fontFamily: "inherit",
-                    display: "-webkit-box",
-                    WebkitLineClamp: "6",
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis"
+                    fontFamily: "inherit"
                   }}
                 >
                 "{testimonial.content}"
