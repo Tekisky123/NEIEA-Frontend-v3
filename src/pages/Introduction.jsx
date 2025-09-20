@@ -105,34 +105,50 @@ const Introduction = () => {
         }}
       ></div>
 
-      {/* Who We Are Section */}
+      {/* Registration Section */}
       <section style={{ backgroundColor: "#fff", padding: "80px 0" }}>
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2
-                style={{
-                  fontSize: "48px",
-                  fontWeight: "700",
-                  color: "#212529",
-                  marginBottom: "30px",
-                  lineHeight: "1.2",
-                }}
-              >
-                Registration
-              </h2>
-              <p
-                style={{
-                  fontSize: "18px",
-                  lineHeight: "1.6",
-                  color: "#6c757d",
-                  marginBottom: "0",
-                }}
-              >
-                NEIEA was officially registered on April 18, 2022, as a Section 8a non-profit educational organization in India, after two years of active educational discussions and planning during the Pandemic. NEIEA has 12a and 80g approvals from the Government of India and also Darpan ID.
-              </p>
+            <div className="col-lg-6 col-md-6 mb-4 mb-lg-0">
+              <div className="text-center text-lg-start">
+                <h2
+                  style={{
+                    fontSize: "48px",
+                    fontWeight: "700",
+                    color: "#212529",
+                    marginBottom: "30px",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  Registration
+                </h2>
+                <p
+                  style={{
+                    fontSize: "22px",
+                    lineHeight: "1.6",
+                    color: "#464646",
+                    marginBottom: "0",
+                  }}
+                >
+                  NEIEA was officially registered on April 18, 2022, as a Section 8a non-profit educational organization in India, after two years of active educational discussions and planning during the Pandemic. NEIEA has 12a and 80g approvals from the Government of India and also Darpan ID.
+                </p>
+              </div>
             </div>
-   
+            <div className="col-lg-6 col-md-6">
+              <div className="text-center">
+                <img
+                  src="/assets/images/vision2 (1).jpg"
+                  alt="NEIEA Registration"
+                  className="img-fluid rounded shadow"
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    borderRadius: "10px",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

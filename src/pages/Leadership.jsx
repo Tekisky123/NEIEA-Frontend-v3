@@ -73,22 +73,22 @@ const Leadership = () => {
       hasImage: true,
       category: 'advisors'
     },
-    {
-      name: 'Ms AV AMBIKA',
-      title: 'Advisor',
-      description: 'Treasurer of Aman Vedika - Activist, school teacher, theatre artist, singer, documentary film maker',
-      image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
-      hasImage: true,
-      category: 'advisors'
-    },
-    {
-      name: 'Hrushikesh M',
-      title: 'Vice President',
-      description: 'Human Resources, Capgemini India Pvt. Ltd. Over three decades of HR experience, XLRI alumnus',
-      image: '/assets/images/leadership/defaultProfile2.jpg',
-      hasImage: false,
-      category: 'advisors'
-    },
+    // {
+    //   name: 'Ms AV AMBIKA',
+    //   title: 'Advisor',
+    //   description: 'Treasurer of Aman Vedika - Activist, school teacher, theatre artist, singer, documentary film maker',
+    //   image: '/assets/images/leadership/Ms AV AMBIKA.jpeg',
+    //   hasImage: true,
+    //   category: 'advisors'
+    // },
+    // {
+    //   name: 'Hrushikesh M',
+    //   title: 'Vice President',
+    //   description: 'Human Resources, Capgemini India Pvt. Ltd. Over three decades of HR experience, XLRI alumnus',
+    //   image: '/assets/images/leadership/defaultProfile2.jpg',
+    //   hasImage: false,
+    //   category: 'advisors'
+    // },
     {
       name: 'Ms Uzma Nahid',
       title: 'Advisor',
