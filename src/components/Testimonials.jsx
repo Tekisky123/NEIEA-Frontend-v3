@@ -5,45 +5,83 @@ const Testimonials = () => {
     // Initialize Owl Carousel for testimonials
     const initTestimonialCarousel = () => {
       if (window.$ && window.$.fn.owlCarousel) {
-        // Destroy existing carousel if it exists
-        $('.testimonial-car').trigger('destroy.owl.carousel');
-        $('.testimonial-car').removeClass('owl-carousel owl-theme');
-        
-        // Reinitialize
-        $('.testimonial-car').addClass('owl-carousel owl-theme').owlCarousel({
-          items: 1,
-          loop: true,
-          autoplay: true,
-          autoplayTimeout: 5000,
-          autoplayHoverPause: true,
-          nav: false,
-          dots: true,
-          animateOut: 'fadeOut',
-          animateIn: 'fadeIn',
-          responsive: {
-            0: { items: 1 },
-            768: { items: 1 },
-            1024: { items: 1 }
+        try {
+          // Destroy existing carousel if it exists
+          const $carousel = $('.testimonial-car');
+          if ($carousel.hasClass('owl-carousel')) {
+            $carousel.trigger('destroy.owl.carousel');
+            $carousel.removeClass('owl-carousel owl-theme');
           }
-        });
+          
+          // Ensure DOM elements exist
+          if ($carousel.length > 0) {
+            // Reinitialize
+            $carousel.addClass('owl-carousel owl-theme').owlCarousel({
+              items: 1,
+              loop: true,
+              autoplay: true,
+              autoplayTimeout: 5000,
+              autoplayHoverPause: true,
+              nav: false,
+              dots: true,
+              animateOut: 'fadeOut',
+              animateIn: 'fadeIn',
+              smartSpeed: 600,
+              responsive: {
+                0: { items: 1 },
+                768: { items: 1 },
+                1024: { items: 1 }
+              }
+            });
+            console.log('Testimonial carousel initialized successfully');
+          } else {
+            console.log('Testimonial carousel element not found, retrying...');
+            setTimeout(initTestimonialCarousel, 100);
+          }
+        } catch (error) {
+          console.error('Error initializing testimonial carousel:', error);
+          setTimeout(initTestimonialCarousel, 100);
+        }
       } else {
         // Wait for scripts to load with timeout limit
         const retryCount = (window.owlRetryCount || 0) + 1;
-        if (retryCount < 50) { // Max 5 seconds
+        if (retryCount < 100) { // Max 10 seconds
           window.owlRetryCount = retryCount;
           setTimeout(initTestimonialCarousel, 100);
+        } else {
+          console.error('Owl Carousel failed to load after 10 seconds');
         }
       }
     };
 
-    // Small delay to ensure DOM is ready
-    setTimeout(initTestimonialCarousel, 200);
+    // Multiple initialization attempts
+    const initWithDelay = () => {
+      // Immediate attempt
+      initTestimonialCarousel();
+      
+      // Fallback attempts
+      setTimeout(initTestimonialCarousel, 500);
+      setTimeout(initTestimonialCarousel, 1000);
+      setTimeout(initTestimonialCarousel, 2000);
+    };
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'complete') {
+      initWithDelay();
+    } else {
+      window.addEventListener('load', initWithDelay);
+    }
     
     // Cleanup function
     return () => {
       if (window.$ && window.$.fn.owlCarousel) {
-        $('.testimonial-car').trigger('destroy.owl.carousel');
+        try {
+          $('.testimonial-car').trigger('destroy.owl.carousel');
+        } catch (error) {
+          console.error('Error destroying carousel:', error);
+        }
       }
+      window.removeEventListener('load', initWithDelay);
     };
   }, []);
 
@@ -142,6 +180,53 @@ const Testimonials = () => {
                   <div className="profile-name d-none d-md-block">
                     <h5>Malik Khan</h5>
                     <p>Karnataka India</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="item">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="test-cont" style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", paddingTop: "20px" }}>
+                  <img className="d-block d-md-none" src="/assets/images/Quotes1.png" alt="Quote" />
+                  {/* Video Container */}
+                  <div 
+                    style={{ 
+                      width: "280px", 
+                      height: "200px", 
+                      borderRadius: "15px", 
+                      overflow: "hidden",
+                      boxShadow: "0 8px 25px rgba(6, 3, 143, 0.15)",
+                      border: "3px solid #06038F",
+                      marginLeft: "20px",
+                      marginTop: "10px"
+                    }}
+                  >
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/bqnhdq5MqkA"
+                      title="NEIEA Student Video Testimonial"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      style={{ borderRadius: "12px" }}
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="test-cont">
+                  <div className="profile-name d-block d-md-none mt-4 mb-4">
+                    <h5>Heartfelt Appreciation</h5>
+                    <p>Gratitude from Our Community</p>
+                  </div>
+                  <img className="d-none d-md-block" src="/assets/images/Quotes1.png" alt="Quote" />
+                  <p>A sincere message of gratitude and appreciation from our community members, acknowledging NEIEA's dedication to providing quality education and making a positive impact in people's lives.</p>
+                  <div className="profile-name d-none d-md-block">
+                    <h5>Heartfelt Appreciation</h5>
+                    <p>Gratitude from Our Community</p>
                   </div>
                 </div>
               </div>

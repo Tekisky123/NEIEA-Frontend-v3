@@ -37,12 +37,12 @@ const Testimonials = () => {
     },
      {
        id: 5,
-       name: "Md Wais Raza",
-       role: "Student",
-       location: "Bihar",
+      name: "Md Wais Raza",
+      role: "Student",
+      location: "Bihar",
        image: "/assets/images/DOP_Images/Testimonials/Md-Wais-Raza.png",
-       content: "I am thrilled to share my experience with the NEIEA English proficiency course that is completely free of cost! Actually, I have completed my matriculation from English medium school but even then I used to hesitate before speaking English with others I wanted to speak fluent and flawless English...."
-     },
+      content: "I am thrilled to share my experience with the NEIEA English proficiency course that is completely free of cost! Actually, I have completed my matriculation from English medium school but even then I used to hesitate before speaking English with others I wanted to speak fluent and flawless English...."
+    },
     {
       id: 6,
       name: "Misbah Rehman",
@@ -51,14 +51,14 @@ const Testimonials = () => {
       image: "/assets/images/defaultProfile2.jpg",
       content: "I had to leave my education earlier due to personal reasons, but thanks to NEIEA's free online classes, I've been able to continue learning in new ways. The Microsoft Office course for beginners has been a huge help, especially for my business. I can now create advertisements, keep records, and manage my tasks much more efficiently. I'm really impressed with the quality of the classes, and I'm grateful for the opportunity to learn and grow again. NEIEA's support has truly made a difference in my life."
     },
-     {
+    {
        id: 7,
-       name: "Malik Khan",
-       role: "Student",
-       location: "Karnataka",
+      name: "Malik Khan",
+      role: "Student",
+      location: "Karnataka",
        image: "/assets/images/DOP_Images/Testimonials/Malik_khan.png",
-       content: "I took an online course in NEIEA which is regarding spoken English and I was blown away by how much I learned. The instructor was engaging and knowledgeable, and the course material was presented in a clear and concise way ...."
-     },
+      content: "I took an online course in NEIEA which is regarding spoken English and I was blown away by how much I learned. The instructor was engaging and knowledgeable, and the course material was presented in a clear and concise way ...."
+    },
     {
       id: 8,
       name: "Asna Shaikh",
@@ -101,27 +101,27 @@ const Testimonials = () => {
     }
   ];
 
-   const featuredVideos = [
-     {
-       id: 1,
+  const featuredVideos = [
+    {
+      id: 1,
        title: "From Hesitation to Confidence: My English Journey",
        description: "Watch how NEIEA's English course transformed a student's communication skills and boosted their confidence in speaking.",
        image: "https://img.youtube.com/vi/bqnhdq5MqkA/maxresdefault.jpg",
        type: "Success Story",
        duration: "Video",
        videoUrl: "https://youtu.be/bqnhdq5MqkA"
-     },
-     {
-       id: 2,
+    },
+    {
+      id: 2,
        title: "Breaking Language Barriers with NEIEA",
        description: "A heartfelt story of overcoming language challenges and achieving fluency through dedicated learning.",
        image: "https://img.youtube.com/vi/S52K-BLtv9Y/maxresdefault.jpg",
        type: "Inspiring Journey",
        duration: "Short",
        videoUrl: "https://youtube.com/shorts/S52K-BLtv9Y"
-     },
-     {
-       id: 3,
+    },
+    {
+      id: 3,
        title: "Life-Changing Education: A Student's Perspective",
        description: "Discover how free quality education opened new doors and created opportunities for personal growth.",
        image: "https://img.youtube.com/vi/vCdBt87eRKI/maxresdefault.jpg",
@@ -137,8 +137,8 @@ const Testimonials = () => {
        type: "Transformation",
        duration: "Video",
        videoUrl: "https://youtu.be/Z9adhx-Wv1E?si=ivYLJThgoCL-2bRL"
-     }
-   ];
+    }
+  ];
 
   return (
     <PageTemplate
@@ -229,9 +229,9 @@ const Testimonials = () => {
                      flexShrink: 0
                    }}
                  >
-                   <img
-                     src={testimonial.image}
-                     alt={testimonial.name}
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
                      style={{ 
                        width: "100%", 
                        height: "100%", 
@@ -240,7 +240,7 @@ const Testimonials = () => {
                      }}
                    />
                  </div>
-                 <div>
+                <div>
                    <h5 
                      style={{ 
                        color: "#212529", 
@@ -250,8 +250,8 @@ const Testimonials = () => {
                        fontFamily: "inherit"
                      }}
                    >
-                     {testimonial.name}
-                   </h5>
+                    {testimonial.name}
+                  </h5>
                    <p 
                      style={{ 
                        color: "#6c757d", 
@@ -261,9 +261,9 @@ const Testimonials = () => {
                      }}
                    >
                      📍 {testimonial.location}
-                   </p>
-                 </div>
-               </div>
+                  </p>
+                </div>
+              </div>
 
               {/* Testimonial Content */}
               <div 
@@ -293,8 +293,8 @@ const Testimonials = () => {
                     textOverflow: "ellipsis"
                   }}
                 >
-                  "{testimonial.content}"
-                </p>
+                "{testimonial.content}"
+              </p>
               </div>
 
             </div>
@@ -353,8 +353,8 @@ const Testimonials = () => {
                 e.currentTarget.style.boxShadow = "0 10px 30px rgba(6, 3, 143, 0.08)";
               }}
             >
-              <div 
-                style={{ 
+                <div 
+                  style={{
                   height: "280px", 
                   position: "relative",
                   borderRadius: "20px 20px 0 0",
@@ -379,7 +379,7 @@ const Testimonials = () => {
                     border: "none"
                   }}
                 ></iframe>
-              </div>
+                </div>
               <div 
                 style={{
                   padding: "25px",

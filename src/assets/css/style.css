@@ -4943,6 +4943,41 @@ img[src*="malik khan .png"] {
   object-fit: cover !important;
 }
 
+/* Leadership Page Mobile Image Fixes */
+@media (max-width: 767px) {
+  /* Fix leadership page image cropping on mobile */
+  .card > div[style*="height: 280px"] {
+    height: 320px !important;
+  }
+  
+  .card > div[style*="height: 280px"] img {
+    object-fit: contain !important;
+    object-position: center !important;
+    max-height: 100% !important;
+  }
+}
+
+/* Mobile-specific fix for Jaswinder Kaur image in home testimonials */
+@media (max-width: 767px) {
+  /* Force better positioning for Jaswinder Kaur on mobile */
+  img[src*="Jaswinder kaur  (1).jpg"] {
+    object-position: center center !important;
+    object-fit: contain !important;
+    height: 220px !important;
+    max-height: none !important;
+    transform: none !important;
+    width: auto !important;
+  }
+  
+  /* Override any existing mobile testimonial styles for this specific image */
+  .testimonial-car img[src*="Jaswinder kaur  (1).jpg"] {
+    object-position: center center !important;
+    object-fit: contain !important;
+    height: 220px !important;
+    width: auto !important;
+  }
+}
+
 /* Specific positioning for Kaur image - show full image without cropping */
 .testimonial-car .row .col-lg-5 .test-cont img[src*="kaur1.jpeg"],
 img[src*="kaur1.jpeg"] {
@@ -5225,10 +5260,35 @@ img[src*="kaur1.jpeg"] {
   
   .testimonial-car .row .col-lg-5 .test-cont img:not([src*="Quotes"]) {
     width: min(250px, 80vw) !important;
-    height: 200px !important;
+    height: 233px !important;
     margin: 0 auto !important;
     display: block !important;
+    -o-object-fit: cover !important;
     object-fit: cover !important;
+  }
+  
+  /* Hide quote icons on mobile */
+  .testimonial-car .row .col-lg-5 .test-cont img[src*="Quotes"] {
+    display: none !important;
+  }
+  
+  /* Fix for Jaswinder Kaur image cropping on mobile - Multiple approaches */
+  img[src*="Jaswinder kaur  (1).jpg"] {
+    object-position: center 10% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+  }
+  
+  /* Additional fix for mobile testimonials */
+  .testimonial-car .item img[src*="Jaswinder kaur  (1).jpg"] {
+    object-position: center top !important;
+    transform: translateY(10px) !important;
+  }
+  
+  /* Specific mobile testimonial fix */
+  .testimonials .testimonial-car .owl-carousel img[src*="Jaswinder kaur  (1).jpg"] {
+    object-position: center 5% !important;
+    height: 260px !important;
   }
   
   .testimonial-car .row .col-lg-7 .test-cont {
