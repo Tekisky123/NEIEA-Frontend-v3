@@ -155,18 +155,151 @@ const VolunteerForm = () => {
 
   const validateStep1 = (): boolean => {
     const newErrors: Errors = {};
-    if (!formData.firstName) newErrors.firstName = "First name is required";
-    if (!formData.lastName) newErrors.lastName = "Last name is required";
+    
+    // Basic required field validation
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
     if (!formData.dob) newErrors.dob = "Date of birth is required";
     if (!formData.gender) newErrors.gender = "Gender is required";
-    if (!formData.phone) newErrors.phone = "Phone number is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.address.city) newErrors.city = "City is required";
-    if (!formData.address.state) newErrors.state = "State is required";
-    if (!formData.address.country) newErrors.country = "Country is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.address.city.trim()) newErrors.city = "City is required";
+    if (!formData.address.state.trim()) newErrors.state = "State is required";
+    if (!formData.address.country.trim()) newErrors.country = "Country is required";
+    
+    // Name validation (letters, spaces, hyphens, apostrophes only)
+    const nameRegex = /^[a-zA-Z\s\-']+$/;
+    if (formData.firstName.trim()) {
+      if (!nameRegex.test(formData.firstName.trim())) {
+        newErrors.firstName = "First name can only contain letters, spaces, hyphens, and apostrophes";
+      } else if (formData.firstName.trim().length < 2) {
+        newErrors.firstName = "First name must be at least 2 characters long";
+      } else if (formData.firstName.trim().length > 50) {
+        newErrors.firstName = "First name must be less than 50 characters";
+      }
+    }
+    
+    if (formData.lastName.trim()) {
+      if (!nameRegex.test(formData.lastName.trim())) {
+        newErrors.lastName = "Last name can only contain letters, spaces, hyphens, and apostrophes";
+      } else if (formData.lastName.trim().length < 2) {
+        newErrors.lastName = "Last name must be at least 2 characters long";
+      } else if (formData.lastName.trim().length > 50) {
+        newErrors.lastName = "Last name must be less than 50 characters";
+      }
+    }
+    
+    // Address validation (letters, spaces, hyphens, apostrophes, periods, commas only)
+    const addressRegex = /^[a-zA-Z\s\-'.,]+$/;
+    
+    if (formData.address.city.trim()) {
+      if (!addressRegex.test(formData.address.city.trim())) {
+        newErrors.city = "City name can only contain letters, spaces, hyphens, apostrophes, periods, and commas";
+      } else if (formData.address.city.trim().length < 2) {
+        newErrors.city = "City name must be at least 2 characters long";
+      } else if (formData.address.city.trim().length > 100) {
+        newErrors.city = "City name must be less than 100 characters";
+      }
+    }
+    
+    if (formData.address.state.trim()) {
+      if (!addressRegex.test(formData.address.state.trim())) {
+        newErrors.state = "State name can only contain letters, spaces, hyphens, apostrophes, periods, and commas";
+      } else if (formData.address.state.trim().length < 2) {
+        newErrors.state = "State name must be at least 2 characters long";
+      } else if (formData.address.state.trim().length > 100) {
+        newErrors.state = "State name must be less than 100 characters";
+      }
+    }
+    
+    if (formData.address.country.trim()) {
+      if (!addressRegex.test(formData.address.country.trim())) {
+        newErrors.country = "Country name can only contain letters, spaces, hyphens, apostrophes, periods, and commas";
+      } else if (formData.address.country.trim().length < 2) {
+        newErrors.country = "Country name must be at least 2 characters long";
+      } else if (formData.address.country.trim().length > 100) {
+        newErrors.country = "Country name must be less than 100 characters";
+      }
+    }
     if (!formData.dailyCommitment) newErrors.dailyCommitment = "Daily commitment is required";
     if (formData.availability.length === 0) newErrors.availability = "Availability is required";
     if (!formData.volunteerField) newErrors.volunteerField = "Volunteer field is required";
+    
+    // Language Proficiency validation - at least one language must have some proficiency
+    const languages = ['english', 'hindi', 'urdu', 'bengali', 'telugu', 'kannada', 'marathi'] as const;
+    let hasLanguageProficiency = false;
+    
+    languages.forEach(lang => {
+      const langData = formData.languageProficiency[lang];
+      if (langData && (langData.speaking || langData.writing || langData.reading)) {
+        hasLanguageProficiency = true;
+      }
+    });
+    
+    // Check if other language is provided
+    if (formData.languageProficiency.otherLanguage.trim()) {
+      hasLanguageProficiency = true;
+      // Validate other language format
+      const otherLangRegex = /^[a-zA-Z\s\-']+$/;
+      if (!otherLangRegex.test(formData.languageProficiency.otherLanguage.trim())) {
+        newErrors.otherLanguage = "Other language can only contain letters, spaces, hyphens, and apostrophes";
+      } else if (formData.languageProficiency.otherLanguage.trim().length < 2) {
+        newErrors.otherLanguage = "Other language must be at least 2 characters long";
+      } else if (formData.languageProficiency.otherLanguage.trim().length > 50) {
+        newErrors.otherLanguage = "Other language must be less than 50 characters";
+      }
+    }
+    
+    if (!hasLanguageProficiency) {
+      newErrors.languageProficiency = "Please select at least one language proficiency";
+    }
+    
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email.trim() && !emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    
+    // Phone number validation (basic)
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (formData.phone.trim() && !phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+    
+    // Emergency Contact Number validation (10 digits only, optional field)
+    if (formData.emergencyPhone.trim()) {
+      const emergencyPhoneRegex = /^\d{10}$/;
+      if (!emergencyPhoneRegex.test(formData.emergencyPhone.replace(/\s/g, ''))) {
+        newErrors.emergencyPhone = "Emergency contact number must be exactly 10 digits";
+      }
+    }
+    
+    // Date of birth validation (must be in the past)
+    if (formData.dob) {
+      const birthDate = new Date(formData.dob);
+      const today = new Date();
+      const minAge = new Date();
+      const maxAge = new Date();
+      
+      // Set minimum age to 16 years and maximum age to 100 years
+      minAge.setFullYear(today.getFullYear() - 16);
+      maxAge.setFullYear(today.getFullYear() - 100);
+      
+      // Set time to start of day for accurate comparison
+      birthDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+      minAge.setHours(0, 0, 0, 0);
+      maxAge.setHours(0, 0, 0, 0);
+      
+      if (birthDate >= today) {
+        newErrors.dob = "Date of birth must be in the past";
+      } else if (birthDate > minAge) {
+        newErrors.dob = "You must be at least 16 years old to volunteer";
+      } else if (birthDate < maxAge) {
+        newErrors.dob = "Please enter a valid date of birth";
+      }
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -221,23 +354,71 @@ const VolunteerForm = () => {
 
   const validateStep3 = (): boolean => {
     const newErrors: Errors = {};
-    if (!formData.relevantExperience) newErrors.relevantExperience = "Relevant experience is required";
-    if (!formData.motivation) newErrors.motivation = "Motivation is required";
+    
+    // Basic required field validation
+    if (!formData.relevantExperience.trim()) newErrors.relevantExperience = "Relevant experience is required";
+    if (!formData.motivation.trim()) newErrors.motivation = "Motivation is required";
     if (!formData.commitmentDuration) newErrors.commitmentDuration = "Commitment duration is required";
     if (!formData.dateOfJoining) newErrors.dateOfJoining = "Date of joining is required";
+    
+    // Minimum length validation for text fields
+    if (formData.relevantExperience.trim() && formData.relevantExperience.trim().length < 10) {
+      newErrors.relevantExperience = "Please provide more details about your relevant experience (at least 10 characters)";
+    }
+    
+    if (formData.motivation.trim() && formData.motivation.trim().length < 10) {
+      newErrors.motivation = "Please provide more details about your motivation (at least 10 characters)";
+    }
+    
+    // Date validation (joining date should be within reasonable range)
+    if (formData.dateOfJoining) {
+      const joiningDate = new Date(formData.dateOfJoining);
+      const today = new Date();
+      const sixMonthsAgo = new Date();
+      const twoYearsFromNow = new Date();
+      
+      // Set reasonable date range: 6 months ago to 2 years from now
+      sixMonthsAgo.setMonth(today.getMonth() - 6);
+      twoYearsFromNow.setFullYear(today.getFullYear() + 2);
+      
+      // Set time to start of day for accurate comparison
+      joiningDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+      sixMonthsAgo.setHours(0, 0, 0, 0);
+      twoYearsFromNow.setHours(0, 0, 0, 0);
+      
+      if (joiningDate < sixMonthsAgo) {
+        newErrors.dateOfJoining = "Date of joining cannot be more than 6 months in the past";
+      } else if (joiningDate > twoYearsFromNow) {
+        newErrors.dateOfJoining = "Date of joining cannot be more than 2 years in the future";
+      }
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleNext = () => {
-    if (step === 1 && validateStep1()) {
-      if (formData.volunteerField === "Other") {
-        setStep(3);
+    if (step === 1) {
+      if (validateStep1()) {
+        if (formData.volunteerField === "Other") {
+          setStep(3);
+        } else {
+          setStep(2);
+        }
       } else {
-        setStep(2);
+        // Validation failed, show error message
+        toast.error("Please fill in all required fields before proceeding to the next step.");
       }
     }
-    else if (step === 2 && validateStep2()) setStep(3);
+    else if (step === 2) {
+      if (validateStep2()) {
+        setStep(3);
+      } else {
+        // Validation failed, show error message
+        toast.error("Please fill in all required fields before proceeding to the next step.");
+      }
+    }
   };
 
   const handleBack = () => setStep(step - 1);
@@ -315,15 +496,19 @@ const VolunteerForm = () => {
         console.log("Form submitted:", response.data);
         toast.success("Thanks for contacting us! We will get in touch with you shortly.")
         resetForm();
-        navigate('/volunteer');
+        navigate('/donation/volunteer');
       } catch (error) {
         console.error("Error submitting form:", error);
-        toast.error(`An error occurred. Please try again.
-            ${error instanceof Error && 'response' in error ? (error as any).response?.data?.error : 'Unknown error'}
-        `)
+        const errorMessage = error instanceof Error && 'response' in error 
+          ? (error as any).response?.data?.error || (error as any).response?.data?.message || 'Unknown error'
+          : 'Unknown error';
+        toast.error(`An error occurred. Please try again`);
       } finally {
         setIsSubmitting(false);
       }
+    } else {
+      // Validation failed, show error message
+      toast.error("Please fill in all required fields before submitting the form.");
     }
   };
 
@@ -524,8 +709,14 @@ const VolunteerForm = () => {
                           <Label>First Name *</Label>
                           <Input
                             value={formData.firstName}
-                            onChange={(e) => handleChange("firstName", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow letters, spaces, hyphens, and apostrophes
+                              const value = e.target.value.replace(/[^a-zA-Z\s\-']/g, '');
+                              handleChange("firstName", value);
+                            }}
                             className={errors.firstName ? "border-red-500" : ""}
+                            placeholder="Enter your first name"
+                            maxLength={50}
                           />
                           {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                         </div>
@@ -533,8 +724,14 @@ const VolunteerForm = () => {
                           <Label>Last Name *</Label>
                           <Input
                             value={formData.lastName}
-                            onChange={(e) => handleChange("lastName", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow letters, spaces, hyphens, and apostrophes
+                              const value = e.target.value.replace(/[^a-zA-Z\s\-']/g, '');
+                              handleChange("lastName", value);
+                            }}
                             className={errors.lastName ? "border-red-500" : ""}
+                            placeholder="Enter your last name"
+                            maxLength={50}
                           />
                           {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                         </div>
@@ -545,8 +742,19 @@ const VolunteerForm = () => {
                             value={formData.dob}
                             onChange={(e) => handleChange("dob", e.target.value)}
                             className={errors.dob ? "border-red-500" : ""}
+                            max={(() => {
+                              const sixteenYearsAgo = new Date();
+                              sixteenYearsAgo.setFullYear(sixteenYearsAgo.getFullYear() - 16);
+                              return sixteenYearsAgo.toISOString().split('T')[0];
+                            })()}
+                            min={(() => {
+                              const hundredYearsAgo = new Date();
+                              hundredYearsAgo.setFullYear(hundredYearsAgo.getFullYear() - 100);
+                              return hundredYearsAgo.toISOString().split('T')[0];
+                            })()}
                           />
                           {errors.dob && <p className="text-red-500 text-sm">{errors.dob}</p>}
+                          <p className="text-gray-500 text-xs mt-1">Must be at least 16 years old to volunteer</p>
                         </div>
                         <div>
                           <Label>Gender *</Label>
@@ -570,8 +778,15 @@ const VolunteerForm = () => {
                           <Label>Phone *</Label>
                           <Input
                             value={formData.phone}
-                            onChange={(e) => handleChange("phone", e.target.value)}
+                            maxLength={15}
+                            onChange={(e) => {
+                              // Allow numeric input with optional + at the beginning
+                              const value = e.target.value.replace(/[^\d+]/g, '').replace(/(\+).*?(?=\+)/g, '$1');
+                              handleChange("phone", value);
+                            }}
                             className={errors.phone ? "border-red-500" : ""}
+                            placeholder="Enter phone number with country code"
+                            type="tel"
                           />
                           {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                         </div>
@@ -579,8 +794,17 @@ const VolunteerForm = () => {
                           <Label>Emergency Contact Number</Label>
                           <Input
                             value={formData.emergencyPhone}
-                            onChange={(e) => handleChange("emergencyPhone", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow numeric input
+                              const value = e.target.value.replace(/\D/g, '');
+                              handleChange("emergencyPhone", value);
+                            }}
+                            className={errors.emergencyPhone ? "border-red-500" : ""}
+                            placeholder="Enter 10 digit number (optional)"
+                            maxLength={10}
+                            type="tel"
                           />
+                          {errors.emergencyPhone && <p className="text-red-500 text-sm">{errors.emergencyPhone}</p>}
                         </div>
                         <div>
                           <Label>Email *</Label>
@@ -600,8 +824,14 @@ const VolunteerForm = () => {
                           <Label>City *</Label>
                           <Input
                             value={formData.address.city}
-                            onChange={(e) => handleNestedChange("city", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow letters, spaces, hyphens, apostrophes, periods, and commas
+                              const value = e.target.value.replace(/[^a-zA-Z\s\-'.,]/g, '');
+                              handleNestedChange("city", value);
+                            }}
                             className={errors.city ? "border-red-500" : ""}
+                            placeholder="Enter city name"
+                            maxLength={100}
                           />
                           {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
                         </div>
@@ -609,8 +839,14 @@ const VolunteerForm = () => {
                           <Label>State *</Label>
                           <Input
                             value={formData.address.state}
-                            onChange={(e) => handleNestedChange("state", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow letters, spaces, hyphens, apostrophes, periods, and commas
+                              const value = e.target.value.replace(/[^a-zA-Z\s\-'.,]/g, '');
+                              handleNestedChange("state", value);
+                            }}
                             className={errors.state ? "border-red-500" : ""}
+                            placeholder="Enter state name"
+                            maxLength={100}
                           />
                           {errors.state && <p className="text-red-500 text-sm">{errors.state}</p>}
                         </div>
@@ -618,14 +854,21 @@ const VolunteerForm = () => {
                           <Label>Country *</Label>
                           <Input
                             value={formData.address.country}
-                            onChange={(e) => handleNestedChange("country", e.target.value)}
+                            onChange={(e) => {
+                              // Only allow letters, spaces, hyphens, apostrophes, periods, and commas
+                              const value = e.target.value.replace(/[^a-zA-Z\s\-'.,]/g, '');
+                              handleNestedChange("country", value);
+                            }}
                             className={errors.country ? "border-red-500" : ""}
+                            placeholder="Enter country name"
+                            maxLength={100}
                           />
                           {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
                         </div>
                       </div>
 
                       <h4 className="text-lg font-semibold mb-4">Language Proficiency *</h4>
+                      {errors.languageProficiency && <p className="text-red-500 text-sm mb-4">{errors.languageProficiency}</p>}
                       {(Object.keys(formData.languageProficiency) as Array<keyof FormData["languageProficiency"]>)
                         .filter((lang) => lang !== "otherLanguage")
                         .map((lang) => (
@@ -650,16 +893,22 @@ const VolunteerForm = () => {
                         <Label>Other Language</Label>
                         <Input
                           value={formData.languageProficiency.otherLanguage}
-                          onChange={(e) =>
+                          onChange={(e) => {
+                            // Only allow letters, spaces, hyphens, and apostrophes
+                            const value = e.target.value.replace(/[^a-zA-Z\s\-']/g, '');
                             setFormData((prev) => ({
                               ...prev,
                               languageProficiency: {
                                 ...prev.languageProficiency,
-                                otherLanguage: e.target.value,
+                                otherLanguage: value,
                               },
-                            }))
-                          }
+                            }));
+                          }}
+                          className={errors.otherLanguage ? "border-red-500" : ""}
+                          placeholder="Enter other language (optional)"
+                          maxLength={50}
                         />
+                        {errors.otherLanguage && <p className="text-red-500 text-sm">{errors.otherLanguage}</p>}
                       </div>
 
                       <div className="mb-6">
@@ -1074,8 +1323,19 @@ const VolunteerForm = () => {
                           value={formData.dateOfJoining}
                           onChange={(e) => handleChange("dateOfJoining", e.target.value)}
                           className={errors.dateOfJoining ? "border-red-500" : ""}
+                          min={(() => {
+                            const sixMonthsAgo = new Date();
+                            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+                            return sixMonthsAgo.toISOString().split('T')[0];
+                          })()}
+                          max={(() => {
+                            const twoYearsFromNow = new Date();
+                            twoYearsFromNow.setFullYear(twoYearsFromNow.getFullYear() + 2);
+                            return twoYearsFromNow.toISOString().split('T')[0];
+                          })()}
                         />
                         {errors.dateOfJoining && <p className="text-red-500 text-sm">{errors.dateOfJoining}</p>}
+                        {/* <p className="text-gray-500 text-xs mt-1">Select a date within 6 months ago to 2 years from now</p> */}
                       </div>
                     </>
                   )}
