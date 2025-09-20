@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Introduction from "./pages/Introduction.jsx";
 import Leadership from "./pages/Leadership";
+import Bio from "./pages/Bio";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import BlendedLearning from "./pages/BlendedLearning";
@@ -68,6 +69,7 @@ function AppContent() {
           {/* About Us Routes */}
           <Route path="/about-us/introduction" element={<Introduction />} />
           <Route path="/about-us/leadership" element={<Leadership />} />
+          <Route path="/about-us/leadership/bio/:memberName" element={<Bio />} />
           <Route path="/about-us/testimonials" element={<Testimonials />} />
           <Route path="/about-us/contact" element={<Contact />} />
 
