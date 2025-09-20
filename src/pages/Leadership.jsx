@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Leadership = () => {
   const [activeTab, setActiveTab] = useState('directors');
   const [hoveredMember, setHoveredMember] = useState(null);
+  const navigate = useNavigate();
 
   const teamMembers = [
     // Directors
@@ -265,6 +266,11 @@ const Leadership = () => {
     return teamMembers.filter(member => member.category === activeTab);
   };
 
+  const handleViewBio = (member) => {
+    const memberSlug = member.name.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
+    navigate(`/about-us/leadership/bio/${memberSlug}`);
+  };
+
   const MemberCard = ({ member }) => (
     <div className="col-lg-3 col-md-6 mb-4">
       <div
@@ -273,6 +279,8 @@ const Leadership = () => {
           borderRadius: "0px",
           overflow: "hidden",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          position: "relative",
+          cursor: "pointer"
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-10px)";
@@ -284,6 +292,7 @@ const Leadership = () => {
           e.currentTarget.style.boxShadow = "0 5px 15px rgba(0,0,0,0.08)";
           setHoveredMember(null);
         }}
+        onClick={() => handleViewBio(member)}
       >
         <div
           style={{
@@ -293,9 +302,10 @@ const Leadership = () => {
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
+            position: "relative"
           }}
         >
-          {member.hasImage && (
+          {member.hasImage ? (
             <img
               src={member.image}
               alt={member.name}
@@ -305,8 +315,63 @@ const Leadership = () => {
                 objectFit: "cover",
               }}
             />
+          ) : (
+            <div 
+              style={{
+                width: "120px",
+                height: "120px",
+                backgroundColor: "#06038F",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                fontSize: "36px",
+                fontWeight: "bold"
+              }}
+            >
+              {member.name.charAt(0)}
+            </div>
           )}
+          
+          {/* View Bio Overlay */}
+          <div
+            style={{
+              opacity: hoveredMember === member.name ? 1 : 0,
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              top: 0,
+              left: 0,
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              alignItems: "center",
+              color: "white",
+              transition: "opacity .3s ease-in-out",
+              fontSize: "18px",
+              fontWeight: "500",
+              lineHeight: "24px",
+              zIndex: 1
+            }}
+          >
+            View Bio 
+            <svg 
+              width="20" 
+              height="20" 
+              fill="currentColor" 
+              viewBox="0 0 20 20"
+            >
+              <path 
+                fillRule="evenodd" 
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                clipRule="evenodd" 
+              />
+            </svg>
+          </div>
         </div>
+        
         <div className="card-body p-4">
           <h4
             style={{
@@ -328,19 +393,6 @@ const Leadership = () => {
           >
             {member.title}
           </p>
-          {/* {member.description && (
-            <p
-              style={{
-                color: "#6c757d",
-                fontSize: "14px",
-                lineHeight: "1.5",
-                marginTop: "10px",
-                marginBottom: "0",
-              }}
-            >
-              {member.description}
-            </p>
-          )} */}
         </div>
       </div>
     </div>
