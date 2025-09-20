@@ -31,6 +31,11 @@ const Header = () => {
     setShowSearch(!showSearch);
   };
 
+  const goHome = () => {
+    navigate("/");
+    window.location.reload(); // force refresh
+  };
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log('Search query:', searchQuery);
@@ -411,14 +416,14 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg">
           <div className="container">
             <div className="navbar-brand-wrapper d-flex align-items-center">
-              <Link className="navbar-brand primary-logo" to="/">
+              <Link className="navbar-brand primary-logo" onClick={goHome} to="/">
                 <img
                   src={NeiPrimaryLogo}
                   alt="NEIEA Logo"
                   height={isMobile ? "50px" : "80px"}
                 />
               </Link>
-              <Link className="navbar-brand" to="/">
+              <Link className="navbar-brand" onClick={goHome} to="/">
                 <img
                   src={NeiSecondaryLogo}
                   alt="NEIEA Secondary Logo"
